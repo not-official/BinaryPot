@@ -53,9 +53,9 @@ class HoneypotSSHSession(asyncssh.SSHServerSession):
         # initialize fake shell
         self._shell = FakeShell(self._chan, self._addr, self._username)
         # write a fake banner
-        self._chan.write("Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-xyz x86_64)\n")
-        self._chan.write(f"Last login: some time ago on pts/0\n")
-        self._chan.write(f"{self._username}@honeypot:~$ ")
+        self._chan.write("Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-xyz x86_64)\r\n")
+        self._chan.write(f"Last login: some time ago on pts/0\r\n\r\n")
+        self._chan.write(self._shell.prompt())
 
     def shell_requested(self):
         return True
@@ -90,9 +90,12 @@ class HoneypotSSHSession(asyncssh.SSHServerSession):
                 # partial input: write it back as prompt input
                 self._chan.write(line)
                 continue
+            # Skip the trailing empty string that results from text ending with \n
+            if line == "" and i == len(lines) - 1:
+                continue
             if line == "":
-                # user pressed Enter with empty line
-                self._chan.write("\r\n" + f"{self._username}@honeypot:~$ ")
+                # user pressed Enter with empty line (not trailing split artifact)
+                self._chan.write("\r\n" + self._shell.prompt())
                 continue
             # process full command
             async def run_and_prompt(cmd_line):
@@ -106,8 +109,8 @@ class HoneypotSSHSession(asyncssh.SSHServerSession):
                     except Exception:
                         pass
                     return
-                # show prompt
-                self._chan.write(f"{self._username}@honeypot:~$ ")
+                # add blank line and show prompt with current directory
+                self._chan.write("\r\n" + self._shell.prompt())
 
             asyncio.get_event_loop().create_task(run_and_prompt(line))
 

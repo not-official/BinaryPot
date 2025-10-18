@@ -225,22 +225,22 @@ class FakeShell:
             return
         cmdline = cmdline.strip()
         if cmdline == "":
-            await self.chan.write("\r\n")
+            self.chan.write("\r\n")
             return
 
         parts = shlex.split(cmdline)
         if not parts:
-            await self.chan.write("\r\n")
+            self.chan.write("\r\n")
             return
         cmd = parts[0]
         args = parts[1:]
 
         if cmd in ("exit", "logout"):
-            await self.chan.write("logout\r\n")
+            self.chan.write("logout\r\n")
             raise EOFError("exit requested")
 
         if cmd == "whoami":
-            await self.chan.write(self.username + "\r\n")
+            self.chan.write(self.username + "\r\n")
             return
 
         if cmd == "cd":
@@ -249,19 +249,20 @@ class FakeShell:
             # If directory exists, cd there. If file exists, set cwd to file (as requested).
             if self._is_dir(target_path) or self._is_file(target_path):
                 self.cwd = target_path
+                self.chan.write("\r\n")
                 return
-            await self.chan.write(f"cd: {target}: No such file or directory\r\n")
+            self.chan.write(f"cd: {target}: No such file or directory\r\n")
             return
 
         if cmd == "mkdir":
             if len(args) == 0:
-                await self.chan.write("mkdir: missing operand\r\n")
+                self.chan.write("mkdir: missing operand\r\n")
                 return
             name = args[0]
             target_path = self._normpath(name)
             # if exists
             if self._is_dir(target_path) or self._is_file(target_path):
-                await self.chan.write(f"mkdir: cannot create directory '{name}': File exists\r\n")
+                self.chan.write(f"mkdir: cannot create directory '{name}': File exists\r\n")
                 return
             # create directory (and parents if needed permissively)
             self._register_dir(target_path)
@@ -272,24 +273,28 @@ class FakeShell:
 
         if cmd == "rmdir":
             if len(args) == 0:
-                await self.chan.write("rmdir: missing operand\r\n")
+                self.chan.write("rmdir: missing operand\r\n")
                 return
             name = args[0]
             target_path = self._normpath(name)
             # must be a directory
             if not self._is_dir(target_path):
-                await self.chan.write(f"rmdir: failed to remove '{name}': No such directory\r\n")
+                self.chan.write(f"rmdir: failed to remove '{name}': No such directory\r\n")
                 return
             # must be empty
             if self.struct["dirs"].get(target_path):
-                await self.chan.write(f"rmdir: failed to remove '{name}': Directory not empty\r\n")
+                self.chan.write(f"rmdir: failed to remove '{name}': Directory not empty\r\n")
                 return
             ok = self._unregister_dir(target_path)
             if not ok:
-                await self.chan.write(f"rmdir: failed to remove '{name}'\r\n")
+                self.chan.write(f"rmdir: failed to remove '{name}'\r\n")
                 return
             # persist
             save_structure(self.struct)
+            return
+
+        if cmd == "pwd":
+            self.chan.write(self.cwd + "\r\n")
             return
 
         if cmd == "ls":
@@ -306,11 +311,11 @@ class FakeShell:
                 size = _size_of(self.struct["files"].get(target_path, ""))
                 # align similar to PowerShell: Mode (6), LastWriteTime (20), Length (12 right), Name
                 line = f"{mode:<6} {mtime_s:<20} {str(size):>12} {name}"
-                await self.chan.write(line + "\r\n")
+                self.chan.write(line + "\r\n")
                 return
             # If target is dir
             if not self._is_dir(target_path):
-                await self.chan.write(f"ls: cannot access '{target}': No such file or directory\r\n")
+                self.chan.write(f"ls: cannot access '{target}': No such file or directory\r\n")
                 return
             entries = self._dir_entries(target_path)
             # For each entry, determine if dir or file and print columns
@@ -329,13 +334,119 @@ class FakeShell:
                 lines.append(f"{mode:<6} {mtime_s:<20} {size_s:>12} {e}")
             if lines:
                 for ln in lines:
-                    await self.chan.write(ln + "\r\n")
+                    self.chan.write(ln + "\r\n")
             else:
-                await self.chan.write("\r\n")
+                self.chan.write("\r\n")
+            return
+
+        if cmd == "cat":
+            if not args:
+                self.chan.write("cat: missing file operand\r\n")
+                return
+            target = args[0]
+            target_path = self._normpath(target)
+            if not self._is_file(target_path):
+                self.chan.write(f"cat: {target}: No such file or directory\r\n")
+                return
+            content = self.struct["files"].get(target_path, "")
+            self.chan.write(content)
+            if not content.endswith("\n"):
+                self.chan.write("\r\n")
+            return
+
+        if cmd == "echo":
+            self.chan.write(" ".join(args) + "\r\n")
+            return
+
+        if cmd == "touch":
+            if not args:
+                self.chan.write("touch: missing file operand\r\n")
+                return
+            name = args[0]
+            target_path = self._normpath(name)
+            # if already exists, just update mtime
+            if self._is_file(target_path):
+                self.struct.setdefault("mtimes", {})[target_path] = int(time.time())
+                save_structure(self.struct)
+                return
+            # if it's a directory, error
+            if self._is_dir(target_path):
+                self.chan.write(f"touch: cannot touch '{name}': Is a directory\r\n")
+                return
+            # create new empty file
+            self.struct["files"][target_path] = ""
+            self.struct.setdefault("mtimes", {})[target_path] = int(time.time())
+            # add to parent directory
+            parent = "/" + "/".join(target_path.strip("/").split("/")[:-1]) if "/" in target_path.strip("/") else "/"
+            if parent == "":
+                parent = "/"
+            basename = target_path.rstrip("/").split("/")[-1]
+            if parent not in self.struct["dirs"]:
+                self._register_dir(parent)
+            if basename not in self.struct["dirs"].get(parent, []):
+                self.struct["dirs"].setdefault(parent, []).append(basename)
+            save_structure(self.struct)
+            return
+
+        if cmd == "rm":
+            if not args:
+                self.chan.write("rm: missing operand\r\n")
+                return
+            name = args[0]
+            target_path = self._normpath(name)
+            # must be a file
+            if not self._is_file(target_path):
+                if self._is_dir(target_path):
+                    self.chan.write(f"rm: cannot remove '{name}': Is a directory\r\n")
+                else:
+                    self.chan.write(f"rm: cannot remove '{name}': No such file or directory\r\n")
+                return
+            # remove file
+            del self.struct["files"][target_path]
+            if target_path in self.struct.get("mtimes", {}):
+                del self.struct["mtimes"][target_path]
+            # remove from parent directory listing
+            parent = "/" + "/".join(target_path.strip("/").split("/")[:-1]) if "/" in target_path.strip("/") else "/"
+            if parent == "":
+                parent = "/"
+            basename = target_path.rstrip("/").split("/")[-1]
+            if basename in self.struct["dirs"].get(parent, []):
+                self.struct["dirs"][parent].remove(basename)
+            save_structure(self.struct)
+            return
+
+        if cmd == "clear":
+            # Send ANSI clear screen sequence
+            self.chan.write("\x1b[2J\x1b[H")
+            return
+
+        if cmd == "uname":
+            flag = args[0] if args else ""
+            if flag == "-a":
+                self.chan.write("Linux honeypot 5.15.0-89-generic #99-Ubuntu SMP Mon Oct 30 20:42:41 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux\r\n")
+            else:
+                self.chan.write("Linux\r\n")
+            return
+
+        if cmd == "id":
+            self.chan.write(f"uid=1000({self.username}) gid=1000({self.username}) groups=1000({self.username})\r\n")
+            return
+
+        if cmd == "ps":
+            self.chan.write("  PID TTY          TIME CMD\r\n")
+            self.chan.write("    1 ?        00:00:01 systemd\r\n")
+            self.chan.write("  123 ?        00:00:00 sshd\r\n")
+            self.chan.write(f"  456 pts/0    00:00:00 bash\r\n")
+            return
+
+        if cmd == "help":
+            self.chan.write("Available commands:\r\n")
+            self.chan.write("  ls, cd, pwd, cat, echo, touch, rm, mkdir, rmdir\r\n")
+            self.chan.write("  whoami, id, uname, ps, clear, help, exit\r\n")
             return
 
         # unknown
-        await self.chan.write(f"{cmd}: command not found\r\n")
+        self.chan.write(f"{cmd}: command not found\r\n")
         return
 
     def prompt(self) -> str:

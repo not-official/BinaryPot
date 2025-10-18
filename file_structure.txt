@@ -11,12 +11,8 @@
     ],
     "/home/asus": [
       "notes.txt",
-      "secrets.txt",
-      "samar",
-      "saugat"
-    ],
-    "/home/asus/samar": [],
-    "/home/asus/saugat": []
+      "secrets.txt"
+    ]
   },
   "files": {
     "/home/asus/notes.txt": "These are sample notes.\nTry 'cat notes.txt'\n",
@@ -28,6 +24,9 @@
     "/home/asus/secrets.txt": 1760765951,
     "/etc/issue": 1760765951,
     "/home/asus/samar": 1760765968,
-    "/home/asus/saugat": 1760765985
+    "/home/asus/saugat": 1760765985,
+    "/home/asus/samar/ninja": 1760780964,
+    "/home/asus/ninja": 1760781105,
+    "/home/asus/suman": 1760781280
   }
 }
