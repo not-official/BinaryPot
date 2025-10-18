@@ -1,0 +1,33 @@
+{
+  "dirs": {
+    "/": [
+      "home",
+      "etc",
+      "var",
+      "tmp"
+    ],
+    "/home": [
+      "asus"
+    ],
+    "/home/asus": [
+      "notes.txt",
+      "secrets.txt",
+      "samar",
+      "saugat"
+    ],
+    "/home/asus/samar": [],
+    "/home/asus/saugat": []
+  },
+  "files": {
+    "/home/asus/notes.txt": "These are sample notes.\nTry 'cat notes.txt'\n",
+    "/home/asus/secrets.txt": "This file is an illusion.\n",
+    "/etc/issue": "Ubuntu 20.04.6 LTS\n"
+  },
+  "mtimes": {
+    "/home/asus/notes.txt": 1760765951,
+    "/home/asus/secrets.txt": 1760765951,
+    "/etc/issue": 1760765951,
+    "/home/asus/samar": 1760765968,
+    "/home/asus/saugat": 1760765985
+  }
+}
