@@ -27,6 +27,7 @@
     "/home/asus/saugat": 1760765985,
     "/home/asus/samar/ninja": 1760780964,
     "/home/asus/ninja": 1760781105,
-    "/home/asus/suman": 1760781280
+    "/home/asus/suman": 1760781280,
+    "/home/asus/Desktop": 1763016687
   }
 }

@@ -129,11 +129,13 @@ def _size_of(content: str):
 
 # --- FakeShell class --- #
 class FakeShell:
-    def __init__(self, chan, addr: str, username: str):
+    def __init__(self, chan, addr: str, username: str, session_id: str = None):
         self.chan = chan
         self.addr = addr
         self.username = username
-        self.session_id = str(uuid.uuid4())[:8]
+        # allow session_id to be supplied by the SSH server so connection/auth and command logs
+        # can be correlated. If not provided, generate one locally.
+        self.session_id = session_id if session_id else str(uuid.uuid4())[:8]
         self.env_home = f"/home/{username}"
         self.cwd = self.env_home
         self.struct = load_structure()  # normalized

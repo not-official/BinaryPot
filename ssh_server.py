@@ -3,6 +3,7 @@ import asyncio
 import asyncssh
 import logging
 import socket
+import uuid
 from logger import log_connection
 from fake_shell import FakeShell
 
@@ -11,12 +12,18 @@ LOG = logging.getLogger(__name__)
 class HoneypotSSHServer(asyncssh.SSHServer):
     def __init__(self, peername):
         self.peername = peername
+        self.session_id = None
         super().__init__()
 
     def connection_made(self, conn):
         peer = conn.get_extra_info('peername')
         LOG.info(f"Connection from {peer}")
         self.peername = peer
+        # generate a session id for this connection so auth and commands can be correlated
+        try:
+            self.session_id = str(uuid.uuid4())[:8]
+        except Exception:
+            self.session_id = None
 
     def connection_lost(self, exc):
         LOG.info("Connection lost")
@@ -31,27 +38,29 @@ class HoneypotSSHServer(asyncssh.SSHServer):
     async def validate_password(self, username, password):
         # Accept any password but log it
         ip = self.peername[0] if self.peername else "unknown"
-        log_connection(ip, username, password, event="auth_attempt")
+        # include session_id so we can correlate auth attempts with session command logs
+        log_connection(ip, username, password, event="auth_attempt", session_id=getattr(self, "session_id", None))
         # Accept all auth to lure activity
         return True
 
     def session_requested(self):
         # return a session handler instance
-        return HoneypotSSHSession(self.peername)
+        return HoneypotSSHSession(self.peername, getattr(self, "session_id", None))
 
 class HoneypotSSHSession(asyncssh.SSHServerSession):
-    def __init__(self, peername):
+    def __init__(self, peername, session_id=None):
         self._chan = None
         self._addr = peername[0] if peername else "unknown"
         self._username = None
         self._shell = None
+        self._session_id = session_id
 
     def connection_made(self, chan):
         self._chan = chan
         self._username = chan.get_extra_info("username") or "unknown"
         LOG.info(f"Session opened for {self._username} from {self._addr}")
         # initialize fake shell
-        self._shell = FakeShell(self._chan, self._addr, self._username)
+        self._shell = FakeShell(self._chan, self._addr, self._username, session_id=self._session_id)
         # write a fake banner
         self._chan.write("Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-xyz x86_64)\r\n")
         self._chan.write(f"Last login: some time ago on pts/0\r\n\r\n")
