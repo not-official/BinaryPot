@@ -28,8 +28,6 @@
     "/home/asus/samar/ninja": 1760780964,
     "/home/asus/ninja": 1760781105,
     "/home/asus/suman": 1760781280,
-    "/home/asus/Desktop": 1763107858,
-    "/home/asus/SheLovesMe": 1763190917,
-    "/home/asus/SheLovesMe/AnishIsGay": 1763190946
+    "/home/asus/Desktop": 1763107858
   }
 }
