@@ -39,14 +39,14 @@ def log_connection(remote_addr, username, password, event="connect", session_id:
         with open(LOG_DIR / "connections.jsonl", "a", encoding="utf8") as f:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-def log_command(remote_addr, username, command, session_id=None):
+def log_command(remote_addr, username, command, session_id=None, output= None):
     entry = {
         "time": _now_iso(),
         "event": "command",
         "remote_addr": remote_addr,
         "username": username,
         "command": command,
-        "output": "",  # Placeholder for output capture
+        "output": output if output else "",
     }
     if session_id:
         entry["session_id"] = session_id
