@@ -8,7 +8,6 @@ from google import genai
 from google.genai import types
 import ai_cache
 
-from fake_fs import FakeFS
 # ---- Mocked AI Service (for learning) ---- #
 load_dotenv()
 
