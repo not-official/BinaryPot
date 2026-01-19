@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Signup from "./pages/Signup";
 
 const isAuthenticated = () => {
   return !! sessionStorage.getItem("token");
@@ -16,6 +17,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
+     
+        <Route path="/signup-request" element={<Signup />} />
 
         <Route
           path="/dashboard"
