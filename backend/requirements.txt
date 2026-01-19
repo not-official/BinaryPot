@@ -1,10 +1,35 @@
+# ----------------------------
+# Core backend
+# ----------------------------
+fastapi>=0.110.2
+uvicorn[standard]>=0.27.0
+
+# ----------------------------
+# Database (SQLAlchemy + SQLite)
+# ----------------------------
+sqlalchemy>=2.0.25
+
+# ----------------------------
+# Auth & Security
+# ----------------------------
+python-jose>=3.3.0          # JWT encode/decode
+passlib>=1.7.4
+bcrypt>=4.0.1
+
+# ----------------------------
+# Email
+# ----------------------------
+python-dotenv>=1.0.0        # .env support (SMTP, JWT secret)
+
+# ----------------------------
+# Validation
+# ----------------------------
+pydantic>=2.5.3
+email-validator>=2.1.0     # required for EmailStr
+
+# ----------------------------
+# Optional / existing (keep only if used)
+# ----------------------------
 asyncssh==2.13.0
 openai>=1.40.0
 google-genai==1.50.1
-
-fastapi>=0.110.2
-uvicorn[standard]>=0.27.0
-python-dotenv==1.0.0
-
-PyJWT>=2.8.0
-passlib[bcrypt]>=1.7.4
