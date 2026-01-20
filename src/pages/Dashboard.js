@@ -1,61 +1,135 @@
-import React, { useEffect, useState } from "react";
-import { Tabs, Table, Input, DatePicker, Button, message, Layout, Typography, Collapse } from "antd";
+import React, { useEffect, useMemo, useState } from "react";
+import {
+  Tabs,
+  Table,
+  Input,
+  DatePicker,
+  Button,
+  message,
+  Layout,
+  Typography,
+  Collapse,
+  Tag,
+  Tooltip,
+} from "antd";
+import {
+  ReloadOutlined,
+  FilterOutlined,
+  ClearOutlined,
+  LinkOutlined,
+  ClockCircleOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import axios from "axios";
 import "./Dashboard.css";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 const { Content, Header } = Layout;
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
 
-const API_BASE = "http://localhost:8000/api"; 
+const API_BASE =
+  import.meta?.env?.VITE_API_BASE_URL?.replace(/\/$/, "") || "http://localhost:8000";
 
 function Dashboard() {
   const [connections, setConnections] = useState([]);
   const [sessions, setSessions] = useState([]);
   const [commands, setCommands] = useState([]);
+
   const [activeTab, setActiveTab] = useState("1");
   const [activeSessionKey, setActiveSessionKey] = useState(null);
-  const [loading, setLoading] = useState(false);
+
+  const [loadingConnections, setLoadingConnections] = useState(false);
+  const [loadingCommands, setLoadingCommands] = useState(false);
+  const [loadingSessions, setLoadingSessions] = useState(false);
+
   const [username, setUsername] = useState("");
   const [since, setSince] = useState(null);
 
-  const fetchData = async (type) => {
-    setLoading(true);
+  const token = sessionStorage.getItem("token");
+
+  const api = useMemo(() => {
+    const instance = axios.create({
+      baseURL: API_BASE,
+      headers: { "Content-Type": "application/json" },
+    });
+
+    instance.interceptors.request.use((config) => {
+      if (token) config.headers.Authorization = `Bearer ${token}`;
+      return config;
+    });
+
+    return instance;
+  }, [token]);
+
+  const buildParams = () => {
+    const params = {};
+    if (username?.trim()) params.username = username.trim();
+    if (since) params.since = since.toISOString();
+    return params;
+  };
+
+  const fetchConnections = async () => {
+    setLoadingConnections(true);
     try {
-      const params = {};
-      if (username) params.username = username;
-      if (since) params.since = since.toISOString();
-      const res = await axios.get(`${API_BASE}/${type}`, { params });
-      if (type === "connections") setConnections(res.data);
-      else if (type === "commands") setCommands(res.data);
-    } catch {
-      message.error("Failed to fetch " + type);
+      const res = await api.get("/api/connections", { params: buildParams() });
+      setConnections(res.data || []);
+    } catch (err) {
+      message.error(err?.response?.data?.detail || "Failed to fetch connections");
     } finally {
-      setLoading(false);
+      setLoadingConnections(false);
+    }
+  };
+
+  const fetchCommands = async () => {
+    setLoadingCommands(true);
+    try {
+      const res = await api.get("/api/commands", { params: buildParams() });
+      setCommands(res.data || []);
+    } catch (err) {
+      message.error(err?.response?.data?.detail || "Failed to fetch commands");
+    } finally {
+      setLoadingCommands(false);
     }
   };
 
   const fetchSessions = async () => {
+    setLoadingSessions(true);
     try {
-      const res = await axios.get(`${API_BASE}/sessions`);
-      setSessions(res.data);
-      return res.data;
-    } catch {
-      message.error("Failed to fetch sessions");
+      const res = await api.get("/api/sessions");
+      setSessions(res.data || []);
+      return res.data || [];
+    } catch (err) {
+      message.error(err?.response?.data?.detail || "Failed to fetch sessions");
       return [];
+    } finally {
+      setLoadingSessions(false);
     }
   };
 
   useEffect(() => {
-    fetchData("connections");
-    fetchData("commands");
+    // initial load
+    fetchConnections();
+    fetchCommands();
     fetchSessions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const applyFilters = async () => {
+    await Promise.all([fetchConnections(), fetchCommands()]);
+    message.success("Filters applied");
+  };
+
+  const resetFilters = async () => {
+    setUsername("");
+    setSince(null);
+    await Promise.all([fetchConnections(), fetchCommands()]);
+    message.info("Filters reset");
+  };
 
   const openSession = async (sessionId) => {
     if (!sessionId) return;
-    // ensure sessions are loaded
+
     if (!sessions || sessions.length === 0) {
       await fetchSessions();
     }
@@ -65,88 +139,249 @@ function Dashboard() {
 
   const columnsCommon = [
     {
-      title: "Time",
+      title: (
+        <span className="col-title">
+          <ClockCircleOutlined /> Time
+        </span>
+      ),
       dataIndex: "time",
       key: "time",
       render: (t) => (t ? new Date(t).toLocaleString() : "-"),
+      width: 220,
     },
-    { title: "Username", dataIndex: "username", key: "username" },
+    {
+      title: (
+        <span className="col-title">
+          <UserOutlined /> Username
+        </span>
+      ),
+      dataIndex: "username",
+      key: "username",
+      render: (u) => (u ? <Tag className="tag-purple">{u}</Tag> : "-"),
+      width: 160,
+    },
   ];
 
   const connColumns = [
     ...columnsCommon,
-    { title: "IP", dataIndex: "remote_addr", key: "remote_addr" },
-    { title: "Password", dataIndex: "password", key: "password" },
+    { title: "IP", dataIndex: "remote_addr", key: "remote_addr", width: 170 },
     {
-      title: "Session ID",
+      title: "Password",
+      dataIndex: "password",
+      key: "password",
+      width: 200,
+      render: (p) => (p ? <span className="mono">{p}</span> : "-"),
+    },
+    {
+      title: "Session",
       dataIndex: "session_id",
       key: "session_id",
-      render: (id) => (id ? <a style={{ cursor: "pointer" }} onClick={() => openSession(id)}>{String(id)}</a> : "-"),
+      width: 140,
+      render: (id) =>
+        id ? (
+          <Button
+            type="link"
+            className="session-link"
+            icon={<LinkOutlined />}
+            onClick={() => openSession(id)}
+          >
+            {String(id)}
+          </Button>
+        ) : (
+          "-"
+        ),
     },
   ];
 
   const cmdColumns = [
     ...columnsCommon,
-    { title: "Command", dataIndex: "command", key: "command" },
+    {
+      title: "Command",
+      dataIndex: "command",
+      key: "command",
+      render: (c) => (c ? <span className="mono">{c}</span> : "-"),
+    },
   ];
 
   return (
-    <Layout>
-      <Header className="header">
-        <Title level={3} style={{ color: "white", margin: 0 }}>
-          Honeypot Dashboard
-        </Title>
-      </Header>
+    <Layout className="dash-layout">
+      <div className="dash-bg" />
 
-      <Content className="content">
-        <div className="filters">
-          <Input
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            style={{ width: 180 }}
-          />
-          <DatePicker showTime placeholder="Since" onChange={(v) => setSince(v)} />
-          <Button type="primary" onClick={() => { fetchData("connections"); fetchData("commands"); }}>
-            Apply
-          </Button>
-          <Button onClick={() => { setUsername(""); setSince(null); fetchData("connections"); fetchData("commands"); }}>
-            Reset
-          </Button>
+      <Header className="dash-header">
+        <div className="dash-header-left">
+          <div className="brand-pill">BinaryPot</div>
+          <div className="dash-title-wrap">
+            <Title level={4} className="dash-title">
+              Honeypot Dashboard
+            </Title>
+            <Text className="dash-subtitle">
+              Monitor connections, sessions, and commands in one place.
+            </Text>
+          </div>
         </div>
 
-        <Tabs activeKey={activeTab} onChange={(k) => { setActiveTab(k); if (k !== "3") setActiveSessionKey(null); }}>
-          <TabPane tab="Connections" key="1">
-            <Table
-              dataSource={connections}
-              columns={connColumns}
-              loading={loading}
-              rowKey={(r, i) => i}
-              pagination={{ pageSize: 10 }}
-            />
-          </TabPane>
+        <div className="dash-header-right">
+          <Tooltip title="Refresh everything">
+            <Button
+              className="ghost-btn"
+              icon={<ReloadOutlined />}
+              onClick={() => {
+                fetchConnections();
+                fetchCommands();
+                fetchSessions();
+                message.info("Refreshing data…");
+              }}
+            >
+              Refresh
+            </Button>
+          </Tooltip>
+        </div>
+      </Header>
 
-          <TabPane tab="Sessions" key="3">
-            <Collapse accordion activeKey={activeSessionKey} onChange={(k) => setActiveSessionKey(k)}>
-              {sessions.map((s) => (
-                <Panel header={`Session: ${s.session_id}`} key={String(s.session_id)}>
-                  <Table
-                    dataSource={s.activities}
-                    columns={[
-                      { title: "Time", dataIndex: "time", render: (t) => new Date(t).toLocaleString() },
-                      { title: "Command", dataIndex: "command" },
-                      { title: "Username", dataIndex: "username" },
-                      { title: "IP", dataIndex: "remote_addr" },
-                    ]}
-                    pagination={false}
-                    rowKey={(r, i) => i}
-                    size="small"
-                  />
-                </Panel>
-              ))}
-            </Collapse>
-          </TabPane>
-        </Tabs>
+      <Content className="dash-content">
+        <div className="dash-shell">
+          {/* Filters */}
+          <div className="filters-card">
+            <div className="filters-left">
+              <Input
+                className="filter-input"
+                placeholder="Filter by username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                allowClear
+              />
+              <DatePicker
+                className="filter-date"
+                showTime
+                placeholder="Since…"
+                value={since}
+                onChange={(v) => setSince(v)}
+              />
+            </div>
+
+            <div className="filters-right">
+              <Button
+                type="primary"
+                icon={<FilterOutlined />}
+                onClick={applyFilters}
+              >
+                Apply
+              </Button>
+              <Button
+                className="ghost-btn"
+                icon={<ClearOutlined />}
+                onClick={resetFilters}
+              >
+                Reset
+              </Button>
+            </div>
+          </div>
+
+          {/* Tabs */}
+          <Tabs
+            className="dash-tabs"
+            activeKey={activeTab}
+            onChange={(k) => {
+              setActiveTab(k);
+              if (k !== "3") setActiveSessionKey(null);
+            }}
+          >
+            <TabPane tab="Connections" key="1">
+              <div className="table-wrap">
+                <Table
+                  dataSource={connections}
+                  columns={connColumns}
+                  loading={loadingConnections}
+                  rowKey={(r, i) => `${r?.session_id || "conn"}-${i}`}
+                  pagination={{ pageSize: 10, showSizeChanger: false }}
+                  size="middle"
+                />
+              </div>
+            </TabPane>
+
+            <TabPane tab="Commands" key="2">
+              <div className="table-wrap">
+                <Table
+                  dataSource={commands}
+                  columns={cmdColumns}
+                  loading={loadingCommands}
+                  rowKey={(r, i) => `${r?.time || "cmd"}-${i}`}
+                  pagination={{ pageSize: 10, showSizeChanger: false }}
+                  size="middle"
+                />
+              </div>
+            </TabPane>
+
+            <TabPane tab="Sessions" key="3">
+              <div className="sessions-top">
+                <Text type="secondary">
+                  Click a session to expand and view full activity.
+                </Text>
+                <Button
+                  className="ghost-btn"
+                  icon={<ReloadOutlined />}
+                  loading={loadingSessions}
+                  onClick={fetchSessions}
+                >
+                  Refresh sessions
+                </Button>
+              </div>
+
+              <div className="sessions-wrap">
+                <Collapse
+                  accordion
+                  activeKey={activeSessionKey}
+                  onChange={(k) => setActiveSessionKey(k)}
+                  className="session-collapse"
+                >
+                  {sessions.map((s) => (
+                    <Panel
+                      header={
+                        <div className="session-header">
+                          <span className="session-title">
+                            Session: <span className="mono">{s.session_id}</span>
+                          </span>
+                          <Tag className="tag-soft">
+                            {s?.activities?.length || 0} events
+                          </Tag>
+                        </div>
+                      }
+                      key={String(s.session_id)}
+                    >
+                      <Table
+                        dataSource={s.activities || []}
+                        columns={[
+                          {
+                            title: "Time",
+                            dataIndex: "time",
+                            render: (t) => (t ? new Date(t).toLocaleString() : "-"),
+                            width: 220,
+                          },
+                          {
+                            title: "Command",
+                            dataIndex: "command",
+                            render: (c) => (c ? <span className="mono">{c}</span> : "-"),
+                          },
+                          {
+                            title: "Username",
+                            dataIndex: "username",
+                            render: (u) => (u ? <Tag className="tag-purple">{u}</Tag> : "-"),
+                            width: 160,
+                          },
+                          { title: "IP", dataIndex: "remote_addr", width: 170 },
+                        ]}
+                        pagination={false}
+                        rowKey={(r, i) => `${s.session_id}-${i}`}
+                        size="small"
+                        className="session-table"
+                      />
+                    </Panel>
+                  ))}
+                </Collapse>
+              </div>
+            </TabPane>
+          </Tabs>
+        </div>
       </Content>
     </Layout>
   );
