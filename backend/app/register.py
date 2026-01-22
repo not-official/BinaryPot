@@ -4,7 +4,7 @@ import secrets
 from datetime import datetime, timedelta
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, Query
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
@@ -12,7 +12,7 @@ from sqlalchemy.exc import IntegrityError
 from passlib.context import CryptContext
 
 from .db import get_db, User, SignupRequestDB
-from .email_utils import send_signup_email
+from .email_utils import send_signup_email, send_requester_status_email
 
 router = APIRouter(tags=["Signup"])
 
@@ -20,6 +20,7 @@ APP_BASE_URL = os.getenv("APP_BASE_URL", "http://localhost:8000")
 REQUEST_EXPIRE_HOURS = int(os.getenv("REQUEST_EXPIRE_HOURS", "48"))
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
 
 class SignupRequestIn(BaseModel):
     full_name: str
@@ -36,11 +37,14 @@ class SignupRequestIn(BaseModel):
     card_name: Optional[str] = None
     card_number: Optional[str] = None
 
+
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
 
+
 def is_expired(req: SignupRequestDB) -> bool:
     return datetime.utcnow() > req.expires_at
+
 
 @router.post("/signup-request")
 def signup_request(data: SignupRequestIn, db: Session = Depends(get_db)):
@@ -52,6 +56,7 @@ def signup_request(data: SignupRequestIn, db: Session = Depends(get_db)):
 
     email = data.email.strip().lower()
 
+    # prevent duplicate real user accounts
     if db.query(User).filter(User.email == email).first():
         raise HTTPException(status_code=409, detail="User already exists")
 
@@ -81,6 +86,7 @@ def signup_request(data: SignupRequestIn, db: Session = Depends(get_db)):
     approve_url = f"{APP_BASE_URL}/signup-approve/{token}"
     reject_url = f"{APP_BASE_URL}/signup-reject/{token}"
 
+    # Send admin review email
     send_signup_email(
         payload={
             "full_name": data.full_name,
@@ -94,7 +100,9 @@ def signup_request(data: SignupRequestIn, db: Session = Depends(get_db)):
         reject_url=reject_url,
     )
 
-    return {"message": "Signup request submitted for approval"}
+    # Frontend can show a popup: "You'll be notified by email"
+    return {"message": "Signup request submitted. You'll be notified by email after review."}
+
 
 @router.get("/signup-approve/{token}", response_class=HTMLResponse)
 def signup_approve(token: str, db: Session = Depends(get_db)):
@@ -105,11 +113,25 @@ def signup_approve(token: str, db: Session = Depends(get_db)):
     if req.status != "PENDING":
         return HTMLResponse(f"<h3>Request already {req.status}.</h3>", status_code=400)
 
+    # expired -> auto reject + notify requester
     if is_expired(req):
         req.status = "REJECTED"
         db.commit()
+
+        try:
+            send_requester_status_email(
+                requester_email=req.email,
+                requester_name=req.full_name,
+                status="REJECTED",
+                reason="Request expired before approval.",
+            )
+        except Exception:
+            # don't block page if email fails
+            pass
+
         return HTMLResponse("<h3>Request expired and was rejected.</h3>", status_code=400)
 
+    # Create user (activate)
     user = User(
         email=req.email,
         full_name=req.full_name,
@@ -129,10 +151,26 @@ def signup_approve(token: str, db: Session = Depends(get_db)):
         db.rollback()
         return HTMLResponse("<h3>User already exists. Nothing to approve.</h3>", status_code=409)
 
+    # Notify requester by email (approved)
+    try:
+        send_requester_status_email(
+            requester_email=req.email,
+            requester_name=req.full_name,
+            status="APPROVED",
+        )
+    except Exception:
+        # don't block approval if email fails
+        pass
+
     return HTMLResponse("<h2>Approved ✅ User account created and activated.</h2>")
 
+
 @router.get("/signup-reject/{token}", response_class=HTMLResponse)
-def signup_reject(token: str, db: Session = Depends(get_db)):
+def signup_reject(
+    token: str,
+    reason: Optional[str] = Query(default=None, max_length=200),
+    db: Session = Depends(get_db),
+):
     req = db.query(SignupRequestDB).filter(SignupRequestDB.token == token).first()
     if not req:
         return HTMLResponse("<h3>Invalid reject link.</h3>", status_code=404)
@@ -142,4 +180,16 @@ def signup_reject(token: str, db: Session = Depends(get_db)):
 
     req.status = "REJECTED"
     db.commit()
+
+    # Notify requester by email (rejected)
+    try:
+        send_requester_status_email(
+            requester_email=req.email,
+            requester_name=req.full_name,
+            status="REJECTED",
+            reason=reason,
+        )
+    except Exception:
+        pass
+
     return HTMLResponse("<h2>Rejected ✅ Signup request has been rejected.</h2>")
