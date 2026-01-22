@@ -12,6 +12,7 @@ import {
   Row,
   Col,
   message,
+  Modal, // ✅ added
 } from "antd";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -27,6 +28,9 @@ const Signup = () => {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+
+  // ✅ added: success modal state
+  const [successOpen, setSuccessOpen] = useState(false);
 
   const stepFields = useMemo(
     () => [
@@ -72,7 +76,9 @@ const Signup = () => {
 
       message.success("Signup request submitted for review");
       form.resetFields();
-      navigate("/login");
+
+      // ✅ changed: show modal instead of immediate navigation
+      setSuccessOpen(true);
     } catch (err) {
       const apiMsg =
         err?.response?.data?.detail ||
@@ -331,6 +337,33 @@ const Signup = () => {
   return (
     <div className="signup-page">
       <div className="signup-bg" />
+
+      {/* ✅ added: Success Modal */}
+      <Modal
+        open={successOpen}
+        title="Request sent"
+        onCancel={() => setSuccessOpen(false)}
+        footer={[
+          <Button key="close" onClick={() => setSuccessOpen(false)}>
+            Close
+          </Button>,
+          <Button
+            key="login"
+            type="primary"
+            onClick={() => {
+              setSuccessOpen(false);
+              navigate("/login");
+            }}
+          >
+            Login
+          </Button>,
+        ]}
+      >
+        <Text>
+          Your signup request has been sent for admin review. You’ll be notified by
+          email when it’s approved or rejected.
+        </Text>
+      </Modal>
 
       <Card className="signup-card" bordered={false}>
         <div className="signup-header">
