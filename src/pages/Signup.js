@@ -355,7 +355,7 @@ const Signup = () => {
               navigate("/login");
             }}
           >
-            Login
+            Continue
           </Button>,
         ]}
       >
