@@ -102,7 +102,7 @@ source venv/bin/activate   # or venv\Scripts\activate (Windows)
 pip install -r requirements.txt
 
 # start honeypot server
-py -m honeypot.run_honeypot
+py -m honeypot.run-honeypot
 
 # connect to honeypot (SSH simulation)
 ssh -p 2222 localhost
