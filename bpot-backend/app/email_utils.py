@@ -29,6 +29,156 @@ def _send_email(msg: EmailMessage) -> None:
 
 
 # -----------------------------
+# Shared HTML theme helpers
+# -----------------------------
+def _escape_html(value) -> str:
+    if value is None:
+        return "-"
+    return (
+        str(value)
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+        .replace("'", "&#39;")
+    )
+
+
+def _email_shell(title: str, body_html: str) -> str:
+    """
+    Shared dark cyber email shell matching BinaryPot frontend theme.
+    """
+    return f"""
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="dark only" />
+    <meta name="supported-color-schemes" content="dark only" />
+    <title>{_escape_html(title)}</title>
+  </head>
+  <body style="margin:0;padding:0;background:#060912;font-family:Arial,sans-serif;color:#e2e8f0;">
+    <div style="margin:0;padding:32px 16px;background:#060912;">
+      <div style="max-width:720px;margin:0 auto;">
+
+        <div style="text-align:center;margin-bottom:16px;">
+          <div style="
+            display:inline-block;
+            font-size:12px;
+            color:#8892a4;
+            letter-spacing:1px;
+            font-weight:700;
+            font-family:'IBM Plex Mono', monospace;
+          ">
+            BINARYPOT • LLM-POWERED SSH HONEYPOT
+          </div>
+        </div>
+
+        <div style="
+          background:#0f1628;
+          border:1px solid rgba(0,212,255,0.25);
+          border-radius:6px;
+          overflow:hidden;
+          box-shadow:0 0 40px rgba(0,212,255,0.10), 0 0 0 1px rgba(0,212,255,0.05);
+        ">
+
+          <!-- terminal top bar -->
+          <div style="
+            background:#141c30;
+            border-bottom:1px solid rgba(0,212,255,0.12);
+            padding:10px 16px;
+          ">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+              <tr>
+                <td align="left" valign="middle">
+                  <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#ef4444;margin-right:6px;"></span>
+                  <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#f59e0b;margin-right:6px;"></span>
+                  <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#10b981;"></span>
+                </td>
+                <td align="right" valign="middle" style="
+                  color:#8892a4;
+                  font-size:12px;
+                  font-family:'IBM Plex Mono', monospace;
+                ">
+                  binarypot.honeypot — /mail/system
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div style="padding:32px 28px;">
+            <div style="text-align:center;margin-bottom:28px;">
+              <div style="
+                margin:0;
+                font-size:30px;
+                font-weight:800;
+                color:#00d4ff;
+                letter-spacing:-1px;
+                font-family:Arial,sans-serif;
+              ">
+                ⬡ BinaryPot
+              </div>
+              <div style="
+                margin-top:4px;
+                font-size:11px;
+                color:#4a5568;
+                letter-spacing:1px;
+                font-family:'IBM Plex Mono', monospace;
+              ">
+                SECURE ACCESS NOTIFICATION
+              </div>
+            </div>
+
+            {body_html}
+          </div>
+        </div>
+
+        <div style="
+          text-align:center;
+          color:#4a5568;
+          font-size:11px;
+          margin-top:12px;
+          font-family:'IBM Plex Mono', monospace;
+        ">
+          BinaryPot • Automated email
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+""".strip()
+
+
+def _info_row(label: str, value: str) -> str:
+    return f"""
+<tr>
+  <td style="
+    padding:10px 12px;
+    border-bottom:1px solid rgba(0,212,255,0.08);
+    color:#8892a4;
+    font-size:11px;
+    letter-spacing:0.5px;
+    font-family:'IBM Plex Mono', monospace;
+    width:180px;
+    vertical-align:top;
+  ">
+    {label}
+  </td>
+  <td style="
+    padding:10px 12px;
+    border-bottom:1px solid rgba(0,212,255,0.08);
+    color:#e2e8f0;
+    font-size:13px;
+    font-family:'IBM Plex Mono', monospace;
+    word-break:break-word;
+  ">
+    {value}
+  </td>
+</tr>
+""".strip()
+
+
+# -----------------------------
 # 1) Admin review email (Approve/Reject buttons)
 # -----------------------------
 def send_signup_email(payload: dict, approve_url: str, reject_url: str) -> None:
@@ -38,31 +188,34 @@ def send_signup_email(payload: dict, approve_url: str, reject_url: str) -> None:
     """
     _, _, smtp_email, _, admin_email = _smtp_config()
 
-    full_name = payload.get("full_name", "-")
-    email = payload.get("email", "-")
-    organization = payload.get("organization", "-")
-    role = payload.get("role", "-")
-    usage = payload.get("usage", "-")
-    plan = payload.get("plan", "-")
-    submitted_at = datetime.utcnow().isoformat()
+    full_name = _escape_html(payload.get("full_name", "-"))
+    email = _escape_html(payload.get("email", "-"))
+    organization = _escape_html(payload.get("organization", "-"))
+    role = _escape_html(payload.get("role", "-"))
+    usage = _escape_html(payload.get("usage", "-"))
+    plan = _escape_html(payload.get("plan", "-"))
+    submitted_at = _escape_html(datetime.utcnow().isoformat())
 
-    # Plain text fallback (always include)
+    safe_approve_url = _escape_html(approve_url)
+    safe_reject_url = _escape_html(reject_url)
+
+    # Plain text fallback
     text = f"""
 A new admin signup request has been submitted.
 
 --- Account ---
-Full Name: {full_name}
-Email: {email}
+Full Name: {payload.get("full_name", "-")}
+Email: {payload.get("email", "-")}
 
 --- Organization ---
-Organization: {organization}
-Role: {role}
-Intended Usage: {usage}
+Organization: {payload.get("organization", "-")}
+Role: {payload.get("role", "-")}
+Intended Usage: {payload.get("usage", "-")}
 
 --- Plan ---
-Plan: {plan}
+Plan: {payload.get("plan", "-")}
 
-Submitted At (UTC): {submitted_at}
+Submitted At (UTC): {datetime.utcnow().isoformat()}
 
 ACTION REQUIRED:
 Approve: {approve_url}
@@ -72,94 +225,154 @@ Security note:
 - Password is NOT included and is stored only as a hash.
 """.strip()
 
-    # HTML email with buttons (roomy + premium purple)
-    html = f"""
-<!doctype html>
-<html>
-  <body style="margin:0;padding:0;background:#f6f3ff;font-family:Arial,sans-serif;">
-    <div style="max-width:680px;margin:0 auto;padding:26px;">
-      <div style="background:rgba(255,255,255,0.95);
-                  border-radius:18px;padding:24px;
-                  border:1px solid rgba(124,58,237,0.18);
-                  box-shadow:0 18px 55px rgba(124,58,237,0.15);">
-
-        <div style="display:inline-block;font-size:12px;font-weight:900;letter-spacing:.55px;
-                    padding:7px 12px;border-radius:999px;
-                    background:linear-gradient(135deg, rgba(124,58,237,0.14), rgba(167,139,250,0.16));
-                    color:#4c1d95;border:1px solid rgba(124,58,237,0.26);">
-          BINARYPOT • ADMIN REVIEW
-        </div>
-
-        <h2 style="margin:14px 0 6px 0;font-size:20px;color:#1f1147;">
-          New Admin Signup Request
-        </h2>
-        <div style="color:rgba(46,16,101,0.60);font-size:13px;margin-bottom:18px;">
-          Submitted at (UTC): {submitted_at}
-        </div>
-
-        <div style="border-radius:14px;background:#fbfaff;border:1px solid rgba(124,58,237,0.14);padding:14px;">
-          <div style="font-size:13px;color:#1f1147;line-height:1.75;">
-            <b>Full Name:</b> {full_name}<br/>
-            <b>Email:</b> {email}<br/>
-            <b>Organization:</b> {organization}<br/>
-            <b>Role:</b> {role}<br/>
-            <b>Usage:</b> {usage}<br/>
-            <b>Plan:</b> {plan}<br/>
-          </div>
-        </div>
-
-        <div style="margin:18px 0 10px 0;color:rgba(46,16,101,0.65);font-size:12px;font-weight:800;">
-          Action required:
-        </div>
-
-        <!-- Buttons: spacious + clearly separated -->
-        <div style="margin-top:8px;">
-          <a href="{approve_url}"
-             style="display:block;text-align:center;
-                    padding:14px 16px;border-radius:14px;
-                    background:linear-gradient(135deg,#22c55e,#16a34a);
-                    color:#ffffff;text-decoration:none;
-                    font-weight:900;font-size:14px;
-                    box-shadow:0 12px 26px rgba(34,197,94,0.22);">
-             ✅ Approve Request
-          </a>
-
-          <div style="height:14px;line-height:14px;font-size:14px;">&nbsp;</div>
-
-          <a href="{reject_url}"
-             style="display:block;text-align:center;
-                    padding:14px 16px;border-radius:14px;
-                    background:linear-gradient(135deg,#ef4444,#dc2626);
-                    color:#ffffff;text-decoration:none;
-                    font-weight:900;font-size:14px;
-                    box-shadow:0 12px 26px rgba(239,68,68,0.20);">
-             ❌ Reject Request
-          </a>
-        </div>
-
-        <div style="margin-top:18px;padding:12px;border-radius:14px;
-                    background:#0b1220;border:1px solid rgba(255,255,255,0.08);">
-          <div style="font-size:12px;color:rgba(255,255,255,0.88);font-weight:900;margin-bottom:8px;">
-            Fallback links (if buttons don’t work)
-          </div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.7;word-break:break-word;">
-            Approve: <a style="color:#c4b5fd" href="{approve_url}">{approve_url}</a><br/>
-            Reject: <a style="color:#fca5a5" href="{reject_url}">{reject_url}</a>
-          </div>
-        </div>
-
-        <div style="margin-top:14px;color:rgba(46,16,101,0.60);font-size:12px;">
-          <b>Security note:</b> Password is not included and is stored only as a hash.
-        </div>
-      </div>
-
-      <div style="text-align:center;color:rgba(46,16,101,0.45);font-size:11px;margin-top:12px;">
-        BinaryPot • Automated email
-      </div>
-    </div>
-  </body>
-</html>
+    details_table = f"""
+<div style="
+  background:#0a0f1e;
+  border:1px solid rgba(0,212,255,0.12);
+  border-radius:4px;
+  overflow:hidden;
+  margin-bottom:18px;
+">
+  <div style="
+    padding:10px 12px;
+    border-bottom:1px solid rgba(0,212,255,0.12);
+    color:#8892a4;
+    background:#141c30;
+    font-size:11px;
+    letter-spacing:1px;
+    font-family:'IBM Plex Mono', monospace;
+  ">
+    SIGNUP REQUEST DETAILS
+  </div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+    {_info_row("FULL NAME", full_name)}
+    {_info_row("EMAIL", email)}
+    {_info_row("ORGANIZATION", organization)}
+    {_info_row("ROLE", role)}
+    {_info_row("USAGE", usage)}
+    {_info_row("PLAN", plan)}
+    {_info_row("SUBMITTED AT (UTC)", submitted_at)}
+  </table>
+</div>
 """.strip()
+
+    body_html = f"""
+<div style="
+  color:#e2e8f0;
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:6px;
+  font-family:Arial,sans-serif;
+">
+  New Admin Signup Request
+</div>
+
+<div style="
+  color:#8892a4;
+  font-size:12px;
+  margin-bottom:18px;
+  font-family:'IBM Plex Mono', monospace;
+">
+  An access request is waiting for admin review.
+</div>
+
+{details_table}
+
+<div style="
+  color:#8892a4;
+  font-size:11px;
+  letter-spacing:1px;
+  margin-bottom:12px;
+  font-family:'IBM Plex Mono', monospace;
+">
+  ACTION REQUIRED
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:18px;">
+  <tr>
+    <td style="padding-bottom:12px;">
+      <a href="{safe_approve_url}" style="
+        display:block;
+        text-align:center;
+        padding:14px 16px;
+        border-radius:3px;
+        background:#10b981;
+        color:#060912;
+        text-decoration:none;
+        font-weight:700;
+        font-size:13px;
+        letter-spacing:0.5px;
+        font-family:'IBM Plex Mono', monospace;
+        box-shadow:0 0 20px rgba(16,185,129,0.25);
+      ">
+        APPROVE REQUEST →
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="{safe_reject_url}" style="
+        display:block;
+        text-align:center;
+        padding:14px 16px;
+        border-radius:3px;
+        background:#ef4444;
+        color:#ffffff;
+        text-decoration:none;
+        font-weight:700;
+        font-size:13px;
+        letter-spacing:0.5px;
+        font-family:'IBM Plex Mono', monospace;
+        box-shadow:0 0 20px rgba(239,68,68,0.25);
+      ">
+        REJECT REQUEST →
+      </a>
+    </td>
+  </tr>
+</table>
+
+<div style="
+  background:#0a0f1e;
+  border:1px solid rgba(0,212,255,0.12);
+  border-radius:4px;
+  padding:14px;
+  margin-bottom:16px;
+">
+  <div style="
+    color:#8892a4;
+    font-size:11px;
+    letter-spacing:1px;
+    margin-bottom:8px;
+    font-family:'IBM Plex Mono', monospace;
+  ">
+    FALLBACK LINKS
+  </div>
+  <div style="
+    color:#e2e8f0;
+    font-size:12px;
+    line-height:1.7;
+    word-break:break-word;
+    font-family:'IBM Plex Mono', monospace;
+  ">
+    Approve:
+    <a href="{safe_approve_url}" style="color:#00d4ff;text-decoration:none;">{safe_approve_url}</a>
+    <br />
+    Reject:
+    <a href="{safe_reject_url}" style="color:#00d4ff;text-decoration:none;">{safe_reject_url}</a>
+  </div>
+</div>
+
+<div style="
+  font-size:12px;
+  color:#4a5568;
+  line-height:1.6;
+  font-family:'IBM Plex Mono', monospace;
+">
+  Security note: Password is not included and is stored only as a hash.
+</div>
+""".strip()
+
+    html = _email_shell("New Admin Signup Request", body_html)
 
     msg = EmailMessage()
     msg["Subject"] = "[BinaryPot] New Admin Signup Request"
@@ -191,7 +404,10 @@ def send_requester_status_email(
     if status not in {"APPROVED", "REJECTED"}:
         raise ValueError("status must be APPROVED or REJECTED")
 
-    now_utc = datetime.utcnow().isoformat()
+    safe_name = _escape_html(requester_name or "there")
+    safe_status = _escape_html(status)
+    safe_reason = _escape_html(reason) if reason else ""
+    now_utc = _escape_html(datetime.utcnow().isoformat())
 
     subject = (
         "[BinaryPot] Your admin account is approved ✅"
@@ -199,7 +415,12 @@ def send_requester_status_email(
         else "[BinaryPot] Your admin signup was rejected ❌"
     )
 
-    headline = "Your request is approved ✅" if status == "APPROVED" else "Your request was rejected ❌"
+    headline = (
+        "Your request is approved"
+        if status == "APPROVED"
+        else "Your request was rejected"
+    )
+
     subtext = (
         "You can now log in using your email and password."
         if status == "APPROVED"
@@ -215,66 +436,107 @@ Hi {requester_name or "there"},
 {subtext}
 
 Status: {status}
-Time (UTC): {now_utc}
+Time (UTC): {datetime.utcnow().isoformat()}
 {("Reason: " + reason) if reason else ""}
 
 — BinaryPot
 """.strip()
 
-    # HTML
-    badge_bg = "linear-gradient(135deg,#22c55e,#16a34a)" if status == "APPROVED" else "linear-gradient(135deg,#ef4444,#dc2626)"
-    badge_border = "rgba(34,197,94,0.28)" if status == "APPROVED" else "rgba(239,68,68,0.28)"
+    status_bg = "#10b981" if status == "APPROVED" else "#ef4444"
+    status_color = "#060912" if status == "APPROVED" else "#ffffff"
+    status_glow = (
+        "0 0 20px rgba(16,185,129,0.22)"
+        if status == "APPROVED"
+        else "0 0 20px rgba(239,68,68,0.22)"
+    )
 
-    html_reason = f"""
-      <div style="margin-top:14px;padding:12px;border-radius:14px;background:#fff7ed;border:1px solid rgba(245,158,11,0.22);color:#7a4b00;">
-        <b>Reason:</b> {reason}
-      </div>
-    """ if reason else ""
-
-    html = f"""
-<!doctype html>
-<html>
-  <body style="margin:0;padding:0;background:#f6f3ff;font-family:Arial,sans-serif;">
-    <div style="max-width:680px;margin:0 auto;padding:26px;">
-      <div style="background:rgba(255,255,255,0.95);
-                  border-radius:18px;padding:24px;
-                  border:1px solid rgba(124,58,237,0.18);
-                  box-shadow:0 18px 55px rgba(124,58,237,0.14);">
-
-        <div style="display:inline-block;font-size:12px;font-weight:900;letter-spacing:.55px;
-                    padding:7px 12px;border-radius:999px;
-                    background:linear-gradient(135deg, rgba(124,58,237,0.14), rgba(167,139,250,0.16));
-                    color:#4c1d95;border:1px solid rgba(124,58,237,0.26);">
-          BINARYPOT
-        </div>
-
-        <h2 style="margin:14px 0 6px 0;font-size:20px;color:#1f1147;">
-          {headline}
-        </h2>
-        <div style="color:rgba(46,16,101,0.62);font-size:13px;margin-bottom:14px;">
-          Hi {requester_name or "there"}, {subtext}
-        </div>
-
-        <div style="display:inline-block;padding:10px 12px;border-radius:14px;
-                    background:{badge_bg};color:#fff;font-weight:900;
-                    border:1px solid {badge_border};">
-          Status: {status}
-        </div>
-
-        {html_reason}
-
-        <div style="margin-top:16px;color:rgba(46,16,101,0.58);font-size:12px;">
-          Time (UTC): {now_utc}
-        </div>
-      </div>
-
-      <div style="text-align:center;color:rgba(46,16,101,0.45);font-size:11px;margin-top:12px;">
-        BinaryPot • Automated email
-      </div>
-    </div>
-  </body>
-</html>
+    reason_block = ""
+    if reason:
+        reason_block = f"""
+<div style="
+  background:#0a0f1e;
+  border:1px solid rgba(245,158,11,0.22);
+  border-radius:4px;
+  padding:14px;
+  margin-top:16px;
+  margin-bottom:16px;
+">
+  <div style="
+    color:#8892a4;
+    font-size:11px;
+    letter-spacing:1px;
+    margin-bottom:8px;
+    font-family:'IBM Plex Mono', monospace;
+  ">
+    REVIEW NOTE
+  </div>
+  <div style="
+    color:#e2e8f0;
+    font-size:13px;
+    line-height:1.6;
+    font-family:'IBM Plex Mono', monospace;
+  ">
+    {safe_reason}
+  </div>
+</div>
 """.strip()
+
+    body_html = f"""
+<div style="
+  color:#e2e8f0;
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:6px;
+  font-family:Arial,sans-serif;
+">
+  {headline}
+</div>
+
+<div style="
+  color:#8892a4;
+  font-size:13px;
+  line-height:1.7;
+  margin-bottom:18px;
+  font-family:'IBM Plex Mono', monospace;
+">
+  Hi {safe_name},<br />
+  { _escape_html(subtext) }
+</div>
+
+<div style="margin-bottom:18px;">
+  <span style="
+    display:inline-block;
+    padding:12px 14px;
+    border-radius:3px;
+    background:{status_bg};
+    color:{status_color};
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.5px;
+    font-family:'IBM Plex Mono', monospace;
+    box-shadow:{status_glow};
+  ">
+    STATUS: {safe_status}
+  </span>
+</div>
+
+{reason_block}
+
+<div style="
+  background:#0a0f1e;
+  border:1px solid rgba(0,212,255,0.12);
+  border-radius:4px;
+  overflow:hidden;
+">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+    {_info_row("REQUEST STATUS", safe_status)}
+    {_info_row("TIME (UTC)", now_utc)}
+    {_info_row("NEXT STEP", _escape_html(subtext))}
+  </table>
+</div>
+""".strip()
+
+    html = _email_shell("Signup Request Status", body_html)
 
     msg = EmailMessage()
     msg["Subject"] = subject
