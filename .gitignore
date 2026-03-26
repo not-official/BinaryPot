@@ -1,0 +1,33 @@
+# ----------------------
+# Node / Frontend
+# ----------------------
+bpot-frontend/node_modules/
+bpot-frontend/dist/
+bpot-frontend/build/
+bpot-frontend/.env
+
+# ----------------------
+# Python / Backend
+# ----------------------
+bpot-backend/__pycache__/
+bpot-backend/*.pyc
+bpot-backend/venv/
+bpot-backend/.env
+
+# ----------------------
+# General
+# ----------------------
+.env
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# SSH keys (honeypot)
+bpot-backend/ssh_host_key
+bpot-backend/ssh_host_key.pub
