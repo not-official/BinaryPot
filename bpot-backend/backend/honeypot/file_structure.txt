@@ -1,0 +1,41 @@
+{
+  "dirs": {
+    "/": [
+      "home",
+      "etc",
+      "var",
+      "tmp"
+    ],
+    "/home": [
+      "asus",
+      "aman",
+      "love",
+      "A S U S",
+      "hichada"
+    ],
+    "/home/asus": [
+      "notes.txt",
+      "secrets.txt"
+    ],
+    "/home/aman": [],
+    "/home/love": [],
+    "/home/A S U S": [
+      "black",
+      "blue"
+    ],
+    "/home/A S U S/black": [],
+    "/home/hichada": [],
+    "/home/A S U S/blue": []
+  },
+  "files": {
+    "/home/asus/notes.txt": "These are sample notes.\nTry 'cat notes.txt'\n",
+    "/home/asus/secrets.txt": "This file is an illusion.\n",
+    "/etc/issue": "Ubuntu 20.04.6 LTS\n"
+  },
+  "mtimes": {
+    "/home/asus/notes.txt": 1764923424,
+    "/home/asus/secrets.txt": 1764923424,
+    "/etc/issue": 1764923424,
+    "/home/A S U S/blue": 1765342190
+  }
+}

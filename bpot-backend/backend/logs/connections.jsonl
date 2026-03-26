@@ -1,0 +1,20 @@
+{"time": "2025-12-06T12:50:26+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "love", "session_id": "0bce4d27"}
+{"time": "2025-12-06T15:19:14+0545", "event": "auth_attempt", "remote_addr": "192.168.110.123", "username": "asus", "password": "sexylady", "session_id": "0eb2422e"}
+{"time": "2025-12-06T15:23:02+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "love mademedoit", "session_id": "aa1c31b1"}
+{"time": "2025-12-09T23:29:53+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "Lovemademedoit", "session_id": "6e1d1d7a"}
+{"time": "2025-12-09T23:31:08+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "lovemademe\b\b\b\b\blovemadem\b\b\b\b\b\b\b\b\b\b\b\b\blovemadem\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\blovemaddemedoit", "session_id": "bbde31a3"}
+{"time": "2025-12-09T23:46:54+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "minesheismine", "session_id": "4481907f"}
+{"time": "2025-12-09T23:52:40+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "roam", "session_id": "8133354d"}
+{"time": "2025-12-09T23:58:55+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "nin", "session_id": "9fc3c1ea"}
+{"time": "2025-12-10T00:02:02+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "aasasas", "session_id": "e256b4e2"}
+{"time": "2025-12-10T00:04:46+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "shh", "session_id": "e6b79c08"}
+{"time": "2025-12-10T00:06:49+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "nini", "session_id": "38b2073b"}
+{"time": "2025-12-10T00:12:52+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "nin", "session_id": "42a9d818"}
+{"time": "2025-12-10T10:34:39+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "lvoe", "session_id": "5a379d18"}
+{"time": "2025-12-11T11:40:20+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "love", "session_id": "68238d29"}
+{"time": "2025-12-11T12:59:47+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "just", "session_id": "26c141c4"}
+{"time": "2025-12-11T13:18:52+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "love", "session_id": "0006bfdd"}
+{"time": "2025-12-11T13:19:47+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "shshes", "session_id": "279d5e97"}
+{"time": "2025-12-11T13:22:13+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "ninja", "session_id": "88542df6"}
+{"time": "2025-12-11T13:23:00+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "ninja", "session_id": "f1a657e4"}
+{"time": "2025-12-11T13:24:18+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "love", "session_id": "f282cf20"}
