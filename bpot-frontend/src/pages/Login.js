@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { message } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 
-const API_BASE = import.meta?.env?.VITE_API_BASE_URL || "http://localhost:8000";
+const API_BASE =
+  import.meta?.env?.VITE_API_BASE_URL || "http://localhost:8000";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,38 +15,44 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [inlineError, setInlineError] = useState("");
 
+  // ✅ SAFE ERROR PARSER
   const getNiceErrorMessage = (err) => {
     if (!err?.response) {
       return "Server is not reachable. Please check if backend is running.";
     }
 
     const status = err.response.status;
-    const detail =
-      err?.response?.data?.detail ||
-      err?.response?.data?.message ||
-      err?.response?.data?.error;
+    let detail = err?.response?.data?.detail;
 
-    if (status === 401) {
-      return detail || "Invalid email or password.";
+    // 🔥 Handle FastAPI validation errors (array)
+    if (Array.isArray(detail)) {
+      detail = detail[0]?.msg;
     }
 
-    if (status === 403) {
-      return detail || "Account not approved.";
+    // 🔥 Prevent React crash (object → string)
+    if (typeof detail === "object") {
+      detail = JSON.stringify(detail);
     }
 
-    if (status === 404) {
-      return detail || "Account not found.";
-    }
-
-    if (status >= 500) {
-      return "Server error. Try again later.";
-    }
+    if (status === 401) return detail || "Invalid email or password.";
+    if (status === 403) return detail || "Account not approved.";
+    if (status === 404) return detail || "Account not found.";
+    if (status >= 500) return "Server error. Try again later.";
 
     return detail || "Login failed.";
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // ✅ FRONTEND VALIDATION (prevents crash)
+    if (!email.trim() || !password.trim()) {
+      const msg = "Email and password are required.";
+      setInlineError(msg);
+      message.error(msg);
+      return;
+    }
+
     setLoading(true);
     setInlineError("");
 
@@ -78,12 +85,14 @@ const Login = () => {
 
       message.success("Login successful");
 
-      // ✅ REDIRECT TO PORTAL
+      // ✅ Redirect
       navigate("/portal");
 
     } catch (err) {
-      console.error("LOGIN ERROR →", err?.response?.data || err?.message || err);
+      console.error("LOGIN ERROR →", err?.response?.data || err);
+
       const niceMsg = getNiceErrorMessage(err);
+
       setInlineError(niceMsg);
       message.error(niceMsg);
     } finally {
@@ -105,10 +114,13 @@ const Login = () => {
 
         <div className="loginBody">
           <div className="loginLogo">
-            <h1>⬡ BinaryPot</h1>
+            <Link to="/" className="loginLogoLink">
+                <h1>⬡ BinaryPot</h1>
+              </Link>
             <p>LLM-POWERED SSH HONEYPOT v1.0</p>
           </div>
 
+          {/* ✅ INLINE ERROR */}
           {inlineError && (
             <div className="loginHint loginErrorText">
               {inlineError}
@@ -123,7 +135,10 @@ const Login = () => {
                 value={email}
                 placeholder="you@example.com"
                 autoComplete="email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setInlineError(""); // 🔥 clear error while typing
+                }}
                 className={inlineError ? "inputError" : ""}
               />
             </div>
@@ -135,7 +150,10 @@ const Login = () => {
                 value={password}
                 placeholder="Enter password"
                 autoComplete="current-password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setInlineError(""); // 🔥 clear error
+                }}
               />
             </div>
 

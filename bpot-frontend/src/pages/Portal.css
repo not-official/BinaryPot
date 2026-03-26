@@ -6,12 +6,13 @@
     radial-gradient(ellipse at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
     var(--void);
   color: var(--text);
-  padding: 24px 28px;
+  padding: 0; /* remove outer padding */
 }
 
 .portalShell {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 24px 28px; /* move padding here instead */
 }
 
 .landingHero {

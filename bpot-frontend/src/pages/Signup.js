@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { message, Modal } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./Signup.css";
 
@@ -411,7 +411,7 @@ const Signup = () => {
             className="signupPrimaryBtn"
             onClick={() => {
               setSuccessOpen(false);
-              navigate("/login");
+              navigate("/");
             }}
           >
             CONTINUE →
@@ -431,7 +431,9 @@ const Signup = () => {
 
         <div className="signupBody">
           <div className="signupLogo">
-            <h1>⬡ BinaryPot</h1>
+            <Link to="/" className="loginLogoLink">
+  <h1>⬡ BinaryPot</h1>
+</Link>
             <p>ADMIN ACCESS REQUEST PORTAL</p>
           </div>
 

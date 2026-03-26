@@ -52,6 +52,15 @@
   background: var(--green);
 }
 
+.loginLogoLink {
+  text-decoration: none;   /* ❌ remove underline */
+  color: inherit;          /* keep your text color */
+}
+
+.loginLogoLink:hover {
+  text-decoration: none;   /* ensure no underline on hover */
+}
+
 .signupTitle {
   margin-left: auto;
   font-family: var(--mono);

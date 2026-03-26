@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import Portal from "./pages/Portal";
+import LandingPage from "./pages/LandingPage";
 import "./styles/theme.css";
 
 const isAuthenticated = () => {
@@ -11,7 +12,7 @@ const isAuthenticated = () => {
 };
 
 const ProtectedRoute = ({ children }) => {
-  return isAuthenticated() ? children : <Navigate to="/login" />;
+  return isAuthenticated() ? children : <Navigate to="/" />;
 };
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
         <Route path="/login" element={<Login />} />
      
         <Route path="/signup-request" element={<Signup />} />
+
+        <Route path="/" element={<LandingPage />} />
 
         <Route path="/portal" element={<ProtectedRoute>
               <Portal />

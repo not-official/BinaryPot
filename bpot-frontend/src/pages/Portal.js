@@ -1,11 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import HeroTerminal from "../components/HeroTerminal";
+import Topbar from "../components/Topbar";
 import "./Portal.css";
 
 const Portal = () => {
   const [collapsed, setCollapsed] = useState(false);
+
+  
+    const navigate = useNavigate();
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    navigate("/login", { replace: true });
+  };
 
   return (
     <div style={{ display: "flex" }}>
@@ -21,6 +30,12 @@ const Portal = () => {
           width: "100%",
         }}
       >
+         <Topbar
+          section="Portal"
+          page="Home"
+          statusText="SYSTEM ONLINE"
+          onLogout={handleLogout}
+      />
         <div className="portalShell">
           {/* HERO */}
           <div className="landingHero">
