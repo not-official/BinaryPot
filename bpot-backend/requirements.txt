@@ -14,7 +14,7 @@ sqlalchemy>=2.0.25
 # ----------------------------
 python-jose>=3.3.0          # JWT encode/decode
 passlib==1.7.4
-bcrypt==4.0.1
+bcrypt==p4.0.1
 
 # ----------------------------
 # Email

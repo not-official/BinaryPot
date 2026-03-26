@@ -16,7 +16,7 @@ const Login = () => {
 
   const getNiceErrorMessage = (err) => {
     if (!err?.response) {
-      return "Server is not reachable. Please check if backend is running and CORS is configured.";
+      return "Server is not reachable. Please check if backend is running.";
     }
 
     const status = err.response.status;
@@ -26,34 +26,22 @@ const Login = () => {
       err?.response?.data?.error;
 
     if (status === 401) {
-      return detail || "Unauthorized: Invalid email or password, or your account is not approved yet.";
+      return detail || "Invalid email or password.";
     }
 
     if (status === 403) {
-      return detail || "Forbidden: Your account is not allowed to access the system.";
+      return detail || "Account not approved.";
     }
 
     if (status === 404) {
-      return detail || "Account not found. Please request access first.";
-    }
-
-    if (status === 409) {
-      return detail || "Conflict: Account state issue. Try again or contact admin.";
-    }
-
-    if (status === 422) {
-      return "Invalid input. Please check your email and password fields.";
-    }
-
-    if (status === 429) {
-      return "Too many attempts. Please wait a bit and try again.";
+      return detail || "Account not found.";
     }
 
     if (status >= 500) {
-      return "Server error. Please try again later.";
+      return "Server error. Try again later.";
     }
 
-    return detail || "Login failed. Please try again.";
+    return detail || "Login failed.";
   };
 
   const handleSubmit = async (e) => {
@@ -79,15 +67,20 @@ const Login = () => {
       const token = res?.data?.access_token;
 
       if (!token) {
-        const msg = "Login failed: token missing from response.";
+        const msg = "Login failed: token missing.";
         setInlineError(msg);
         message.error(msg);
         return;
       }
 
+      // ✅ Save token
       sessionStorage.setItem("token", token);
+
       message.success("Login successful");
-      navigate("/dashboard");
+
+      // ✅ REDIRECT TO PORTAL
+      navigate("/portal");
+
     } catch (err) {
       console.error("LOGIN ERROR →", err?.response?.data || err?.message || err);
       const niceMsg = getNiceErrorMessage(err);
@@ -116,11 +109,11 @@ const Login = () => {
             <p>LLM-POWERED SSH HONEYPOT v1.0.0</p>
           </div>
 
-          {inlineError ? (
+          {inlineError && (
             <div className="loginHint loginErrorText">
               {inlineError}
             </div>
-          ) : null}
+          )}
 
           <form onSubmit={handleSubmit}>
             <div className="loginField">
@@ -152,7 +145,7 @@ const Login = () => {
           </form>
 
           <div className="loginFooterText">
-            <span>DON&apos;T HAVE AN ACCOUNT? </span>
+            <span>DON'T HAVE AN ACCOUNT? </span>
             <button
               type="button"
               className="loginLinkBtn"
