@@ -1,0 +1,88 @@
+.heroTerminal {
+  flex: 1;
+  max-width: 420px;
+  background: var(--deep);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.termHeader {
+  background: var(--panel);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.termDots {
+  display: flex;
+  gap: 5px;
+}
+
+.termDots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dotR {
+  background: var(--red);
+}
+
+.dotY {
+  background: var(--amber);
+}
+
+.dotG {
+  background: var(--green);
+}
+
+.termTitle {
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--text3);
+  margin-left: auto;
+}
+
+.termBody {
+  padding: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.7;
+  height: 180px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+/* Line types */
+.sys {
+  color: var(--cyan);
+}
+
+.prompt {
+  color: var(--green);
+}
+
+.cmd {
+  color: var(--text);
+}
+
+.out {
+  color: var(--text2);
+}
+
+.err {
+  color: var(--red);
+}
+
+.cursor {
+  display: inline-block;
+  width: 7px;
+  height: 12px;
+  background: var(--cyan);
+  animation: blink 1s infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
