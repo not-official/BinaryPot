@@ -132,8 +132,15 @@ Create `.env` files where required.
 ### Backend example:
 
 ```env
+GOOGLE_API_KEY=your_google_api_key
+
 JWT_SECRET=your_secret_key
-DATABASE_URL=sqlite:///./binarypot.db
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_EMAIL=your_email@gmail.com
+SMTP_PASSWORD=your_app_password
+ADMIN_EMAIL=admin@example.com
 ```
 
 ---
