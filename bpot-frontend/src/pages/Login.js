@@ -1,24 +1,20 @@
 import React, { useState } from "react";
-import { Card, Form, Input, Button, Typography, message, Alert } from "antd";
+import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
-
-const { Title, Text } = Typography;
 
 const API_BASE = import.meta?.env?.VITE_API_BASE_URL || "http://localhost:8000";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [form] = Form.useForm();
 
-  // ✅ NEW: inline error box (nice UX)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [inlineError, setInlineError] = useState("");
 
-  // ✅ map HTTP errors to user-friendly messages
   const getNiceErrorMessage = (err) => {
-    // network error (server down / CORS / connection refused)
     if (!err?.response) {
       return "Server is not reachable. Please check if backend is running and CORS is configured.";
     }
@@ -29,9 +25,7 @@ const Login = () => {
       err?.response?.data?.message ||
       err?.response?.data?.error;
 
-    // common auth cases
     if (status === 401) {
-      // backend usually uses 401 for invalid credentials
       return detail || "Unauthorized: Invalid email or password, or your account is not approved yet.";
     }
 
@@ -62,22 +56,23 @@ const Login = () => {
     return detail || "Login failed. Please try again.";
   };
 
-  const onFinish = async (values) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setLoading(true);
     setInlineError("");
 
     try {
-      const email = values.email?.trim()?.toLowerCase();
+      const cleanedEmail = email.trim().toLowerCase();
 
       const res = await axios.post(
         `${API_BASE}/auth/login`,
         {
-          email,
-          password: values.password,
+          email: cleanedEmail,
+          password,
         },
         {
           headers: { "Content-Type": "application/json" },
-          timeout: 15000, // ✅ NEW: prevents infinite waiting
+          timeout: 15000,
         }
       );
 
@@ -95,10 +90,7 @@ const Login = () => {
       navigate("/dashboard");
     } catch (err) {
       console.error("LOGIN ERROR →", err?.response?.data || err?.message || err);
-
       const niceMsg = getNiceErrorMessage(err);
-
-      // ✅ show both: toast + inline message
       setInlineError(niceMsg);
       message.error(niceMsg);
     } finally {
@@ -107,76 +99,70 @@ const Login = () => {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-bg" />
-
-      <Card className="login-card" bordered={false}>
-        <div className="login-header">
-          <div className="brand-pill">BinaryPot</div>
-          <Title level={3} className="login-title">
-            Welcome back
-          </Title>
-          <Text type="secondary" className="login-subtitle">
-            Sign in to access your dashboard
-          </Text>
+    <div className="loginOverlay">
+      <div className="loginBox">
+        <div className="loginHeader">
+          <div className="loginDots">
+            <span className="dotR"></span>
+            <span className="dotY"></span>
+            <span className="dotG"></span>
+          </div>
+          <div className="loginTitle">binarypot.honeypot — /auth/login</div>
         </div>
 
-        {/* ✅ NEW: inline error for unauthorized / pending approval */}
-        {inlineError ? (
-          <Alert
-            style={{ marginBottom: 14 }}
-            type="error"
-            showIcon
-            message=""
-            description={inlineError}
-          />
-        ) : null}
+        <div className="loginBody">
+          <div className="loginLogo">
+            <h1>⬡ BinaryPot</h1>
+            <p>LLM-POWERED SSH HONEYPOT v1.0.0</p>
+          </div>
 
-        <Form
-          form={form}
-          layout="vertical"
-          onFinish={onFinish}
-          className="login-form"
-          requiredMark={false}
-        >
-          <Form.Item
-            label="Email"
-            name="email"
-            rules={[
-              { required: true, message: "Please enter your email" },
-              { type: "email", message: "Enter a valid email address" },
-            ]}
-          >
-            <Input placeholder="you@example.com" autoComplete="email" />
-          </Form.Item>
+          {inlineError ? (
+            <div className="loginHint loginErrorText">
+              {inlineError}
+            </div>
+          ) : null}
 
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: "Please enter your password" }]}
-          >
-            <Input.Password
-              placeholder="Enter password"
-              autoComplete="current-password"
-            />
-          </Form.Item>
+          <form onSubmit={handleSubmit}>
+            <div className="loginField">
+              <label>EMAIL</label>
+              <input
+                type="email"
+                value={email}
+                placeholder="you@example.com"
+                autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
+                className={inlineError ? "inputError" : ""}
+              />
+            </div>
 
-          <Button type="primary" htmlType="submit" block loading={loading}>
-            Login
-          </Button>
+            <div className="loginField">
+              <label>PASSWORD</label>
+              <input
+                type="password"
+                value={password}
+                placeholder="Enter password"
+                autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
 
-          <div className="login-footer">
-            <Text type="secondary">Don&apos;t have an account?</Text>
-            <Button
-              type="link"
-              className="link-btn"
+            <button type="submit" className="loginBtn" disabled={loading}>
+              {loading ? "AUTHENTICATING..." : "AUTHENTICATE →"}
+            </button>
+          </form>
+
+          <div className="loginFooterText">
+            <span>DON&apos;T HAVE AN ACCOUNT? </span>
+            <button
+              type="button"
+              className="loginLinkBtn"
               onClick={() => navigate("/signup-request")}
             >
-              Request access
-            </Button>
+              REQUEST ACCESS
+            </button>
           </div>
-        </Form>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };

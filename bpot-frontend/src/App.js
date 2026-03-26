@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
+import "./styles/theme.css";
 
 const isAuthenticated = () => {
   return !! sessionStorage.getItem("token");
