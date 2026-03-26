@@ -23,7 +23,7 @@ BinaryPot is a high-interaction SSH honeypot that uses a fine-tuned Large Langua
 * 🔌 **Backend API (FastAPI)**
   Handles authentication, sessions, and honeypot logic
 
-* 💻 **Frontend Dashboard (React + AntD)**
+* 💻 **Frontend Dashboard (Next + AntD)**
   Clean UI for managing and observing honeypot activity
 
 ---
@@ -33,8 +33,8 @@ BinaryPot is a high-interaction SSH honeypot that uses a fine-tuned Large Langua
 ```bash
 BinaryPot/
 │
-├── bpot-backend/     # FastAPI backend (honeypot engine + auth + API)
-├── bpot-frontend/    # React frontend (dashboard UI)
+├── bpot-backend/     # FastAPI backend (honeypot engine + auth/API + AI)
+├── bpot-frontend/    # NEXT frontend (dashboard UI)
 └── README.md
 ```
 
@@ -58,9 +58,10 @@ BinaryPot/
 
 ### ML / AI
 
-* Hugging Face Transformers
-* QLoRA / LoRA fine-tuning
-* Synthetic dataset generation
+* QLoRA / LoRA fine-tuning for shell response
+* Behavorial analysis
+* Threat analysis
+* API for reports
 
 ---
 
@@ -100,7 +101,13 @@ source venv/bin/activate   # or venv\Scripts\activate (Windows)
 # install dependencies
 pip install -r requirements.txt
 
-# run server
+# start honeypot server
+py -m honeypot.run_honeypot
+
+# connect to honeypot (SSH simulation)
+ssh -p 2222 localhost
+
+# run api server
 uvicorn app.main:app --reload
 ```
 
@@ -112,7 +119,7 @@ uvicorn app.main:app --reload
 cd bpot-frontend
 
 npm install
-npm run dev
+npm start
 ```
 
 ---
