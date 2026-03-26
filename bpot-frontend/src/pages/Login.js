@@ -106,7 +106,7 @@ const Login = () => {
         <div className="loginBody">
           <div className="loginLogo">
             <h1>⬡ BinaryPot</h1>
-            <p>LLM-POWERED SSH HONEYPOT v1.0.0</p>
+            <p>LLM-POWERED SSH HONEYPOT v1.0</p>
           </div>
 
           {inlineError && (
