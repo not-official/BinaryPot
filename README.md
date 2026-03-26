@@ -130,38 +130,9 @@ DATABASE_URL=sqlite:///./binarypot.db
 
 ---
 
-## 📊 Future Improvements
-
-* Real SSH server integration
-* Advanced attacker behavior analytics
-* Multi-session tracking
-* Deployment automation
-* Model optimization for faster inference
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome.
-Create a branch, make changes, and open a pull request.
-
----
-
 ## 📄 License
 
 This project is for educational and research purposes.
 
 ---
 
-## 💡 Author
-
-Built as part of the **BinaryPot Honeypot Project** — exploring AI-driven cybersecurity systems.
-
----
-
-If you want next:
-I can upgrade this into:
-
-* 🔥 **“top 1% GitHub README” (with badges, visuals, demo GIFs)**
-* 💼 Resume description
-* 🎯 Interview explanation (this project can get you shortlisted fast)
