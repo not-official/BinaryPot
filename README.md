@@ -110,6 +110,7 @@ ssh -p 2222 localhost
 # run api server
 uvicorn app.main:app --reload
 ```
+> ⚠️ Note: Ensure `__init__.py` is present in required folders for module imports to work correctly.
 
 ---
 
