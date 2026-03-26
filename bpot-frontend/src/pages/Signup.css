@@ -1,0 +1,239 @@
+/* ==============================
+   Page Background
+============================== */
+.signup-page {
+  min-height: 100vh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #0b1026; /* deep indigo */
+  overflow: hidden;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* ==============================
+   Gradient / Glow Background
+============================== */
+.signup-bg {
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(108, 99, 255, 0.35), transparent 38%),
+    radial-gradient(circle at 80% 30%, rgba(167, 139, 250, 0.30), transparent 42%),
+    radial-gradient(circle at 50% 85%, rgba(217, 70, 239, 0.18), transparent 40%);
+  filter: blur(40px);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+/* ==============================
+   Card
+============================== */
+.signup-card {
+  width: min(620px, 100%);
+  border-radius: 18px;
+  box-shadow:
+    0 18px 60px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.94);
+  z-index: 1;
+  padding: 8px;
+}
+
+/* ==============================
+   Header
+============================== */
+.signup-header {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.brand-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(108, 99, 255, 0.15),
+    rgba(167, 139, 250, 0.15)
+  );
+  color: #5b5cf6;
+  border: 1px solid rgba(108, 99, 255, 0.25);
+  margin-bottom: 12px;
+}
+
+.signup-title {
+  margin: 0 !important;
+  color: #0f172a;
+}
+
+.signup-subtitle {
+  display: block;
+  margin-top: 6px;
+  color: rgba(15, 23, 42, 0.65);
+}
+
+/* ==============================
+   Steps
+============================== */
+.signup-steps {
+  margin: 18px 0 10px;
+}
+
+/* ==============================
+   Form
+============================== */
+.signup-form {
+  margin-top: 18px;
+}
+
+/* Ant Design input polish */
+.signup-form .ant-input,
+.signup-form .ant-input-password,
+.signup-form .ant-select-selector {
+  border-radius: 10px !important;
+  padding: 10px 12px;
+}
+
+.signup-form .ant-input:focus,
+.signup-form .ant-input-password:focus,
+.signup-form .ant-input-focused,
+.signup-form .ant-select-focused .ant-select-selector {
+  border-color: #6c63ff !important;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.18);
+}
+
+/* ==============================
+   Demo Billing Note
+============================== */
+.demo-note {
+  margin: -6px 0 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(108, 99, 255, 0.08);
+  border: 1px solid rgba(108, 99, 255, 0.22);
+  font-size: 12px;
+  color: #3f3fff;
+}
+
+/* ==============================
+   Review Section
+============================== */
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.review-item {
+  background: #f6f7fb;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review-label {
+  font-size: 11px;
+  color: rgba(15, 23, 42, 0.55);
+}
+
+.review-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.9);
+  word-break: break-word;
+}
+
+/* Optional debug / payload box (can be removed in prod) */
+.review-box {
+  margin-top: 10px;
+  background: #0b1026;
+  color: rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.review-box-title {
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+}
+
+.review-box pre {
+  margin: 0;
+  max-height: 220px;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ==============================
+   Buttons
+============================== */
+.signup-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.signup-buttons button {
+  min-width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* Primary button gradient */
+.signup-buttons .ant-btn-primary {
+  background: linear-gradient(135deg, #6c63ff, #a78bfa);
+  border: none;
+}
+
+.signup-buttons .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #7b74ff, #b8a6ff);
+}
+
+/* ==============================
+   Footer Note
+============================== */
+.footnote {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.6);
+}
+
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 520px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signup-buttons {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .signup-buttons button {
+    width: 100%;
+  }
+}
