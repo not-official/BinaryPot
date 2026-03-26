@@ -2,7 +2,7 @@
 
 **LLM-Powered SSH Honeypot for Realistic Attacker Simulation**
 
-BinaryPot is a high-interaction SSH honeypot that uses a multiple Large Language Model to simulate realistic Linux terminal behavior and analyze attacker behavior and threats. It dynamically generates state-aware command responses to engage attackers, capture their actions, and enable deeper cybersecurity analysis.
+BinaryPot is a high-interaction SSH honeypot that uses multiple Large Language Models to simulate realistic Linux terminal behavior and analyze attacker behavior and threats. It dynamically generates state-aware command responses to engage attackers, capture their actions, and enable deeper cybersecurity analysis.
 
 ---
 
@@ -102,7 +102,7 @@ source venv/bin/activate   # or venv\Scripts\activate (Windows)
 pip install -r requirements.txt
 
 # start honeypot server
-py -m honeypot.run_honeypot
+py -m honeypot.run-honeypot
 
 # connect to honeypot (SSH simulation)
 ssh -p 2222 localhost
@@ -110,6 +110,7 @@ ssh -p 2222 localhost
 # run api server
 uvicorn app.main:app --reload
 ```
+> ⚠️ Note: Ensure `__init__.py` is present in required folders for module imports to work correctly.
 
 ---
 
@@ -131,8 +132,15 @@ Create `.env` files where required.
 ### Backend example:
 
 ```env
+GOOGLE_API_KEY=your_google_api_key
+
 JWT_SECRET=your_secret_key
-DATABASE_URL=sqlite:///./binarypot.db
+
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_EMAIL=your_email@gmail.com
+SMTP_PASSWORD=your_app_password
+ADMIN_EMAIL=admin@example.com
 ```
 
 ---
