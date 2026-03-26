@@ -426,7 +426,7 @@ const Signup = () => {
             <span className="dotY"></span>
             <span className="dotG"></span>
           </div>
-          <div className="signupTitle">binarypot.honeypot — /auth/signup-request</div>
+          <div className="signupTitle">binarypot — /auth/signup-request</div>
         </div>
 
         <div className="signupBody">

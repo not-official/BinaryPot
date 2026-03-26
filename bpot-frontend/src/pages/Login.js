@@ -107,7 +107,7 @@ const Login = () => {
             <span className="dotY"></span>
             <span className="dotG"></span>
           </div>
-          <div className="loginTitle">binarypot.honeypot — /auth/login</div>
+          <div className="loginTitle">binarypot — /auth/login</div>
         </div>
 
         <div className="loginBody">

@@ -100,7 +100,7 @@ def _email_shell(title: str, body_html: str) -> str:
                   font-size:12px;
                   font-family:'IBM Plex Mono', monospace;
                 ">
-                  binarypot.honeypot — /mail/system
+                  binarypot — /mail/system
                 </td>
               </tr>
             </table>
