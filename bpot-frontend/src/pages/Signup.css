@@ -1,239 +1,462 @@
-/* ==============================
-   Page Background
-============================== */
-.signup-page {
-  min-height: 100vh;
-  position: relative;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background: #0b1026; /* deep indigo */
-  overflow: hidden;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
-/* ==============================
-   Gradient / Glow Background
-============================== */
-.signup-bg {
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(circle at 20% 25%, rgba(108, 99, 255, 0.35), transparent 38%),
-    radial-gradient(circle at 80% 30%, rgba(167, 139, 250, 0.30), transparent 42%),
-    radial-gradient(circle at 50% 85%, rgba(217, 70, 239, 0.18), transparent 40%);
-  filter: blur(40px);
-  opacity: 0.95;
-  pointer-events: none;
-}
-
-/* ==============================
-   Card
-============================== */
-.signup-card {
-  width: min(620px, 100%);
-  border-radius: 18px;
-  box-shadow:
-    0 18px 60px rgba(0, 0, 0, 0.45),
-    0 1px 0 rgba(255, 255, 255, 0.04) inset;
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.94);
-  z-index: 1;
-  padding: 8px;
-}
-
-/* ==============================
-   Header
-============================== */
-.signup-header {
-  text-align: center;
-  margin-bottom: 14px;
-}
-
-.brand-pill {
-  display: inline-flex;
+.signupOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--void);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
-  letter-spacing: 0.25px;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.signupBox {
+  width: 100%;
+  max-width: 760px;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  box-shadow: var(--glow2), 0 0 0 1px rgba(0, 212, 255, 0.05);
+  overflow: hidden;
+}
+
+.signupHeader {
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.signupDots {
+  display: flex;
+  gap: 6px;
+}
+
+.signupDots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotR {
+  background: var(--red);
+}
+
+.dotY {
+  background: var(--amber);
+}
+
+.dotG {
+  background: var(--green);
+}
+
+.signupTitle {
+  margin-left: auto;
+  font-family: var(--mono);
   font-size: 12px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: linear-gradient(
-    135deg,
-    rgba(108, 99, 255, 0.15),
-    rgba(167, 139, 250, 0.15)
-  );
-  color: #5b5cf6;
-  border: 1px solid rgba(108, 99, 255, 0.25);
-  margin-bottom: 12px;
+  color: var(--text2);
+  text-align: right;
 }
 
-.signup-title {
-  margin: 0 !important;
-  color: #0f172a;
+.signupBody {
+  padding: 32px;
 }
 
-.signup-subtitle {
-  display: block;
-  margin-top: 6px;
-  color: rgba(15, 23, 42, 0.65);
+.signupLogo {
+  text-align: center;
+  margin-bottom: 28px;
 }
 
-/* ==============================
-   Steps
-============================== */
-.signup-steps {
-  margin: 18px 0 10px;
+.signupLogo h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--cyan);
+  letter-spacing: -1px;
+  font-family: var(--sans);
 }
 
-/* ==============================
-   Form
-============================== */
-.signup-form {
-  margin-top: 18px;
+.signupLogo p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--text3);
+  font-family: var(--mono);
+  letter-spacing: 1px;
 }
 
-/* Ant Design input polish */
-.signup-form .ant-input,
-.signup-form .ant-input-password,
-.signup-form .ant-select-selector {
-  border-radius: 10px !important;
-  padding: 10px 12px;
-}
-
-.signup-form .ant-input:focus,
-.signup-form .ant-input-password:focus,
-.signup-form .ant-input-focused,
-.signup-form .ant-select-focused .ant-select-selector {
-  border-color: #6c63ff !important;
-  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.18);
-}
-
-/* ==============================
-   Demo Billing Note
-============================== */
-.demo-note {
-  margin: -6px 0 12px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: rgba(108, 99, 255, 0.08);
-  border: 1px solid rgba(108, 99, 255, 0.22);
-  font-size: 12px;
-  color: #3f3fff;
-}
-
-/* ==============================
-   Review Section
-============================== */
-.review-grid {
+.stepTracker {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.stepItem {
+  background: var(--deep);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 12px 10px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.stepItem.active {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.08);
+}
+
+.stepItem.done {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.stepNumber {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  font-family: var(--mono);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepItem.active .stepNumber {
+  background: var(--cyan);
+  color: var(--void);
+  border-color: var(--cyan);
+}
+
+.stepItem.done .stepNumber {
+  background: var(--green);
+  color: var(--void);
+  border-color: var(--green);
+}
+
+.stepText {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text2);
+  letter-spacing: 0.5px;
+}
+
+.stepItem.active .stepText {
+  color: var(--text);
+}
+
+.signupPanel {
+  background: rgba(10, 15, 30, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.signupSectionTitle {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text2);
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.signupGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.signupField {
   margin-bottom: 16px;
 }
 
-.review-item {
-  background: #f6f7fb;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 14px;
+.signupField label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text2);
+  letter-spacing: 0.5px;
+}
+
+.signupField input,
+.signupField select {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--deep);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  border-radius: 3px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.signupField input::placeholder {
+  color: var(--text3);
+}
+
+.signupField input:focus,
+.signupField select:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.08);
+}
+
+.signupField select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.inputError {
+  border-color: var(--red) !important;
+}
+
+.fieldError {
+  margin-top: 6px;
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--red);
+  line-height: 1.4;
+}
+
+.signupHint {
+  font-size: 11px;
+  color: var(--text3);
+  font-family: var(--mono);
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.reviewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.reviewItem {
+  background: var(--deep);
+  border: 1px solid var(--border);
+  border-radius: 3px;
   padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
-.review-label {
-  font-size: 11px;
-  color: rgba(15, 23, 42, 0.55);
+.reviewLabel {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 1px;
 }
 
-.review-value {
+.reviewValue {
   font-size: 13px;
-  font-weight: 600;
-  color: rgba(15, 23, 42, 0.9);
+  color: var(--text);
+  font-family: var(--mono);
   word-break: break-word;
 }
 
-/* Optional debug / payload box (can be removed in prod) */
-.review-box {
-  margin-top: 10px;
-  background: #0b1026;
-  color: rgba(255, 255, 255, 0.85);
-  border-radius: 14px;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.reviewBox {
+  margin-bottom: 18px;
+  background: var(--deep);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
 }
 
-.review-box-title {
-  font-size: 12px;
-  margin-bottom: 8px;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 600;
+.reviewBoxTitle {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text2);
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.review-box pre {
+.reviewBox pre {
   margin: 0;
-  max-height: 220px;
-  overflow: auto;
+  padding: 14px;
+  color: var(--cyan);
+  font-family: var(--mono);
   font-size: 12px;
-  line-height: 1.35;
   white-space: pre-wrap;
   word-break: break-word;
+  line-height: 1.5;
 }
 
-/* ==============================
-   Buttons
-============================== */
-.signup-buttons {
+.signupCheckbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text2);
+  font-family: var(--mono);
+  line-height: 1.5;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.signupCheckbox input {
+  margin-top: 2px;
+  accent-color: var(--cyan);
+}
+
+.signupButtons {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  gap: 10px;
+  gap: 12px;
+  margin-top: 22px;
 }
 
-.signup-buttons button {
-  min-width: 120px;
-  height: 40px;
-  border-radius: 10px;
+.signupPrimaryBtn,
+.signupSecondaryBtn {
+  padding: 12px 16px;
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: 13px;
   font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-/* Primary button gradient */
-.signup-buttons .ant-btn-primary {
-  background: linear-gradient(135deg, #6c63ff, #a78bfa);
+.signupPrimaryBtn {
+  background: var(--cyan);
+  color: var(--void);
   border: none;
 }
 
-.signup-buttons .ant-btn-primary:hover {
-  background: linear-gradient(135deg, #7b74ff, #b8a6ff);
+.signupPrimaryBtn:hover {
+  background: #00aacc;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
-/* ==============================
-   Footer Note
-============================== */
-.footnote {
+.signupSecondaryBtn {
+  background: transparent;
+  color: var(--text2);
+  border: 1px solid var(--border2);
+}
+
+.signupSecondaryBtn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.signupPrimaryBtn:disabled,
+.signupSecondaryBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.signupFooterText {
+  margin-top: 16px;
   text-align: center;
-  margin-top: 14px;
   font-size: 12px;
-  color: rgba(15, 23, 42, 0.6);
+  font-family: var(--mono);
+  color: var(--text3);
 }
 
-/* ==============================
-   Responsive
-============================== */
-@media (max-width: 520px) {
-  .review-grid {
+.signupLinkBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--cyan);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.signupLinkBtn:hover {
+  text-decoration: underline;
+}
+
+.signupModalText {
+  color: var(--text2);
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.signupModalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* Ant Modal dark override */
+.ant-modal-content {
+  background: var(--surface) !important;
+  border: 1px solid var(--border2) !important;
+  box-shadow: var(--glow2) !important;
+}
+
+.ant-modal-header {
+  background: var(--panel) !important;
+  border-bottom: 1px solid var(--border) !important;
+  margin-bottom: 0 !important;
+}
+
+.ant-modal-title {
+  color: var(--text) !important;
+  font-family: var(--mono) !important;
+  font-size: 13px !important;
+}
+
+.ant-modal-close {
+  color: var(--text2) !important;
+}
+
+.ant-modal-body {
+  padding-top: 20px !important;
+}
+
+@media (max-width: 768px) {
+  .signupOverlay {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .signupBody {
+    padding: 24px;
+  }
+
+  .signupGrid,
+  .reviewGrid,
+  .stepTracker {
     grid-template-columns: 1fr;
   }
 
-  .signup-buttons {
-    flex-direction: column-reverse;
-    align-items: stretch;
+  .signupButtons {
+    flex-direction: column;
   }
 
-  .signup-buttons button {
+  .signupPrimaryBtn,
+  .signupSecondaryBtn {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .signupLogo h1 {
+    font-size: 25px;
+  }
+
+  .signupTitle {
+    font-size: 11px;
+  }
+
+  .signupPanel {
+    padding: 18px;
   }
 }

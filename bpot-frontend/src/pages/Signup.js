@@ -1,89 +1,151 @@
-import React, { useMemo, useState } from "react";
-import {
-  Card,
-  Form,
-  Input,
-  Button,
-  Typography,
-  Select,
-  Checkbox,
-  Steps,
-  Divider,
-  Row,
-  Col,
-  message,
-  Modal, // ✅ added
-} from "antd";
+import React, { useState } from "react";
+import { message, Modal } from "antd";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Signup.css";
 
-const { Title, Text } = Typography;
-const { Option } = Select;
-
 const API_BASE = import.meta?.env?.VITE_API_BASE_URL || "http://localhost:8000";
 
 const Signup = () => {
-  const [current, setCurrent] = useState(0);
-  const [form] = Form.useForm();
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
 
-  // ✅ added: success modal state
+  const [current, setCurrent] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [successOpen, setSuccessOpen] = useState(false);
 
-  const stepFields = useMemo(
-    () => [
-      ["full_name", "email", "password", "confirm_password"],
-      ["organization", "role", "usage"],
-      ["plan", "card_name", "card_number"],
-      ["terms"],
-    ],
-    []
-  );
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+    organization: "",
+    role: "",
+    usage: "",
+    plan: "",
+    card_name: "",
+    card_number: "",
+    terms: false,
+  });
 
-  const next = async () => {
-    try {
-      await form.validateFields(stepFields[current]);
-      setCurrent((c) => c + 1);
-    } catch {
-      // validation failed
+  const [errors, setErrors] = useState({});
+
+  const steps = ["Account", "Organization", "Plan", "Review"];
+
+  const updateField = (name, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+  const validateStep = () => {
+    const newErrors = {};
+
+    if (current === 0) {
+      if (!formData.full_name.trim()) newErrors.full_name = "Please enter your full name";
+      if (!formData.email.trim()) {
+        newErrors.email = "Please enter your email";
+      } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+        newErrors.email = "Enter a valid email address";
+      }
+
+      if (!formData.password) {
+        newErrors.password = "Please create a password";
+      } else if (formData.password.length < 8) {
+        newErrors.password = "Minimum 8 characters";
+      }
+
+      if (!formData.confirm_password) {
+        newErrors.confirm_password = "Please confirm your password";
+      } else if (formData.password !== formData.confirm_password) {
+        newErrors.confirm_password = "Passwords do not match";
+      }
+    }
+
+    if (current === 1) {
+      if (!formData.organization.trim()) newErrors.organization = "Please enter your organization";
+      if (!formData.role) newErrors.role = "Please select your role";
+      if (!formData.usage) newErrors.usage = "Please select intended usage";
+    }
+
+    if (current === 2) {
+      if (!formData.plan) newErrors.plan = "Please select a plan";
+
+      if (formData.card_number && !/^[0-9 ]+$/.test(formData.card_number)) {
+        newErrors.card_number = "Use digits and spaces only";
+      }
+    }
+
+    if (current === 3) {
+      if (!formData.terms) newErrors.terms = "You must accept the terms to continue";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const next = () => {
+    if (validateStep()) {
+      setCurrent((prev) => prev + 1);
     }
   };
 
-  const prev = () => setCurrent((c) => c - 1);
+  const prev = () => {
+    setCurrent((prev) => prev - 1);
+  };
 
   const submit = async () => {
+    if (!validateStep()) return;
+
     setLoading(true);
 
     try {
-      // Validate everything (including terms)
-      await form.validateFields();
-
-      // IMPORTANT: true = include unmounted fields
-      const values = form.getFieldsValue(true);
-
-      // remove confirm_password
-      const { confirm_password, ...payload } = values;
-
-      // safe log
-      const { password, card_number, ...safeLog } = payload;
-      if (import.meta?.env?.DEV) console.log("SIGNUP PAYLOAD (safe) →", safeLog);
+      const payload = {
+        full_name: formData.full_name.trim(),
+        email: formData.email.trim().toLowerCase(),
+        password: formData.password,
+        organization: formData.organization.trim(),
+        role: formData.role,
+        usage: formData.usage,
+        plan: formData.plan,
+        card_name: formData.card_name.trim(),
+        card_number: formData.card_number.trim(),
+        terms: formData.terms,
+      };
 
       await axios.post(`${API_BASE}/signup-request`, payload, {
         headers: { "Content-Type": "application/json" },
       });
 
       message.success("Signup request submitted for review");
-      form.resetFields();
 
-      // ✅ changed: show modal instead of immediate navigation
+      setFormData({
+        full_name: "",
+        email: "",
+        password: "",
+        confirm_password: "",
+        organization: "",
+        role: "",
+        usage: "",
+        plan: "",
+        card_name: "",
+        card_number: "",
+        terms: false,
+      });
+
+      setCurrent(0);
+      setErrors({});
       setSuccessOpen(true);
     } catch (err) {
       const apiMsg =
         err?.response?.data?.detail ||
         err?.response?.data?.message ||
-        (err?.errorFields ? "Please fix the highlighted fields." : "Signup failed");
+        "Signup failed";
 
       console.error("SIGNUP ERROR →", err?.response?.data || err?.message || err);
       message.error(apiMsg);
@@ -92,329 +154,347 @@ const Signup = () => {
     }
   };
 
-  const renderStep = () => {
-    // STEP 1
+  const renderStepContent = () => {
     if (current === 0) {
       return (
         <>
-          <Divider>Account Information</Divider>
+          <div className="signupSectionTitle">ACCOUNT INFORMATION</div>
 
-          <Form.Item
-            name="full_name"
-            label="Full Name"
-            rules={[{ required: true, message: "Please enter your full name" }]}
-          >
-            <Input placeholder="John Doe" autoComplete="name" />
-          </Form.Item>
+          <div className="signupField">
+            <label>FULL NAME</label>
+            <input
+              type="text"
+              placeholder="John Doe"
+              value={formData.full_name}
+              onChange={(e) => updateField("full_name", e.target.value)}
+              className={errors.full_name ? "inputError" : ""}
+            />
+            {errors.full_name && <div className="fieldError">{errors.full_name}</div>}
+          </div>
 
-          <Form.Item
-            name="email"
-            label="Email"
-            rules={[
-              { required: true, message: "Please enter your email" },
-              { type: "email", message: "Enter a valid email address" },
-            ]}
-          >
-            <Input placeholder="you@example.com" autoComplete="email" />
-          </Form.Item>
+          <div className="signupField">
+            <label>EMAIL</label>
+            <input
+              type="email"
+              placeholder="you@example.com"
+              value={formData.email}
+              onChange={(e) => updateField("email", e.target.value)}
+              className={errors.email ? "inputError" : ""}
+            />
+            {errors.email && <div className="fieldError">{errors.email}</div>}
+          </div>
 
-          <Row gutter={12}>
-            <Col xs={24} sm={12}>
-              <Form.Item
-                name="password"
-                label="Password"
-                rules={[
-                  { required: true, message: "Please create a password" },
-                  { min: 8, message: "Minimum 8 characters" },
-                ]}
-                hasFeedback
-              >
-                <Input.Password
-                  placeholder="Minimum 8 characters"
-                  autoComplete="new-password"
-                />
-              </Form.Item>
-            </Col>
+          <div className="signupGrid">
+            <div className="signupField">
+              <label>PASSWORD</label>
+              <input
+                type="password"
+                placeholder="Minimum 8 characters"
+                value={formData.password}
+                onChange={(e) => updateField("password", e.target.value)}
+                className={errors.password ? "inputError" : ""}
+              />
+              {errors.password && <div className="fieldError">{errors.password}</div>}
+            </div>
 
-            <Col xs={24} sm={12}>
-              <Form.Item
-                name="confirm_password"
-                label="Confirm Password"
-                dependencies={["password"]}
-                hasFeedback
-                rules={[
-                  { required: true, message: "Please confirm your password" },
-                  ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      if (!value || getFieldValue("password") === value) {
-                        return Promise.resolve();
-                      }
-                      return Promise.reject(new Error("Passwords do not match"));
-                    },
-                  }),
-                ]}
-              >
-                <Input.Password placeholder="Re-enter password" />
-              </Form.Item>
-            </Col>
-          </Row>
+            <div className="signupField">
+              <label>CONFIRM PASSWORD</label>
+              <input
+                type="password"
+                placeholder="Re-enter password"
+                value={formData.confirm_password}
+                onChange={(e) => updateField("confirm_password", e.target.value)}
+                className={errors.confirm_password ? "inputError" : ""}
+              />
+              {errors.confirm_password && (
+                <div className="fieldError">{errors.confirm_password}</div>
+              )}
+            </div>
+          </div>
         </>
       );
     }
 
-    // STEP 2
     if (current === 1) {
       return (
         <>
-          <Divider>Organization Details</Divider>
+          <div className="signupSectionTitle">ORGANIZATION DETAILS</div>
 
-          <Form.Item
-            name="organization"
-            label="Organization"
-            rules={[{ required: true, message: "Please enter your organization" }]}
-          >
-            <Input placeholder="Uni / Company / Lab" />
-          </Form.Item>
+          <div className="signupField">
+            <label>ORGANIZATION</label>
+            <input
+              type="text"
+              placeholder="Uni / Company / Lab"
+              value={formData.organization}
+              onChange={(e) => updateField("organization", e.target.value)}
+              className={errors.organization ? "inputError" : ""}
+            />
+            {errors.organization && (
+              <div className="fieldError">{errors.organization}</div>
+            )}
+          </div>
 
-          <Row gutter={12}>
-            <Col xs={24} sm={12}>
-              <Form.Item
-                name="role"
-                label="Role"
-                rules={[{ required: true, message: "Please select your role" }]}
+          <div className="signupGrid">
+            <div className="signupField">
+              <label>ROLE</label>
+              <select
+                value={formData.role}
+                onChange={(e) => updateField("role", e.target.value)}
+                className={errors.role ? "inputError" : ""}
               >
-                <Select placeholder="Select role">
-                  <Option value="security_engineer">Security Engineer</Option>
-                  <Option value="soc_analyst">SOC Analyst</Option>
-                  <Option value="researcher">Researcher</Option>
-                  <Option value="student">Student</Option>
-                </Select>
-              </Form.Item>
-            </Col>
+                <option value="">Select role</option>
+                <option value="security_engineer">Security Engineer</option>
+                <option value="soc_analyst">SOC Analyst</option>
+                <option value="researcher">Researcher</option>
+                <option value="student">Student</option>
+              </select>
+              {errors.role && <div className="fieldError">{errors.role}</div>}
+            </div>
 
-            <Col xs={24} sm={12}>
-              <Form.Item
-                name="usage"
-                label="Intended Usage"
-                rules={[{ required: true, message: "Please select intended usage" }]}
+            <div className="signupField">
+              <label>INTENDED USAGE</label>
+              <select
+                value={formData.usage}
+                onChange={(e) => updateField("usage", e.target.value)}
+                className={errors.usage ? "inputError" : ""}
               >
-                <Select placeholder="Select usage">
-                  <Option value="production">Production</Option>
-                  <Option value="testing">Testing</Option>
-                  <Option value="academic">Academic</Option>
-                </Select>
-              </Form.Item>
-            </Col>
-          </Row>
+                <option value="">Select usage</option>
+                <option value="production">Production</option>
+                <option value="testing">Testing</option>
+                <option value="academic">Academic</option>
+              </select>
+              {errors.usage && <div className="fieldError">{errors.usage}</div>}
+            </div>
+          </div>
         </>
       );
     }
 
-    // STEP 3
     if (current === 2) {
       return (
         <>
-          <Divider>Plan & Billing (Demo)</Divider>
+          <div className="signupSectionTitle">PLAN & BILLING</div>
 
-          <Form.Item
-            name="plan"
-            label="Plan"
-            rules={[{ required: true, message: "Please select a plan" }]}
-          >
-            <Select placeholder="Select plan">
-              <Option value="free">Free</Option>
-              <Option value="pro">Pro</Option>
-              <Option value="enterprise">Enterprise</Option>
-            </Select>
-          </Form.Item>
-
-          <div className="demo-note">
-            Demo billing fields (optional). Leave blank if not needed.
+          <div className="signupField">
+            <label>PLAN</label>
+            <select
+              value={formData.plan}
+              onChange={(e) => updateField("plan", e.target.value)}
+              className={errors.plan ? "inputError" : ""}
+            >
+              <option value="">Select plan</option>
+              <option value="free">Free</option>
+              <option value="pro">Pro</option>
+              <option value="enterprise">Enterprise</option>
+            </select>
+            {errors.plan && <div className="fieldError">{errors.plan}</div>}
           </div>
 
-          <Row gutter={12}>
-            <Col xs={24} sm={12}>
-              <Form.Item name="card_name" label="Name on Card">
-                <Input placeholder="Demo only" autoComplete="cc-name" />
-              </Form.Item>
-            </Col>
+          <div className="signupHint">
+            Demo billing fields are optional. Leave them blank if not needed.
+          </div>
 
-            <Col xs={24} sm={12}>
-              <Form.Item
-                name="card_number"
-                label="Card Number"
-                rules={[
-                  {
-                    pattern: /^[0-9 ]*$/,
-                    message: "Use digits and spaces only",
-                  },
-                ]}
-              >
-                <Input
-                  placeholder="4242 4242 4242 4242"
-                  autoComplete="cc-number"
-                />
-              </Form.Item>
-            </Col>
-          </Row>
+          <div className="signupGrid">
+            <div className="signupField">
+              <label>NAME ON CARD</label>
+              <input
+                type="text"
+                placeholder="Demo only"
+                value={formData.card_name}
+                onChange={(e) => updateField("card_name", e.target.value)}
+              />
+            </div>
+
+            <div className="signupField">
+              <label>CARD NUMBER</label>
+              <input
+                type="text"
+                placeholder="4242 4242 4242 4242"
+                value={formData.card_number}
+                onChange={(e) => updateField("card_number", e.target.value)}
+                className={errors.card_number ? "inputError" : ""}
+              />
+              {errors.card_number && <div className="fieldError">{errors.card_number}</div>}
+            </div>
+          </div>
         </>
       );
     }
 
-    // STEP 4 (Review) — IMPORTANT: read values from form store
-    const values = form.getFieldsValue(true);
-
     return (
       <>
-        <Divider>Review & Submit</Divider>
+        <div className="signupSectionTitle">REVIEW & SUBMIT</div>
 
-        <div className="review-grid">
-          <div className="review-item">
-            <span className="review-label">Full Name</span>
-            <span className="review-value">{values.full_name || "-"}</span>
+        <div className="reviewGrid">
+          <div className="reviewItem">
+            <span className="reviewLabel">FULL NAME</span>
+            <span className="reviewValue">{formData.full_name || "-"}</span>
           </div>
 
-          <div className="review-item">
-            <span className="review-label">Email</span>
-            <span className="review-value">{values.email || "-"}</span>
+          <div className="reviewItem">
+            <span className="reviewLabel">EMAIL</span>
+            <span className="reviewValue">{formData.email || "-"}</span>
           </div>
 
-          <div className="review-item">
-            <span className="review-label">Organization</span>
-            <span className="review-value">{values.organization || "-"}</span>
+          <div className="reviewItem">
+            <span className="reviewLabel">ORGANIZATION</span>
+            <span className="reviewValue">{formData.organization || "-"}</span>
           </div>
 
-          <div className="review-item">
-            <span className="review-label">Role</span>
-            <span className="review-value">{values.role || "-"}</span>
+          <div className="reviewItem">
+            <span className="reviewLabel">ROLE</span>
+            <span className="reviewValue">{formData.role || "-"}</span>
           </div>
 
-          <div className="review-item">
-            <span className="review-label">Usage</span>
-            <span className="review-value">{values.usage || "-"}</span>
+          <div className="reviewItem">
+            <span className="reviewLabel">USAGE</span>
+            <span className="reviewValue">{formData.usage || "-"}</span>
           </div>
 
-          <div className="review-item">
-            <span className="review-label">Plan</span>
-            <span className="review-value">{values.plan || "-"}</span>
+          <div className="reviewItem">
+            <span className="reviewLabel">PLAN</span>
+            <span className="reviewValue">{formData.plan || "-"}</span>
           </div>
         </div>
 
-        <div className="review-box">
-          <div className="review-box-title">Raw Payload Preview (safe)</div>
+        <div className="reviewBox">
+          <div className="reviewBoxTitle">SAFE PAYLOAD PREVIEW</div>
           <pre>
-            {JSON.stringify(
-              {
-                ...values,
-                password: values.password ? "********" : undefined,
-                confirm_password: undefined,
-                card_number: values.card_number ? "**** **** **** ****" : undefined,
-              },
-              null,
-              2
-            )}
+{JSON.stringify(
+  {
+    ...formData,
+    password: formData.password ? "********" : undefined,
+    confirm_password: undefined,
+    card_number: formData.card_number ? "**** **** **** ****" : undefined,
+  },
+  null,
+  2
+)}
           </pre>
         </div>
 
-        <Form.Item
-          name="terms"
-          valuePropName="checked"
-          rules={[
-            {
-              validator: (_, value) =>
-                value
-                  ? Promise.resolve()
-                  : Promise.reject(new Error("You must accept the terms to continue.")),
-            },
-          ]}
-        >
-          <Checkbox>I agree to the Terms, Privacy Policy and responsible usage</Checkbox>
-        </Form.Item>
+        <label className="signupCheckbox">
+          <input
+            type="checkbox"
+            checked={formData.terms}
+            onChange={(e) => updateField("terms", e.target.checked)}
+          />
+          <span>I agree to the Terms, Privacy Policy and responsible usage</span>
+        </label>
+        {errors.terms && <div className="fieldError">{errors.terms}</div>}
       </>
     );
   };
 
   return (
-    <div className="signup-page">
-      <div className="signup-bg" />
-
-      {/* ✅ added: Success Modal */}
+    <div className="signupOverlay">
       <Modal
         open={successOpen}
         title="Request sent"
         onCancel={() => setSuccessOpen(false)}
-        footer={[
-          <Button key="close" onClick={() => setSuccessOpen(false)}>
-            Close
-          </Button>,
-          <Button
-            key="login"
-            type="primary"
+        footer={null}
+        centered
+      >
+        <p className="signupModalText">
+          Your signup request has been sent for admin review. You&apos;ll be notified
+          by email when it&apos;s approved or rejected.
+        </p>
+
+        <div className="signupModalActions">
+          <button
+            className="signupSecondaryBtn"
+            onClick={() => setSuccessOpen(false)}
+          >
+            CLOSE
+          </button>
+          <button
+            className="signupPrimaryBtn"
             onClick={() => {
               setSuccessOpen(false);
               navigate("/login");
             }}
           >
-            Continue
-          </Button>,
-        ]}
-      >
-        <Text>
-          Your signup request has been sent for admin review. You’ll be notified by
-          email when it’s approved or rejected.
-        </Text>
+            CONTINUE →
+          </button>
+        </div>
       </Modal>
 
-      <Card className="signup-card" bordered={false}>
-        <div className="signup-header">
-          <div className="brand-pill">BinaryPot</div>
-          <Title level={3} className="signup-title">
-            Admin Signup
-          </Title>
-          <Text type="secondary" className="signup-subtitle">
-            All admin accounts require manual verification.
-          </Text>
+      <div className="signupBox">
+        <div className="signupHeader">
+          <div className="signupDots">
+            <span className="dotR"></span>
+            <span className="dotY"></span>
+            <span className="dotG"></span>
+          </div>
+          <div className="signupTitle">binarypot.honeypot — /auth/signup-request</div>
         </div>
 
-        <Steps current={current} size="small" className="signup-steps">
-          <Steps.Step title="Account" />
-          <Steps.Step title="Organization" />
-          <Steps.Step title="Plan" />
-          <Steps.Step title="Review" />
-        </Steps>
-
-        <Form
-          layout="vertical"
-          form={form}
-          className="signup-form"
-          preserve={true}
-          requiredMark={false}
-        >
-          {renderStep()}
-
-          <div className="signup-buttons">
-            <Button disabled={current === 0} onClick={prev}>
-              Back
-            </Button>
-
-            {current < 3 ? (
-              <Button type="primary" onClick={next}>
-                Next
-              </Button>
-            ) : (
-              <Button type="primary" loading={loading} onClick={submit}>
-                Submit Request
-              </Button>
-            )}
+        <div className="signupBody">
+          <div className="signupLogo">
+            <h1>⬡ BinaryPot</h1>
+            <p>ADMIN ACCESS REQUEST PORTAL</p>
           </div>
 
-          <div className="footnote">
-            <Text type="secondary">
-              Tip: Use a real email, approval details will be sent there.
-            </Text>
+          <div className="stepTracker">
+            {steps.map((step, index) => (
+              <div
+                key={step}
+                className={`stepItem ${current === index ? "active" : ""} ${
+                  current > index ? "done" : ""
+                }`}
+              >
+                <div className="stepNumber">{index + 1}</div>
+                <div className="stepText">{step}</div>
+              </div>
+            ))}
           </div>
-        </Form>
-      </Card>
+
+          <div className="signupPanel">
+            {renderStepContent()}
+
+            <div className="signupButtons">
+              <button
+                type="button"
+                className="signupSecondaryBtn"
+                onClick={prev}
+                disabled={current === 0 || loading}
+              >
+                ← BACK
+              </button>
+
+              {current < 3 ? (
+                <button
+                  type="button"
+                  className="signupPrimaryBtn"
+                  onClick={next}
+                >
+                  NEXT →
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className="signupPrimaryBtn"
+                  onClick={submit}
+                  disabled={loading}
+                >
+                  {loading ? "SUBMITTING..." : "SUBMIT REQUEST →"}
+                </button>
+              )}
+            </div>
+
+            <div className="signupFooterText">
+              <span>ALREADY HAVE ACCESS? </span>
+              <button
+                type="button"
+                className="signupLinkBtn"
+                onClick={() => navigate("/login")}
+              >
+                GO TO LOGIN
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
