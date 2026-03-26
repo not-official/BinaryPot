@@ -2,7 +2,7 @@
 
 **LLM-Powered SSH Honeypot for Realistic Attacker Simulation**
 
-BinaryPot is a high-interaction SSH honeypot that uses a fine-tuned Large Language Model to simulate realistic Linux terminal behavior. It dynamically generates state-aware command responses to engage attackers, capture their actions, and enable deeper cybersecurity analysis.
+BinaryPot is a high-interaction SSH honeypot that uses a multiple Large Language Model to simulate realistic Linux terminal behavior and analyze attacker behavior and threats. It dynamically generates state-aware command responses to engage attackers, capture their actions, and enable deeper cybersecurity analysis.
 
 ---
 
