@@ -346,7 +346,7 @@ const LandingPage = () => {
               </p>
             </article>
 
-            <article className="bp-service-card bp-service-card-featured">
+            <article className="bp-service-card">
               <div className="bp-service-icon">≡</div>
               <h3>Command and session capture</h3>
               <p>
