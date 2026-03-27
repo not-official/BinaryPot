@@ -7,7 +7,7 @@ import Topbar from "../components/Topbar";
 import "./Dashboard.css";
 
 const API_BASE =
-  import.meta?.env?.VITE_API_BASE_URL?.replace(/\/$/, "") || "http://localhost:8000";
+  process.env.REACT_APP_API_BASE_URL?.replace(/\/$/, "") || "http://localhost:8000";
 
 
 function Dashboard() {
@@ -454,7 +454,7 @@ function Dashboard() {
       />
         <div className="dashboardShell">
           <h1 className="pageTitle">Live Dashboard</h1>
-          <p className="pageSub">// real-time threat intelligence · api-driven monitor</p>
+        <p className="pageSub">{'// real-time threat intelligence · api-driven monitor'}</p>
 
           <div className="filtersBar">
             <div className="filtersLeft">

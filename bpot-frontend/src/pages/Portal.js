@@ -71,7 +71,7 @@ const Portal = () => {
           </div>
 
           {/* SECTION */}
-          <div className="sectionLabel">// quick access</div>
+          <div className="sectionLabel">{'// quick access'}</div>
 
           {/* HUB */}
           <div className="navHub">

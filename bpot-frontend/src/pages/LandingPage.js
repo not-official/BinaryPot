@@ -255,7 +255,7 @@ const LandingPage = () => {
 
         <section className="bp-section" id="about">
           <div className="bp-section-head">
-            <div className="bp-section-tag">// ABOUT</div>
+            <div className="bp-section-tag">{'// ABOUT'}</div>
             <h2 className="bp-section-title">
               A modern honeypot built for <span>real observation</span>
             </h2>
@@ -293,7 +293,7 @@ const LandingPage = () => {
 
         <section className="bp-section" id="service">
           <div className="bp-section-head">
-            <div className="bp-section-tag">// OUR SERVICE</div>
+            <div className="bp-section-tag">{'// OUR SERVICE'}</div>
             <h2 className="bp-section-title">
               Deception that feels <span>convincing</span>
             </h2>
@@ -328,7 +328,7 @@ const LandingPage = () => {
 
         <section className="bp-section" id="why-binarypot">
           <div className="bp-section-head">
-            <div className="bp-section-tag">// WHY BINARYPOT</div>
+            <div className="bp-section-tag">{'// WHY BINARYPOT'}</div>
             <h2 className="bp-section-title">
               Why people choose <span>BinaryPot</span>
             </h2>
@@ -365,7 +365,7 @@ const LandingPage = () => {
           <div className="bp-contact-panel">
             <div className="bp-contact-glow"></div>
             <div className="bp-contact-content">
-              <div className="bp-section-tag">// CONTACT US</div>
+              <div className="bp-section-tag">{'// CONTACT US'}</div>
               <h2>Ready to explore BinaryPot?</h2>
               <p>
                 Request access or email us directly to learn more about BinaryPot.
