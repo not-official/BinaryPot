@@ -1,12 +1,3 @@
-/* LandingPage.css */
-/* Uses your existing theme tokens from theme.css
-   Expected tokens already defined by you:
-   --void, --card, --text, --text2, --text3,
-   --cyan, --cyan2, --green,
-   --border, --border2, --glow,
-   --sans, --mono
-*/
-
 .bp-landing {
   position: relative;
   min-height: 100vh;
