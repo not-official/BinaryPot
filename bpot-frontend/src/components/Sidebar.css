@@ -34,6 +34,11 @@
   flex: 1;
 }
 
+.loginLogoLink {
+  text-decoration: none;   /* ❌ remove underline */
+  color: inherit;          /* keep your text color */
+}
+
 .logoIcon {
   width: 34px;
   min-width: 34px;

@@ -59,7 +59,9 @@ const Portal = () => {
                 <Link to="/map" className="btnSecondary">
                   Attack Map
                 </Link>
-                <Link to="/docs" className="btnSecondary">
+                <Link to="https://github.com/not-official/BinaryPot/blob/main/README.md"
+                  target="_blank" 
+                  className="btnSecondary">
                   Docs
                 </Link>
               </div>

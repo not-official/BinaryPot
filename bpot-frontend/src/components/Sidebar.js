@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = ({ collapsed, setCollapsed }) => {
@@ -11,7 +11,9 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
 
           {!collapsed && (
             <div className="logoTextWrap">
-              <div className="logoText">BinaryPot</div>
+                          <Link to="/" className="loginLogoLink">
+                              <div className="logoText">BinaryPot</div>
+                            </Link>
               <span className="logoVer">SSH HONEYPOT v1.0</span>
             </div>
           )}
@@ -81,7 +83,8 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
         </NavLink>
 
         <NavLink
-          to="/docs"
+          to="https://github.com/not-official/BinaryPot/blob/main/README.md"
+          target="_blank"
           className={({ isActive }) => (isActive ? "navItem active" : "navItem")}
         >
           <span className="navIcon">◫</span>

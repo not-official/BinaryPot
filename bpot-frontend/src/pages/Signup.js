@@ -458,8 +458,8 @@ const Signup = () => {
               <button
                 type="button"
                 className="signupSecondaryBtn"
-                onClick={prev}
-                disabled={current === 0 || loading}
+                onClick={() => current === 0 ? navigate("/") : prev()}
+                disabled={loading}
               >
                 ← BACK
               </button>
