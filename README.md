@@ -23,7 +23,7 @@ BinaryPot is a high-interaction SSH honeypot that uses multiple Large Language M
 * 🔌 **Backend API (FastAPI)**
   Handles authentication, sessions, and honeypot logic
 
-* 💻 **Frontend Dashboard (Next + AntD)**
+* 💻 **Frontend Dashboard (React + AntD)**
   Clean UI for managing and observing honeypot activity
 
 ---
@@ -34,7 +34,7 @@ BinaryPot is a high-interaction SSH honeypot that uses multiple Large Language M
 BinaryPot/
 │
 ├── bpot-backend/     # FastAPI backend (honeypot engine + auth/API + AI)
-├── bpot-frontend/    # NEXT frontend (dashboard UI)
+├── bpot-frontend/    # REACT frontend (dashboard UI)
 └── README.md
 ```
 
@@ -52,7 +52,7 @@ BinaryPot/
 
 ### Frontend
 
-* Next
+* React
 * Ant Design (AntD)
 * Axios
 
@@ -147,7 +147,7 @@ ADMIN_EMAIL=admin@example.com
 
 ## 📄 License
 
-This project is for educational and research purposes.
+This is our final-year project for educational and research purposes.
 
 ---
 
