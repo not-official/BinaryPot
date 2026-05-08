@@ -1,4 +1,4 @@
-```markdown
+
 # 🛡️ BinaryPot
 
 **LLM-Powered SSH Honeypot for Realistic Attacker Simulation**
@@ -233,4 +233,3 @@ If external AI APIs are used in future versions, add the required API keys in th
 ## 📄 License
 
 This is a final-year project built for educational and research purposes.
-```
