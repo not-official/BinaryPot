@@ -146,3 +146,13 @@
 {"time": "2026-05-08T12:53:46+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cat .gitignore", "output": "__pycache__/\n.env\n*.log", "session_id": "f59a6592"}
 {"time": "2026-05-08T12:53:54+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "f59a6592"}
 {"time": "2026-05-08T12:53:54+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "f59a6592"}
+{"time": "2026-05-08T13:13:49+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "binarypot  binarypot_ssh", "session_id": "ae774dd6"}
+{"time": "2026-05-08T13:13:55+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "rmdir binarypot_ssh", "output": "", "session_id": "ae774dd6"}
+{"time": "2026-05-08T13:13:56+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "binarypot", "session_id": "ae774dd6"}
+{"time": "2026-05-08T13:13:57+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "ae774dd6"}
+{"time": "2026-05-08T13:13:57+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "", "session_id": "ae774dd6"}
+{"time": "2026-05-08T13:13:59+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "nice", "output": "nice: command not found", "session_id": "ae774dd6"}
+{"time": "2026-05-08T13:14:47+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "python -version", "output": "Python 3.8.5", "session_id": "ae774dd6"}
+{"time": "2026-05-08T13:15:15+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "python -version", "output": "Python 3.8.5", "session_id": "ae774dd6"}
+{"time": "2026-05-08T13:15:17+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "ae774dd6"}
+{"time": "2026-05-08T13:15:17+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "ae774dd6"}

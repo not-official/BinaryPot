@@ -114,10 +114,8 @@
       "system-backup.tar.gz"
     ],
     "/home/A S U S": [
-      "binarypot_ssh",
       "binarypot"
     ],
-    "/home/A S U S/binarypot_ssh": [],
     "/home/A S U S/binarypot": [
       "README.md",
       ".gitignore",
@@ -228,7 +226,6 @@
     "/var/backups": 1765342190,
     "/var/backups/system-backup.tar.gz": 1765342190,
     "/home/A S U S": 1778223431,
-    "/home/A S U S/binarypot_ssh": 1778223634,
     "/home/A S U S/binarypot": 1778224095,
     "/home/A S U S/binarypot/README.md": 1778224095,
     "/home/A S U S/binarypot/.gitignore": 1778224095,
