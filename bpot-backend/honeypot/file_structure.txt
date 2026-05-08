@@ -1,41 +1,244 @@
 {
   "dirs": {
     "/": [
-      "home",
+      "bin",
+      "boot",
+      "dev",
       "etc",
-      "var",
-      "tmp"
+      "home",
+      "lib",
+      "opt",
+      "root",
+      "tmp",
+      "usr",
+      "var"
+    ],
+    "/bin": [],
+    "/boot": [],
+    "/dev": [],
+    "/etc": [
+      "hostname",
+      "hosts",
+      "issue",
+      "passwd",
+      "ssh",
+      "nginx"
+    ],
+    "/etc/ssh": [
+      "sshd_config"
+    ],
+    "/etc/nginx": [
+      "nginx.conf",
+      "sites-available",
+      "sites-enabled"
+    ],
+    "/etc/nginx/sites-available": [
+      "default"
+    ],
+    "/etc/nginx/sites-enabled": [
+      "default"
     ],
     "/home": [
-      "asus",
-      "aman",
-      "love",
-      "A S U S",
-      "hichada"
+      "ubuntu",
+      "deploy",
+      "www-data",
+      "A S U S"
     ],
-    "/home/asus": [
-      "notes.txt",
-      "secrets.txt"
+    "/home/ubuntu": [
+      "README.txt",
+      "backup.sh",
+      "logs"
     ],
-    "/home/aman": [],
-    "/home/love": [],
+    "/home/ubuntu/logs": [
+      "access.log",
+      "error.log"
+    ],
+    "/home/deploy": [
+      "app",
+      "scripts"
+    ],
+    "/home/deploy/app": [
+      "README.md",
+      "server.py",
+      "requirements.txt"
+    ],
+    "/home/deploy/scripts": [
+      "restart.sh"
+    ],
+    "/home/www-data": [
+      "public_html"
+    ],
+    "/home/www-data/public_html": [
+      "index.html"
+    ],
+    "/lib": [],
+    "/opt": [
+      "backup"
+    ],
+    "/opt/backup": [
+      "daily.tar.gz"
+    ],
+    "/root": [],
+    "/tmp": [],
+    "/usr": [
+      "bin",
+      "local"
+    ],
+    "/usr/bin": [],
+    "/usr/local": [
+      "bin"
+    ],
+    "/usr/local/bin": [],
+    "/var": [
+      "log",
+      "www",
+      "backups"
+    ],
+    "/var/log": [
+      "auth.log",
+      "syslog",
+      "nginx"
+    ],
+    "/var/log/nginx": [
+      "access.log",
+      "error.log"
+    ],
+    "/var/www": [
+      "html"
+    ],
+    "/var/www/html": [
+      "index.html",
+      "robots.txt"
+    ],
+    "/var/backups": [
+      "system-backup.tar.gz"
+    ],
     "/home/A S U S": [
-      "black",
-      "blue"
+      "binarypot_ssh",
+      "binarypot"
     ],
-    "/home/A S U S/black": [],
-    "/home/hichada": [],
-    "/home/A S U S/blue": []
+    "/home/A S U S/binarypot_ssh": [],
+    "/home/A S U S/binarypot": [
+      "README.md",
+      ".gitignore",
+      "main.py",
+      "requirements.txt",
+      ".git"
+    ],
+    "/home/A S U S/binarypot/.git": [
+      "objects",
+      "refs",
+      "HEAD",
+      "config"
+    ],
+    "/home/A S U S/binarypot/.git/objects": [],
+    "/home/A S U S/binarypot/.git/refs": [
+      "heads"
+    ],
+    "/home/A S U S/binarypot/.git/refs/heads": []
   },
   "files": {
-    "/home/asus/notes.txt": "These are sample notes.\nTry 'cat notes.txt'\n",
-    "/home/asus/secrets.txt": "This file is an illusion.\n",
-    "/etc/issue": "Ubuntu 20.04.6 LTS\n"
+    "/etc/issue": "Ubuntu 20.04.6 LTS \\n \\\\l\n",
+    "/etc/hostname": "web01\n",
+    "/etc/hosts": "127.0.0.1 localhost\n127.0.1.1 web01\n\n# The following lines are desirable for IPv6 capable hosts\n::1     localhost ip6-localhost ip6-loopback\nff02::1 ip6-allnodes\nff02::2 ip6-allrouters\n",
+    "/etc/passwd": "root:x:0:0:root:/root:/bin/bash\ndaemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin\nbin:x:2:2:bin:/bin:/usr/sbin/nologin\nsys:x:3:3:sys:/dev:/usr/sbin/nologin\nwww-data:x:33:33:www-data:/var/www:/usr/sbin/nologin\nubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash\ndeploy:x:1001:1001:Deploy User:/home/deploy:/bin/bash\n",
+    "/etc/ssh/sshd_config": "Port 22\nPermitRootLogin no\nPasswordAuthentication yes\nPubkeyAuthentication yes\nChallengeResponseAuthentication no\nUsePAM yes\nX11Forwarding yes\nPrintMotd no\nAcceptEnv LANG LC_*\nSubsystem sftp /usr/lib/openssh/sftp-server\n",
+    "/etc/nginx/nginx.conf": "user www-data;\nworker_processes auto;\npid /run/nginx.pid;\ninclude /etc/nginx/modules-enabled/*.conf;\n\nevents {\n    worker_connections 768;\n}\n\nhttp {\n    sendfile on;\n    tcp_nopush on;\n    tcp_nodelay on;\n    keepalive_timeout 65;\n    types_hash_max_size 2048;\n    include /etc/nginx/mime.types;\n    default_type application/octet-stream;\n    access_log /var/log/nginx/access.log;\n    error_log /var/log/nginx/error.log;\n    gzip on;\n    include /etc/nginx/conf.d/*.conf;\n    include /etc/nginx/sites-enabled/*;\n}\n",
+    "/etc/nginx/sites-available/default": "server {\n    listen 80 default_server;\n    listen [::]:80 default_server;\n    root /var/www/html;\n    index index.html index.htm index.nginx-debian.html;\n    server_name _;\n\n    location / {\n        try_files $uri $uri/ =404;\n    }\n}\n",
+    "/etc/nginx/sites-enabled/default": "server {\n    listen 80 default_server;\n    root /var/www/html;\n    index index.html;\n    server_name _;\n}\n",
+    "/home/ubuntu/README.txt": "Welcome to Ubuntu 20.04.6 LTS.\nThis server is used for web application testing and deployment.\n",
+    "/home/ubuntu/backup.sh": "#!/bin/bash\nDATE=$(date +%F)\ntar -czf /var/backups/site-$DATE.tar.gz /var/www/html\n",
+    "/home/ubuntu/logs/access.log": "127.0.0.1 - - [08/May/2026:10:12:01 +0000] \"GET / HTTP/1.1\" 200 612\n",
+    "/home/ubuntu/logs/error.log": "",
+    "/home/deploy/app/README.md": "# Web Application\n\nInternal deployment files for the web service.\n",
+    "/home/deploy/app/server.py": "from http.server import HTTPServer, SimpleHTTPRequestHandler\n\nserver = HTTPServer(('0.0.0.0', 8080), SimpleHTTPRequestHandler)\nserver.serve_forever()\n",
+    "/home/deploy/app/requirements.txt": "flask==2.3.2\nrequests==2.31.0\ngunicorn==21.2.0\n",
+    "/home/deploy/scripts/restart.sh": "#!/bin/bash\nsystemctl restart nginx\nsystemctl status nginx --no-pager\n",
+    "/home/www-data/public_html/index.html": "<html>\n<head><title>Default Site</title></head>\n<body><h1>It works</h1></body>\n</html>\n",
+    "/opt/backup/daily.tar.gz": "FAKE_BINARY_ARCHIVE_CONTENT\n",
+    "/var/log/auth.log": "May 08 09:41:22 web01 sshd[1234]: Accepted password for ubuntu from 192.168.1.25 port 54822 ssh2\nMay 08 09:44:10 web01 sudo: ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/systemctl status nginx\n",
+    "/var/log/syslog": "May 08 09:40:01 web01 CRON[1187]: (root) CMD (test -x /usr/sbin/anacron || true)\nMay 08 09:45:03 web01 systemd[1]: Started Session 12 of user ubuntu.\n",
+    "/var/log/nginx/access.log": "192.168.1.10 - - [08/May/2026:09:55:21 +0000] \"GET / HTTP/1.1\" 200 612 \"-\" \"Mozilla/5.0\"\n192.168.1.10 - - [08/May/2026:09:55:22 +0000] \"GET /robots.txt HTTP/1.1\" 200 24 \"-\" \"Mozilla/5.0\"\n",
+    "/var/log/nginx/error.log": "",
+    "/var/www/html/index.html": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Welcome to nginx</title>\n</head>\n<body>\n    <h1>Welcome to nginx</h1>\n    <p>If you see this page, the web server is successfully installed and working.</p>\n</body>\n</html>\n",
+    "/var/www/html/robots.txt": "User-agent: *\nDisallow: /admin\n",
+    "/var/backups/system-backup.tar.gz": "FAKE_BINARY_ARCHIVE_CONTENT\n",
+    "/home/A S U S/binarypot/README.md": "# binarypot\n\nThis is a cloned repository.\n",
+    "/home/A S U S/binarypot/.gitignore": "__pycache__/\n.env\n*.log\n",
+    "/home/A S U S/binarypot/main.py": "print('Hello from cloned repository')\n",
+    "/home/A S U S/binarypot/requirements.txt": "requests==2.31.0\nflask==2.3.2\n",
+    "/home/A S U S/binarypot/.git/HEAD": "ref: refs/heads/main\n",
+    "/home/A S U S/binarypot/.git/config": "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = true\n[remote \"origin\"]\n\turl = https://github.com/samrat-dotel/binarypot\n\tfetch = +refs/heads/*:refs/remotes/origin/*\n[branch \"main\"]\n\tremote = origin\n\tmerge = refs/heads/main\n"
   },
   "mtimes": {
-    "/home/asus/notes.txt": 1764923424,
-    "/home/asus/secrets.txt": 1764923424,
-    "/etc/issue": 1764923424,
-    "/home/A S U S/blue": 1765342190
+    "/bin": 1765342190,
+    "/boot": 1765342190,
+    "/dev": 1765342190,
+    "/etc": 1765342190,
+    "/etc/hostname": 1765342190,
+    "/etc/hosts": 1765342190,
+    "/etc/issue": 1765342190,
+    "/etc/passwd": 1765342190,
+    "/etc/ssh": 1765342190,
+    "/etc/ssh/sshd_config": 1765342190,
+    "/etc/nginx": 1765342190,
+    "/etc/nginx/nginx.conf": 1765342190,
+    "/etc/nginx/sites-available": 1765342190,
+    "/etc/nginx/sites-available/default": 1765342190,
+    "/etc/nginx/sites-enabled": 1765342190,
+    "/etc/nginx/sites-enabled/default": 1765342190,
+    "/home": 1765342190,
+    "/home/ubuntu": 1765342190,
+    "/home/ubuntu/README.txt": 1765342190,
+    "/home/ubuntu/backup.sh": 1765342190,
+    "/home/ubuntu/logs": 1765342190,
+    "/home/ubuntu/logs/access.log": 1765342190,
+    "/home/ubuntu/logs/error.log": 1765342190,
+    "/home/deploy": 1765342190,
+    "/home/deploy/app": 1765342190,
+    "/home/deploy/app/README.md": 1765342190,
+    "/home/deploy/app/server.py": 1765342190,
+    "/home/deploy/app/requirements.txt": 1765342190,
+    "/home/deploy/scripts": 1765342190,
+    "/home/deploy/scripts/restart.sh": 1765342190,
+    "/home/www-data": 1765342190,
+    "/home/www-data/public_html": 1765342190,
+    "/home/www-data/public_html/index.html": 1765342190,
+    "/lib": 1765342190,
+    "/opt": 1765342190,
+    "/opt/backup": 1765342190,
+    "/opt/backup/daily.tar.gz": 1765342190,
+    "/root": 1765342190,
+    "/tmp": 1765342190,
+    "/usr": 1765342190,
+    "/usr/bin": 1765342190,
+    "/usr/local": 1765342190,
+    "/usr/local/bin": 1765342190,
+    "/var": 1765342190,
+    "/var/log": 1765342190,
+    "/var/log/auth.log": 1765342190,
+    "/var/log/syslog": 1765342190,
+    "/var/log/nginx": 1765342190,
+    "/var/log/nginx/access.log": 1765342190,
+    "/var/log/nginx/error.log": 1765342190,
+    "/var/www": 1765342190,
+    "/var/www/html": 1765342190,
+    "/var/www/html/index.html": 1765342190,
+    "/var/www/html/robots.txt": 1765342190,
+    "/var/backups": 1765342190,
+    "/var/backups/system-backup.tar.gz": 1765342190,
+    "/home/A S U S": 1778223431,
+    "/home/A S U S/binarypot_ssh": 1778223634,
+    "/home/A S U S/binarypot": 1778224095,
+    "/home/A S U S/binarypot/README.md": 1778224095,
+    "/home/A S U S/binarypot/.gitignore": 1778224095,
+    "/home/A S U S/binarypot/main.py": 1778224095,
+    "/home/A S U S/binarypot/requirements.txt": 1778224095,
+    "/home/A S U S/binarypot/.git": 1778224095,
+    "/home/A S U S/binarypot/.git/objects": 1778224095,
+    "/home/A S U S/binarypot/.git/refs": 1778224095,
+    "/home/A S U S/binarypot/.git/refs/heads": 1778224095,
+    "/home/A S U S/binarypot/.git/HEAD": 1778224095,
+    "/home/A S U S/binarypot/.git/config": 1778224095
   }
 }

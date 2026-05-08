@@ -1,677 +1,739 @@
 """
-Minimal FakeShell with PowerShell-like `ls` output.
+Optimized FakeShell for BinaryPot.
 
-Commands: ls, cd, whoami, mkdir, rmdir, exit, pwd, cat, echo, touch, rm, clear, uname, id, ps, help
-Persists structure to file_structure.txt. Supports two structure formats:
-1) Compact (your sample):
-   {
-     "/": ["home","etc"],
-     "/home": ["asus"],
-     "/home/asus/notes.txt": "content",
-     ...
-   }
-2) Namespaced:
-   {"dirs": {...}, "files": {...}}
-Both are normalized internally on load.
+Features:
+- Fast hardcoded Linux-like commands
+- Persistent fake filesystem using file_structure.txt
+- Local Qwen ShellEngine fallback
+- AI response cache for repeated commands
+- Faster handling for random unknown commands
+- Hybrid wget/git clone support
 """
 
 from pathlib import Path
+from typing import Dict, Any
+import asyncio
 import json
 import shlex
 import time
 from datetime import datetime
-import os
 import uuid
+
 from .logger import log_command
-from ai import gaiservices
-from ai import ai_prompt
+from ai.shell_engine import ShellEngine
+
 
 STRUCT_FILE = Path(__file__).parent / "file_structure.txt"
-DEFAULT_STRUCTURE_COMPACT = {
+
+DEFAULT_STRUCTURE = {
     "/": ["home", "etc", "var", "tmp"],
     "/home": ["asus"],
     "/home/asus": ["notes.txt", "secrets.txt"],
     "/home/asus/notes.txt": "These are sample notes.\nTry 'cat notes.txt'\n",
     "/home/asus/secrets.txt": "This file is an illusion.\n",
+    "/etc": ["issue", "passwd", "hostname"],
     "/etc/issue": "Ubuntu 20.04.6 LTS\n",
+    "/etc/hostname": "web01\n",
+    "/etc/passwd": (
+        "root:x:0:0:root:/root:/bin/bash\n"
+        "daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin\n"
+        "www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin\n"
+        "ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash\n"
+    ),
 }
 
-# --- helpers to load/save various structure shapes --- #
-def load_structure():
-    if not STRUCT_FILE.exists():
-        save_structure_compact(DEFAULT_STRUCTURE_COMPACT)
-        return normalize_structure_compact(DEFAULT_STRUCTURE_COMPACT)
+AI_CACHE = {}
+MAX_CACHE_SIZE = 300
 
-    try:
-        raw = json.loads(STRUCT_FILE.read_text(encoding="utf-8"))
-    except Exception:
-        # if broken, recreate default
-        save_structure_compact(DEFAULT_STRUCTURE_COMPACT)
-        return normalize_structure_compact(DEFAULT_STRUCTURE_COMPACT)
+AI_ALLOWED_COMMANDS = {
+    "curl", "wget", "git", "python", "python3", "pip", "pip3",
+    "apt", "apt-get", "sudo", "find", "grep", "tar", "nc",
+    "netcat", "ssh", "scp", "chmod", "chown", "bash", "sh",
+    "uname", "id", "ps", "cat",
+}
 
-    # detect format
+LOCAL_SHELL_ENGINE = ShellEngine(
+    adapter_dir="models/binarypot-qwen25-1.5b-qlora",
+    base_model_name="Qwen/Qwen2.5-1.5B-Instruct",
+)
+
+_ENGINE_LOADED = False
+
+
+def load_local_shell_engine_once():
+    global _ENGINE_LOADED
+    if not _ENGINE_LOADED:
+        LOCAL_SHELL_ENGINE.load()
+        _ENGINE_LOADED = True
+
+
+load_local_shell_engine_once()
+
+
+# ============================================================
+# FILESYSTEM HELPERS
+# ============================================================
+
+def normalize_structure(raw):
+    dirs, files, mtimes = {}, {}, {}
+
     if isinstance(raw, dict) and ("dirs" in raw or "files" in raw):
-        # already in namespaced format
-        dirs = raw.get("dirs", {})
-        files = raw.get("files", {})
-        # ensure types
-        return {"dirs": {k: list(v) for k, v in dirs.items()}, "files": {k: str(v) for k, v in files.items()}, "mtimes": raw.get("mtimes", {})}
-    else:
-        # compact format (your sample)
-        return normalize_structure_compact(raw)
+        return {
+            "dirs": {k: list(v) for k, v in raw.get("dirs", {}).items()},
+            "files": {k: str(v) for k, v in raw.get("files", {}).items()},
+            "mtimes": raw.get("mtimes", {}),
+        }
 
-
-def normalize_structure_compact(compact):
-    """
-    Convert compact structure into namespaced dict:
-    { "dirs": { "/": [...], ... }, "files": { "/path/file": "content", ... }, "mtimes": {path: epoch, ...} }
-    """
-    dirs = {}
-    files = {}
-    mtimes = {}
-    for k, v in compact.items():
-        if isinstance(v, list):
-            dirs[k.rstrip("/") if k != "/" else "/"] = list(v)
+    for path, value in raw.items():
+        clean = path.rstrip("/") if path != "/" else "/"
+        if isinstance(value, list):
+            dirs[clean] = list(value)
         else:
-            # assume file with content
-            files[k] = str(v)
-            # set mtime to now (will be overridden if mtimes file exists)
-            mtimes[k] = int(time.time())
-    # ensure root exists
-    if "/" not in dirs:
-        dirs["/"] = []
+            files[path] = str(value)
+            mtimes[path] = int(time.time())
+
+    dirs.setdefault("/", [])
     return {"dirs": dirs, "files": files, "mtimes": mtimes}
 
 
+def load_structure():
+    if not STRUCT_FILE.exists():
+        save_structure(normalize_structure(DEFAULT_STRUCTURE))
+        return normalize_structure(DEFAULT_STRUCTURE)
+
+    try:
+        return normalize_structure(json.loads(STRUCT_FILE.read_text(encoding="utf-8")))
+    except Exception:
+        struct = normalize_structure(DEFAULT_STRUCTURE)
+        save_structure(struct)
+        return struct
+
+
 def save_structure(struct):
-    """
-    Save in namespaced format (dirs/files/mtimes).
-    Use atomic temp file replace.
-    """
     tmp = STRUCT_FILE.with_suffix(".tmp")
-    data = {"dirs": struct["dirs"], "files": struct["files"], "mtimes": struct.get("mtimes", {})}
-    tmp.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    tmp.write_text(json.dumps(struct, indent=2, ensure_ascii=False), encoding="utf-8")
     tmp.replace(STRUCT_FILE)
 
 
-def save_structure_compact(compact):
-    tmp = STRUCT_FILE.with_suffix(".tmp")
-    tmp.write_text(json.dumps(compact, indent=2, ensure_ascii=False), encoding="utf-8")
-    tmp.replace(STRUCT_FILE)
+def now():
+    return int(time.time())
 
 
-# formatting helpers
-def _now_mtime_of_struct():
-    """Fallback timestamp if specific mtime missing: use the structure file mtime."""
-    try:
-        ts = int(STRUCT_FILE.stat().st_mtime)
-        return ts
-    except Exception:
-        return int(time.time())
+def fmt_time(epoch):
+    return datetime.fromtimestamp(epoch).strftime("%m/%d/%Y %I:%M %p")
 
 
-def _format_mtime(epoch):
-    dt = datetime.fromtimestamp(epoch)
-    # PowerShell-like: MM/DD/YYYY hh:MM AM/PM
-    return dt.strftime("%m/%d/%Y %I:%M %p")
+def size_of(content):
+    return len(str(content).encode("utf-8"))
 
 
-def _mode_for(is_dir: bool):
-    return "d-----" if is_dir else "-a----"
+# ============================================================
+# FAKE SHELL
+# ============================================================
 
-
-def _size_of(content: str):
-    try:
-        return len(content.encode("utf-8"))
-    except Exception:
-        return 0
-
-
-# --- FakeShell class --- #
 class FakeShell:
     def __init__(self, chan, addr: str, username: str, session_id: str = None):
         self.chan = chan
         self.addr = addr
         self.username = username
-        # allow session_id to be supplied by the SSH server so connection/auth and command logs
-        # can be correlated. If not provided, generate one locally.
-        self.session_id = session_id if session_id else str(uuid.uuid4())[:8]
+        self.session_id = session_id or str(uuid.uuid4())[:8]
+
+        self.hostname = "web01"
+        self.os_name = "Ubuntu 20.04"
         self.env_home = f"/home/{username}"
         self.cwd = self.env_home
-        self.struct = load_structure()  # normalized
-        # ensure basic structure entries exist
+
+        self.struct = load_structure()
         self.struct.setdefault("dirs", {})
         self.struct.setdefault("files", {})
         self.struct.setdefault("mtimes", {})
-        self.command_history = []
 
+        self.command_history = []
+        self.command_index = 0
+
+        self._mkdir_virtual("/home")
+        self._mkdir_virtual(self.env_home)
+        save_structure(self.struct)
+
+    # ========================================================
+    # BASIC HELPERS
+    # ========================================================
+
+    def write(self, output=""):
+        self.chan.write((output or "") + "\r\n")
 
     def _log(self, cmd: str, output: str = ""):
-        """Log command execution - this is called for EVERY command"""
         try:
-            log_command(self.addr, self.username, cmd, session_id=self.session_id, output=output)
+            log_command(
+                self.addr,
+                self.username,
+                cmd,
+                session_id=self.session_id,
+                output=output,
+                cwd=self.cwd,
+                command_index=self.command_index,
+            )
+        except TypeError:
+            log_command(
+                self.addr,
+                self.username,
+                cmd,
+                session_id=self.session_id,
+                output=output,
+            )
         except Exception as e:
-            # Don't let logging errors break the shell
             print(f"Logging error: {e}")
 
     def _normpath(self, path: str) -> str:
-        """Expand ~, relative paths, ., .., return cleaned absolute path."""
         if not path:
             return self.cwd
+
         path = path.strip()
+
         if path.startswith("~"):
             path = path.replace("~", self.env_home, 1)
+
         if not path.startswith("/"):
-            # relative; if cwd is a file (allowed), its parent is used
-            base = self.cwd
-            if base in self.struct["files"]:
-                base = "/" + "/".join(base.strip("/").split("/")[:-1]) if "/" in base.strip("/") else "/"
-            if base == "":
-                base = "/"
-            path = base.rstrip("/") + "/" + path
+            path = self.cwd.rstrip("/") + "/" + path
+
         parts = []
-        for p in path.split("/"):
-            if p == "" or p == ".":
+
+        for part in path.split("/"):
+            if part in ("", "."):
                 continue
-            if p == "..":
+            if part == "..":
                 if parts:
                     parts.pop()
-                continue
-            parts.append(p)
+            else:
+                parts.append(part)
+
         return "/" + "/".join(parts) if parts else "/"
 
-    def _is_dir(self, path: str) -> bool:
-        p = path.rstrip("/") if path != "/" else "/"
-        return p in self.struct["dirs"]
+    def _parent_name(self, path: str):
+        clean = path.rstrip("/")
+        parent = "/" + "/".join(clean.strip("/").split("/")[:-1])
+        name = clean.split("/")[-1]
+        return parent if parent != "" else "/", name
 
-    def _is_file(self, path: str) -> bool:
+    def _is_dir(self, path: str):
+        path = path.rstrip("/") if path != "/" else "/"
+        return path in self.struct["dirs"]
+
+    def _is_file(self, path: str):
         return path in self.struct["files"]
 
-    def _dir_entries(self, path: str):
-        p = path.rstrip("/") if path != "/" else "/"
-        return list(self.struct["dirs"].get(p, []))
+    def _mkdir_virtual(self, path: str):
+        path = self._normpath(path)
 
-    def _register_dir(self, path: str):
-        p = path.rstrip("/") if path != "/" else "/"
-        if p not in self.struct["dirs"]:
-            # ensure parents
-            parent = "/" + "/".join(p.strip("/").split("/")[:-1]) if "/" in p.strip("/") else "/"
-            if parent == "":
-                parent = "/"
-            if parent not in self.struct["dirs"]:
-                # create parent recursively
-                self._register_dir(parent)
-            # add to parent listing
-            name = p.rstrip("/").split("/")[-1]
-            if name and name not in self.struct["dirs"].get(parent, []):
-                self.struct["dirs"].setdefault(parent, []).append(name)
-            self.struct["dirs"][p] = []
+        if self._is_dir(path):
+            return
 
-    
-    def _unregister_dir(self, path: str):
-        p = path.rstrip("/") if path != "/" else "/"
-        if p in self.struct["dirs"]:
-            # ensure empty
-            if self.struct["dirs"].get(p):
-                return False  # not empty
-            # remove from parent
-            parent = "/" + "/".join(p.strip("/").split("/")[:-1]) if "/" in p.strip("/") else "/"
-            if parent == "":
-                parent = "/"
-            name = p.rstrip("/").split("/")[-1]
-            if name in self.struct["dirs"].get(parent, []):
-                self.struct["dirs"][parent].remove(name)
-            del self.struct["dirs"][p]
+        parent, name = self._parent_name(path)
+
+        if not self._is_dir(parent):
+            self._mkdir_virtual(parent)
+
+        self.struct["dirs"][path] = []
+        self.struct.setdefault("mtimes", {})[path] = now()
+
+        if name and name not in self.struct["dirs"].get(parent, []):
+            self.struct["dirs"].setdefault(parent, []).append(name)
+
+    def _add_file(self, path: str, content: str = ""):
+        path = self._normpath(path)
+        parent, name = self._parent_name(path)
+
+        if not self._is_dir(parent):
+            self._mkdir_virtual(parent)
+
+        self.struct["files"][path] = content
+        self.struct.setdefault("mtimes", {})[path] = now()
+
+        if name not in self.struct["dirs"].get(parent, []):
+            self.struct["dirs"].setdefault(parent, []).append(name)
+
+        save_structure(self.struct)
+
+    def _remove_file(self, path: str):
+        path = self._normpath(path)
+        parent, name = self._parent_name(path)
+
+        self.struct["files"].pop(path, None)
+        self.struct.get("mtimes", {}).pop(path, None)
+
+        if name in self.struct["dirs"].get(parent, []):
+            self.struct["dirs"][parent].remove(name)
+
+        save_structure(self.struct)
+
+    def _remove_dir(self, path: str):
+        path = self._normpath(path)
+
+        if not self._is_dir(path) or self.struct["dirs"].get(path):
+            return False
+
+        parent, name = self._parent_name(path)
+
+        self.struct["dirs"].pop(path, None)
+        self.struct.get("mtimes", {}).pop(path, None)
+
+        if name in self.struct["dirs"].get(parent, []):
+            self.struct["dirs"][parent].remove(name)
+
+        save_structure(self.struct)
+        return True
+
+    # ========================================================
+    # LOCAL MODEL
+    # ========================================================
+
+    def _model_state(self) -> Dict[str, Any]:
+        return {
+            "hostname": self.hostname,
+            "os": self.os_name,
+            "user": self.username,
+            "cwd": self.cwd,
+            "installed_tools": ["git", "curl", "wget", "python3"],
+            "extra_rules": (
+                "IMPORTANT ENVIRONMENT RULES:\n"
+                "- git, curl, wget, and python3 are installed and available in PATH.\n"
+                "- GitHub is reachable.\n"
+                "- DNS resolution works.\n"
+                "- Output terminal text only.\n"
+                "- Do not explain anything.\n"
+                "- Do not include markdown.\n"
+                "- Do not say you are an AI.\n"
+                "- Do not include the shell prompt.\n"
+            ),
+        }
+
+    def _cache_key(self, cmdline: str, max_new_tokens: int):
+        state = self._model_state()
+        return (
+            cmdline,
+            state["user"],
+            state["cwd"],
+            tuple(state["installed_tools"]),
+            max_new_tokens,
+        )
+
+    async def _ai(self, cmdline: str, max_new_tokens: int = 60):
+        key = self._cache_key(cmdline, max_new_tokens)
+
+        if key in AI_CACHE:
+            return AI_CACHE[key]
+
+        output = await asyncio.to_thread(
+            LOCAL_SHELL_ENGINE.generate_shell_response,
+            cmdline,
+            self._model_state(),
+            max_new_tokens,
+        )
+
+        output = (output or "").strip()
+
+        if len(AI_CACHE) >= MAX_CACHE_SIZE:
+            AI_CACHE.pop(next(iter(AI_CACHE)))
+
+        AI_CACHE[key] = output
+        return output
+
+    def _should_use_ai(self, cmd: str, cmdline: str):
+        if cmd in AI_ALLOWED_COMMANDS:
             return True
+
+        if any(x in cmdline for x in ["|", "&&", ";", "$(", "`", ">", "<"]):
+            return True
+
         return False
 
-    #working for AI-generated files into filesystem
-    def _add_dynamic_file(self, filepath: str, content: str):
-        """
-        Helper to add a file to the virtual FS so 'ls' and 'cat' both work.
-        """
-        # 1. Normalize path
-        filepath = self._normpath(filepath)
-        
-        # 2. Save Content (For 'cat')
-        self.struct["files"][filepath] = content
-        self.struct.setdefault("mtimes", {})[filepath] = int(time.time())
-        
-        # 3. Update Directory Listing (For 'ls') <--- THIS IS THE KEY PART
-        parent = "/" + "/".join(filepath.strip("/").split("/")[:-1]) if "/" in filepath.strip("/") else "/"
-        if parent == "": parent = "/"
-        
-        basename = filepath.rstrip("/").split("/")[-1]
-        
-        # Ensure parent dir exists
-        if parent not in self.struct["dirs"]:
-            self.struct["dirs"][parent] = []
-            
-        # Add filename to parent dir if not already there
-        if basename not in self.struct["dirs"][parent]:
-            self.struct["dirs"][parent].append(basename)
-    
-    async def _handle_hybrid_command(self, cmdline: str, target_name: str, prompt_instruction: str, is_dir: bool = False):
-        """
-        The Bridge Function.
-        1. Registers the file/folder in Python (so 'ls' sees it).
-        2. Asks AI for the realistic output (so user sees it).
-        """
-        # Update the Librarian (Python FS) ---
-        # We process the path relative to current directory
-        full_target_path = self._normpath(target_name)
-        
+    async def _fake_file_content(self, path: str):
+        prompt = (
+            f"cat {path}\n"
+            "Generate realistic Linux file content only. "
+            "No explanation. No markdown."
+        )
+
+        output = await self._ai(prompt, max_new_tokens=100)
+
+        bad = ["no such file", "command not found", "cannot access", "not found"]
+
+        if not output or any(x in output.lower() for x in bad):
+            return ""
+
+        return output
+
+    async def _hybrid_download(self, cmdline: str, filename: str, is_dir=False):
+        target = self._normpath(filename)
+
         if is_dir:
-            # It's a directory (like git clone)
-            self._register_dir(full_target_path)
+            self._mkdir_virtual(target)
+            save_structure(self.struct)
         else:
-            # It's a file (like wget or touch)
-            placeholder_content = f"Binary content or script for {target_name}.\nGenerated by command: {cmdline}"
-            self._add_dynamic_file(full_target_path, placeholder_content)
+            self._add_file(
+                target,
+                f"Downloaded content for {filename}\nGenerated by command: {cmdline}\n",
+            )
 
-        # We ask the AI specifically for the visual output of the command
-        system_instruction = ai_prompt.get_system_prompt(
-            username=self.username, 
-            hostname="server", 
-            cwd=self.cwd, 
-            history=self.command_history
-        )
-        
-        # We append a strict instruction to the prompt to ensure it mimics the specific tool
-        full_prompt = (
-            f"Simulate the exact text output of the command: '{cmdline}'.\n"
-            f"{prompt_instruction}\n"
-            "Do not explain. Output only the terminal text."
-        )
+        return await self._ai(cmdline, max_new_tokens=120)
 
-        ai_output = await gaiservices.get_ai_response(system_instruction, full_prompt)
-        
-        return ai_output
-    
+    # ========================================================
+    # COMMAND HANDLER
+    # ========================================================
+
     async def handle(self, cmdline: str):
-        system_instruction = ai_prompt.get_system_prompt(
-            username=self.username, 
-            hostname="server",
-            cwd=self.cwd,
-            history=self.command_history
-        )
-        
-        # Handle empty input
-        if cmdline is None:
+        if not cmdline or not cmdline.strip():
+            self.write()
             return
+
         cmdline = cmdline.strip()
-        if cmdline == "":
-            self.chan.write("\r\n")
+        output = ""
+
+        try:
+            parts = shlex.split(cmdline)
+        except ValueError as e:
+            output = f"bash: syntax error: {e}"
+            self.write(output)
+            self._log(cmdline, output)
             return
 
-        # Parse command
-        parts = shlex.split(cmdline)
         if not parts:
-            self.chan.write("\r\n")
-            return
-        cmd = parts[0]
-        args = parts[1:]
-        
-        # Update command history
-        if cmdline and cmdline.strip():
-            self.command_history.append(cmdline)
-            if len(self.command_history) > 10:
-                self.command_history.pop(0)
-
-        # ===== ai_test command =====
-        if cmdline.startswith("ai_test"):
-            prompt = cmdline[8:].strip()
-            response = await gaiservices.get_ai_response(system_instruction, prompt)
-            output = response if response else f"{cmd}: command not found"
-            self.chan.write(output + "\r\n")
-            self._log(cmdline, output)  # LOG HERE
+            self.write()
             return
 
-        # ===== exit/logout =====
-        if cmd in ("exit", "logout"):
-            output = "logout"
-            self.chan.write(output + "\r\n")
-            self._log(cmdline, output)  # LOG HERE
-            raise EOFError("exit requested")
+        cmd, args = parts[0], parts[1:]
 
-        # ===== whoami =====
-        if cmd == "whoami":
-            output = self.username
-            self.chan.write(output + "\r\n")
-            self._log(cmdline, output)  # LOG HERE
-            return
+        self.command_index += 1
+        self.command_history.append(cmdline)
+        self.command_history = self.command_history[-10:]
 
-        # ===== cd =====
-        if cmd == "cd":
-            target = args[0] if args else "~"
-            target_path = self._normpath(target)
-            if self._is_dir(target_path) or self._is_file(target_path):
-                self.cwd = target_path
-                self.chan.write("\r\n")
-                self._log(cmdline, f"SUCCESS: changed to {target_path}")  # LOG HERE
-                return
-            output = f"cd: {target}: No such file or directory"
-            self.chan.write(output + "\r\n")
-            self._log(cmdline, output)  # LOG HERE
-            return
+        try:
+            # ---------------- EXIT ----------------
+            if cmd in ("exit", "logout"):
+                output = "logout"
+                self.write(output)
+                self._log(cmdline, output)
+                raise EOFError("exit requested")
 
-        # ===== mkdir =====
-        if cmd == "mkdir":
-            if len(args) == 0:
-                output = "mkdir: missing operand"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            name = args[0]
-            target_path = self._normpath(name)
-            if self._is_dir(target_path) or self._is_file(target_path):
-                output = f"mkdir: cannot create directory '{name}': File exists"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            self._register_dir(target_path)
-            self.struct.setdefault("mtimes", {})[target_path] = int(time.time())
-            save_structure(self.struct)
-            self._log(cmdline, f"SUCCESS: created directory {target_path}")  # LOG HERE
-            return
+            # ---------------- SIMPLE COMMANDS ----------------
+            if cmd == "whoami":
+                output = self.username
 
-        # ===== rmdir =====
-        if cmd == "rmdir":
-            if len(args) == 0:
-                output = "rmdir: missing operand"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            name = args[0]
-            target_path = self._normpath(name)
-            if not self._is_dir(target_path):
-                output = f"rmdir: failed to remove '{name}': No such directory"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            if self.struct["dirs"].get(target_path):
-                output = f"rmdir: failed to remove '{name}': Directory not empty"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            ok = self._unregister_dir(target_path)
-            if not ok:
-                output = f"rmdir: failed to remove '{name}'"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            save_structure(self.struct)
-            self._log(cmdline, f"SUCCESS: removed directory {target_path}")  # LOG HERE
-            return
+            elif cmd == "pwd":
+                output = self.cwd
 
-        # ===== pwd =====
-        if cmd == "pwd":
-            output = self.cwd
-            self.chan.write(output + "\r\n")
-            self._log(cmdline, output)  # LOG HERE
-            return
+            elif cmd == "echo":
+                output = " ".join(args)
 
-        # ===== ls =====
-        if cmd == "ls":
-            target = args[0] if args else "."
-            target_path = self._normpath(target)
-            
-            if self._is_file(target_path):
-                name = target_path.rstrip("/").split("/")[-1]
-                is_dir = False
-                mode = _mode_for(is_dir)
-                mtime = self.struct.get("mtimes", {}).get(target_path, _now_mtime_of_struct())
-                mtime_s = _format_mtime(mtime)
-                size = _size_of(self.struct["files"].get(target_path, ""))
-                line = f"{mode:<6} {mtime_s:<20} {str(size):>12} {name}"
-                self.chan.write(line + "\r\n")
-                self._log(cmdline, line)  # LOG HERE
+            elif cmd == "clear":
+                self.chan.write("\x1b[2J\x1b[H")
+                self._log(cmdline, "SUCCESS: screen cleared")
                 return
-            
-            if not self._is_dir(target_path):
-                output = f"ls: cannot access '{target}': No such file or directory"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            
-            entries = self._dir_entries(target_path)
-            lines = []
-            for e in sorted(entries):
-                full = (target_path.rstrip("/") + "/" + e) if target_path != "/" else "/" + e
-                is_dir = self._is_dir(full)
-                mode = _mode_for(is_dir)
-                mtime = self.struct.get("mtimes", {}).get(full, _now_mtime_of_struct())
-                mtime_s = _format_mtime(mtime)
-                if self._is_file(full):
-                    size = _size_of(self.struct["files"].get(full, ""))
-                    size_s = str(size)
+
+            elif cmd == "uname":
+                output = (
+                    "Linux web01 5.15.0-89-generic #99-Ubuntu SMP "
+                    "Mon Oct 30 20:42:41 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux"
+                    if args and args[0] == "-a"
+                    else "Linux"
+                )
+
+            elif cmd == "id":
+                output = (
+                    f"uid=1000({self.username}) "
+                    f"gid=1000({self.username}) "
+                    f"groups=1000({self.username})"
+                )
+
+            elif cmd == "ps":
+                output = "\n".join([
+                    "  PID TTY          TIME CMD",
+                    "    1 ?        00:00:01 systemd",
+                    "  123 ?        00:00:00 sshd",
+                    "  456 pts/0    00:00:00 bash",
+                ])
+
+            elif cmd == "help":
+                output = "\n".join([
+                    "Available commands:",
+                    "  ls, cd, pwd, cat, echo, touch, rm, mkdir, rmdir",
+                    "  whoami, id, uname, ps, clear, help, exit",
+                    "  wget, curl, git clone",
+                ])
+
+            # ---------------- CD ----------------
+            elif cmd == "cd":
+                target = args[0] if args else "~"
+                path = self._normpath(target)
+
+                if self._is_dir(path):
+                    self.cwd = path
                 else:
-                    size_s = ""
-                lines.append(f"{mode:<6} {mtime_s:<20} {size_s:>12} {e}")
-            
-            if lines:
-                for ln in lines:
-                    self.chan.write(ln + "\r\n")
-                output = "\n".join(lines)
-            else:
-                self.chan.write("\r\n")
-                output = "(empty directory)"
-            
-            self._log(cmdline, output)  # LOG HERE
-            return
+                    output = f"cd: {target}: No such file or directory"
 
-        # ===== cat =====
-        if cmd == "cat":
-            if not args:
-                output = "cat: missing file operand"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            target = args[0]
-            target_path = self._normpath(target)
+            # ---------------- LS ----------------
+            elif cmd == "ls":
+                target = args[-1] if args and not args[-1].startswith("-") else "."
+                path = self._normpath(target)
 
-            if not self._is_file(target_path):
-                system_instruction = ai_prompt.get_system_prompt(self.username, "server")
-                file_prompt = ai_prompt.get_file_content_prompt(target_path)
-                
-                generated_content = await gaiservices.get_ai_response(system_instruction, file_prompt)
-                
-                if not generated_content or "command not found" in generated_content.lower():
-                    output = f"cat: {target}: No such file or directory"
-                    self.chan.write(output + "\r\n")
-                    self._log(cmdline, output)  # LOG HERE
-                    return
+                if self._is_file(path):
+                    output = path.rstrip("/").split("/")[-1]
 
-                self._add_dynamic_file(target_path, generated_content)
+                elif not self._is_dir(path):
+                    output = f"ls: cannot access '{target}': No such file or directory"
 
-            content = self.struct["files"].get(target_path, "")
-            self.chan.write(content)
-            if not content.endswith("\n"):
-                self.chan.write("\r\n")
-            # Log truncated content to avoid massive logs
-            log_content = content[:500] + "..." if len(content) > 500 else content
-            self._log(cmdline, log_content)  # LOG HERE
-            return
-
-        # ===== touch =====
-        if cmd == "touch":
-            if not args:
-                output = "touch: missing file operand"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            name = args[0]
-            target_path = self._normpath(name)
-            
-            if self._is_file(target_path):
-                self.struct.setdefault("mtimes", {})[target_path] = int(time.time())
-                save_structure(self.struct)
-                self._log(cmdline, f"SUCCESS: updated mtime for {target_path}")  # LOG HERE
-                return
-            
-            if self._is_dir(target_path):
-                output = f"touch: cannot touch '{name}': Is a directory"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            
-            self.struct["files"][target_path] = ""
-            self.struct.setdefault("mtimes", {})[target_path] = int(time.time())
-            parent = "/" + "/".join(target_path.strip("/").split("/")[:-1]) if "/" in target_path.strip("/") else "/"
-            if parent == "":
-                parent = "/"
-            basename = target_path.rstrip("/").split("/")[-1]
-            if parent not in self.struct["dirs"]:
-                self._register_dir(parent)
-            if basename not in self.struct["dirs"].get(parent, []):
-                self.struct["dirs"].setdefault(parent, []).append(basename)
-            save_structure(self.struct)
-            self._log(cmdline, f"SUCCESS: created file {target_path}")  # LOG HERE
-            return
-
-        # ===== rm =====
-        if cmd == "rm":
-            if not args:
-                output = "rm: missing operand"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            name = args[0]
-            target_path = self._normpath(name)
-            
-            if not self._is_file(target_path):
-                if self._is_dir(target_path):
-                    output = f"rm: cannot remove '{name}': Is a directory"
                 else:
-                    output = f"rm: cannot remove '{name}': No such file or directory"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            
-            del self.struct["files"][target_path]
-            if target_path in self.struct.get("mtimes", {}):
-                del self.struct["mtimes"][target_path]
-            parent = "/" + "/".join(target_path.strip("/").split("/")[:-1]) if "/" in target_path.strip("/") else "/"
-            if parent == "":
-                parent = "/"
-            basename = target_path.rstrip("/").split("/")[-1]
-            if basename in self.struct["dirs"].get(parent, []):
-                self.struct["dirs"][parent].remove(basename)
-            save_structure(self.struct)
-            self._log(cmdline, f"SUCCESS: removed file {target_path}")  # LOG HERE
-            return
+                    entries = sorted(self.struct["dirs"].get(path, []))
 
-        # ===== clear =====
-        if cmd == "clear":
-            self.chan.write("\x1b[2J\x1b[H")
-            self._log(cmdline, "SUCCESS: screen cleared")  # LOG HERE
-            return
+                    if "-la" in args or "-l" in args:
+                        lines = []
 
-        # ===== uname =====
-        if cmd == "uname":
-            flag = args[0] if args else ""
-            if flag == "-a":
-                output = "Linux honeypot 5.15.0-89-generic #99-Ubuntu SMP Mon Oct 30 20:42:41 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux"
+                        for entry in entries:
+                            full = path.rstrip("/") + "/" + entry if path != "/" else "/" + entry
+                            is_dir = self._is_dir(full)
+                            mode = "drwxr-xr-x" if is_dir else "-rw-r--r--"
+                            size = 4096 if is_dir else size_of(self.struct["files"].get(full, ""))
+                            mtime = fmt_time(self.struct.get("mtimes", {}).get(full, now()))
+                            lines.append(f"{mode} 1 {self.username} {self.username} {size:>6} {mtime} {entry}")
+
+                        output = "\n".join(lines)
+                    else:
+                        output = "  ".join(entries)
+
+            # ---------------- MKDIR ----------------
+            elif cmd == "mkdir":
+                if not args:
+                    output = "mkdir: missing operand"
+                else:
+                    errors = []
+
+                    for name in args:
+                        path = self._normpath(name)
+
+                        if self._is_dir(path) or self._is_file(path):
+                            errors.append(f"mkdir: cannot create directory '{name}': File exists")
+                        else:
+                            self._mkdir_virtual(path)
+
+                    save_structure(self.struct)
+                    output = "\n".join(errors)
+
+            # ---------------- RMDIR ----------------
+            elif cmd == "rmdir":
+                if not args:
+                    output = "rmdir: missing operand"
+                else:
+                    errors = []
+
+                    for name in args:
+                        path = self._normpath(name)
+
+                        if not self._is_dir(path):
+                            errors.append(f"rmdir: failed to remove '{name}': No such directory")
+                        elif self.struct["dirs"].get(path):
+                            errors.append(f"rmdir: failed to remove '{name}': Directory not empty")
+                        else:
+                            self._remove_dir(path)
+
+                    output = "\n".join(errors)
+
+            # ---------------- TOUCH ----------------
+            elif cmd == "touch":
+                if not args:
+                    output = "touch: missing file operand"
+                else:
+                    errors = []
+
+                    for name in args:
+                        path = self._normpath(name)
+
+                        if self._is_dir(path):
+                            errors.append(f"touch: cannot touch '{name}': Is a directory")
+                        else:
+                            if not self._is_file(path):
+                                self._add_file(path, "")
+                            else:
+                                self.struct["mtimes"][path] = now()
+                                save_structure(self.struct)
+
+                    output = "\n".join(errors)
+
+            # ---------------- RM ----------------
+            elif cmd == "rm":
+                if not args:
+                    output = "rm: missing operand"
+                else:
+                    errors = []
+
+                    for name in args:
+                        path = self._normpath(name)
+
+                        if self._is_file(path):
+                            self._remove_file(path)
+                        elif self._is_dir(path):
+                            errors.append(f"rm: cannot remove '{name}': Is a directory")
+                        else:
+                            errors.append(f"rm: cannot remove '{name}': No such file or directory")
+
+                    output = "\n".join(errors)
+
+            # ---------------- CAT ----------------
+            elif cmd == "cat":
+                if not args:
+                    output = "cat: missing file operand"
+                else:
+                    results = []
+
+                    for name in args:
+                        path = self._normpath(name)
+
+                        if self._is_dir(path):
+                            results.append(f"cat: {name}: Is a directory")
+
+                        elif self._is_file(path):
+                            results.append(self.struct["files"].get(path, "").rstrip())
+
+                        else:
+                            generated = await self._fake_file_content(path)
+
+                            if generated:
+                                self._add_file(path, generated)
+                                results.append(generated.rstrip())
+                            else:
+                                results.append(f"cat: {name}: No such file or directory")
+
+                    output = "\n".join(results)
+
+            # ---------------- CURL HEAD FAST PATH ----------------
+            elif cmd == "curl" and "-I" in args:
+                url = args[-1]
+                output = "\n".join([
+                    "HTTP/1.1 200 OK",
+                    "Content-Type: text/html; charset=UTF-8",
+                    "Connection: keep-alive",
+                    "Server: ECS",
+                    f"X-Request-URL: {url}",
+                ])
+
+            # ---------------- WGET HYBRID ----------------
+            elif cmd == "wget":
+                if not args:
+                    output = "wget: missing URL"
+                else:
+                    url = args[-1]
+                    filename = url.split("/")[-1] or "index.html"
+
+                    output = await self._hybrid_download(
+                        cmdline,
+                        filename,
+                        is_dir=False,
+                    )
+
+                    if not output:
+                        output = (
+                            f"--{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}--  {url}\n"
+                            f"Resolving {url.split('/')[2] if '://' in url else url}... connected.\n"
+                            "HTTP request sent, awaiting response... 200 OK\n"
+                            f"Saving to: '{filename}'\n\n"
+                            f"'{filename}' saved"
+                        )
+
+            # ---------------- GIT CLONE HYBRID ----------------
+            elif cmd == "git" and args and args[0] == "clone":
+                if len(args) < 2:
+                    output = "fatal: repository argument required"
+                else:
+                    repo_url = args[1]
+                    folder = repo_url.rstrip("/").split("/")[-1].replace(".git", "") or "repo"
+                    target_path = self._normpath(folder)
+
+                    if self._is_dir(target_path) or self._is_file(target_path):
+                        output = f"fatal: destination path '{folder}' already exists and is not an empty directory."
+                    else:
+                        # Create cloned repo folder
+                        self._mkdir_virtual(target_path)
+
+                        # Add normal repo files
+                        self._add_file(
+                            f"{target_path}/README.md",
+                            f"# {folder}\n\nThis is a cloned repository.\n"
+                        )
+
+                        self._add_file(
+                            f"{target_path}/.gitignore",
+                            "__pycache__/\n.env\n*.log\n"
+                        )
+
+                        self._add_file(
+                            f"{target_path}/main.py",
+                            "print('Hello from cloned repository')\n"
+                        )
+
+                        self._add_file(
+                            f"{target_path}/requirements.txt",
+                            "requests==2.31.0\nflask==2.3.2\n"
+                        )
+
+                        # Add fake .git structure
+                        self._mkdir_virtual(f"{target_path}/.git")
+                        self._mkdir_virtual(f"{target_path}/.git/objects")
+                        self._mkdir_virtual(f"{target_path}/.git/refs")
+                        self._mkdir_virtual(f"{target_path}/.git/refs/heads")
+
+                        self._add_file(
+                            f"{target_path}/.git/HEAD",
+                            "ref: refs/heads/main\n"
+                        )
+
+                        self._add_file(
+                            f"{target_path}/.git/config",
+                            (
+                                "[core]\n"
+                                "\trepositoryformatversion = 0\n"
+                                "\tfilemode = true\n"
+                                "\tbare = false\n"
+                                "\tlogallrefupdates = true\n"
+                                "[remote \"origin\"]\n"
+                                f"\turl = {repo_url}\n"
+                                "\tfetch = +refs/heads/*:refs/remotes/origin/*\n"
+                                "[branch \"main\"]\n"
+                                "\tremote = origin\n"
+                                "\tmerge = refs/heads/main\n"
+                            )
+                        )
+
+                        save_structure(self.struct)
+
+                        output = "\n".join([
+                            f"Cloning into '{folder}'...",
+                            "remote: Enumerating objects: 48, done.",
+                            "remote: Counting objects: 100% (48/48), done.",
+                            "remote: Compressing objects: 100% (32/32), done.",
+                            "remote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0",
+                            "Receiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.",
+                            "Resolving deltas: 100% (12/12), done.",
+                        ])
+
+            # ---------------- AI TEST ----------------
+            elif cmd == "ai_test":
+                prompt = cmdline[len("ai_test"):].strip()
+                output = await self._ai(prompt, max_new_tokens=80)
+
+            # ---------------- UNKNOWN ----------------
             else:
-                output = "Linux"
-            self.chan.write(output + "\r\n")
-            self._log(cmdline, output)  # LOG HERE
-            return
+                if self._should_use_ai(cmd, cmdline):
+                    output = await self._ai(cmdline, max_new_tokens=60)
 
-        # ===== id =====
-        if cmd == "id":
-            output = f"uid=1000({self.username}) gid=1000({self.username}) groups=1000({self.username})"
-            self.chan.write(output + "\r\n")
-            self._log(cmdline, output)  # LOG HERE
-            return
+                if not output:
+                    output = f"{cmd}: command not found"
 
-        # ===== ps =====
-        if cmd == "ps":
-            lines = [
-                "  PID TTY          TIME CMD",
-                "    1 ?        00:00:01 systemd",
-                "  123 ?        00:00:00 sshd",
-                "  456 pts/0    00:00:00 bash"
-            ]
-            output = "\n".join(lines)
-            for line in lines:
-                self.chan.write(line + "\r\n")
-            self._log(cmdline, output)  # LOG HERE
-            return
-
-        # ===== help =====
-        if cmd == "help":
-            lines = [
-                "Available commands:",
-                "  ls, cd, pwd, cat, echo, touch, rm, mkdir, rmdir",
-                "  whoami, id, uname, ps, clear, help, exit"
-            ]
-            output = "\n".join(lines)
-            for line in lines:
-                self.chan.write(line + "\r\n")
-            self._log(cmdline, output)  # LOG HERE
-            return
-
-        # ===== wget (HYBRID) =====
-        if cmd == "wget":
-            if not args:
-                output = "wget: missing URL"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-            
-            url = args[0]
-            filename = url.split("/")[-1] or "index.html"
-            
-            ai_output = await self._handle_hybrid_command(
-                cmdline=cmdline,
-                target_name=filename,
-                prompt_instruction="Show a realistic wget progress bar [=====>] 100% and 'saved' message.",
-                is_dir=False
-            )
-            
-            if ai_output:
-                self.chan.write(ai_output + "\r\n")
-            self._log(cmdline, ai_output if ai_output else "ERROR: wget failed")  # LOG HERE
-            return
-        
-        # ===== git clone (HYBRID) =====
-        if cmd == "git" and (args and args[0] == "clone"):
-            if len(args) < 2:
-                output = "git clone: missing repository"
-                self.chan.write(output + "\r\n")
-                self._log(cmdline, output)  # LOG HERE
-                return
-
-            repo_url = args[1]
-            folder_name = repo_url.split("/")[-1].replace(".git", "")
-            
-            ai_output = await self._handle_hybrid_command(
-                cmdline=cmdline,
-                target_name=folder_name,
-                prompt_instruction="Show 'Cloning into...', object counting, and 'Resolving deltas'.",
-                is_dir=True
-            )
-            
-            if ai_output: 
-                self.chan.write(ai_output + "\r\n")
-            self._log(cmdline, ai_output if ai_output else "ERROR: git clone failed")  # LOG HERE
-            return
-        
-        # ===== UNKNOWN COMMAND - AI FALLBACK =====
-        ai_output = await gaiservices.get_ai_response(system_instruction, cmdline)
-        
-        if ai_output is not None:
-            if ai_output.strip():
-                self.chan.write(ai_output + "\r\n")
-                self._log(cmdline, ai_output)  # LOG HERE
+        finally:
+            if output:
+                self.write(output)
             else:
-                self._log(cmdline, "(Silent AI output)")  # LOG HERE
-        else:
-            err_msg = f"{cmd}: command not found"
-            self.chan.write(err_msg + "\r\n")
-            self._log(cmdline, err_msg)  # LOG HERE
-        return
+                self.write()
 
-    def prompt(self) -> str:
-        return f"{self.username}@honeypot:{self.cwd}$ "
+            self._log(cmdline, output[:1000] if output else "")
+
+    def prompt(self):
+        return f"@root:{self.cwd}$ "

@@ -19,3 +19,14 @@
 {"time": "2025-12-11T13:23:00+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "ninja", "session_id": "f1a657e4"}
 {"time": "2025-12-11T13:24:18+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "love", "session_id": "f282cf20"}
 {"time": "2026-03-27T00:23:11+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "a s u s", "password": "Ninja", "session_id": "1a6e9829"}
+{"time": "2026-05-01T20:26:02+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "ninja", "session_id": "2187cd43"}
+{"time": "2026-05-08T12:07:12+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "ninja", "session_id": "6e023a32"}
+{"time": "2026-05-08T12:25:51+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "cancer", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:28:10+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "ninja", "session_id": "32ddaaeb"}
+{"time": "2026-05-08T12:31:48+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "love", "session_id": "1979253b"}
+{"time": "2026-05-08T12:32:12+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "siyaraomm", "session_id": "7cb5daea"}
+{"time": "2026-05-08T12:35:37+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "okay", "session_id": "81f284e8"}
+{"time": "2026-05-08T12:36:36+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "nijnj", "session_id": "5ecba1e8"}
+{"time": "2026-05-08T12:42:11+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "muji", "session_id": "7562569a"}
+{"time": "2026-05-08T12:45:15+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "ninja", "session_id": "d73e3dbb"}
+{"time": "2026-05-08T12:52:51+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "susma", "session_id": "f59a6592"}

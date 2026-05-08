@@ -15,6 +15,18 @@ bpot-backend/venv/
 bpot-backend/.env
 
 # ----------------------
+# Local AI Models
+# ----------------------
+bpot-backend/models/
+bpot-backend/**/models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+checkpoint-*/
+
+# ----------------------
 # General
 # ----------------------
 .env

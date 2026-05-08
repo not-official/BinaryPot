@@ -78,3 +78,71 @@
 {"time": "2025-12-11T13:25:02+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "f282cf20"}
 {"time": "2026-03-27T00:23:16+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "a s u s", "command": "Love me", "output": "Love: command not found", "session_id": "1a6e9829"}
 {"time": "2026-03-27T00:23:24+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "a s u s", "command": "git dance", "output": "git: command not found", "session_id": "1a6e9829"}
+{"time": "2026-05-01T20:26:04+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "d----- 03/26/2026 08:53 AM               black\nd----- 12/10/2025 10:34 AM               blue", "session_id": "2187cd43"}
+{"time": "2026-05-01T20:26:09+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cat blue", "output": "cat: blue: No such file or directory", "session_id": "2187cd43"}
+{"time": "2026-05-01T20:26:20+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "git clone ninja.xml", "output": "ERROR: git clone failed", "session_id": "2187cd43"}
+{"time": "2026-05-01T20:26:27+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd blue", "output": "SUCCESS: changed to /home/A S U S/blue", "session_id": "2187cd43"}
+{"time": "2026-05-01T20:26:29+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "(empty directory)", "session_id": "2187cd43"}
+{"time": "2026-05-08T12:07:15+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "d----- 05/08/2026 12:07 PM               black\nd----- 12/10/2025 10:34 AM               blue", "session_id": "6e023a32"}
+{"time": "2026-05-08T12:07:17+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "d----- 05/08/2026 12:07 PM               black\nd----- 12/10/2025 10:34 AM               blue", "session_id": "6e023a32"}
+{"time": "2026-05-08T12:08:06+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "python --version", "output": "Python 3.8.5", "session_id": "6e023a32"}
+{"time": "2026-05-08T12:25:53+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "black  blue", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:00+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd black", "output": "", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:02+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:06+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd ..", "output": "", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:11+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:11+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:22+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd ..", "output": "", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:23+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "A S U S  aman  asus  hichada  love", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:27+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd ..", "output": "", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:29+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd ..", "output": "", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:31+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:26:31+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:27:15+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "python --version", "output": "Python 3.8.5", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:27:22+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "python --version", "output": "Python 3.8.5", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:27:33+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "python --version", "output": "Python 3.8.5", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:27:48+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:27:48+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:27:50+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:27:50+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "54a08f0f"}
+{"time": "2026-05-08T12:31:36+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "32ddaaeb"}
+{"time": "2026-05-08T12:31:36+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "", "session_id": "32ddaaeb"}
+{"time": "2026-05-08T12:31:38+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "32ddaaeb"}
+{"time": "2026-05-08T12:31:38+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "32ddaaeb"}
+{"time": "2026-05-08T12:32:02+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "1979253b"}
+{"time": "2026-05-08T12:32:02+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "1979253b"}
+{"time": "2026-05-08T12:32:39+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "binarypot_ssh  black  blue", "session_id": "7cb5daea"}
+{"time": "2026-05-08T12:34:52+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "7cb5daea"}
+{"time": "2026-05-08T12:34:52+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "7cb5daea"}
+{"time": "2026-05-08T12:37:32+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "binarypot_ssh  black  blue", "session_id": "5ecba1e8"}
+{"time": "2026-05-08T12:37:50+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "rm -rf binarypot_ssh", "output": "rm: cannot remove '-rf': No such file or directory\nrm: cannot remove 'binarypot_ssh': Is a directory", "session_id": "5ecba1e8"}
+{"time": "2026-05-08T12:38:26+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "rm -r binarypot_ssh", "output": "rm: cannot remove '-r': No such file or directory\nrm: cannot remove 'binarypot_ssh': Is a directory", "session_id": "5ecba1e8"}
+{"time": "2026-05-08T12:38:34+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "rm binarypot_ssh", "output": "rm: cannot remove 'binarypot_ssh': Is a directory", "session_id": "5ecba1e8"}
+{"time": "2026-05-08T12:38:59+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "rmdir binarypot_ssh", "output": "", "session_id": "5ecba1e8"}
+{"time": "2026-05-08T12:39:01+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "black  blue", "session_id": "5ecba1e8"}
+{"time": "2026-05-08T12:39:03+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "5ecba1e8"}
+{"time": "2026-05-08T12:39:03+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "", "session_id": "5ecba1e8"}
+{"time": "2026-05-08T12:42:18+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd ..", "output": "", "session_id": "7562569a"}
+{"time": "2026-05-08T12:42:19+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "A S U S  deploy  ubuntu  www-data", "session_id": "7562569a"}
+{"time": "2026-05-08T12:42:24+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd deploy", "output": "", "session_id": "7562569a"}
+{"time": "2026-05-08T12:42:25+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "la", "output": "la: command not found", "session_id": "7562569a"}
+{"time": "2026-05-08T12:42:27+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "app  scripts", "session_id": "7562569a"}
+{"time": "2026-05-08T12:42:31+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd app", "output": "", "session_id": "7562569a"}
+{"time": "2026-05-08T12:42:32+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "README.md  requirements.txt  server.py", "session_id": "7562569a"}
+{"time": "2026-05-08T12:42:43+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cat requirements.txt", "output": "flask==2.3.2\nrequests==2.31.0\ngunicorn==21.2.0", "session_id": "7562569a"}
+{"time": "2026-05-08T12:42:55+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "touch muji.java", "output": "", "session_id": "7562569a"}
+{"time": "2026-05-08T12:42:56+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "README.md  muji.java  requirements.txt  server.py", "session_id": "7562569a"}
+{"time": "2026-05-08T12:43:02+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "rm muji.java", "output": "", "session_id": "7562569a"}
+{"time": "2026-05-08T12:43:04+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "7562569a"}
+{"time": "2026-05-08T12:43:04+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "7562569a"}
+{"time": "2026-05-08T12:45:24+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "", "session_id": "d73e3dbb"}
+{"time": "2026-05-08T12:46:14+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "git clone https://github.com/samrat-dotel/binarypot_ssh/", "output": "bash: git: command not found", "session_id": "d73e3dbb"}
+{"time": "2026-05-08T12:46:21+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "binarypot_ssh", "session_id": "d73e3dbb"}
+{"time": "2026-05-08T12:52:54+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "binarypot_ssh", "session_id": "f59a6592"}
+{"time": "2026-05-08T12:53:15+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "git clone https://github.com/samrat-dotel/binarypot", "output": "Cloning into 'binarypot'...\nremote: Enumerating objects: 48, done.\nremote: Counting objects: 100% (48/48), done.\nremote: Compressing objects: 100% (32/32), done.\nremote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0\nReceiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.\nResolving deltas: 100% (12/12), done.", "session_id": "f59a6592"}
+{"time": "2026-05-08T12:53:25+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": "binarypot  binarypot_ssh", "session_id": "f59a6592"}
+{"time": "2026-05-08T12:53:30+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cd binarypot", "output": "", "session_id": "f59a6592"}
+{"time": "2026-05-08T12:53:31+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "ls", "output": ".git  .gitignore  README.md  main.py  requirements.txt", "session_id": "f59a6592"}
+{"time": "2026-05-08T12:53:46+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "cat .gitignore", "output": "__pycache__/\n.env\n*.log", "session_id": "f59a6592"}
+{"time": "2026-05-08T12:53:54+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "f59a6592"}
+{"time": "2026-05-08T12:53:54+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "f59a6592"}
