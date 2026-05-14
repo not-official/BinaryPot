@@ -9,7 +9,6 @@ import "./Dashboard.css";
 const API_BASE =
   process.env.REACT_APP_API_BASE_URL?.replace(/\/$/, "") || "http://localhost:8000";
 
-
 function Dashboard() {
   const [collapsed, setCollapsed] = useState(false);
 
@@ -28,9 +27,11 @@ function Dashboard() {
   const [since, setSince] = useState("");
   const [tableFilter, setTableFilter] = useState("");
 
-  const token = sessionStorage.getItem("token");
+  const [reportFrom, setReportFrom] = useState("");
+  const [reportTo, setReportTo] = useState("");
 
-    const navigate = useNavigate();
+  const token = sessionStorage.getItem("token");
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     sessionStorage.removeItem("token");
@@ -53,13 +54,15 @@ function Dashboard() {
 
   const buildParams = () => {
     const params = {};
-    if (username?.trim()) params.username = username.trim();
+    if (username.trim()) params.username = username.trim();
+
     if (since) {
       const parsed = new Date(since);
       if (!Number.isNaN(parsed.getTime())) {
         params.since = parsed.toISOString();
       }
     }
+
     return params;
   };
 
@@ -101,10 +104,13 @@ function Dashboard() {
     }
   };
 
+  const refreshAll = async () => {
+    await Promise.all([fetchConnections(), fetchCommands(), fetchSessions()]);
+    message.info("Dashboard refreshed");
+  };
+
   useEffect(() => {
-    fetchConnections();
-    fetchCommands();
-    fetchSessions();
+    refreshAll();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -116,76 +122,61 @@ function Dashboard() {
   const resetFilters = async () => {
     setUsername("");
     setSince("");
+    setTableFilter("");
     await Promise.all([fetchConnections(), fetchCommands()]);
     message.info("Filters reset");
   };
 
   const openSession = async (sessionId) => {
     if (!sessionId) return;
-    if (!sessions || sessions.length === 0) {
-      await fetchSessions();
-    }
+    if (!sessions.length) await fetchSessions();
     setActiveTab("sessions");
     setActiveSessionKey(String(sessionId));
   };
 
-  const uniqueIPs = useMemo(() => {
-    const ips = new Set(
-      connections.map((c) => c.remote_addr).filter(Boolean)
-    );
-    return ips.size;
-  }, [connections]);
+  const handleDownloadRangeReport = () => {
+    if (!reportFrom || !reportTo) {
+      message.warning("Please select both start and end time first.");
+      return;
+    }
 
-  const uniqueUsers = useMemo(() => {
-    const users = new Set(
-      [...connections, ...commands]
-        .map((item) => item.username)
-        .filter(Boolean)
-    );
-    return users.size;
-  }, [connections, commands]);
+    message.info("Time-range session report download will be added later.");
+  };
+
+  const handleDownloadSingleSession = (sessionId) => {
+    message.info(`Session report download for ${sessionId} will be added later.`);
+  };
+
+  const uniqueIPs = useMemo(() => {
+    return new Set(connections.map((c) => c.remote_addr).filter(Boolean)).size;
+  }, [connections]);
 
   const commandCount = commands.length;
   const connectionCount = connections.length;
   const sessionCount = sessions.length;
 
-  const activeSessionsCount = useMemo(() => {
-    return sessions.filter((s) => (s.activities || []).length > 0).length;
-  }, [sessions]);
-
-  const recentCommands = useMemo(() => {
-    return commands.slice(0, 8);
-  }, [commands]);
-
-  const recentConnections = useMemo(() => {
-    return connections.slice(0, 8);
-  }, [connections]);
+  const recentConnections = useMemo(() => connections.slice(0, 6), [connections]);
+  const recentCommands = useMemo(() => commands.slice(0, 6), [commands]);
 
   const filteredConnections = useMemo(() => {
     const q = tableFilter.trim().toLowerCase();
     if (!q) return connections;
 
-    return connections.filter((item) => {
-      return (
-        String(item?.remote_addr || "").toLowerCase().includes(q) ||
-        String(item?.username || "").toLowerCase().includes(q) ||
-        String(item?.session_id || "").toLowerCase().includes(q) ||
-        String(item?.password || "").toLowerCase().includes(q)
-      );
-    });
+    return connections.filter((item) =>
+      String(item?.remote_addr || "").toLowerCase().includes(q) ||
+      String(item?.username || "").toLowerCase().includes(q) ||
+      String(item?.session_id || "").toLowerCase().includes(q)
+    );
   }, [connections, tableFilter]);
 
   const filteredCommands = useMemo(() => {
     const q = tableFilter.trim().toLowerCase();
     if (!q) return commands;
 
-    return commands.filter((item) => {
-      return (
-        String(item?.command || "").toLowerCase().includes(q) ||
-        String(item?.username || "").toLowerCase().includes(q) ||
-        String(item?.time || "").toLowerCase().includes(q)
-      );
-    });
+    return commands.filter((item) =>
+      String(item?.command || "").toLowerCase().includes(q) ||
+      String(item?.username || "").toLowerCase().includes(q)
+    );
   }, [commands, tableFilter]);
 
   const formatTime = (value) => {
@@ -198,24 +189,23 @@ function Dashboard() {
   const renderConnectionsTable = () => (
     <div className="tableCard">
       <div className="tableHeadRow">
-        <div className="chartTitle">CONNECTIONS</div>
+        <div>
+          <div className="chartTitle">CONNECTIONS</div>
+          <div className="smallMuted">Login attempts captured by BinaryPot</div>
+        </div>
 
         <div className="tableHeadActions">
           <div className="tableSearch">
             <span className="searchIcon">⌕</span>
             <input
               type="text"
-              placeholder="filter by ip, username, session..."
+              placeholder="search ip, username, session..."
               value={tableFilter}
               onChange={(e) => setTableFilter(e.target.value)}
             />
           </div>
 
-          <button
-            className="miniBtn"
-            onClick={fetchConnections}
-            disabled={loadingConnections}
-          >
+          <button className="miniBtn" onClick={fetchConnections} disabled={loadingConnections}>
             {loadingConnections ? "LOADING..." : "REFRESH"}
           </button>
         </div>
@@ -227,22 +217,19 @@ function Dashboard() {
             <tr>
               <th>TIME</th>
               <th>USERNAME</th>
-              <th>IP</th>
+              <th>IP ADDRESS</th>
               <th>PASSWORD</th>
               <th>SESSION</th>
             </tr>
           </thead>
+
           <tbody>
-            {filteredConnections.length > 0 ? (
+            {filteredConnections.length ? (
               filteredConnections.map((row, index) => (
                 <tr key={`${row?.session_id || "conn"}-${index}`}>
                   <td>{formatTime(row?.time)}</td>
                   <td>
-                    {row?.username ? (
-                      <span className="badge badgePurple">{row.username}</span>
-                    ) : (
-                      "-"
-                    )}
+                    <span className="badge badgePurple">{row?.username || "unknown"}</span>
                   </td>
                   <td>
                     <span className="ipLink">{row?.remote_addr || "-"}</span>
@@ -250,10 +237,7 @@ function Dashboard() {
                   <td>{row?.password || "-"}</td>
                   <td>
                     {row?.session_id ? (
-                      <button
-                        className="sessionLinkBtn"
-                        onClick={() => openSession(row.session_id)}
-                      >
+                      <button className="sessionLinkBtn" onClick={() => openSession(row.session_id)}>
                         → {row.session_id}
                       </button>
                     ) : (
@@ -278,24 +262,23 @@ function Dashboard() {
   const renderCommandsTable = () => (
     <div className="tableCard">
       <div className="tableHeadRow">
-        <div className="chartTitle">COMMANDS</div>
+        <div>
+          <div className="chartTitle">COMMANDS</div>
+          <div className="smallMuted">Commands executed inside fake shell</div>
+        </div>
 
         <div className="tableHeadActions">
           <div className="tableSearch">
             <span className="searchIcon">⌕</span>
             <input
               type="text"
-              placeholder="filter by command or username..."
+              placeholder="search command or username..."
               value={tableFilter}
               onChange={(e) => setTableFilter(e.target.value)}
             />
           </div>
 
-          <button
-            className="miniBtn"
-            onClick={fetchCommands}
-            disabled={loadingCommands}
-          >
+          <button className="miniBtn" onClick={fetchCommands} disabled={loadingCommands}>
             {loadingCommands ? "LOADING..." : "REFRESH"}
           </button>
         </div>
@@ -310,17 +293,14 @@ function Dashboard() {
               <th>COMMAND</th>
             </tr>
           </thead>
+
           <tbody>
-            {filteredCommands.length > 0 ? (
+            {filteredCommands.length ? (
               filteredCommands.map((row, index) => (
                 <tr key={`${row?.time || "cmd"}-${index}`}>
                   <td>{formatTime(row?.time)}</td>
                   <td>
-                    {row?.username ? (
-                      <span className="badge badgePurple">{row.username}</span>
-                    ) : (
-                      "-"
-                    )}
+                    <span className="badge badgePurple">{row?.username || "unknown"}</span>
                   </td>
                   <td className="monoCell">{row?.command || "-"}</td>
                 </tr>
@@ -341,22 +321,38 @@ function Dashboard() {
   const renderSessions = () => (
     <div className="tableCard">
       <div className="tableHeadRow">
-        <div className="chartTitle">SESSIONS</div>
+        <div>
+          <div className="chartTitle">SESSIONS</div>
+          <div className="smallMuted">Expand a session to view attacker activity</div>
+        </div>
 
-        <div className="tableHeadActions">
-          <span className="smallMuted">Click a session to expand full activity</span>
-          <button
-            className="miniBtn"
-            onClick={fetchSessions}
-            disabled={loadingSessions}
-          >
+        <div className="tableHeadActions reportRangeActions">
+          <input
+            className="dateInput reportDateInput"
+            type="datetime-local"
+            value={reportFrom}
+            onChange={(e) => setReportFrom(e.target.value)}
+          />
+
+          <input
+            className="dateInput reportDateInput"
+            type="datetime-local"
+            value={reportTo}
+            onChange={(e) => setReportTo(e.target.value)}
+          />
+
+          <button className="miniBtn reportBtn" onClick={handleDownloadRangeReport}>
+            DOWNLOAD RANGE REPORT
+          </button>
+
+          <button className="miniBtn" onClick={fetchSessions} disabled={loadingSessions}>
             {loadingSessions ? "LOADING..." : "REFRESH"}
           </button>
         </div>
       </div>
 
       <div className="sessionsWrap">
-        {sessions.length > 0 ? (
+        {sessions.length ? (
           sessions.map((session) => {
             const isOpen = activeSessionKey === String(session.session_id);
 
@@ -364,15 +360,11 @@ function Dashboard() {
               <div className="sessionItem" key={String(session.session_id)}>
                 <button
                   className={`sessionToggle ${isOpen ? "sessionToggleOpen" : ""}`}
-                  onClick={() =>
-                    setActiveSessionKey(
-                      isOpen ? null : String(session.session_id)
-                    )
-                  }
+                  onClick={() => setActiveSessionKey(isOpen ? null : String(session.session_id))}
                 >
                   <div className="sessionHeaderLeft">
                     <span className="sessionMainLabel">
-                      Session: <span className="monoAccent">{session.session_id}</span>
+                      Session <span className="monoAccent">{session.session_id}</span>
                     </span>
                   </div>
 
@@ -386,6 +378,22 @@ function Dashboard() {
 
                 {isOpen && (
                   <div className="sessionBody">
+                    <div className="sessionReportBar">
+                      <div>
+                        <div className="chartTitle">SESSION REPORT</div>
+                        <div className="smallMuted">
+                          Generate report for this selected session
+                        </div>
+                      </div>
+
+                      <button
+                        className="miniBtn reportBtn"
+                        onClick={() => handleDownloadSingleSession(session.session_id)}
+                      >
+                        DOWNLOAD THIS SESSION
+                      </button>
+                    </div>
+
                     <div className="tableWrap">
                       <table className="table">
                         <thead>
@@ -396,20 +404,17 @@ function Dashboard() {
                             <th>IP</th>
                           </tr>
                         </thead>
+
                         <tbody>
-                          {(session.activities || []).length > 0 ? (
+                          {(session.activities || []).length ? (
                             session.activities.map((activity, idx) => (
                               <tr key={`${session.session_id}-${idx}`}>
                                 <td>{formatTime(activity?.time)}</td>
                                 <td className="monoCell">{activity?.command || "-"}</td>
                                 <td>
-                                  {activity?.username ? (
-                                    <span className="badge badgePurple">
-                                      {activity.username}
-                                    </span>
-                                  ) : (
-                                    "-"
-                                  )}
+                                  <span className="badge badgePurple">
+                                    {activity?.username || "unknown"}
+                                  </span>
                                 </td>
                                 <td>{activity?.remote_addr || "-"}</td>
                               </tr>
@@ -446,15 +451,20 @@ function Dashboard() {
           marginLeft: collapsed ? "70px" : "220px",
         }}
       >
-          <Topbar
-    section="Monitor"
-    page="Live Dashboard"
-    statusText="LIVE FEED"
-    onLogout={handleLogout}
-      />
+        <Topbar
+          section="Monitor"
+          page="Live Dashboard"
+          statusText="LIVE FEED"
+          onLogout={handleLogout}
+        />
+
         <div className="dashboardShell">
-          <h1 className="pageTitle">Live Dashboard</h1>
-        <p className="pageSub">{'// real-time threat intelligence · api-driven monitor'}</p>
+          <div className="dashboardHero">
+            <div>
+              <h1 className="pageTitle">Live Dashboard</h1>
+              <p className="pageSub">// real-time honeypot activity monitor</p>
+            </div>
+          </div>
 
           <div className="filtersBar">
             <div className="filtersLeft">
@@ -480,64 +490,52 @@ function Dashboard() {
               <button className="miniBtn primaryBtn" onClick={applyFilters}>
                 APPLY
               </button>
+
               <button className="miniBtn" onClick={resetFilters}>
                 RESET
               </button>
-              <button
-                className="miniBtn"
-                onClick={() => {
-                  fetchConnections();
-                  fetchCommands();
-                  fetchSessions();
-                  message.info("Refreshing data...");
-                }}
-              >
-                REFRESH ALL
+
+              <button className="miniBtn" onClick={refreshAll}>
+                REFRESH
               </button>
             </div>
           </div>
 
-          <div className="statGrid">
+          <div className="statGrid refinedStats">
             <div className="statCard">
-              <div className="statLabel">TOTAL CONNECTIONS</div>
+              <div className="statLabel">CONNECTIONS</div>
               <div className="statValue">{connectionCount}</div>
-              <div className="statMeta statCyan">live api data</div>
+              <div className="statMeta statCyan">login attempts</div>
             </div>
 
             <div className="statCard">
-              <div className="statLabel">TOTAL COMMANDS</div>
+              <div className="statLabel">COMMANDS</div>
               <div className="statValue">{commandCount}</div>
-              <div className="statMeta statGreen">captured commands</div>
+              <div className="statMeta statGreen">shell activity</div>
             </div>
 
             <div className="statCard">
               <div className="statLabel">SESSIONS</div>
               <div className="statValue">{sessionCount}</div>
-              <div className="statMeta statAmber">full traces stored</div>
+              <div className="statMeta statAmber">grouped traces</div>
             </div>
 
             <div className="statCard">
               <div className="statLabel">UNIQUE IPS</div>
               <div className="statValue">{uniqueIPs}</div>
-              <div className="statMeta statRed">distinct sources</div>
-            </div>
-
-            <div className="statCard">
-              <div className="statLabel">UNIQUE USERS</div>
-              <div className="statValue">{uniqueUsers}</div>
-              <div className="statMeta">credential spread</div>
+              <div className="statMeta statRed">source addresses</div>
             </div>
           </div>
 
-          <div className="chartGrid">
+          <div className="chartGrid refinedOverview">
             <div className="chartCard">
               <div className="chartHead">
-                <div className="chartTitle">RECENT CONNECTION SNAPSHOT</div>
+                <div className="chartTitle">RECENT CONNECTIONS</div>
                 <div className="chartBadge live">LIVE</div>
               </div>
 
               <div className="miniList">
-                {recentConnections.length > 0 ? (
+                {recentConnections.length ? (
                   recentConnections.map((item, idx) => (
                     <div className="miniListRow" key={`recent-conn-${idx}`}>
                       <span className="miniMain">{item?.remote_addr || "-"}</span>
@@ -553,44 +551,15 @@ function Dashboard() {
 
             <div className="chartCard">
               <div className="chartHead">
-                <div className="chartTitle">SESSION HEALTH</div>
-                <div className="chartBadge top8">ACTIVE</div>
-              </div>
-
-              <div className="statusPanel">
-                <div className="statusRow">
-                  <span>Tracked Sessions</span>
-                  <strong>{sessionCount}</strong>
-                </div>
-                <div className="statusRow">
-                  <span>Active Sessions</span>
-                  <strong>{activeSessionsCount}</strong>
-                </div>
-                <div className="statusRow">
-                  <span>Stored Commands</span>
-                  <strong>{commandCount}</strong>
-                </div>
-                <div className="statusRow">
-                  <span>Known IP Sources</span>
-                  <strong>{uniqueIPs}</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="chartRow">
-            <div className="chartCard">
-              <div className="chartHead">
                 <div className="chartTitle">LATEST COMMANDS</div>
+                <div className="chartBadge top8">TOP 6</div>
               </div>
 
               <div className="miniList">
-                {recentCommands.length > 0 ? (
+                {recentCommands.length ? (
                   recentCommands.map((item, idx) => (
-                    <div className="miniListRow" key={`recent-cmd-${idx}`}>
-                      <span className="miniMain monoAccent">
-                        {item?.command || "-"}
-                      </span>
+                    <div className="miniListRow commandRow" key={`recent-cmd-${idx}`}>
+                      <span className="miniMain monoAccent">{item?.command || "-"}</span>
                       <span className="miniSub">{item?.username || "unknown"}</span>
                       <span className="miniMeta">{formatTime(item?.time)}</span>
                     </div>
@@ -600,33 +569,29 @@ function Dashboard() {
                 )}
               </div>
             </div>
+          </div>
 
-            <div className="chartCard">
-              <div className="chartHead">
-                <div className="chartTitle">QUICK NAVIGATION</div>
-              </div>
+          <div className="tabBar">
+            <button
+              className={`tabBtn ${activeTab === "connections" ? "tabBtnActive" : ""}`}
+              onClick={() => setActiveTab("connections")}
+            >
+              CONNECTIONS
+            </button>
 
-              <div className="quickActions">
-                <button
-                  className={`tabBtn ${activeTab === "connections" ? "tabBtnActive" : ""}`}
-                  onClick={() => setActiveTab("connections")}
-                >
-                  CONNECTIONS
-                </button>
-                <button
-                  className={`tabBtn ${activeTab === "commands" ? "tabBtnActive" : ""}`}
-                  onClick={() => setActiveTab("commands")}
-                >
-                  COMMANDS
-                </button>
-                <button
-                  className={`tabBtn ${activeTab === "sessions" ? "tabBtnActive" : ""}`}
-                  onClick={() => setActiveTab("sessions")}
-                >
-                  SESSIONS
-                </button>
-              </div>
-            </div>
+            <button
+              className={`tabBtn ${activeTab === "commands" ? "tabBtnActive" : ""}`}
+              onClick={() => setActiveTab("commands")}
+            >
+              COMMANDS
+            </button>
+
+            <button
+              className={`tabBtn ${activeTab === "sessions" ? "tabBtnActive" : ""}`}
+              onClick={() => setActiveTab("sessions")}
+            >
+              SESSIONS
+            </button>
           </div>
 
           {activeTab === "connections" && renderConnectionsTable()}

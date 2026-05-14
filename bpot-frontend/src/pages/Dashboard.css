@@ -7,14 +7,21 @@
 }
 
 .dashboardPage {
-  min-height: 100vh;/* 
-  width: calc(100% - 220px); */
-  transition: margin-left 0.25s ease, width 0.25s ease;
+  min-height: 100vh;
+  transition: margin-left 0.25s ease;
   background: transparent;
 }
 
 .dashboardShell {
   padding: 24px 28px;
+}
+
+.dashboardHero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
 .pageTitle {
@@ -29,7 +36,6 @@
   font-size: 12px;
   font-family: var(--mono);
   color: var(--text3);
-  margin-bottom: 20px;
 }
 
 .filtersBar {
@@ -74,6 +80,14 @@
   box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.08);
 }
 
+.reportRangeActions {
+  justify-content: flex-end;
+}
+
+.reportDateInput {
+  min-width: 190px;
+}
+
 .miniBtn {
   height: 36px;
   padding: 0 12px;
@@ -103,9 +117,20 @@
   color: var(--void);
 }
 
+.reportBtn {
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  background: rgba(0, 212, 255, 0.08);
+  color: var(--cyan);
+}
+
+.reportBtn:hover {
+  background: rgba(0, 212, 255, 0.14);
+  box-shadow: var(--glow);
+}
+
 .statGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   margin-bottom: 20px;
 }
@@ -156,13 +181,6 @@
 }
 
 .chartGrid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.chartRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -230,6 +248,10 @@
   border-radius: 3px;
 }
 
+.commandRow {
+  grid-template-columns: 1.4fr 0.8fr 1fr;
+}
+
 .miniMain {
   color: var(--text);
   font-size: 12px;
@@ -250,39 +272,16 @@
   text-align: right;
 }
 
-.statusPanel {
+.tabBar {
   display: flex;
-  flex-direction: column;
   gap: 10px;
-}
-
-.statusRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--deep);
-  border: 1px solid rgba(0, 212, 255, 0.05);
-  padding: 12px;
-  border-radius: 3px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--text2);
-}
-
-.statusRow strong {
-  color: var(--text);
-  font-size: 14px;
-}
-
-.quickActions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .tabBtn {
-  width: 100%;
-  text-align: left;
+  width: auto;
+  min-width: 130px;
+  text-align: center;
   padding: 12px 14px;
   border-radius: 3px;
   border: 1px solid var(--border2);
@@ -344,7 +343,7 @@
   color: var(--text);
   font-family: var(--mono);
   font-size: 12px;
-  width: 180px;
+  width: 220px;
 }
 
 .tableWrap {
@@ -394,7 +393,6 @@
 
 .ipLink {
   color: var(--cyan);
-  cursor: default;
 }
 
 .monoCell,
@@ -494,6 +492,16 @@
   border-top: 1px solid rgba(0, 212, 255, 0.08);
 }
 
+.sessionReportBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+  background: rgba(0, 212, 255, 0.025);
+}
+
 .emptyCell,
 .emptyBlock {
   color: var(--text3);
@@ -514,25 +522,26 @@
   font-size: 11px;
   color: var(--text3);
   font-family: var(--mono);
+  margin-top: 4px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
   .statGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .chartGrid {
     grid-template-columns: 1fr;
   }
 
-  .chartRow {
-    grid-template-columns: 1fr;
+  .reportRangeActions {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 820px) {
   .dashboardPage {
-    width: 100%;
     margin-left: 0 !important;
   }
 
@@ -540,19 +549,21 @@
     padding: 18px;
   }
 
-  .statGrid {
-    grid-template-columns: 1fr 1fr;
+  .dashboardHero {
+    flex-direction: column;
   }
 
   .filtersBar,
-  .tableHeadRow {
+  .tableHeadRow,
+  .sessionReportBar {
     flex-direction: column;
     align-items: stretch;
   }
 
   .filtersLeft,
   .filtersRight,
-  .tableHeadActions {
+  .tableHeadActions,
+  .reportRangeActions {
     width: 100%;
   }
 
@@ -560,11 +571,21 @@
   .tableSearch,
   .tableSearch input,
   .dateInput,
+  .reportDateInput,
   .miniBtn {
     width: 100%;
   }
 
-  .miniListRow {
+  .tabBar {
+    flex-direction: column;
+  }
+
+  .tabBtn {
+    width: 100%;
+  }
+
+  .miniListRow,
+  .commandRow {
     grid-template-columns: 1fr;
   }
 
