@@ -462,7 +462,7 @@ function Dashboard() {
           <div className="dashboardHero">
             <div>
               <h1 className="pageTitle">Live Dashboard</h1>
-              <p className="pageSub">// real-time honeypot activity monitor</p>
+              <p className="pageSub">{'// real-time honeypot activity monitor'}</p>
             </div>
           </div>
 
