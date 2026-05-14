@@ -64,13 +64,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
           {!collapsed && <span>Attack Map</span>}
         </NavLink>
 
-        <NavLink
-          to="/sessions"
-          className={({ isActive }) => (isActive ? "navItem active" : "navItem")}
-        >
-          <span className="navIcon">≡</span>
-          {!collapsed && <span>Sessions & Logs</span>}
-        </NavLink>
+
 
         {!collapsed && <div className="navSection">Analyze</div>}
 
