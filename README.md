@@ -68,7 +68,7 @@ BinaryPot/
 * QLoRA / LoRA fine-tuning for lightweight adapter training
 * State-aware command response generation
 * Behavioral analysis
-* Threat analysis
+* Bart for description generation
 * Report support through API
 
 ---

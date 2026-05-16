@@ -201,3 +201,42 @@
 {"time": "2026-05-16T16:54:34+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "cd public_html", "output": "", "session_id": "bc7af18e"}
 {"time": "2026-05-16T16:54:38+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "ls", "output": "index.html", "session_id": "bc7af18e"}
 {"time": "2026-05-16T16:54:45+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "cat index.html", "output": "<html>\n<head><title>Default Site</title></head>\n<body><h1>It works</h1></body>\n</html>", "session_id": "bc7af18e"}
+{"time": "2026-05-16T18:18:44+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "mkdir saala", "output": "", "session_id": "d3eb481c"}
+{"time": "2026-05-16T18:18:50+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "ls", "output": "saala", "session_id": "d3eb481c"}
+{"time": "2026-05-16T18:19:38+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "exit", "output": "logout", "session_id": "d3eb481c"}
+{"time": "2026-05-16T18:19:38+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "exit", "output": "logout", "session_id": "d3eb481c"}
+{"time": "2026-05-16T18:19:58+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "mkdir remove", "output": "", "session_id": "3e6c7ddd"}
+{"time": "2026-05-16T18:20:00+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "3e6c7ddd"}
+{"time": "2026-05-16T18:20:00+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "clear", "output": "", "session_id": "3e6c7ddd"}
+{"time": "2026-05-16T18:20:18+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "ls", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:20:20+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd ..", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:20:21+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "ls", "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:20:26+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd asus", "output": "cd: asus: No such file or directory", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:20:37+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd tuf", "output": "cd: tuf: No such file or directory", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:20:41+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd samar", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:20:45+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd ubuntu", "output": "cd: ubuntu: No such file or directory", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:20:52+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd ..", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:01+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "ls", "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:06+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd a s u s", "output": "cd: a: No such file or directory", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:09+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd ..", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:12+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd h", "output": "cd: h: No such file or directory", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:14+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "cd ..", "output": "", "session_id": "3e6c7ddd"}
+{"time": "2026-05-16T18:21:14+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd home", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:16+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:16+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "clear", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:19+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "ls", "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:21+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "cd 'a s u s'", "output": "", "session_id": "3e6c7ddd"}
+{"time": "2026-05-16T18:21:36+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd 'asus'", "output": "cd: asus: No such file or directory", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:45+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd 'asus'", "output": "cd: asus: No such file or directory", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:21:58+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd ubuntu", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:03+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd ..", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:13+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd 'a s u s'", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:15+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "ls", "output": "remove", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:18+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd ..", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:32+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "ls", "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:37+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "cd samar", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:38+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "ls", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:39+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:39+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "clear", "output": "", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:42+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "exit", "output": "logout", "session_id": "ef9e9775"}
+{"time": "2026-05-16T18:22:42+0545", "event": "command", "remote_addr": "192.168.1.141", "username": "samar", "command": "exit", "output": "logout", "session_id": "ef9e9775"}

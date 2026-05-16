@@ -35,3 +35,6 @@
 {"time": "2026-05-15T06:26:37+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "A S U S", "password": "pninja", "session_id": "47e72844"}
 {"time": "2026-05-16T16:50:16+0545", "event": "auth_attempt", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "Ninja", "session_id": "67bb3947"}
 {"time": "2026-05-16T16:53:29+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "ninja", "session_id": "bc7af18e"}
+{"time": "2026-05-16T18:18:35+0545", "event": "auth_attempt", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "nijnq", "session_id": "3e6c7ddd"}
+{"time": "2026-05-16T18:18:35+0545", "event": "auth_attempt", "remote_addr": "192.168.1.141", "username": "samar", "password": "hellosir", "session_id": "d3eb481c"}
+{"time": "2026-05-16T18:20:16+0545", "event": "auth_attempt", "remote_addr": "192.168.1.141", "username": "samar", "password": "samar", "session_id": "ef9e9775"}
