@@ -114,14 +114,16 @@
       "system-backup.tar.gz"
     ],
     "/home/A S U S": [
-      "binarypot"
+      "binarypot",
+      "skillXchange"
     ],
     "/home/A S U S/binarypot": [
       "README.md",
       ".gitignore",
       "main.py",
       "requirements.txt",
-      ".git"
+      ".git",
+      "minorproject"
     ],
     "/home/A S U S/binarypot/.git": [
       "objects",
@@ -133,7 +135,43 @@
     "/home/A S U S/binarypot/.git/refs": [
       "heads"
     ],
-    "/home/A S U S/binarypot/.git/refs/heads": []
+    "/home/A S U S/binarypot/.git/refs/heads": [],
+    "/home/A S U S/skillXchange": [
+      "README.md",
+      ".gitignore",
+      "main.py",
+      "requirements.txt",
+      ".git"
+    ],
+    "/home/A S U S/skillXchange/.git": [
+      "objects",
+      "refs",
+      "HEAD",
+      "config"
+    ],
+    "/home/A S U S/skillXchange/.git/objects": [],
+    "/home/A S U S/skillXchange/.git/refs": [
+      "heads"
+    ],
+    "/home/A S U S/skillXchange/.git/refs/heads": [],
+    "/home/A S U S/binarypot/minorproject": [
+      "README.md",
+      ".gitignore",
+      "main.py",
+      "requirements.txt",
+      ".git"
+    ],
+    "/home/A S U S/binarypot/minorproject/.git": [
+      "objects",
+      "refs",
+      "HEAD",
+      "config"
+    ],
+    "/home/A S U S/binarypot/minorproject/.git/objects": [],
+    "/home/A S U S/binarypot/minorproject/.git/refs": [
+      "heads"
+    ],
+    "/home/A S U S/binarypot/minorproject/.git/refs/heads": []
   },
   "files": {
     "/etc/issue": "Ubuntu 20.04.6 LTS \\n \\\\l\n",
@@ -166,7 +204,19 @@
     "/home/A S U S/binarypot/main.py": "print('Hello from cloned repository')\n",
     "/home/A S U S/binarypot/requirements.txt": "requests==2.31.0\nflask==2.3.2\n",
     "/home/A S U S/binarypot/.git/HEAD": "ref: refs/heads/main\n",
-    "/home/A S U S/binarypot/.git/config": "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = true\n[remote \"origin\"]\n\turl = https://github.com/samrat-dotel/binarypot\n\tfetch = +refs/heads/*:refs/remotes/origin/*\n[branch \"main\"]\n\tremote = origin\n\tmerge = refs/heads/main\n"
+    "/home/A S U S/binarypot/.git/config": "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = true\n[remote \"origin\"]\n\turl = https://github.com/samrat-dotel/binarypot\n\tfetch = +refs/heads/*:refs/remotes/origin/*\n[branch \"main\"]\n\tremote = origin\n\tmerge = refs/heads/main\n",
+    "/home/A S U S/skillXchange/README.md": "# skillXchange\n\nThis is a cloned repository.\n",
+    "/home/A S U S/skillXchange/.gitignore": "__pycache__/\n.env\n*.log\n",
+    "/home/A S U S/skillXchange/main.py": "print('Hello from cloned repository')\n",
+    "/home/A S U S/skillXchange/requirements.txt": "requests==2.31.0\nflask==2.3.2\n",
+    "/home/A S U S/skillXchange/.git/HEAD": "ref: refs/heads/main\n",
+    "/home/A S U S/skillXchange/.git/config": "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = true\n[remote \"origin\"]\n\turl = https://samar-dotel/skillXchange\n\tfetch = +refs/heads/*:refs/remotes/origin/*\n[branch \"main\"]\n\tremote = origin\n\tmerge = refs/heads/main\n",
+    "/home/A S U S/binarypot/minorproject/README.md": "# minorproject\n\nThis is a cloned repository.\n",
+    "/home/A S U S/binarypot/minorproject/.gitignore": "__pycache__/\n.env\n*.log\n",
+    "/home/A S U S/binarypot/minorproject/main.py": "print('Hello from cloned repository')\n",
+    "/home/A S U S/binarypot/minorproject/requirements.txt": "requests==2.31.0\nflask==2.3.2\n",
+    "/home/A S U S/binarypot/minorproject/.git/HEAD": "ref: refs/heads/main\n",
+    "/home/A S U S/binarypot/minorproject/.git/config": "[core]\n\trepositoryformatversion = 0\n\tfilemode = true\n\tbare = false\n\tlogallrefupdates = true\n[remote \"origin\"]\n\turl = http://amamulhaq/minorproject\n\tfetch = +refs/heads/*:refs/remotes/origin/*\n[branch \"main\"]\n\tremote = origin\n\tmerge = refs/heads/main\n"
   },
   "mtimes": {
     "/bin": 1765342190,
@@ -236,6 +286,28 @@
     "/home/A S U S/binarypot/.git/refs": 1778224095,
     "/home/A S U S/binarypot/.git/refs/heads": 1778224095,
     "/home/A S U S/binarypot/.git/HEAD": 1778224095,
-    "/home/A S U S/binarypot/.git/config": 1778224095
+    "/home/A S U S/binarypot/.git/config": 1778224095,
+    "/home/A S U S/skillXchange": 1778804013,
+    "/home/A S U S/skillXchange/README.md": 1778804013,
+    "/home/A S U S/skillXchange/.gitignore": 1778804013,
+    "/home/A S U S/skillXchange/main.py": 1778804013,
+    "/home/A S U S/skillXchange/requirements.txt": 1778804013,
+    "/home/A S U S/skillXchange/.git": 1778804013,
+    "/home/A S U S/skillXchange/.git/objects": 1778804013,
+    "/home/A S U S/skillXchange/.git/refs": 1778804013,
+    "/home/A S U S/skillXchange/.git/refs/heads": 1778804013,
+    "/home/A S U S/skillXchange/.git/HEAD": 1778804013,
+    "/home/A S U S/skillXchange/.git/config": 1778804013,
+    "/home/A S U S/binarypot/minorproject": 1778805798,
+    "/home/A S U S/binarypot/minorproject/README.md": 1778805798,
+    "/home/A S U S/binarypot/minorproject/.gitignore": 1778805798,
+    "/home/A S U S/binarypot/minorproject/main.py": 1778805798,
+    "/home/A S U S/binarypot/minorproject/requirements.txt": 1778805798,
+    "/home/A S U S/binarypot/minorproject/.git": 1778805798,
+    "/home/A S U S/binarypot/minorproject/.git/objects": 1778805798,
+    "/home/A S U S/binarypot/minorproject/.git/refs": 1778805798,
+    "/home/A S U S/binarypot/minorproject/.git/refs/heads": 1778805798,
+    "/home/A S U S/binarypot/minorproject/.git/HEAD": 1778805798,
+    "/home/A S U S/binarypot/minorproject/.git/config": 1778805798
   }
 }
