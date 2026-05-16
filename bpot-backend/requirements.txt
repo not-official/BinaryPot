@@ -31,4 +31,11 @@ email-validator>=2.1.0     # required for EmailStr
 # Optional / existing (keep only if used)
 # ----------------------------
 asyncssh==2.13.0
+torch
+transformers
+accelerate
+peft
+safetensors
+sentencepiece
+protobuf
 
