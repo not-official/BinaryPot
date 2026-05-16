@@ -42,7 +42,9 @@
       "ubuntu",
       "deploy",
       "www-data",
-      "A S U S"
+      "A S U S",
+      "a s u s",
+      "asus tuf gaming"
     ],
     "/home/ubuntu": [
       "README.txt",
@@ -171,7 +173,9 @@
     "/home/A S U S/binarypot/minorproject/.git/refs": [
       "heads"
     ],
-    "/home/A S U S/binarypot/minorproject/.git/refs/heads": []
+    "/home/A S U S/binarypot/minorproject/.git/refs/heads": [],
+    "/home/a s u s": [],
+    "/home/asus tuf gaming": []
   },
   "files": {
     "/etc/issue": "Ubuntu 20.04.6 LTS \\n \\\\l\n",
@@ -308,6 +312,8 @@
     "/home/A S U S/binarypot/minorproject/.git/refs": 1778805798,
     "/home/A S U S/binarypot/minorproject/.git/refs/heads": 1778805798,
     "/home/A S U S/binarypot/minorproject/.git/HEAD": 1778805798,
-    "/home/A S U S/binarypot/minorproject/.git/config": 1778805798
+    "/home/A S U S/binarypot/minorproject/.git/config": 1778805798,
+    "/home/a s u s": 1778929516,
+    "/home/asus tuf gaming": 1778929709
   }
 }

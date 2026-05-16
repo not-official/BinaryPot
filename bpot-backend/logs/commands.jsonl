@@ -182,3 +182,22 @@
 {"time": "2026-05-15T06:28:39+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "clear", "output": "", "session_id": "47e72844"}
 {"time": "2026-05-15T06:28:41+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "47e72844"}
 {"time": "2026-05-15T06:28:41+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "A S U S", "command": "exit", "output": "logout", "session_id": "47e72844"}
+{"time": "2026-05-16T16:50:21+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "ls", "output": "", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:50:24+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:50:24+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "clear", "output": "", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:50:25+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "ls", "output": "", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:50:28+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "cd ..", "output": "", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:50:29+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "ls", "output": "A S U S  a s u s  deploy  ubuntu  www-data", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:50:42+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "clear", "output": "SUCCESS: screen cleared", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:50:42+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "clear", "output": "", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:50:47+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "exit", "output": "logout", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:50:47+0545", "event": "command", "remote_addr": "192.168.1.144", "username": "a s u s", "command": "exit", "output": "logout", "session_id": "67bb3947"}
+{"time": "2026-05-16T16:53:33+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "ls", "output": "", "session_id": "bc7af18e"}
+{"time": "2026-05-16T16:53:40+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "cd ..", "output": "", "session_id": "bc7af18e"}
+{"time": "2026-05-16T16:53:43+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "ls", "output": "A S U S  a s u s  asus tuf gaming  deploy  ubuntu  www-data", "session_id": "bc7af18e"}
+{"time": "2026-05-16T16:54:10+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "cd www-data", "output": "", "session_id": "bc7af18e"}
+{"time": "2026-05-16T16:54:12+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "ls", "output": "public_html", "session_id": "bc7af18e"}
+{"time": "2026-05-16T16:54:18+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "cat public_html", "output": "cat: public_html: Is a directory", "session_id": "bc7af18e"}
+{"time": "2026-05-16T16:54:34+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "cd public_html", "output": "", "session_id": "bc7af18e"}
+{"time": "2026-05-16T16:54:38+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "ls", "output": "index.html", "session_id": "bc7af18e"}
+{"time": "2026-05-16T16:54:45+0545", "event": "command", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "command": "cat index.html", "output": "<html>\n<head><title>Default Site</title></head>\n<body><h1>It works</h1></body>\n</html>", "session_id": "bc7af18e"}
