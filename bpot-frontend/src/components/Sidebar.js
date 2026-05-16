@@ -57,7 +57,7 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
         </NavLink>
 
         <NavLink
-          to="/map"
+          to="/attack-map"
           className={({ isActive }) => (isActive ? "navItem active" : "navItem")}
         >
           <span className="navIcon">◎</span>

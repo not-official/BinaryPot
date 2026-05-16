@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import Portal from "./pages/Portal";
+import AttackMap from "./pages/AttackMap";
 import LandingPage from "./pages/LandingPage";
 import "./styles/theme.css";
 
@@ -30,10 +31,28 @@ function App() {
             </ProtectedRoute>} />
 
         <Route
+          path="/map"
+          element={
+            <ProtectedRoute>
+              <AttackMap />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/attack-map"
+          element={
+            <ProtectedRoute>
+              <AttackMap />
             </ProtectedRoute>
           }
         />

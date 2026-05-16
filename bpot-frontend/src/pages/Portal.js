@@ -56,7 +56,7 @@ const Portal = () => {
                 <Link to="/dashboard" className="btnPrimary">
                   → Live Dashboard
                 </Link>
-                <Link to="/map" className="btnSecondary">
+                <Link to="/attack-map" className="btnSecondary">
                   Attack Map
                 </Link>
                 <Link to="https://github.com/not-official/BinaryPot/blob/main/README.md"
@@ -85,7 +85,7 @@ const Portal = () => {
             />
 
             <HubCard
-              to="/map"
+              to="/attack-map"
               icon="◎"
               title="Attack Map"
               desc="Live global visualization of attack origins and patterns"

@@ -18,6 +18,7 @@ bpot-backend/app/__pycache__/
 
 bpot-backend/*.pyc
 bpot-backend/venv/
+bpot-backend/.venv/
 bpot-backend/.env
 
 # ----------------------
@@ -45,6 +46,8 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+bpot-frontend/GeoLite2-City.mmdb
 
 # SSH keys (honeypot)
 bpot-backend/ssh_host_key

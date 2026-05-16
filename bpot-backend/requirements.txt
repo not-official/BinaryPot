@@ -26,6 +26,7 @@ python-dotenv>=1.0.0        # .env support (SMTP, JWT secret)
 # ----------------------------
 pydantic>=2.5.3
 email-validator>=2.1.0     # required for EmailStr
+geoip2>=4.8.1
 
 # ----------------------------
 # Optional / existing (keep only if used)
