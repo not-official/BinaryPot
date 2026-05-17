@@ -1,3 +1,5 @@
+# honeypot/shell_engine.py
+
 from pathlib import Path
 from typing import Dict, Any
 
@@ -20,12 +22,25 @@ class ShellEngine:
     ):
         self.adapter_dir = Path(adapter_dir)
         self.base_model_name = base_model_name
+
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.tokenizer = None
         self.model = None
 
     def load(self):
-        print(f"[ShellEngine] Device: {self.device}")
+        print("=" * 60)
+        print("[ShellEngine] Starting model loader...")
+
+        if torch.cuda.is_available():
+            gpu_name = torch.cuda.get_device_name(0)
+            print(f"[ShellEngine] NVIDIA GPU detected: {gpu_name}")
+            print("[ShellEngine] Using CUDA GPU mode.")
+        else:
+            print("[ShellEngine] No CUDA GPU detected.")
+            print("[ShellEngine] Using CPU mode.")
+
+        print("=" * 60)
+
         print("[ShellEngine] Loading tokenizer...")
 
         self.tokenizer = AutoTokenizer.from_pretrained(
@@ -38,28 +53,56 @@ class ShellEngine:
 
         print("[ShellEngine] Loading base model...")
 
-        if self.device == "cuda" and BNB_AVAILABLE:
-            quant_config = BitsAndBytesConfig(
-                load_in_4bit=True,
-                bnb_4bit_quant_type="nf4",
-                bnb_4bit_use_double_quant=True,
-                bnb_4bit_compute_dtype=torch.float16,
-            )
+        # GPU MODE
+        if self.device == "cuda":
+            if BNB_AVAILABLE:
+                print("[ShellEngine] bitsandbytes available.")
+                print("[ShellEngine] Loading model in 4-bit GPU mode...")
 
-            base_model = AutoModelForCausalLM.from_pretrained(
-                self.base_model_name,
-                quantization_config=quant_config,
-                device_map="auto",
-                trust_remote_code=True,
-            )
+                quant_config = BitsAndBytesConfig(
+                    load_in_4bit=True,
+                    bnb_4bit_quant_type="nf4",
+                    bnb_4bit_use_double_quant=True,
+                    bnb_4bit_compute_dtype=torch.float16,
+                )
+
+                base_model = AutoModelForCausalLM.from_pretrained(
+                    self.base_model_name,
+                    quantization_config=quant_config,
+                    device_map="auto",
+                    trust_remote_code=True,
+                )
+
+            else:
+                print("[ShellEngine] bitsandbytes not available.")
+                print("[ShellEngine] Loading model in normal FP16 GPU mode...")
+
+                base_model = AutoModelForCausalLM.from_pretrained(
+                    self.base_model_name,
+                    torch_dtype=torch.float16,
+                    device_map="auto",
+                    trust_remote_code=True,
+                )
+
+        # CPU MODE
         else:
+            print("[ShellEngine] Loading model in CPU mode...")
+            print("[ShellEngine] This may be slow on non-GPU systems.")
+
             base_model = AutoModelForCausalLM.from_pretrained(
                 self.base_model_name,
                 torch_dtype=torch.float32,
                 trust_remote_code=True,
             )
 
+            base_model.to("cpu")
+
         print("[ShellEngine] Loading LoRA adapter...")
+
+        if not self.adapter_dir.exists():
+            raise FileNotFoundError(
+                f"LoRA adapter folder not found: {self.adapter_dir}"
+            )
 
         self.model = PeftModel.from_pretrained(
             base_model,
@@ -67,7 +110,10 @@ class ShellEngine:
         )
 
         self.model.eval()
+
+        print("[ShellEngine] Model loaded successfully.")
         print("[ShellEngine] Ready.")
+        print("=" * 60)
 
     def build_prompt(self, command: str, state: Dict[str, Any]) -> str:
         installed_tools = state.get("installed_tools", [])
@@ -104,10 +150,16 @@ Assistant:"""
 
         prompt = self.build_prompt(command, state)
 
-        inputs = self.tokenizer(prompt, return_tensors="pt")
+        inputs = self.tokenizer(
+            prompt,
+            return_tensors="pt",
+        )
 
+        # Move input tensors to GPU only if CUDA is available
         if self.device == "cuda":
             inputs = {k: v.to("cuda") for k, v in inputs.items()}
+        else:
+            inputs = {k: v.to("cpu") for k, v in inputs.items()}
 
         with torch.no_grad():
             outputs = self.model.generate(
@@ -120,9 +172,33 @@ Assistant:"""
                 eos_token_id=self.tokenizer.eos_token_id,
             )
 
-        full_text = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        full_text = self.tokenizer.decode(
+            outputs[0],
+            skip_special_tokens=True,
+        )
 
         if "Assistant:" in full_text:
-            return full_text.split("Assistant:", 1)[1].strip()
+            response = full_text.split("Assistant:", 1)[1].strip()
+        else:
+            response = full_text.strip()
 
-        return full_text.strip()
+        return self.clean_response(response)
+
+    def clean_response(self, response: str) -> str:
+        """
+        Cleans unwanted model artifacts so the honeypot shell looks more realistic.
+        """
+
+        unwanted_prefixes = [
+            "Assistant:",
+            "System:",
+            "User:",
+            "[CMD]",
+            "[STATE]",
+        ]
+
+        for prefix in unwanted_prefixes:
+            if response.startswith(prefix):
+                response = response.replace(prefix, "", 1).strip()
+
+        return response.strip()

@@ -293,10 +293,10 @@ class FakeShell:
             "os": self.os_name,
             "user": self.username,
             "cwd": self.cwd,
-            "installed_tools": ["git", "curl", "wget", "python3"],
+            "installed_tools": ["git", "curl", "wget", "python3", "gcc", "netstat"],
             "extra_rules": (
                 "IMPORTANT ENVIRONMENT RULES:\n"
-                "- git, curl, wget, and python3 are installed and available in PATH.\n"
+                "- git, curl, wget, gcc and python3 are installed and available in PATH.\n"
                 "- GitHub is reachable.\n"
                 "- DNS resolution works.\n"
                 "- Output terminal text only.\n"
