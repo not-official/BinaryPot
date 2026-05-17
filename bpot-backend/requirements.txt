@@ -39,3 +39,7 @@ safetensors
 sentencepiece
 protobuf
 
+
+joblib
+scikit-learn
+Cerebras-cloud-sdk

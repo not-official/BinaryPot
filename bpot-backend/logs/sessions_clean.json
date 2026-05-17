@@ -1,0 +1,3039 @@
+[
+    {
+        "session_id": "0bce4d27",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-06T12:50:33+0545",
+        "ended_at": "2025-12-06T12:56:38+0545",
+        "command_count": 11,
+        "commands": [
+            {
+                "time": "2025-12-06T12:50:33+0545",
+                "command": "ls",
+                "output": "ls: cannot access '.': No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:51:01+0545",
+                "command": "cd ,,",
+                "output": "cd: ,,: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:51:02+0545",
+                "command": "cd ..",
+                "output": "SUCCESS: changed to /home",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:51:09+0545",
+                "command": "mkdir love",
+                "output": "SUCCESS: created directory /home/love",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:53:41+0545",
+                "command": "git clone samrat",
+                "output": "Cloning into 'samrat'...\nfatal: repository 'samrat' does not exist",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:54:13+0545",
+                "command": "ipconfig",
+                "output": "bash: ipconfig: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:54:39+0545",
+                "command": "cls",
+                "output": "bash: cls: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:54:54+0545",
+                "command": "ignore",
+                "output": "ignore: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:55:26+0545",
+                "command": "git clone folder",
+                "output": "Cloning into 'folder'...\nfatal: repository 'folder' not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:56:36+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T12:56:38+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "0eb2422e",
+        "remote_addr": "192.168.110.123",
+        "username": "asus",
+        "started_at": "2025-12-06T15:19:40+0545",
+        "ended_at": "2025-12-06T15:20:00+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "time": "2025-12-06T15:19:40+0545",
+                "command": "sex",
+                "output": "sex: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T15:19:44+0545",
+                "command": "ls",
+                "output": "-a---- 12/05/2025 02:15 PM            44 notes.txt\n-a---- 12/05/2025 02:15 PM            26 secrets.txt",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T15:20:00+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "aa1c31b1",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-06T15:23:11+0545",
+        "ended_at": "2025-12-06T15:25:03+0545",
+        "command_count": 7,
+        "commands": [
+            {
+                "time": "2025-12-06T15:23:11+0545",
+                "command": "cls",
+                "output": "bash: cls: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T15:23:29+0545",
+                "command": "git clone black",
+                "output": "Cloning into 'black'...\nremote: Enumerating objects: 24874, done.\nremote: Counting objects: 100% (24874/24874), done.\nremote: Compressing objects: 100% (6871/6871), done.\nremote: Total 24874 (delta 17612), reused 24503 (delta 17242), pack-reused 0\nReceiving objects: 100% (24874/24874), 10.15 MiB | 8.78 MiB/s, done.\nResolving deltas: 100% (17612/17612), done.",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T15:23:35+0545",
+                "command": "ls",
+                "output": "d----- 12/06/2025 12:56 PM               black",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T15:23:54+0545",
+                "command": "cd ..",
+                "output": "SUCCESS: changed to /home",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T15:24:04+0545",
+                "command": "mkdir hichada",
+                "output": "SUCCESS: created directory /home/hichada",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T15:25:01+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-06T15:25:03+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "6e1d1d7a",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-09T23:29:58+0545",
+        "ended_at": "2025-12-09T23:30:48+0545",
+        "command_count": 6,
+        "commands": [
+            {
+                "time": "2025-12-09T23:29:58+0545",
+                "command": "ls",
+                "output": "d----- 12/09/2025 09:22 PM               black",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:30:09+0545",
+                "command": "cd ..",
+                "output": "SUCCESS: changed to /home",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:30:11+0545",
+                "command": "ls",
+                "output": "d----- 12/09/2025 09:22 PM               A S U S\nd----- 12/09/2025 09:22 PM               aman\nd----- 12/09/2025 09:22 PM               asus\nd----- 12/09/2025 09:22 PM               hichada\nd----- 12/09/2025 09:22 PM               love",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:30:21+0545",
+                "command": "ipconfig",
+                "output": "ipconfig: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:30:31+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:30:48+0545",
+                "command": "logout",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "bbde31a3",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-09T23:31:18+0545",
+        "ended_at": "2025-12-09T23:46:17+0545",
+        "command_count": 5,
+        "commands": [
+            {
+                "time": "2025-12-09T23:31:18+0545",
+                "command": "ls",
+                "output": "d----- 12/09/2025 09:22 PM               black",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:31:22+0545",
+                "command": "cd ..",
+                "output": "SUCCESS: changed to /home",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:31:25+0545",
+                "command": "ls",
+                "output": "d----- 12/09/2025 09:22 PM               A S U S\nd----- 12/09/2025 09:22 PM               aman\nd----- 12/09/2025 09:22 PM               asus\nd----- 12/09/2025 09:22 PM               hichada\nd----- 12/09/2025 09:22 PM               love",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:31:45+0545",
+                "command": "ipconfig /all",
+                "output": "ipconfig: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:46:17+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "4481907f",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-09T23:47:09+0545",
+        "ended_at": "2025-12-09T23:48:42+0545",
+        "command_count": 7,
+        "commands": [
+            {
+                "time": "2025-12-09T23:47:09+0545",
+                "command": "git clone wrc",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:47:18+0545",
+                "command": "ls",
+                "output": "d----- 12/09/2025 09:22 PM               black\nd----- 12/09/2025 09:22 PM               wrc",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:48:01+0545",
+                "command": "git clone nin",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:48:08+0545",
+                "command": "ls",
+                "output": "d----- 12/09/2025 09:22 PM               black\nd----- 12/09/2025 09:22 PM               nin\nd----- 12/09/2025 09:22 PM               wrc",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:48:11+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:48:18+0545",
+                "command": "love made me do it",
+                "output": "love: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:48:42+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "8133354d",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-09T23:52:54+0545",
+        "ended_at": "2025-12-09T23:53:08+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2025-12-09T23:52:54+0545",
+                "command": "git clone project",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-09T23:53:08+0545",
+                "command": "ls",
+                "output": "d----- 12/09/2025 09:22 PM               black\nd----- 12/09/2025 09:22 PM               project",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "e256b4e2",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T00:02:07+0545",
+        "ended_at": "2025-12-10T00:02:07+0545",
+        "command_count": 1,
+        "commands": [
+            {
+                "time": "2025-12-10T00:02:07+0545",
+                "command": "git clone lov",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "e6b79c08",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T00:04:52+0545",
+        "ended_at": "2025-12-10T00:05:07+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2025-12-10T00:04:52+0545",
+                "command": "git clone love",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T00:05:07+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "38b2073b",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T00:06:56+0545",
+        "ended_at": "2025-12-10T00:12:06+0545",
+        "command_count": 6,
+        "commands": [
+            {
+                "time": "2025-12-10T00:06:56+0545",
+                "command": "git clone horse",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T00:07:16+0545",
+                "command": "ls",
+                "output": "d----- 12/09/2025 09:22 PM               black\nd----- 12/09/2025 09:22 PM               horse",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T00:11:40+0545",
+                "command": "ninja",
+                "output": "ninja: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T00:11:56+0545",
+                "command": "git clone sh",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T00:11:59+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T00:12:06+0545",
+                "command": "love made me do it",
+                "output": "love: command not found",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "42a9d818",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T00:12:55+0545",
+        "ended_at": "2025-12-10T00:13:59+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "time": "2025-12-10T00:12:55+0545",
+                "command": "ls ms",
+                "output": "ls: cannot access 'ms': No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T00:13:04+0545",
+                "command": "ms ls",
+                "output": "ms: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T00:13:59+0545",
+                "command": "git clone sh",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "5a379d18",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T10:34:43+0545",
+        "ended_at": "2025-12-10T10:47:09+0545",
+        "command_count": 6,
+        "commands": [
+            {
+                "time": "2025-12-10T10:34:43+0545",
+                "command": "ls",
+                "output": "d----- 12/09/2025 09:22 PM               black",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T10:34:50+0545",
+                "command": "mkdir blue",
+                "output": "SUCCESS: created directory /home/A S U S/blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T10:34:51+0545",
+                "command": "ls",
+                "output": "d----- 12/10/2025 10:34 AM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T10:34:57+0545",
+                "command": "cd ..",
+                "output": "SUCCESS: changed to /home",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T10:35:05+0545",
+                "command": "ls",
+                "output": "d----- 12/10/2025 10:34 AM               A S U S\nd----- 12/10/2025 10:34 AM               aman\nd----- 12/10/2025 10:34 AM               asus\nd----- 12/10/2025 10:34 AM               hichada\nd----- 12/10/2025 10:34 AM               love",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-10T10:47:09+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "68238d29",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T11:40:23+0545",
+        "ended_at": "2025-12-11T11:40:26+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "time": "2025-12-11T11:40:23+0545",
+                "command": "ls",
+                "output": "d----- 12/10/2025 10:34 AM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T11:40:26+0545",
+                "command": "cd ..",
+                "output": "SUCCESS: changed to /home",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T11:40:26+0545",
+                "command": "ls",
+                "output": "d----- 12/10/2025 10:34 AM               A S U S\nd----- 12/10/2025 10:34 AM               aman\nd----- 12/10/2025 10:34 AM               asus\nd----- 12/10/2025 10:34 AM               hichada\nd----- 12/10/2025 10:34 AM               love",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "26c141c4",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:00:17+0545",
+        "ended_at": "2025-12-11T13:01:15+0545",
+        "command_count": 8,
+        "commands": [
+            {
+                "time": "2025-12-11T13:00:17+0545",
+                "command": "ls",
+                "output": "d----- 12/10/2025 10:34 AM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:00:20+0545",
+                "command": "cd ..",
+                "output": "SUCCESS: changed to /home",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:00:21+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:00:22+0545",
+                "command": "ls",
+                "output": "d----- 12/10/2025 10:34 AM               A S U S\nd----- 12/10/2025 10:34 AM               aman\nd----- 12/10/2025 10:34 AM               asus\nd----- 12/10/2025 10:34 AM               hichada\nd----- 12/10/2025 10:34 AM               love",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:00:56+0545",
+                "command": "git clone ninja",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:00:58+0545",
+                "command": "ls",
+                "output": "d----- 12/10/2025 10:34 AM               A S U S\nd----- 12/10/2025 10:34 AM               aman\nd----- 12/10/2025 10:34 AM               asus\nd----- 12/10/2025 10:34 AM               hichada\nd----- 12/10/2025 10:34 AM               love\nd----- 12/10/2025 10:34 AM               ninja",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:01:09+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:01:15+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "0006bfdd",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:18:55+0545",
+        "ended_at": "2025-12-11T13:18:55+0545",
+        "command_count": 1,
+        "commands": [
+            {
+                "time": "2025-12-11T13:18:55+0545",
+                "command": "hi",
+                "output": "hi: command not found",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "279d5e97",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:19:50+0545",
+        "ended_at": "2025-12-11T13:20:06+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2025-12-11T13:19:50+0545",
+                "command": "git clone",
+                "output": "git clone: missing repository",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:20:06+0545",
+                "command": "git clone love",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "88542df6",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:22:18+0545",
+        "ended_at": "2025-12-11T13:22:18+0545",
+        "command_count": 1,
+        "commands": [
+            {
+                "time": "2025-12-11T13:22:18+0545",
+                "command": "git clone love",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "f1a657e4",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:23:02+0545",
+        "ended_at": "2025-12-11T13:23:14+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2025-12-11T13:23:02+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:23:14+0545",
+                "command": "git clone hihihi",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "f282cf20",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:24:43+0545",
+        "ended_at": "2025-12-11T13:25:02+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2025-12-11T13:24:43+0545",
+                "command": "git clone she",
+                "output": "Cloning into 'she'...\nremote: Enumerating objects: 3, done.\nremote: Counting objects: 100% (3/3), done.\nremote: Compressing objects: 100% (2/2), done.\nremote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0\nReceiving objects: 100% (3/3), 2.13 KiB | 2.13 MiB/s, done.\nResolving deltas: 100% (1/1), done.",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2025-12-11T13:25:02+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "1a6e9829",
+        "remote_addr": "127.0.0.1",
+        "username": "a s u s",
+        "started_at": "2026-03-27T00:23:16+0545",
+        "ended_at": "2026-03-27T00:23:24+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2026-03-27T00:23:16+0545",
+                "command": "Love me",
+                "output": "Love: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-03-27T00:23:24+0545",
+                "command": "git dance",
+                "output": "git: command not found",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "2187cd43",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-01T20:26:04+0545",
+        "ended_at": "2026-05-01T20:26:29+0545",
+        "command_count": 5,
+        "commands": [
+            {
+                "time": "2026-05-01T20:26:04+0545",
+                "command": "ls",
+                "output": "d----- 03/26/2026 08:53 AM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-01T20:26:09+0545",
+                "command": "cat blue",
+                "output": "cat: blue: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-01T20:26:20+0545",
+                "command": "git clone ninja.xml",
+                "output": "ERROR: git clone failed",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-01T20:26:27+0545",
+                "command": "cd blue",
+                "output": "SUCCESS: changed to /home/A S U S/blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-01T20:26:29+0545",
+                "command": "ls",
+                "output": "(empty directory)",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "6e023a32",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:07:15+0545",
+        "ended_at": "2026-05-08T12:08:06+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "time": "2026-05-08T12:07:15+0545",
+                "command": "ls",
+                "output": "d----- 05/08/2026 12:07 PM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:07:17+0545",
+                "command": "ls",
+                "output": "d----- 05/08/2026 12:07 PM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:08:06+0545",
+                "command": "python --version",
+                "output": "Python 3.8.5",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "54a08f0f",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:25:53+0545",
+        "ended_at": "2026-05-08T12:27:50+0545",
+        "command_count": 19,
+        "commands": [
+            {
+                "time": "2026-05-08T12:25:53+0545",
+                "command": "ls",
+                "output": "black  blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:00+0545",
+                "command": "cd black",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:02+0545",
+                "command": "ls",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:06+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:11+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:11+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:22+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:23+0545",
+                "command": "ls",
+                "output": "A S U S  aman  asus  hichada  love",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:27+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:29+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:31+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:26:31+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:27:15+0545",
+                "command": "python --version",
+                "output": "Python 3.8.5",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:27:22+0545",
+                "command": "python --version",
+                "output": "Python 3.8.5",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:27:33+0545",
+                "command": "python --version",
+                "output": "Python 3.8.5",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:27:48+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:27:48+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:27:50+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:27:50+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "32ddaaeb",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:31:36+0545",
+        "ended_at": "2026-05-08T12:31:38+0545",
+        "command_count": 4,
+        "commands": [
+            {
+                "time": "2026-05-08T12:31:36+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:31:36+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:31:38+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:31:38+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "1979253b",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:32:02+0545",
+        "ended_at": "2026-05-08T12:32:02+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2026-05-08T12:32:02+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:32:02+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "7cb5daea",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:32:39+0545",
+        "ended_at": "2026-05-08T12:34:52+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "time": "2026-05-08T12:32:39+0545",
+                "command": "ls",
+                "output": "binarypot_ssh  black  blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:34:52+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:34:52+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "5ecba1e8",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:37:32+0545",
+        "ended_at": "2026-05-08T12:39:03+0545",
+        "command_count": 8,
+        "commands": [
+            {
+                "time": "2026-05-08T12:37:32+0545",
+                "command": "ls",
+                "output": "binarypot_ssh  black  blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:37:50+0545",
+                "command": "rm -rf binarypot_ssh",
+                "output": "rm: cannot remove '-rf': No such file or directory\nrm: cannot remove 'binarypot_ssh': Is a directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:38:26+0545",
+                "command": "rm -r binarypot_ssh",
+                "output": "rm: cannot remove '-r': No such file or directory\nrm: cannot remove 'binarypot_ssh': Is a directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:38:34+0545",
+                "command": "rm binarypot_ssh",
+                "output": "rm: cannot remove 'binarypot_ssh': Is a directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:38:59+0545",
+                "command": "rmdir binarypot_ssh",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:39:01+0545",
+                "command": "ls",
+                "output": "black  blue",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:39:03+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:39:03+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "7562569a",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:42:18+0545",
+        "ended_at": "2026-05-08T12:43:04+0545",
+        "command_count": 13,
+        "commands": [
+            {
+                "time": "2026-05-08T12:42:18+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:42:19+0545",
+                "command": "ls",
+                "output": "A S U S  deploy  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:42:24+0545",
+                "command": "cd deploy",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:42:25+0545",
+                "command": "la",
+                "output": "la: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:42:27+0545",
+                "command": "ls",
+                "output": "app  scripts",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:42:31+0545",
+                "command": "cd app",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:42:32+0545",
+                "command": "ls",
+                "output": "README.md  requirements.txt  server.py",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:42:43+0545",
+                "command": "cat requirements.txt",
+                "output": "flask==2.3.2\nrequests==2.31.0\ngunicorn==21.2.0",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:42:55+0545",
+                "command": "touch muji.java",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:42:56+0545",
+                "command": "ls",
+                "output": "README.md  muji.java  requirements.txt  server.py",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:43:02+0545",
+                "command": "rm muji.java",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:43:04+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:43:04+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "d73e3dbb",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:45:24+0545",
+        "ended_at": "2026-05-08T12:46:21+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "time": "2026-05-08T12:45:24+0545",
+                "command": "ls",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:46:14+0545",
+                "command": "git clone https://github.com/samrat-dotel/binarypot_ssh/",
+                "output": "bash: git: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:46:21+0545",
+                "command": "ls",
+                "output": "binarypot_ssh",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "f59a6592",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:52:54+0545",
+        "ended_at": "2026-05-08T12:53:54+0545",
+        "command_count": 8,
+        "commands": [
+            {
+                "time": "2026-05-08T12:52:54+0545",
+                "command": "ls",
+                "output": "binarypot_ssh",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:53:15+0545",
+                "command": "git clone https://github.com/samrat-dotel/binarypot",
+                "output": "Cloning into 'binarypot'...\nremote: Enumerating objects: 48, done.\nremote: Counting objects: 100% (48/48), done.\nremote: Compressing objects: 100% (32/32), done.\nremote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0\nReceiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.\nResolving deltas: 100% (12/12), done.",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:53:25+0545",
+                "command": "ls",
+                "output": "binarypot  binarypot_ssh",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:53:30+0545",
+                "command": "cd binarypot",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:53:31+0545",
+                "command": "ls",
+                "output": ".git  .gitignore  README.md  main.py  requirements.txt",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:53:46+0545",
+                "command": "cat .gitignore",
+                "output": "__pycache__/\n.env\n*.log",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:53:54+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T12:53:54+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "ae774dd6",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T13:13:49+0545",
+        "ended_at": "2026-05-08T13:15:17+0545",
+        "command_count": 10,
+        "commands": [
+            {
+                "time": "2026-05-08T13:13:49+0545",
+                "command": "ls",
+                "output": "binarypot  binarypot_ssh",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T13:13:55+0545",
+                "command": "rmdir binarypot_ssh",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T13:13:56+0545",
+                "command": "ls",
+                "output": "binarypot",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T13:13:57+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T13:13:57+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T13:13:59+0545",
+                "command": "nice",
+                "output": "nice: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T13:14:47+0545",
+                "command": "python -version",
+                "output": "Python 3.8.5",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T13:15:15+0545",
+                "command": "python -version",
+                "output": "Python 3.8.5",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T13:15:17+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-08T13:15:17+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "5cf649f6",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-15T05:57:22+0545",
+        "ended_at": "2026-05-15T05:58:37+0545",
+        "command_count": 7,
+        "commands": [
+            {
+                "time": "2026-05-15T05:57:22+0545",
+                "command": "ls",
+                "output": "binarypot",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T05:57:29+0545",
+                "command": "cd binarypot",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T05:57:30+0545",
+                "command": "ls",
+                "output": ".git  .gitignore  README.md  main.py  requirements.txt",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T05:57:36+0545",
+                "command": "cat main.py",
+                "output": "print('Hello from cloned repository')",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T05:57:44+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T05:58:33+0545",
+                "command": "git clone https://samar-dotel/skillXchange",
+                "output": "Cloning into 'skillXchange'...\nremote: Enumerating objects: 48, done.\nremote: Counting objects: 100% (48/48), done.\nremote: Compressing objects: 100% (32/32), done.\nremote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0\nReceiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.\nResolving deltas: 100% (12/12), done.",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T05:58:37+0545",
+                "command": "ls",
+                "output": "binarypot  skillXchange",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "47e72844",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-15T06:26:43+0545",
+        "ended_at": "2026-05-15T06:28:41+0545",
+        "command_count": 19,
+        "commands": [
+            {
+                "time": "2026-05-15T06:26:43+0545",
+                "command": "ls",
+                "output": "binarypot  skillXchange",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:26:52+0545",
+                "command": "cd binarypot",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:02+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:03+0545",
+                "command": "ls",
+                "output": "binarypot  skillXchange",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:07+0545",
+                "command": "cd ninja",
+                "output": "cd: ninja: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:13+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:13+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:20+0545",
+                "command": "cd binarypot",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:21+0545",
+                "command": "ls",
+                "output": ".git  .gitignore  README.md  main.py  requirements.txt",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:28+0545",
+                "command": "cat requirements.txt",
+                "output": "requests==2.31.0\nflask==2.3.2",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:32+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:27:32+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:28:18+0545",
+                "command": "git clone http://amamulhaq/minorproject",
+                "output": "Cloning into 'minorproject'...\nremote: Enumerating objects: 48, done.\nremote: Counting objects: 100% (48/48), done.\nremote: Compressing objects: 100% (32/32), done.\nremote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0\nReceiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.\nResolving deltas: 100% (12/12), done.",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:28:21+0545",
+                "command": "ls",
+                "output": ".git  .gitignore  README.md  main.py  minorproject  requirements.txt",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:28:35+0545",
+                "command": "rmdir minorproject",
+                "output": "rmdir: failed to remove 'minorproject': Directory not empty",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:28:39+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:28:39+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:28:41+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-15T06:28:41+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "67bb3947",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-16T16:50:21+0545",
+        "ended_at": "2026-05-16T16:50:47+0545",
+        "command_count": 10,
+        "commands": [
+            {
+                "time": "2026-05-16T16:50:21+0545",
+                "command": "ls",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:50:24+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:50:24+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:50:25+0545",
+                "command": "ls",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:50:28+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:50:29+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  deploy  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:50:42+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:50:42+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:50:47+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:50:47+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "bc7af18e",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-16T16:53:33+0545",
+        "ended_at": "2026-05-16T16:54:45+0545",
+        "command_count": 9,
+        "commands": [
+            {
+                "time": "2026-05-16T16:53:33+0545",
+                "command": "ls",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:53:40+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:53:43+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:54:10+0545",
+                "command": "cd www-data",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:54:12+0545",
+                "command": "ls",
+                "output": "public_html",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:54:18+0545",
+                "command": "cat public_html",
+                "output": "cat: public_html: Is a directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:54:34+0545",
+                "command": "cd public_html",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:54:38+0545",
+                "command": "ls",
+                "output": "index.html",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T16:54:45+0545",
+                "command": "cat index.html",
+                "output": "<html>\n<head><title>Default Site</title></head>\n<body><h1>It works</h1></body>\n</html>",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "d3eb481c",
+        "remote_addr": "192.168.1.141",
+        "username": "samar",
+        "started_at": "2026-05-16T18:18:44+0545",
+        "ended_at": "2026-05-16T18:19:38+0545",
+        "command_count": 4,
+        "commands": [
+            {
+                "time": "2026-05-16T18:18:44+0545",
+                "command": "mkdir saala",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:18:50+0545",
+                "command": "ls",
+                "output": "saala",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:19:38+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:19:38+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "3e6c7ddd",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-16T18:19:58+0545",
+        "ended_at": "2026-05-16T18:21:21+0545",
+        "command_count": 5,
+        "commands": [
+            {
+                "time": "2026-05-16T18:19:58+0545",
+                "command": "mkdir remove",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:20:00+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:20:00+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:14+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:21+0545",
+                "command": "cd 'a s u s'",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "ef9e9775",
+        "remote_addr": "192.168.1.141",
+        "username": "samar",
+        "started_at": "2026-05-16T18:20:18+0545",
+        "ended_at": "2026-05-16T18:22:42+0545",
+        "command_count": 30,
+        "commands": [
+            {
+                "time": "2026-05-16T18:20:18+0545",
+                "command": "ls",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:20:20+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:20:21+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:20:26+0545",
+                "command": "cd asus",
+                "output": "cd: asus: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:20:37+0545",
+                "command": "cd tuf",
+                "output": "cd: tuf: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:20:41+0545",
+                "command": "cd samar",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:20:45+0545",
+                "command": "cd ubuntu",
+                "output": "cd: ubuntu: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:20:52+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:01+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:06+0545",
+                "command": "cd a s u s",
+                "output": "cd: a: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:09+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:12+0545",
+                "command": "cd h",
+                "output": "cd: h: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:14+0545",
+                "command": "cd home",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:16+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:16+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:19+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:36+0545",
+                "command": "cd 'asus'",
+                "output": "cd: asus: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:45+0545",
+                "command": "cd 'asus'",
+                "output": "cd: asus: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:21:58+0545",
+                "command": "cd ubuntu",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:03+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:13+0545",
+                "command": "cd 'a s u s'",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:15+0545",
+                "command": "ls",
+                "output": "remove",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:18+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:32+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:37+0545",
+                "command": "cd samar",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:38+0545",
+                "command": "ls",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:39+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:39+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:42+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T18:22:42+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "c057fc98",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-16T23:36:57+0545",
+        "ended_at": "2026-05-16T23:46:43+0545",
+        "command_count": 31,
+        "commands": [
+            {
+                "time": "2026-05-16T23:36:57+0545",
+                "command": "ls",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:37:00+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:37:01+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:37:22+0545",
+                "command": "python --version",
+                "output": "Python 3.8.5",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:38:16+0545",
+                "command": "git --version",
+                "output": "git version 2.35.2",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:38:29+0545",
+                "command": "git clone https://github.com/oven-sh/bun",
+                "output": "Cloning into 'bun'...\nremote: Enumerating objects: 48, done.\nremote: Counting objects: 100% (48/48), done.\nremote: Compressing objects: 100% (32/32), done.\nremote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0\nReceiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.\nResolving deltas: 100% (12/12), done.",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:38:33+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  asus tuf gaming  bun  deploy  samar  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:38:56+0545",
+                "command": "cd www-data",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:38:58+0545",
+                "command": "ls",
+                "output": "public_html",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:39:12+0545",
+                "command": "mkdir newnote",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:39:15+0545",
+                "command": "ls",
+                "output": "newnote  public_html",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:39:24+0545",
+                "command": "rm -rf newnote",
+                "output": "rm: cannot remove '-rf': No such file or directory\nrm: cannot remove 'newnote': Is a directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:39:43+0545",
+                "command": "rm newnote",
+                "output": "rm: cannot remove 'newnote': Is a directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:40:03+0545",
+                "command": "grep google.com",
+                "output": "grep: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:40:31+0545",
+                "command": "nano python.txt",
+                "output": "nano: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:40:49+0545",
+                "command": "ping google.com",
+                "output": "ping: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:40:57+0545",
+                "command": "ifconfig",
+                "output": "ifconfig: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:41:02+0545",
+                "command": "ipconfig",
+                "output": "ipconfig: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:42:35+0545",
+                "command": "ip addr",
+                "output": "ip: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:42:46+0545",
+                "command": "ping 8.8.8.8",
+                "output": "ping: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:43:19+0545",
+                "command": "curl http://example.com",
+                "output": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Example Domain</title>\n</head>\n<body>\n    <h1>Welcome to",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:43:44+0545",
+                "command": "uname -a",
+                "output": "Linux web01 5.15.0-89-generic #99-Ubuntu SMP Mon Oct 30 20:42:41 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:44:02+0545",
+                "command": "ls -la",
+                "output": "drwxr-xr-x 1 asus tuf gaming asus tuf gaming   4096 05/16/2026 11:39 PM newnote\ndrwxr-xr-x 1 asus tuf gaming asus tuf gaming   4096 12/10/2025 10:34 AM public_html",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:44:55+0545",
+                "command": "cat /etc/os-release",
+                "output": "NAME=\"Ubuntu\"\nVERSION=\"20.04 LTS (Focal Fossa)\"\nID=ubuntu\nID_LIKE=debian\nPRETTY_NAME=\"Ubuntu 20.04 LTS\"\nVERSION_ID=\"20.04\"\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:45:29+0545",
+                "command": "cd..",
+                "output": "cd..: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:45:32+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:45:34+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  asus tuf gaming  bun  deploy  samar  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:45:45+0545",
+                "command": "cdd asus",
+                "output": "cdd: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:45:49+0545",
+                "command": "cd asus",
+                "output": "cd: asus: No such file or directory",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:40+0545",
+                "command": "cd ' a s u s'",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:43+0545",
+                "command": "ls",
+                "output": "remove",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "06f6678c",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-16T23:44:50+0545",
+        "ended_at": "2026-05-16T23:46:49+0545",
+        "command_count": 14,
+        "commands": [
+            {
+                "time": "2026-05-16T23:44:50+0545",
+                "command": "ls",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:44:53+0545",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:44:54+0545",
+                "command": "ls",
+                "output": "A S U S  a s u s  asus  asus tuf gaming  bun  deploy  samar  ubuntu  www-data",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:44:58+0545",
+                "command": "cd asus",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:45:07+0545",
+                "command": "touch hello.txt",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:45:54+0545",
+                "command": "ls",
+                "output": "hello.txt",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:32+0545",
+                "command": "cat hello.txt",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:37+0545",
+                "command": "home.sh",
+                "output": "home.sh: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:40+0545",
+                "command": "vm home.sh",
+                "output": "vm: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:46+0545",
+                "command": "vim home.sh",
+                "output": "vim: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:47+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:47+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:49+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-16T23:46:49+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "45f80bd6",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T09:07:13+0545",
+        "ended_at": "2026-05-17T09:19:03+0545",
+        "command_count": 31,
+        "commands": [
+            {
+                "time": "2026-05-17T09:07:13+0545",
+                "command": "ping google.com",
+                "output": "ping: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:07:32+0545",
+                "command": "python --version",
+                "output": "Python 3.8.5",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:07:54+0545",
+                "command": "uname -a",
+                "output": "Linux web01 5.15.0-89-generic #99-Ubuntu SMP Mon Oct 30 20:42:41 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:08:19+0545",
+                "command": "python print(\"honeypot\")",
+                "output": "Python 3.8.5 (default, Feb 28 2021, 16:07:46)\n[GCC 9.3.0] on linux\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:09:44+0545",
+                "command": "python3 -c \"print('Honeypot Active')\"",
+                "output": "Honepot Active",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:10:06+0545",
+                "command": "python3 -c \"print('Anish vibe code')\"",
+                "output": "Anish vibe code",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:11:31+0545",
+                "command": "cat /etc/os-release",
+                "output": "NAME=\"Ubuntu\"\nVERSION=\"20.04 LTS (Focal Fossa)\"\nID=ubuntu\nID_LIKE=debian\nPRETTY_NAME=\"Ubuntu 20.04 LTS\"\nVERSION_ID=\"20.04\"\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:12:14+0545",
+                "command": "find / -perm -4000 2>/dev/null",
+                "output": "/run/systemd/ask-password\n/etc/resolv.conf\n/var/lib/sudo\n/tmp\n/usr/local/bin\n/username\n/home/asus tuf gaming",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:12:48+0545",
+                "command": "tree",
+                "output": "tree: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:13:00+0545",
+                "command": "netstat -tulnp",
+                "output": "netstat: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:13:14+0545",
+                "command": "curl ifconfig.me",
+                "output": "192.168.56.1",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:13:31+0545",
+                "command": "route -n",
+                "output": "route: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:13:46+0545",
+                "command": "ps aux",
+                "output": "  PID TTY          TIME CMD\n    1 ?        00:00:01 systemd\n  123 ?        00:00:00 sshd\n  456 pts/0    00:00:00 bash",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:14:36+0545",
+                "command": "top",
+                "output": "top: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:14:48+0545",
+                "command": "systemctl list-units --type=service",
+                "output": "systemctl: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:15:06+0545",
+                "command": "service --status-all",
+                "output": "service: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:15:15+0545",
+                "command": "lsof -i",
+                "output": "lsof: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:15:29+0545",
+                "command": "grep -Ri password /etc",
+                "output": "bash: grep: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:15:49+0545",
+                "command": "find / -name \"id_rsa*\" 2>/dev/null",
+                "output": "/home/asus/.ssh/id_rsa\n/home/ubuntu/.ssh/id_rsa",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:16:09+0545",
+                "command": "cat ~/.bash_history",
+                "output": "bash: cat: /home/asus tuf gaming/.bash_history: Permission denied",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:16:32+0545",
+                "command": "echo '* * * * * /tmp/test.sh' >> /tmp/fakecron",
+                "output": "* * * * * /tmp/test.sh >> /tmp/fakecron",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:16:47+0545",
+                "command": "crontab -l",
+                "output": "crontab: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:17:02+0545",
+                "command": "ls",
+                "output": ".bash_history",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:17:25+0545",
+                "command": "echo '* * * * * /tmp/test.sh' >> temp.txt",
+                "output": "* * * * * /tmp/test.sh >> temp.txt",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:17:28+0545",
+                "command": "ls",
+                "output": ".bash_history",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:18:05+0545",
+                "command": "which python",
+                "output": "which: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:18:14+0545",
+                "command": "gcc --version",
+                "output": "gcc: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:18:26+0545",
+                "command": "wget --help",
+                "output": "bash: wget: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:18:40+0545",
+                "command": "git --version",
+                "output": "bash: git: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:18:50+0545",
+                "command": "docker ps",
+                "output": "docker: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:19:03+0545",
+                "command": "env | grep AWS",
+                "output": "AWS_ACCESS_KEY_ID=********\nAWS_SECRET_ACCESS_KEY=********",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "aaec87d9",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T09:21:38+0545",
+        "ended_at": "2026-05-17T09:22:59+0545",
+        "command_count": 5,
+        "commands": [
+            {
+                "time": "2026-05-17T09:21:38+0545",
+                "command": "python3 -c \"print('Honeypot Active')\"",
+                "output": "Honepot Active",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:22:02+0545",
+                "command": "curl http://169.254.169.254/latest/meta-data/",
+                "output": "HTTP/1.1 200 OK\nServer: AmazonEC2\nEtag: \"c7e8f9a0\"\nLast-Modified: Fri, 16 Feb 2026 10:00:00 GMT\nContent-Type: text",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:22:08+0545",
+                "command": "ls",
+                "output": "--help  .bash_history",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:22:44+0545",
+                "command": "netstat -tulnp",
+                "output": "netstat: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:22:59+0545",
+                "command": "gcc --version",
+                "output": "gcc: command not found",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "0647fb7c",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T09:24:30+0545",
+        "ended_at": "2026-05-17T09:25:16+0545",
+        "command_count": 4,
+        "commands": [
+            {
+                "time": "2026-05-17T09:24:30+0545",
+                "command": "gcc --version",
+                "output": "gcc: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:24:58+0545",
+                "command": "netstat -tulnp",
+                "output": "netstat: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:25:16+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:25:16+0545",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "f83d5682",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T09:27:13+0545",
+        "ended_at": "2026-05-17T09:31:46+0545",
+        "command_count": 18,
+        "commands": [
+            {
+                "time": "2026-05-17T09:27:13+0545",
+                "command": "gcc --version",
+                "output": "gcc: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:27:39+0545",
+                "command": "whoami",
+                "output": "asus tuf gaming",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:28:05+0545",
+                "command": "wget",
+                "output": "wget: missing URL",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:28:15+0545",
+                "command": "wget www.youtube.com",
+                "output": "bash: wget: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:28:26+0545",
+                "command": "wget https://www.youtube.com",
+                "output": "bash: wget: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:28:29+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:28:29+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:29:01+0545",
+                "command": "pwd",
+                "output": "/home/asus tuf gaming",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:29:02+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:29:02+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:29:05+0545",
+                "command": "pwd",
+                "output": "/home/asus tuf gaming",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:30:09+0545",
+                "command": "which git",
+                "output": "which: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:30:40+0545",
+                "command": "curl -I https://github.com",
+                "output": "HTTP/1.1 200 OK\nContent-Type: text/html; charset=UTF-8\nConnection: keep-alive\nServer: ECS\nX-Request-URL: https://github.com",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:31:10+0545",
+                "command": "wget https://example.com/file.txt",
+                "output": "--2026-03-06 15:03:50--  https://example.com/file.txt\nConnecting to example.com (192.168.56.1):80... connected.\nHTTP request sent, awaiting response... 200 OK\nContent-type: text/plain; charset=UTF-8\nTransfer-encoding: chunked\nDate: Tue, 06 Mar 2026 17:03:50 GMT\nServer: Apache/2.4.41 (Unix)",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:31:25+0545",
+                "command": "wget https://sike.com/file.txt",
+                "output": "bash: wget: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:31:41+0545",
+                "command": "wget https://google.com/file.txt",
+                "output": "bash: wget: command not found",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:31:46+0545",
+                "command": "clear",
+                "output": "SUCCESS: screen cleared",
+                "cwd": "",
+                "command_index": null
+            },
+            {
+                "time": "2026-05-17T09:31:46+0545",
+                "command": "clear",
+                "output": "",
+                "cwd": "",
+                "command_index": null
+            }
+        ]
+    },
+    {
+        "session_id": "c2625ea1",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T08:56:20.282574Z",
+        "ended_at": "2026-05-17T08:58:04.861881Z",
+        "command_count": 4,
+        "commands": [
+            {
+                "time": "2026-05-17T08:56:20.282574Z",
+                "command": "mkdir aneesh",
+                "output": "",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-17T08:56:22.584695Z",
+                "command": "ls",
+                "output": "aneesh  Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-17T08:57:41.108248Z",
+                "command": "ping google.com",
+                "output": "PING google.com (74.125.83.219): 56 data bytes\n64 bytes from 74.125.83.219: icmp_seq=1 ttl=56 time=19.4 ms\n64 bytes from 74.125.83.219: icmp_seq=2 ttl=56 time=20.0 ms\n64 bytes from 74.125.83.219: icmp_seq=3 ttl=",
+                "cwd": "/home/user",
+                "command_index": 3
+            },
+            {
+                "time": "2026-05-17T08:58:04.861881Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 4
+            }
+        ]
+    },
+    {
+        "session_id": "153f8a92",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T09:10:29.012305Z",
+        "ended_at": "2026-05-17T09:11:48.669801Z",
+        "command_count": 12,
+        "commands": [
+            {
+                "time": "2026-05-17T09:10:29.012305Z",
+                "command": "ping goole.com",
+                "output": "bash: ping: command not found",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-17T09:10:52.087911Z",
+                "command": "ping google.com",
+                "output": "PING google.com (93.187.86.242): 56 data bytes\n64 bytes from 93.187.86.242: icmp_seq=1 ttl=51 time=11.6 ms\n64 bytes from 93.187.86.242: icmp_seq=2 ttl=51 time=11.8 ms\n64 bytes from 93.187.86.242: icmp_seq=3 ttl=",
+                "cwd": "/home/user",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-17T09:10:59.553457Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 3
+            },
+            {
+                "time": "2026-05-17T09:11:03.836977Z",
+                "command": "cd Documents",
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 4
+            },
+            {
+                "time": "2026-05-17T09:11:06.991387Z",
+                "command": "mkdir aneesh",
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 5
+            },
+            {
+                "time": "2026-05-17T09:11:12.589832Z",
+                "command": "touch aneeesh.txt",
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 6
+            },
+            {
+                "time": "2026-05-17T09:11:25.604722Z",
+                "command": "exho \"Hero Bhai\" > aneesh.txt",
+                "output": "bash: exho: command not found",
+                "cwd": "/home/user/Documents",
+                "command_index": 7
+            },
+            {
+                "time": "2026-05-17T09:11:31.616148Z",
+                "command": "echo \"Hero Bhai\" > aneesh.txt",
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 8
+            },
+            {
+                "time": "2026-05-17T09:11:39.679795Z",
+                "command": "cat aneesh.txt",
+                "output": "Hero Bhai",
+                "cwd": "/home/user/Documents",
+                "command_index": 9
+            },
+            {
+                "time": "2026-05-17T09:11:43.749533Z",
+                "command": "claer",
+                "output": "bash: clear: command not found",
+                "cwd": "/home/user/Documents",
+                "command_index": 10
+            },
+            {
+                "time": "2026-05-17T09:11:46.505121Z",
+                "command": "clear",
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 11
+            },
+            {
+                "time": "2026-05-17T09:11:48.669801Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user/Documents",
+                "command_index": 12
+            }
+        ]
+    },
+    {
+        "session_id": "770184b2",
+        "command_count": 11,
+        "commands": [
+            {
+                "command": "ls",
+                "cwd": "/home/user"
+            },
+            {
+                "command": "cd Documents",
+                "cwd": "/home/user/Documents"
+            },
+            {
+                "command": "ls",
+                "cwd": "/home/user/Documents"
+            },
+            {
+                "command": "cat anesh.txt",
+                "cwd": "/home/user/Documents"
+            },
+            {
+                "command": "cd aneesh",
+                "cwd": "/home/user/Documents/aneesh"
+            },
+            {
+                "command": "ls",
+                "cwd": "/home/user/Documents/aneesh"
+            },
+            {
+                "command": "cd ..",
+                "cwd": "/home/user/Documents"
+            },
+            {
+                "command": "cat aneesh.txt",
+                "cwd": "/home/user/Documents"
+            },
+            {
+                "command": "echo \"aneesh don\" > aneesh.txt",
+                "cwd": "/home/user/Documents"
+            },
+            {
+                "command": "cat aneesh.txt",
+                "cwd": "/home/user/Documents"
+            },
+            {
+                "command": "exit",
+                "cwd": "/home/user/Documents"
+            }
+        ]
+    }
+]

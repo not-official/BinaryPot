@@ -47,3 +47,9 @@
 {"time": "2026-05-17T08:56:12.613792Z", "event": "auth_attempt", "remote_addr": "192.168.1.141", "username": "asus", "password": "aneeshhero", "session_id": "c2625ea1"}
 {"time": "2026-05-17T08:56:12.615726Z", "event": "auth_success", "remote_addr": "192.168.1.141", "username": "asus", "password": "aneeshhero", "session_id": "c2625ea1"}
 {"time": "2026-05-17T08:58:04.876920Z", "event": "auth_termination", "remote_addr": "192.168.1.141", "username": "asus", "password": "", "session_id": "c2625ea1"}
+{"time": "2026-05-17T09:10:22.815254Z", "event": "auth_attempt", "remote_addr": "192.168.1.141", "username": "asus", "password": "herohero", "session_id": "153f8a92"}
+{"time": "2026-05-17T09:10:22.815254Z", "event": "auth_success", "remote_addr": "192.168.1.141", "username": "asus", "password": "herohero", "session_id": "153f8a92"}
+{"time": "2026-05-17T09:11:48.677312Z", "event": "auth_termination", "remote_addr": "192.168.1.141", "username": "asus", "password": "", "session_id": "153f8a92"}
+{"time": "2026-05-17T09:15:46.136150Z", "event": "auth_attempt", "remote_addr": "192.168.1.141", "username": "asus", "password": "amanhero", "session_id": "770184b2"}
+{"time": "2026-05-17T09:15:46.136150Z", "event": "auth_success", "remote_addr": "192.168.1.141", "username": "asus", "password": "amanhero", "session_id": "770184b2"}
+{"time": "2026-05-17T09:16:46.009737Z", "event": "auth_termination", "remote_addr": "192.168.1.141", "username": "asus", "password": "", "session_id": "770184b2"}
