@@ -49,3 +49,7 @@ Thumbs.db
 # SSH keys (honeypot)
 bpot-backend/ssh_host_key
 bpot-backend/ssh_host_key.pub
+
+
+#filesystem
+bpot-backend/honeypot_fs/
