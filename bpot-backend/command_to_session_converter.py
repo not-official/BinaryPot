@@ -127,13 +127,20 @@ def convert_commands_to_sessions():
 
         for entry in logs:
             commands.append({
+                "time": entry["time"],
                 "command": entry["command"],
+                "output": entry["output"],
                 "cwd": entry["cwd"],
+                "command_index": entry["command_index"],
             })
 
 
         new_sessions.append({
             "session_id": session_id,
+            "remote_addr": first_log.get("remote_addr", "unknown"),
+            "username": first_log.get("username", "unknown"),
+            "started_at": logs[0]["time"] if logs else "",
+            "ended_at": logs[-1]["time"] if logs else "",
             "command_count": len(commands),
             "commands": commands,
         })
@@ -162,6 +169,4 @@ def convert_commands_to_sessions():
 
 if __name__ == "__main__":
     convert_commands_to_sessions()
-
-
 

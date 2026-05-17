@@ -2988,115 +2988,268 @@
     },
     {
         "session_id": "770184b2",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T09:15:47.685743Z",
+        "ended_at": "2026-05-17T09:16:46.000629Z",
         "command_count": 11,
         "commands": [
             {
+                "time": "2026-05-17T09:15:47.685743Z",
                 "command": "ls",
-                "cwd": "/home/user"
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
             },
             {
+                "time": "2026-05-17T09:15:51.949887Z",
                 "command": "cd Documents",
-                "cwd": "/home/user/Documents"
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 2
             },
             {
+                "time": "2026-05-17T09:15:52.972107Z",
                 "command": "ls",
-                "cwd": "/home/user/Documents"
+                "output": "aneeesh.txt  aneesh  aneesh.txt",
+                "cwd": "/home/user/Documents",
+                "command_index": 3
             },
             {
+                "time": "2026-05-17T09:16:02.167234Z",
                 "command": "cat anesh.txt",
-                "cwd": "/home/user/Documents"
+                "output": "Hello, this is a sample text file.",
+                "cwd": "/home/user/Documents",
+                "command_index": 4
             },
             {
+                "time": "2026-05-17T09:16:08.465144Z",
                 "command": "cd aneesh",
-                "cwd": "/home/user/Documents/aneesh"
+                "output": "",
+                "cwd": "/home/user/Documents/aneesh",
+                "command_index": 5
             },
             {
+                "time": "2026-05-17T09:16:09.505413Z",
                 "command": "ls",
-                "cwd": "/home/user/Documents/aneesh"
+                "output": "",
+                "cwd": "/home/user/Documents/aneesh",
+                "command_index": 6
             },
             {
+                "time": "2026-05-17T09:16:11.728282Z",
                 "command": "cd ..",
-                "cwd": "/home/user/Documents"
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 7
             },
             {
+                "time": "2026-05-17T09:16:22.173883Z",
                 "command": "cat aneesh.txt",
-                "cwd": "/home/user/Documents"
+                "output": "Hero Bhai",
+                "cwd": "/home/user/Documents",
+                "command_index": 8
             },
             {
+                "time": "2026-05-17T09:16:36.335851Z",
                 "command": "echo \"aneesh don\" > aneesh.txt",
-                "cwd": "/home/user/Documents"
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 9
             },
             {
+                "time": "2026-05-17T09:16:41.968125Z",
                 "command": "cat aneesh.txt",
-                "cwd": "/home/user/Documents"
+                "output": "aneesh don",
+                "cwd": "/home/user/Documents",
+                "command_index": 10
             },
             {
+                "time": "2026-05-17T09:16:46.000629Z",
                 "command": "exit",
-                "cwd": "/home/user/Documents"
+                "output": "logout",
+                "cwd": "/home/user/Documents",
+                "command_index": 11
             }
         ]
     },
     {
         "session_id": "87b5585f",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T10:17:41.385359Z",
+        "ended_at": "2026-05-17T10:17:49.394720Z",
         "command_count": 2,
         "commands": [
             {
+                "time": "2026-05-17T10:17:41.385359Z",
                 "command": "sh hello",
-                "cwd": "/home/user"
+                "output": "Hello from the shell!",
+                "cwd": "/home/user",
+                "command_index": 1
             },
             {
+                "time": "2026-05-17T10:17:49.394720Z",
                 "command": "exit",
-                "cwd": "/home/user"
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 2
             }
         ]
     },
     {
         "session_id": "d80af301",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T10:19:29.342963Z",
+        "ended_at": "2026-05-17T10:19:58.210666Z",
         "command_count": 11,
         "commands": [
             {
+                "time": "2026-05-17T10:19:29.342963Z",
                 "command": "ls",
-                "cwd": "/home/user"
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
             },
             {
+                "time": "2026-05-17T10:19:32.508941Z",
                 "command": "cd Documents",
-                "cwd": "/home/user/Documents"
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 2
             },
             {
+                "time": "2026-05-17T10:19:33.641454Z",
                 "command": "ls",
-                "cwd": "/home/user/Documents"
+                "output": "aneeesh.txt  aneesh  aneesh.txt  anesh.txt",
+                "cwd": "/home/user/Documents",
+                "command_index": 3
             },
             {
+                "time": "2026-05-17T10:19:38.406883Z",
                 "command": "cat aneesh.txt",
-                "cwd": "/home/user/Documents"
+                "output": "aneesh don",
+                "cwd": "/home/user/Documents",
+                "command_index": 4
             },
             {
+                "time": "2026-05-17T10:19:39.928547Z",
                 "command": "ls",
-                "cwd": "/home/user/Documents"
+                "output": "aneeesh.txt  aneesh  aneesh.txt  anesh.txt",
+                "cwd": "/home/user/Documents",
+                "command_index": 5
             },
             {
+                "time": "2026-05-17T10:19:44.578801Z",
                 "command": "rm aneesh.txt",
-                "cwd": "/home/user/Documents"
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 6
             },
             {
+                "time": "2026-05-17T10:19:45.718869Z",
                 "command": "ls",
-                "cwd": "/home/user/Documents"
+                "output": "aneeesh.txt  aneesh  anesh.txt",
+                "cwd": "/home/user/Documents",
+                "command_index": 7
             },
             {
+                "time": "2026-05-17T10:19:46.763373Z",
                 "command": "clear",
-                "cwd": "/home/user/Documents"
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 8
             },
             {
+                "time": "2026-05-17T10:19:48.325711Z",
                 "command": "ls",
-                "cwd": "/home/user/Documents"
+                "output": "aneeesh.txt  aneesh  anesh.txt",
+                "cwd": "/home/user/Documents",
+                "command_index": 9
             },
             {
+                "time": "2026-05-17T10:19:56.660757Z",
                 "command": "rm aneeesh.txt",
-                "cwd": "/home/user/Documents"
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 10
             },
             {
+                "time": "2026-05-17T10:19:58.210666Z",
                 "command": "exit",
-                "cwd": "/home/user/Documents"
+                "output": "logout",
+                "cwd": "/home/user/Documents",
+                "command_index": 11
+            }
+        ]
+    },
+    {
+        "session_id": "8ca4cfca",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T16:49:02.141109Z",
+        "ended_at": "2026-05-17T16:49:09.053497Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2026-05-17T16:49:02.141109Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-17T16:49:09.053497Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 2
+            }
+        ]
+    },
+    {
+        "session_id": "a695f66a",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T16:50:34.721069Z",
+        "ended_at": "2026-05-17T16:51:03.198131Z",
+        "command_count": 5,
+        "commands": [
+            {
+                "time": "2026-05-17T16:50:34.721069Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-17T16:50:42.198940Z",
+                "command": "cd Documents",
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-17T16:50:46.085957Z",
+                "command": "ls",
+                "output": "aneesh  anesh.txt",
+                "cwd": "/home/user/Documents",
+                "command_index": 3
+            },
+            {
+                "time": "2026-05-17T16:50:57.091973Z",
+                "command": "cat anesh.txt",
+                "output": "Hello, this is a sample text file.",
+                "cwd": "/home/user/Documents",
+                "command_index": 4
+            },
+            {
+                "time": "2026-05-17T16:51:03.198131Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user/Documents",
+                "command_index": 5
             }
         ]
     }

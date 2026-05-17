@@ -3395,22 +3395,22 @@
     },
     {
         "session_id": "770184b2",
-        "remote_addr": "unknown",
-        "username": "unknown",
-        "started_at": "",
-        "ended_at": "",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T09:15:47.685743Z",
+        "ended_at": "2026-05-17T09:16:46.000629Z",
         "command_count": 11,
         "commands": [
             {
-                "command_index": null,
+                "command_index": 1,
                 "command": "ls",
                 "cwd": "/home/user",
-                "output": "",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
                 "intent": "Filesystem Operations",
                 "description": "Lists files and directories in /home/user."
             },
             {
-                "command_index": null,
+                "command_index": 2,
                 "command": "cd Documents",
                 "cwd": "/home/user/Documents",
                 "output": "",
@@ -3418,23 +3418,23 @@
                 "description": "Changes the working directory from /home/user/Documents to Documents."
             },
             {
-                "command_index": null,
+                "command_index": 3,
                 "command": "ls",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "aneeesh.txt  aneesh  aneesh.txt",
                 "intent": "Filesystem Operations",
                 "description": "Lists files and directories in /home/user/Documents."
             },
             {
-                "command_index": null,
+                "command_index": 4,
                 "command": "cat anesh.txt",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "Hello, this is a sample text file.",
                 "intent": "Filesystem Operations",
                 "description": "Reads and displays the contents of anesh.txt from the current shell context."
             },
             {
-                "command_index": null,
+                "command_index": 5,
                 "command": "cd aneesh",
                 "cwd": "/home/user/Documents/aneesh",
                 "output": "",
@@ -3442,7 +3442,7 @@
                 "description": "Changes the working directory from /home/user/Documents/aneesh to aneesh."
             },
             {
-                "command_index": null,
+                "command_index": 6,
                 "command": "ls",
                 "cwd": "/home/user/Documents/aneesh",
                 "output": "",
@@ -3450,7 +3450,7 @@
                 "description": "Lists files and directories in /home/user/Documents/aneesh."
             },
             {
-                "command_index": null,
+                "command_index": 7,
                 "command": "cd ..",
                 "cwd": "/home/user/Documents",
                 "output": "",
@@ -3458,15 +3458,15 @@
                 "description": "Moves from /home/user/Documents to the parent directory /home/user."
             },
             {
-                "command_index": null,
+                "command_index": 8,
                 "command": "cat aneesh.txt",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "Hero Bhai",
                 "intent": "Filesystem Operations",
                 "description": "Reads and displays the contents of aneesh.txt from the current shell context."
             },
             {
-                "command_index": null,
+                "command_index": 9,
                 "command": "echo \"aneesh don\" > aneesh.txt",
                 "cwd": "/home/user/Documents",
                 "output": "",
@@ -3474,18 +3474,18 @@
                 "description": "Attempts to echo a non-existent command aeesh.txt into /home/user/Documents, which fails."
             },
             {
-                "command_index": null,
+                "command_index": 10,
                 "command": "cat aneesh.txt",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "aneesh don",
                 "intent": "Filesystem Operations",
                 "description": "Reads and displays the contents of aneesh.txt from the current shell context."
             },
             {
-                "command_index": null,
+                "command_index": 11,
                 "command": "exit",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "logout",
                 "intent": "Service & System Operations",
                 "description": "Exits the working directory from /home/user/Documents."
             }
@@ -3494,25 +3494,25 @@
     },
     {
         "session_id": "87b5585f",
-        "remote_addr": "unknown",
-        "username": "unknown",
-        "started_at": "",
-        "ended_at": "",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T10:17:41.385359Z",
+        "ended_at": "2026-05-17T10:17:49.394720Z",
         "command_count": 2,
         "commands": [
             {
-                "command_index": null,
+                "command_index": 1,
                 "command": "sh hello",
                 "cwd": "/home/user",
-                "output": "",
+                "output": "Hello from the shell!",
                 "intent": "Tool Usage & Management",
                 "description": "Shows hello text inside /home/user."
             },
             {
-                "command_index": null,
+                "command_index": 2,
                 "command": "exit",
                 "cwd": "/home/user",
-                "output": "",
+                "output": "logout",
                 "intent": "Service & System Operations",
                 "description": "Exits the working directory from /home/user."
             }
@@ -3521,22 +3521,22 @@
     },
     {
         "session_id": "d80af301",
-        "remote_addr": "unknown",
-        "username": "unknown",
-        "started_at": "",
-        "ended_at": "",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T10:19:29.342963Z",
+        "ended_at": "2026-05-17T10:19:58.210666Z",
         "command_count": 11,
         "commands": [
             {
-                "command_index": null,
+                "command_index": 1,
                 "command": "ls",
                 "cwd": "/home/user",
-                "output": "",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
                 "intent": "Filesystem Operations",
                 "description": "Lists files and directories in /home/user."
             },
             {
-                "command_index": null,
+                "command_index": 2,
                 "command": "cd Documents",
                 "cwd": "/home/user/Documents",
                 "output": "",
@@ -3544,31 +3544,31 @@
                 "description": "Changes the working directory from /home/user/Documents to Documents."
             },
             {
-                "command_index": null,
+                "command_index": 3,
                 "command": "ls",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "aneeesh.txt  aneesh  aneesh.txt  anesh.txt",
                 "intent": "Filesystem Operations",
                 "description": "Lists files and directories in /home/user/Documents."
             },
             {
-                "command_index": null,
+                "command_index": 4,
                 "command": "cat aneesh.txt",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "aneesh don",
                 "intent": "Filesystem Operations",
                 "description": "Reads and displays the contents of aneesh.txt from the current shell context."
             },
             {
-                "command_index": null,
+                "command_index": 5,
                 "command": "ls",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "aneeesh.txt  aneesh  aneesh.txt  anesh.txt",
                 "intent": "Filesystem Operations",
                 "description": "Lists files and directories in /home/user/Documents."
             },
             {
-                "command_index": null,
+                "command_index": 6,
                 "command": "rm aneesh.txt",
                 "cwd": "/home/user/Documents",
                 "output": "",
@@ -3576,15 +3576,15 @@
                 "description": "Deletes aneesh.txt from /home/user/Documents."
             },
             {
-                "command_index": null,
+                "command_index": 7,
                 "command": "ls",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "aneeesh.txt  aneesh  anesh.txt",
                 "intent": "Filesystem Operations",
                 "description": "Lists files and directories in /home/user/Documents."
             },
             {
-                "command_index": null,
+                "command_index": 8,
                 "command": "clear",
                 "cwd": "/home/user/Documents",
                 "output": "",
@@ -3592,15 +3592,15 @@
                 "description": "Clears the admin user’s Documents directory."
             },
             {
-                "command_index": null,
+                "command_index": 9,
                 "command": "ls",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "aneeesh.txt  aneesh  anesh.txt",
                 "intent": "Filesystem Operations",
                 "description": "Lists files and directories in /home/user/Documents."
             },
             {
-                "command_index": null,
+                "command_index": 10,
                 "command": "rm aneeesh.txt",
                 "cwd": "/home/user/Documents",
                 "output": "",
@@ -3608,14 +3608,92 @@
                 "description": "Deletes aneeesh.txt from /home/user/Documents."
             },
             {
-                "command_index": null,
+                "command_index": 11,
                 "command": "exit",
                 "cwd": "/home/user/Documents",
-                "output": "",
+                "output": "logout",
                 "intent": "Service & System Operations",
                 "description": "Exits the working directory from /home/user/Documents."
             }
         ],
         "summary": "The session contains 11 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "8ca4cfca",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T16:49:02.141109Z",
+        "ended_at": "2026-05-17T16:49:09.053497Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "a695f66a",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T16:50:34.721069Z",
+        "ended_at": "2026-05-17T16:51:03.198131Z",
+        "command_count": 5,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "cd Documents",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from /home/user/Documents to Documents."
+            },
+            {
+                "command_index": 3,
+                "command": "ls",
+                "cwd": "/home/user/Documents",
+                "output": "aneesh  anesh.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents."
+            },
+            {
+                "command_index": 4,
+                "command": "cat anesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "Hello, this is a sample text file.",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of anesh.txt from the current shell context."
+            },
+            {
+                "command_index": 5,
+                "command": "exit",
+                "cwd": "/home/user/Documents",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user/Documents."
+            }
+        ],
+        "summary": "The session contains 5 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
     }
 ]

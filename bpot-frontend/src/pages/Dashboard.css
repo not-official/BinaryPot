@@ -599,3 +599,336 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   SESSION ANALYSIS / BEHAVIOR VIEW ADDITIONS
+   ============================================================ */
+
+
+.sessionActionGroup {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+
+.sessionAnalysisPreview {
+  margin: 14px 16px;
+  padding: 14px;
+  background: rgba(0, 212, 255, 0.035);
+  border: 1px solid rgba(0, 212, 255, 0.12);
+  border-radius: 4px;
+}
+
+
+.sessionAnalysisPreview p {
+  margin: 8px 0 0;
+  color: var(--text2);
+  font-size: 12px;
+  line-height: 1.65;
+  font-family: var(--mono);
+}
+
+
+/* ============================================================
+   BEHAVIOR MODAL OVERLAY
+   ============================================================ */
+
+
+.behaviorOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(3, 7, 18, 0.82);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 42px 24px;
+  overflow-y: auto;
+}
+
+
+.behaviorModal {
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 84px);
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at top left, rgba(0, 212, 255, 0.06), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.06), transparent 35%),
+    var(--card);
+  border: 1px solid rgba(0, 212, 255, 0.16);
+  border-radius: 6px;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(0, 212, 255, 0.08);
+}
+
+
+.behaviorModalHead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: rgba(10, 15, 30, 0.92);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+
+/* ============================================================
+   BEHAVIOR INFO CARDS
+   ============================================================ */
+
+
+.behaviorSummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 18px 20px 0;
+}
+
+
+.behaviorInfoCard {
+  background: rgba(5, 10, 24, 0.7);
+  border: 1px solid rgba(0, 212, 255, 0.09);
+  border-radius: 4px;
+  padding: 14px;
+}
+
+
+.behaviorInfoValue {
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 14px;
+  margin-top: 8px;
+  word-break: break-word;
+}
+
+
+/* ============================================================
+   BEHAVIOR SECTIONS
+   ============================================================ */
+
+
+.behaviorSection {
+  margin: 18px 20px;
+  padding: 16px;
+  background: rgba(5, 10, 24, 0.48);
+  border: 1px solid rgba(0, 212, 255, 0.08);
+  border-radius: 4px;
+}
+
+
+.behaviorMetaLine {
+  margin-top: 10px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: var(--text3);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+
+.behaviorSummaryText {
+  margin: 10px 0 0;
+  color: var(--text2);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   COMMAND INTENT CARDS
+   ============================================================ */
+
+
+.behaviorCommandList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+
+.behaviorCommandCard {
+  background: rgba(10, 15, 30, 0.7);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 4px;
+  padding: 14px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+
+.behaviorCommandCard:hover {
+  border-color: rgba(0, 212, 255, 0.22);
+  background: rgba(0, 212, 255, 0.035);
+}
+
+
+.behaviorCommandTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+
+.behaviorCommandTop .monoCell {
+  color: var(--cyan);
+  font-size: 13px;
+  word-break: break-word;
+}
+
+
+.behaviorCommandMeta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--text3);
+  font-family: var(--mono);
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+
+.behaviorIntentRow {
+  margin-bottom: 10px;
+}
+
+
+.behaviorDescription {
+  margin: 0;
+  color: var(--text2);
+  font-size: 12px;
+  line-height: 1.65;
+  font-family: var(--mono);
+}
+
+
+/* ============================================================
+   COMMAND OUTPUT BLOCK
+   ============================================================ */
+
+
+.behaviorOutput {
+  margin: 12px 0 0;
+  padding: 12px;
+  max-height: 220px;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(0, 212, 255, 0.08);
+  border-radius: 4px;
+  color: var(--green);
+  font-size: 11px;
+  line-height: 1.55;
+  font-family: var(--mono);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+
+/* ============================================================
+   MODAL FOOTER
+   ============================================================ */
+
+
+.behaviorFooter {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 20px;
+  background: rgba(10, 15, 30, 0.92);
+  border-top: 1px solid rgba(0, 212, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+
+@media (max-width: 1100px) {
+  .behaviorSummaryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .sessionActionGroup {
+    justify-content: flex-start;
+  }
+}
+
+
+@media (max-width: 820px) {
+  .behaviorOverlay {
+    padding: 20px 14px;
+  }
+
+
+  .behaviorModal {
+    max-height: calc(100vh - 40px);
+  }
+
+
+  .behaviorModalHead,
+  .behaviorFooter {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .behaviorSummaryGrid {
+    grid-template-columns: 1fr;
+    padding: 14px 14px 0;
+  }
+
+
+  .behaviorSection {
+    margin: 14px;
+    padding: 14px;
+  }
+
+
+  .behaviorMetaLine,
+  .behaviorCommandMeta {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+
+  .sessionActionGroup {
+    width: 100%;
+  }
+
+
+  .sessionActionGroup .miniBtn {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 560px) {
+  .behaviorCommandTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+  .behaviorInfoValue {
+    font-size: 12px;
+  }
+}
+

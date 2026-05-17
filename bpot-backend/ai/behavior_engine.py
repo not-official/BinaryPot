@@ -306,7 +306,7 @@ def generate_session_summary(commands: List[Dict[str, Any]]) -> str:
     if _cerebras_client is not None:
         try:
             prompt = f"""
-Summarize this SSH honeypot terminal session in 2-3 concise sentences.
+Summarize this SSH honeypot terminal session in concise sentences as per necessity.
 Focus on attacker behavior, likely goal, and any suspicious activity.
 Return only the summary.
 
