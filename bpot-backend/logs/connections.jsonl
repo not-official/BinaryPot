@@ -44,3 +44,6 @@
 {"time": "2026-05-17T09:21:21+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "nintech", "session_id": "aaec87d9"}
 {"time": "2026-05-17T09:24:23+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "netstat", "session_id": "0647fb7c"}
 {"time": "2026-05-17T09:27:09+0545", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "nin", "session_id": "f83d5682"}
+{"time": "2026-05-17T08:56:12.613792Z", "event": "auth_attempt", "remote_addr": "192.168.1.141", "username": "asus", "password": "aneeshhero", "session_id": "c2625ea1"}
+{"time": "2026-05-17T08:56:12.615726Z", "event": "auth_success", "remote_addr": "192.168.1.141", "username": "asus", "password": "aneeshhero", "session_id": "c2625ea1"}
+{"time": "2026-05-17T08:58:04.876920Z", "event": "auth_termination", "remote_addr": "192.168.1.141", "username": "asus", "password": "", "session_id": "c2625ea1"}

@@ -1,0 +1,4 @@
+TODO:
+- Check logs
+- Review SSH access
+- Update scripts

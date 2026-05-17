@@ -67,9 +67,9 @@ BinaryPot/
 * Fine-tuned local models for shell response generation
 * QLoRA / LoRA fine-tuning for lightweight adapter training
 * State-aware command response generation
-* Behavioral analysis
+* Distilbert for intent classification 
 * Bart for description generation
-* Report support through API
+* Report support through cerebras API 
 
 ---
 
