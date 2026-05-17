@@ -43,3 +43,7 @@ protobuf
 joblib
 scikit-learn
 Cerebras-cloud-sdk
+
+#map
+geoip2>=4.8.1
+

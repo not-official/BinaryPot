@@ -5,6 +5,7 @@ bpot-frontend/node_modules/
 bpot-frontend/dist/
 bpot-frontend/build/
 bpot-frontend/.env
+bpot-frontend/GeoLite2-City.mmdb
 
 # ----------------------
 # Python / Backend

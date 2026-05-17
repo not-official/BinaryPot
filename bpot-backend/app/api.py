@@ -5,6 +5,10 @@ from datetime import datetime
 
 from fastapi import APIRouter, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+import geoip2.database
+import geoip2.errors
+import ipaddress
+
 
 # ----------------------------------------------------------------------
 # Configuration
@@ -12,6 +16,14 @@ from fastapi.middleware.cors import CORSMiddleware
 LOG_DIR = Path(__file__).parent.parent / "logs"
 CONN_FILE = LOG_DIR / "connections.jsonl"
 CMD_FILE = LOG_DIR / "commands.jsonl"
+GEOIP_DB_CANDIDATES = [
+    Path(__file__).parent.parent.parent / "bpot-frontend" / "GeoLite2-City.mmdb",
+    Path(__file__).parent.parent.parent / "GeoLite2-City.mmdb",
+]
+
+
+
+
 
 router = APIRouter(prefix="/api")
 
@@ -45,6 +57,16 @@ def _parse_iso(ts: str) -> Optional[datetime]:
         except Exception:
             return None
 
+def _get_geoip_db_path() -> Path:
+    for candidate in GEOIP_DB_CANDIDATES:
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError("GeoLite2-City.mmdb not found")
+
+
+
+
+
 # ----------------------------------------------------------------------
 # API endpoints
 # ----------------------------------------------------------------------
@@ -53,6 +75,44 @@ def _parse_iso(ts: str) -> Optional[datetime]:
 def health():
     """Simple health check."""
     return {"status": "ok"}
+
+
+
+@router.get("/geoip/lookup")
+def geoip_lookup(ip: str = Query(..., min_length=1)):
+    """Resolve an IP address to geo coordinates using the GeoLite2 database."""
+    try:
+        ipaddress.ip_address(ip)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="invalid ip address")
+
+
+    try:
+        db_path = _get_geoip_db_path()
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="GeoIP database file not found")
+
+
+    try:
+        with geoip2.database.Reader(str(db_path)) as reader:
+            response = reader.city(ip)
+
+
+            return {
+                "ip": ip,
+                "latitude": response.location.latitude,
+                "longitude": response.location.longitude,
+                "country_code": response.country.iso_code,
+                "country_name": response.country.name,
+                "city": response.city.name,
+                "subdivision": response.subdivisions.most_specific.name,
+            }
+    except geoip2.errors.AddressNotFoundError:
+        raise HTTPException(status_code=404, detail="no geoip data found for this ip")
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"geoip lookup failed: {exc}")
+
+
 
 
 @router.get("/connections")

@@ -4,16 +4,20 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
 import Portal from "./pages/Portal";
+import AttackMap from "./pages/AttackMap";
 import LandingPage from "./pages/LandingPage";
 import "./styles/theme.css";
+
 
 const isAuthenticated = () => {
   return !! sessionStorage.getItem("token");
 };
 
+
 const ProtectedRoute = ({ children }) => {
   return isAuthenticated() ? children : <Navigate to="/" />;
 };
+
 
 function App() {
   return (
@@ -23,11 +27,24 @@ function App() {
      
         <Route path="/signup-request" element={<Signup />} />
 
+
         <Route path="/" element={<LandingPage />} />
+
 
         <Route path="/portal" element={<ProtectedRoute>
               <Portal />
             </ProtectedRoute>} />
+
+
+        <Route
+          path="/map"
+          element={
+            <ProtectedRoute>
+              <AttackMap />
+            </ProtectedRoute>
+          }
+        />
+
 
         <Route
           path="/dashboard"
@@ -37,6 +54,17 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+
+        <Route
+          path="/attack-map"
+          element={
+            <ProtectedRoute>
+              <AttackMap />
+            </ProtectedRoute>
+          }
+        />
+
 
         {/* Default route */}
         <Route
@@ -48,4 +76,10 @@ function App() {
   );
 }
 
+
 export default App;
+
+
+
+
+
