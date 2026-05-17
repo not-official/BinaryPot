@@ -2,7 +2,6 @@
 import json
 import subprocess
 import sys
-import asyncio
 from pathlib import Path
 from typing import Union
 
@@ -34,11 +33,10 @@ load_dotenv(dotenv_path=env_path)
 
 
 LOGS_DIR = BASE_DIR / "logs"
-DATA_DIR = BASE_DIR / "data"
 
 
 SESSION_FILE = LOGS_DIR / "sessions_clean.json"
-ANALYSIS_FILE = DATA_DIR / "session_commands_with_intent.json"
+ANALYSIS_FILE = LOGS_DIR / "session_commands_with_intent.json"
 
 
 CONVERTER_SCRIPT = BASE_DIR / "command_to_session_converter.py"
@@ -193,7 +191,7 @@ def run_behavior_analysis():
 
 
     Writes:
-        data/session_commands_with_intent.json
+        logs/session_commands_with_intent.json
     """
 
 
@@ -206,7 +204,7 @@ def run_behavior_analysis():
             return
 
 
-        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 
         result = analyze_sessions(
@@ -245,44 +243,6 @@ def run_pipeline():
 
 
 # ============================================================
-# AUTOMATIC PIPELINE SCHEDULER
-# ============================================================
-
-
-async def pipeline_scheduler():
-    """
-    Runs the pipeline every 30 seconds.
-
-
-    This replaces your friend's scheduler, but uses your project paths.
-    """
-
-
-    while True:
-        try:
-            await asyncio.to_thread(run_pipeline)
-        except Exception as e:
-            print(f"Pipeline scheduler error: {e}")
-
-
-        await asyncio.sleep(200)
-
-
-
-
-@app.on_event("startup")
-async def startup_event():
-    """
-    Starts automatic background preprocessing when FastAPI starts.
-    """
-
-
-    asyncio.create_task(pipeline_scheduler())
-
-
-
-
-# ============================================================
 # ROOT ENDPOINT
 # ============================================================
 
@@ -290,7 +250,6 @@ async def startup_event():
 @app.get("/")
 def root():
     available_logs = []
-    available_data = []
 
 
     if LOGS_DIR.exists():
@@ -301,24 +260,14 @@ def root():
         ]
 
 
-    if DATA_DIR.exists():
-        available_data = [
-            file.name
-            for file in DATA_DIR.iterdir()
-            if file.suffix in {".json", ".jsonl"}
-        ]
-
-
     return {
         "status": "Binary-Pot backend running",
         "logs": available_logs,
-        "data": available_data,
         "important_endpoints": {
             "sessions_clean": "/logs/sessions_clean",
             "analysis_results": "/analysis/results",
             "manual_analysis": "/analysis/run",
             "log_file_reader": "/logs/file/{file_name}",
-            "data_file_reader": "/data/file/{file_name}",
         },
     }
 
@@ -336,6 +285,8 @@ def session_start(data: dict, background_tasks: BackgroundTasks):
     print("SESSION START:", data)
 
 
+    # Only convert logs on start.
+    # Heavy behavior analysis is NOT run here.
     background_tasks.add_task(run_converter)
 
 
@@ -352,6 +303,7 @@ def session_end(data: dict, background_tasks: BackgroundTasks):
     print("SESSION END:", data)
 
 
+    # Run full pipeline only when the SSH session ends.
     background_tasks.add_task(run_pipeline)
 
 
@@ -426,6 +378,7 @@ def get_analysis_results():
 # /logs/file/commands.jsonl
 # /logs/file/connections.jsonl
 # /logs/file/sessions_clean.json
+# /logs/file/session_commands_with_intent.json
 # ============================================================
 
 
@@ -447,38 +400,13 @@ def get_log_file(file_name: str):
 
 
 # ============================================================
-# DYNAMIC DATA FILE ENDPOINT
-# Example:
-# /data/file/session_commands_with_intent.json
-# ============================================================
-
-
-@app.get("/data/file/{file_name}")
-def get_data_file(file_name: str):
-    file_path = DATA_DIR / file_name
-
-
-    if file_path.exists() and file_path.is_file():
-        return JSONResponse(content=load_file(file_path))
-
-
-    raise HTTPException(
-        status_code=404,
-        detail="Data file not found",
-    )
-
-
-
-
-# ============================================================
-# LIST AVAILABLE LOG/DATA FILES
+# LIST AVAILABLE LOG FILES
 # ============================================================
 
 
 @app.get("/files")
 def list_available_files():
     logs = []
-    data = []
 
 
     if LOGS_DIR.exists():
@@ -489,17 +417,8 @@ def list_available_files():
         ]
 
 
-    if DATA_DIR.exists():
-        data = [
-            file.name
-            for file in DATA_DIR.iterdir()
-            if file.suffix in {".json", ".jsonl"}
-        ]
-
-
     return {
         "logs": logs,
-        "data": data,
     }
 
 

@@ -1,0 +1,3621 @@
+[
+    {
+        "session_id": "0bce4d27",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-06T12:50:33+0545",
+        "ended_at": "2025-12-06T12:56:38+0545",
+        "command_count": 11,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "ls: cannot access '.': No such file or directory",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ,,",
+                "cwd": "",
+                "output": "cd: ,,: No such file or directory",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to ,,."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "SUCCESS: changed to /home",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "mkdir love",
+                "cwd": "",
+                "output": "SUCCESS: created directory /home/love",
+                "intent": "Filesystem Operations",
+                "description": "Creates a directory named love."
+            },
+            {
+                "command_index": null,
+                "command": "git clone samrat",
+                "cwd": "",
+                "output": "Cloning into 'samrat'...\nfatal: repository 'samrat' does not exist",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ipconfig",
+                "cwd": "",
+                "output": "bash: ipconfig: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run ipconfig as a command, which is not present on Linux."
+            },
+            {
+                "command_index": null,
+                "command": "cls",
+                "cwd": "",
+                "output": "bash: cls: command not found",
+                "intent": "Command Errors",
+                "description": "Types cls as a command, which is not a valid executable name."
+            },
+            {
+                "command_index": null,
+                "command": "ignore",
+                "cwd": "",
+                "output": "ignore: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to ignore a directory path named /, which is not a valid Linux command."
+            },
+            {
+                "command_index": null,
+                "command": "git clone folder",
+                "cwd": "",
+                "output": "Cloning into 'folder'...\nfatal: repository 'folder' not found",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 11 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "0eb2422e",
+        "remote_addr": "192.168.110.123",
+        "username": "asus",
+        "started_at": "2025-12-06T15:19:40+0545",
+        "ended_at": "2025-12-06T15:20:00+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "sex",
+                "cwd": "",
+                "output": "sex: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run a non-existent command sex, resulting in a command-not-found error."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "-a---- 12/05/2025 02:15 PM            44 notes.txt\n-a---- 12/05/2025 02:15 PM            26 secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 3 recorded commands, beginning with 'sex' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "aa1c31b1",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-06T15:23:11+0545",
+        "ended_at": "2025-12-06T15:25:03+0545",
+        "command_count": 7,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "cls",
+                "cwd": "",
+                "output": "bash: cls: command not found",
+                "intent": "Command Errors",
+                "description": "Types cls as a command, which is not a valid executable name."
+            },
+            {
+                "command_index": null,
+                "command": "git clone black",
+                "cwd": "",
+                "output": "Cloning into 'black'...\nremote: Enumerating objects: 24874, done.\nremote: Counting objects: 100% (24874/24874), done.\nremote: Compressing objects: 100% (6871/6871), done.\nremote: Total 24874 (delta 17612), reused 24503 (delta 17242), pack-reused 0\nReceiving objects: 100% (24874/24874), 10.15 MiB | 8.78 MiB/s, done.\nResolving deltas: 100% (17612/17612), done.",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/06/2025 12:56 PM               black",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "SUCCESS: changed to /home",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "mkdir hichada",
+                "cwd": "",
+                "output": "SUCCESS: created directory /home/hichada",
+                "intent": "Filesystem Operations",
+                "description": "Creates a directory named hichada for user-access."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 7 recorded commands, beginning with 'cls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "6e1d1d7a",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-09T23:29:58+0545",
+        "ended_at": "2025-12-09T23:30:48+0545",
+        "command_count": 6,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/09/2025 09:22 PM               black",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "SUCCESS: changed to /home",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/09/2025 09:22 PM               A S U S\nd----- 12/09/2025 09:22 PM               aman\nd----- 12/09/2025 09:22 PM               asus\nd----- 12/09/2025 09:22 PM               hichada\nd----- 12/09/2025 09:22 PM               love",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "ipconfig",
+                "cwd": "",
+                "output": "ipconfig: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run ipconfig as a command, which is not present on Linux."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "logout",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Logs out from the current working directory and returns to the root shell."
+            }
+        ],
+        "summary": "The session contains 6 recorded commands, beginning with 'ls' and ending with 'logout'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "bbde31a3",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-09T23:31:18+0545",
+        "ended_at": "2025-12-09T23:46:17+0545",
+        "command_count": 5,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/09/2025 09:22 PM               black",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "SUCCESS: changed to /home",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/09/2025 09:22 PM               A S U S\nd----- 12/09/2025 09:22 PM               aman\nd----- 12/09/2025 09:22 PM               asus\nd----- 12/09/2025 09:22 PM               hichada\nd----- 12/09/2025 09:22 PM               love",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "ipconfig /all",
+                "cwd": "",
+                "output": "ipconfig: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run ipconfig /all, which is not a standard Linux ipconfig command and likely fails."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 5 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "4481907f",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-09T23:47:09+0545",
+        "ended_at": "2025-12-09T23:48:42+0545",
+        "command_count": 7,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "git clone wrc",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/09/2025 09:22 PM               black\nd----- 12/09/2025 09:22 PM               wrc",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "git clone nin",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/09/2025 09:22 PM               black\nd----- 12/09/2025 09:22 PM               nin\nd----- 12/09/2025 09:22 PM               wrc",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "love made me do it",
+                "cwd": "",
+                "output": "love: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run a non-existent command love made me do it, resulting in a command-not-found error."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 7 recorded commands, beginning with 'git clone wrc' and ending with 'clear'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "8133354d",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-09T23:52:54+0545",
+        "ended_at": "2025-12-09T23:53:08+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "git clone project",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/09/2025 09:22 PM               black\nd----- 12/09/2025 09:22 PM               project",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'git clone project' and ending with 'ls'. The observed behavior appears related to Filesystem Operations, Misc / Others."
+    },
+    {
+        "session_id": "e256b4e2",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T00:02:07+0545",
+        "ended_at": "2025-12-10T00:02:07+0545",
+        "command_count": 1,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "git clone lov",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            }
+        ],
+        "summary": "The session contains 1 recorded commands, beginning with 'git clone lov' and ending with 'git clone lov'. The observed behavior appears related to Misc / Others."
+    },
+    {
+        "session_id": "e6b79c08",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T00:04:52+0545",
+        "ended_at": "2025-12-10T00:05:07+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "git clone love",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'git clone love' and ending with 'clear'. The observed behavior appears related to Misc / Others, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "38b2073b",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T00:06:56+0545",
+        "ended_at": "2025-12-10T00:12:06+0545",
+        "command_count": 6,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "git clone horse",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/09/2025 09:22 PM               black\nd----- 12/09/2025 09:22 PM               horse",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "ninja",
+                "cwd": "",
+                "output": "ninja: command not found",
+                "intent": "Tool Usage & Management",
+                "description": "Runs the ninja command with no arguments, causing it to print a brief usage summary."
+            },
+            {
+                "command_index": null,
+                "command": "git clone sh",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "love made me do it",
+                "cwd": "",
+                "output": "love: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run a non-existent command love made me do it, resulting in a command-not-found error."
+            }
+        ],
+        "summary": "The session contains 6 recorded commands, beginning with 'git clone horse' and ending with 'love made me do it'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others, Terminal & Shell Operations, Tool Usage & Management."
+    },
+    {
+        "session_id": "42a9d818",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T00:12:55+0545",
+        "ended_at": "2025-12-10T00:13:59+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls ms",
+                "cwd": "",
+                "output": "ls: cannot access 'ms': No such file or directory",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "ms ls",
+                "cwd": "",
+                "output": "ms: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to start Metasploit with ms ls, which is not a valid command."
+            },
+            {
+                "command_index": null,
+                "command": "git clone sh",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            }
+        ],
+        "summary": "The session contains 3 recorded commands, beginning with 'ls ms' and ending with 'git clone sh'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others."
+    },
+    {
+        "session_id": "5a379d18",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-10T10:34:43+0545",
+        "ended_at": "2025-12-10T10:47:09+0545",
+        "command_count": 6,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/09/2025 09:22 PM               black",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "mkdir blue",
+                "cwd": "",
+                "output": "SUCCESS: created directory /home/A S U S/blue",
+                "intent": "Filesystem Operations",
+                "description": "Creates a new directory called blue."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/10/2025 10:34 AM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "SUCCESS: changed to /home",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/10/2025 10:34 AM               A S U S\nd----- 12/10/2025 10:34 AM               aman\nd----- 12/10/2025 10:34 AM               asus\nd----- 12/10/2025 10:34 AM               hichada\nd----- 12/10/2025 10:34 AM               love",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 6 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "68238d29",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T11:40:23+0545",
+        "ended_at": "2025-12-11T11:40:26+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/10/2025 10:34 AM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "SUCCESS: changed to /home",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/10/2025 10:34 AM               A S U S\nd----- 12/10/2025 10:34 AM               aman\nd----- 12/10/2025 10:34 AM               asus\nd----- 12/10/2025 10:34 AM               hichada\nd----- 12/10/2025 10:34 AM               love",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            }
+        ],
+        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Filesystem Operations."
+    },
+    {
+        "session_id": "26c141c4",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:00:17+0545",
+        "ended_at": "2025-12-11T13:01:15+0545",
+        "command_count": 8,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/10/2025 10:34 AM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "SUCCESS: changed to /home",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/10/2025 10:34 AM               A S U S\nd----- 12/10/2025 10:34 AM               aman\nd----- 12/10/2025 10:34 AM               asus\nd----- 12/10/2025 10:34 AM               hichada\nd----- 12/10/2025 10:34 AM               love",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "git clone ninja",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 12/10/2025 10:34 AM               A S U S\nd----- 12/10/2025 10:34 AM               aman\nd----- 12/10/2025 10:34 AM               asus\nd----- 12/10/2025 10:34 AM               hichada\nd----- 12/10/2025 10:34 AM               love\nd----- 12/10/2025 10:34 AM               ninja",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 8 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Misc / Others, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "0006bfdd",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:18:55+0545",
+        "ended_at": "2025-12-11T13:18:55+0545",
+        "command_count": 1,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "hi",
+                "cwd": "",
+                "output": "hi: command not found",
+                "intent": "Service & System Operations",
+                "description": "Shows system-wide networking information."
+            }
+        ],
+        "summary": "The session contains 1 recorded commands, beginning with 'hi' and ending with 'hi'. The observed behavior appears related to Service & System Operations."
+    },
+    {
+        "session_id": "279d5e97",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:19:50+0545",
+        "ended_at": "2025-12-11T13:20:06+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "git clone",
+                "cwd": "",
+                "output": "git clone: missing repository",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "git clone love",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'git clone' and ending with 'git clone love'. The observed behavior appears related to Misc / Others."
+    },
+    {
+        "session_id": "88542df6",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:22:18+0545",
+        "ended_at": "2025-12-11T13:22:18+0545",
+        "command_count": 1,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "git clone love",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            }
+        ],
+        "summary": "The session contains 1 recorded commands, beginning with 'git clone love' and ending with 'git clone love'. The observed behavior appears related to Misc / Others."
+    },
+    {
+        "session_id": "f1a657e4",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:23:02+0545",
+        "ended_at": "2025-12-11T13:23:14+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "git clone hihihi",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'clear' and ending with 'git clone hihihi'. The observed behavior appears related to Misc / Others, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "f282cf20",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2025-12-11T13:24:43+0545",
+        "ended_at": "2025-12-11T13:25:02+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "git clone she",
+                "cwd": "",
+                "output": "Cloning into 'she'...\nremote: Enumerating objects: 3, done.\nremote: Counting objects: 100% (3/3), done.\nremote: Compressing objects: 100% (2/2), done.\nremote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0\nReceiving objects: 100% (3/3), 2.13 KiB | 2.13 MiB/s, done.\nResolving deltas: 100% (1/1), done.",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'git clone she' and ending with 'clear'. The observed behavior appears related to Misc / Others, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "1a6e9829",
+        "remote_addr": "127.0.0.1",
+        "username": "a s u s",
+        "started_at": "2026-03-27T00:23:16+0545",
+        "ended_at": "2026-03-27T00:23:24+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "Love me",
+                "cwd": "",
+                "output": "Love: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run Love me, which is not a standard Linux command, resulting in a command-not-found error."
+            },
+            {
+                "command_index": null,
+                "command": "git dance",
+                "cwd": "",
+                "output": "git: command not found",
+                "intent": "Misc / Others",
+                "description": "Creates a new working directory named git dance."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'Love me' and ending with 'git dance'. The observed behavior appears related to Command Errors, Misc / Others."
+    },
+    {
+        "session_id": "2187cd43",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-01T20:26:04+0545",
+        "ended_at": "2026-05-01T20:26:29+0545",
+        "command_count": 5,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 03/26/2026 08:53 AM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cat blue",
+                "cwd": "",
+                "output": "cat: blue: No such file or directory",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of blue from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "git clone ninja.xml",
+                "cwd": "",
+                "output": "ERROR: git clone failed",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "cd blue",
+                "cwd": "",
+                "output": "SUCCESS: changed to /home/A S U S/blue",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to blue."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "(empty directory)",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            }
+        ],
+        "summary": "The session contains 5 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Filesystem Operations, Misc / Others."
+    },
+    {
+        "session_id": "6e023a32",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:07:15+0545",
+        "ended_at": "2026-05-08T12:08:06+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 05/08/2026 12:07 PM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "d----- 05/08/2026 12:07 PM               black\nd----- 12/10/2025 10:34 AM               blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "python --version",
+                "cwd": "",
+                "output": "Python 3.8.5",
+                "intent": "Tool Usage & Management",
+                "description": "Runs python inversion mode with no arguments, which prints usage information and exits."
+            }
+        ],
+        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'python --version'. The observed behavior appears related to Filesystem Operations, Tool Usage & Management."
+    },
+    {
+        "session_id": "54a08f0f",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:25:53+0545",
+        "ended_at": "2026-05-08T12:27:50+0545",
+        "command_count": 19,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "black  blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd black",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to black."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  aman  asus  hichada  love",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "python --version",
+                "cwd": "",
+                "output": "Python 3.8.5",
+                "intent": "Tool Usage & Management",
+                "description": "Runs python inversion mode with no arguments, which prints usage information and exits."
+            },
+            {
+                "command_index": null,
+                "command": "python --version",
+                "cwd": "",
+                "output": "Python 3.8.5",
+                "intent": "Tool Usage & Management",
+                "description": "Runs python inversion mode with no arguments, which prints usage information and exits."
+            },
+            {
+                "command_index": null,
+                "command": "python --version",
+                "cwd": "",
+                "output": "Python 3.8.5",
+                "intent": "Tool Usage & Management",
+                "description": "Runs python inversion mode with no arguments, which prints usage information and exits."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 19 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations, Terminal & Shell Operations, Tool Usage & Management."
+    },
+    {
+        "session_id": "32ddaaeb",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:31:36+0545",
+        "ended_at": "2026-05-08T12:31:38+0545",
+        "command_count": 4,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 4 recorded commands, beginning with 'clear' and ending with 'exit'. The observed behavior appears related to Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "1979253b",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:32:02+0545",
+        "ended_at": "2026-05-08T12:32:02+0545",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'exit' and ending with 'exit'. The observed behavior appears related to Service & System Operations."
+    },
+    {
+        "session_id": "7cb5daea",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:32:39+0545",
+        "ended_at": "2026-05-08T12:34:52+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot_ssh  black  blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "5ecba1e8",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:37:32+0545",
+        "ended_at": "2026-05-08T12:39:03+0545",
+        "command_count": 8,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot_ssh  black  blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "rm -rf binarypot_ssh",
+                "cwd": "",
+                "output": "rm: cannot remove '-rf': No such file or directory\nrm: cannot remove 'binarypot_ssh': Is a directory",
+                "intent": "Filesystem Operations",
+                "description": "Forcefully deletes the binary_ssh directory and its contents."
+            },
+            {
+                "command_index": null,
+                "command": "rm -r binarypot_ssh",
+                "cwd": "",
+                "output": "rm: cannot remove '-r': No such file or directory\nrm: cannot remove 'binarypot_ssh': Is a directory",
+                "intent": "Filesystem Operations",
+                "description": "Recursively deletes the binary_ssh directory and its contents."
+            },
+            {
+                "command_index": null,
+                "command": "rm binarypot_ssh",
+                "cwd": "",
+                "output": "rm: cannot remove 'binarypot_ssh': Is a directory",
+                "intent": "Filesystem Operations",
+                "description": "Deletes the binary_ssh directory when it is empty."
+            },
+            {
+                "command_index": null,
+                "command": "rmdir binarypot_ssh",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Deletes the binary_ssh directory when it is empty."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "black  blue",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 8 recorded commands, beginning with 'ls' and ending with 'clear'. The observed behavior appears related to Filesystem Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "7562569a",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:42:18+0545",
+        "ended_at": "2026-05-08T12:43:04+0545",
+        "command_count": 13,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  deploy  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd deploy",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to deploy."
+            },
+            {
+                "command_index": null,
+                "command": "la",
+                "cwd": "",
+                "output": "la: command not found",
+                "intent": "Command Errors",
+                "description": "Runs la, which is not a standard Linux command, resulting in a command-not-found error."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "app  scripts",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd app",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to app."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "README.md  requirements.txt  server.py",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cat requirements.txt",
+                "cwd": "",
+                "output": "flask==2.3.2\nrequests==2.31.0\ngunicorn==21.2.0",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of requirements.txt from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "touch muji.java",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Creates an empty file named muji.java in the working directory."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "README.md  muji.java  requirements.txt  server.py",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "rm muji.java",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Deletes the Java.java file from the working directory."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 13 recorded commands, beginning with 'cd ..' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "d73e3dbb",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:45:24+0545",
+        "ended_at": "2026-05-08T12:46:21+0545",
+        "command_count": 3,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "git clone https://github.com/samrat-dotel/binarypot_ssh/",
+                "cwd": "",
+                "output": "bash: git: command not found",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot_ssh",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            }
+        ],
+        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Filesystem Operations, Misc / Others."
+    },
+    {
+        "session_id": "f59a6592",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T12:52:54+0545",
+        "ended_at": "2026-05-08T12:53:54+0545",
+        "command_count": 8,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot_ssh",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "git clone https://github.com/samrat-dotel/binarypot",
+                "cwd": "",
+                "output": "Cloning into 'binarypot'...\nremote: Enumerating objects: 48, done.\nremote: Counting objects: 100% (48/48), done.\nremote: Compressing objects: 100% (32/32), done.\nremote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0\nReceiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.\nResolving deltas: 100% (12/12), done.",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot  binarypot_ssh",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd binarypot",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to binarypot."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": ".git  .gitignore  README.md  main.py  requirements.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cat .gitignore",
+                "cwd": "",
+                "output": "__pycache__/\n.env\n*.log",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of .gitignore from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 8 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Misc / Others, Service & System Operations."
+    },
+    {
+        "session_id": "ae774dd6",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-08T13:13:49+0545",
+        "ended_at": "2026-05-08T13:15:17+0545",
+        "command_count": 10,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot  binarypot_ssh",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "rmdir binarypot_ssh",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Deletes the binary_ssh directory when it is empty."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "nice",
+                "cwd": "",
+                "output": "nice: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run nice, which is not a standard Linux command and likely results in an error."
+            },
+            {
+                "command_index": null,
+                "command": "python -version",
+                "cwd": "",
+                "output": "Python 3.8.5",
+                "intent": "Service & System Operations",
+                "description": "Runs a Python version-detection exploit against the filesystem root /."
+            },
+            {
+                "command_index": null,
+                "command": "python -version",
+                "cwd": "",
+                "output": "Python 3.8.5",
+                "intent": "Service & System Operations",
+                "description": "Runs a Python version-detection exploit against the filesystem root /."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 10 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "5cf649f6",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-15T05:57:22+0545",
+        "ended_at": "2026-05-15T05:58:37+0545",
+        "command_count": 7,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd binarypot",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to binarypot."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": ".git  .gitignore  README.md  main.py  requirements.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cat main.py",
+                "cwd": "",
+                "output": "print('Hello from cloned repository')",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of main.py from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "git clone https://samar-dotel/skillXchange",
+                "cwd": "",
+                "output": "Cloning into 'skillXchange'...\nremote: Enumerating objects: 48, done.\nremote: Counting objects: 100% (48/48), done.\nremote: Compressing objects: 100% (32/32), done.\nremote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0\nReceiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.\nResolving deltas: 100% (12/12), done.",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot  skillXchange",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            }
+        ],
+        "summary": "The session contains 7 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Filesystem Operations, Misc / Others."
+    },
+    {
+        "session_id": "47e72844",
+        "remote_addr": "127.0.0.1",
+        "username": "A S U S",
+        "started_at": "2026-05-15T06:26:43+0545",
+        "ended_at": "2026-05-15T06:28:41+0545",
+        "command_count": 19,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot  skillXchange",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd binarypot",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to binarypot."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "binarypot  skillXchange",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ninja",
+                "cwd": "",
+                "output": "cd: ninja: No such file or directory",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to ninja."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "cd binarypot",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to binarypot."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": ".git  .gitignore  README.md  main.py  requirements.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cat requirements.txt",
+                "cwd": "",
+                "output": "requests==2.31.0\nflask==2.3.2",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of requirements.txt from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "git clone http://amamulhaq/minorproject",
+                "cwd": "",
+                "output": "Cloning into 'minorproject'...\nremote: Enumerating objects: 48, done.\nremote: Counting objects: 100% (48/48), done.\nremote: Compressing objects: 100% (32/32), done.\nremote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0\nReceiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.\nResolving deltas: 100% (12/12), done.",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": ".git  .gitignore  README.md  main.py  minorproject  requirements.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "rmdir minorproject",
+                "cwd": "",
+                "output": "rmdir: failed to remove 'minorproject': Directory not empty",
+                "intent": "Filesystem Operations",
+                "description": "Deletes the minorproject directory if it is empty."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 19 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Misc / Others, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "67bb3947",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-16T16:50:21+0545",
+        "ended_at": "2026-05-16T16:50:47+0545",
+        "command_count": 10,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  deploy  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 10 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "bc7af18e",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-16T16:53:33+0545",
+        "ended_at": "2026-05-16T16:54:45+0545",
+        "command_count": 9,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd www-data",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to www-data."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "public_html",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cat public_html",
+                "cwd": "",
+                "output": "cat: public_html: Is a directory",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of public_html from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "cd public_html",
+                "cwd": "",
+                "output": "",
+                "intent": "Command Errors",
+                "description": "Changes the working directory from / to public_html."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "index.html",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cat index.html",
+                "cwd": "",
+                "output": "<html>\n<head><title>Default Site</title></head>\n<body><h1>It works</h1></body>\n</html>",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of index.html from the current shell context."
+            }
+        ],
+        "summary": "The session contains 9 recorded commands, beginning with 'ls' and ending with 'cat index.html'. The observed behavior appears related to Command Errors, Filesystem Operations."
+    },
+    {
+        "session_id": "d3eb481c",
+        "remote_addr": "192.168.1.141",
+        "username": "samar",
+        "started_at": "2026-05-16T18:18:44+0545",
+        "ended_at": "2026-05-16T18:19:38+0545",
+        "command_count": 4,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "mkdir saala",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Creates a new directory named saala."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "saala",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 4 recorded commands, beginning with 'mkdir saala' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "3e6c7ddd",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-16T18:19:58+0545",
+        "ended_at": "2026-05-16T18:21:21+0545",
+        "command_count": 5,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "mkdir remove",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Removes the remove directory from the working directory."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "cd 'a s u s'",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to 'a s u s'."
+            }
+        ],
+        "summary": "The session contains 5 recorded commands, beginning with 'mkdir remove' and ending with 'cd 'a s u s''. The observed behavior appears related to Filesystem Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "ef9e9775",
+        "remote_addr": "192.168.1.141",
+        "username": "samar",
+        "started_at": "2026-05-16T18:20:18+0545",
+        "ended_at": "2026-05-16T18:22:42+0545",
+        "command_count": 30,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd asus",
+                "cwd": "",
+                "output": "cd: asus: No such file or directory",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to asus."
+            },
+            {
+                "command_index": null,
+                "command": "cd tuf",
+                "cwd": "",
+                "output": "cd: tuf: No such file or directory",
+                "intent": "Command Errors",
+                "description": "Changes the working directory from / to tuf."
+            },
+            {
+                "command_index": null,
+                "command": "cd samar",
+                "cwd": "",
+                "output": "",
+                "intent": "Command Errors",
+                "description": "Changes the working directory from / to samar."
+            },
+            {
+                "command_index": null,
+                "command": "cd ubuntu",
+                "cwd": "",
+                "output": "cd: ubuntu: No such file or directory",
+                "intent": "Command Errors",
+                "description": "Changes the working directory from / to ubuntu."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd a s u s",
+                "cwd": "",
+                "output": "cd: a: No such file or directory",
+                "intent": "Command Errors",
+                "description": "Changes the working directory from / to a s u s."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "cd h",
+                "cwd": "",
+                "output": "cd: h: No such file or directory",
+                "intent": "Command Errors",
+                "description": "Changes the working directory from / to h."
+            },
+            {
+                "command_index": null,
+                "command": "cd home",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to home."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd 'asus'",
+                "cwd": "",
+                "output": "cd: asus: No such file or directory",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to 'asus'."
+            },
+            {
+                "command_index": null,
+                "command": "cd 'asus'",
+                "cwd": "",
+                "output": "cd: asus: No such file or directory",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to 'asus'."
+            },
+            {
+                "command_index": null,
+                "command": "cd ubuntu",
+                "cwd": "",
+                "output": "",
+                "intent": "Command Errors",
+                "description": "Changes the working directory from / to ubuntu."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "cd 'a s u s'",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to 'a s u s'."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "remove",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd samar",
+                "cwd": "",
+                "output": "",
+                "intent": "Command Errors",
+                "description": "Changes the working directory from / to samar."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 30 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "c057fc98",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-16T23:36:57+0545",
+        "ended_at": "2026-05-16T23:46:43+0545",
+        "command_count": 31,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  asus tuf gaming  deploy  samar  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "python --version",
+                "cwd": "",
+                "output": "Python 3.8.5",
+                "intent": "Tool Usage & Management",
+                "description": "Runs python inversion mode with no arguments, which prints usage information and exits."
+            },
+            {
+                "command_index": null,
+                "command": "git --version",
+                "cwd": "",
+                "output": "git version 2.35.2",
+                "intent": "Misc / Others",
+                "description": "Creates a new working directory named /."
+            },
+            {
+                "command_index": null,
+                "command": "git clone https://github.com/oven-sh/bun",
+                "cwd": "",
+                "output": "Cloning into 'bun'...\nremote: Enumerating objects: 48, done.\nremote: Counting objects: 100% (48/48), done.\nremote: Compressing objects: 100% (32/32), done.\nremote: Total 48 (delta 12), reused 41 (delta 8), pack-reused 0\nReceiving objects: 100% (48/48), 12.43 KiB | 1.24 MiB/s, done.\nResolving deltas: 100% (12/12), done.",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  asus tuf gaming  bun  deploy  samar  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd www-data",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to www-data."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "public_html",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "mkdir newnote",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Creates a new directory named newnote."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "newnote  public_html",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "rm -rf newnote",
+                "cwd": "",
+                "output": "rm: cannot remove '-rf': No such file or directory\nrm: cannot remove 'newnote': Is a directory",
+                "intent": "Filesystem Operations",
+                "description": "Recursively deletes the newnote directory under /root."
+            },
+            {
+                "command_index": null,
+                "command": "rm newnote",
+                "cwd": "",
+                "output": "rm: cannot remove 'newnote': Is a directory",
+                "intent": "Filesystem Operations",
+                "description": "Removes the empty newnote directory."
+            },
+            {
+                "command_index": null,
+                "command": "grep google.com",
+                "cwd": "",
+                "output": "grep: command not found",
+                "intent": "Tool Usage & Management",
+                "description": "Searches Google.com’s working directory for entries related to the domain name."
+            },
+            {
+                "command_index": null,
+                "command": "nano python.txt",
+                "cwd": "",
+                "output": "nano: command not found",
+                "intent": "Filesystem Operations",
+                "description": "Opens python.txt in the nano editor to edit or modify its contents."
+            },
+            {
+                "command_index": null,
+                "command": "ping google.com",
+                "cwd": "",
+                "output": "ping: command not found",
+                "intent": "Network Scanning & Recon",
+                "description": "Sends ICMP echo requests to Google.com to verify connectivity and latency."
+            },
+            {
+                "command_index": null,
+                "command": "ifconfig",
+                "cwd": "",
+                "output": "ifconfig: command not found",
+                "intent": "Network Scanning & Recon",
+                "description": "Displays network interface configuration and IP addresses on the attacker machine."
+            },
+            {
+                "command_index": null,
+                "command": "ipconfig",
+                "cwd": "",
+                "output": "ipconfig: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run ipconfig as a command, which is not present on Linux."
+            },
+            {
+                "command_index": null,
+                "command": "ip addr",
+                "cwd": "",
+                "output": "ip: command not found",
+                "intent": "Network Scanning & Recon",
+                "description": "Displays network interface configuration and IP addresses on the attacker machine."
+            },
+            {
+                "command_index": null,
+                "command": "ping 8.8.8.8",
+                "cwd": "",
+                "output": "ping: command not found",
+                "intent": "Network Scanning & Recon",
+                "description": "Sends ICMP echo requests to 10.1.8.8 to verify that the host is reachable."
+            },
+            {
+                "command_index": null,
+                "command": "curl http://example.com",
+                "cwd": "",
+                "output": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Example Domain</title>\n</head>\n<body>\n    <h1>Welcome to",
+                "intent": "Exploitation & Metasploit",
+                "description": "Uses curl to make a network request, often used for testing connectivity, downloading files, or probing services."
+            },
+            {
+                "command_index": null,
+                "command": "uname -a",
+                "cwd": "",
+                "output": "Linux web01 5.15.0-89-generic #99-Ubuntu SMP Mon Oct 30 20:42:41 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux",
+                "intent": "Service & System Operations",
+                "description": "Displays all operating systems, including their names, in /root."
+            },
+            {
+                "command_index": null,
+                "command": "ls -la",
+                "cwd": "",
+                "output": "drwxr-xr-x 1 asus tuf gaming asus tuf gaming   4096 05/16/2026 11:39 PM newnote\ndrwxr-xr-x 1 asus tuf gaming asus tuf gaming   4096 12/10/2025 10:34 AM public_html",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in / with detailed metadata."
+            },
+            {
+                "command_index": null,
+                "command": "cat /etc/os-release",
+                "cwd": "",
+                "output": "NAME=\"Ubuntu\"\nVERSION=\"20.04 LTS (Focal Fossa)\"\nID=ubuntu\nID_LIKE=debian\nPRETTY_NAME=\"Ubuntu 20.04 LTS\"\nVERSION_ID=\"20.04\"\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/",
+                "intent": "Service & System Operations",
+                "description": "Reads and displays the contents of /etc/os-release from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "cd..",
+                "cwd": "",
+                "output": "cd..: command not found",
+                "intent": "Filesystem Operations",
+                "description": "Returns from /home/debian to /home."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  asus tuf gaming  bun  deploy  samar  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cdd asus",
+                "cwd": "",
+                "output": "cdd: command not found",
+                "intent": "Filesystem Operations",
+                "description": "Runs cdd asus in /root/hacking, which prints a brief usage summary and exits."
+            },
+            {
+                "command_index": null,
+                "command": "cd asus",
+                "cwd": "",
+                "output": "cd: asus: No such file or directory",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to asus."
+            },
+            {
+                "command_index": null,
+                "command": "cd ' a s u s'",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to ' a s u s'."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "remove",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            }
+        ],
+        "summary": "The session contains 31 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Command Errors, Exploitation & Metasploit, Filesystem Operations, Misc / Others, Network Scanning & Recon."
+    },
+    {
+        "session_id": "06f6678c",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-16T23:44:50+0545",
+        "ended_at": "2026-05-16T23:46:49+0545",
+        "command_count": 14,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from / to the parent directory /."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "A S U S  a s u s  asus  asus tuf gaming  bun  deploy  samar  ubuntu  www-data",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cd asus",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from / to asus."
+            },
+            {
+                "command_index": null,
+                "command": "touch hello.txt",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Creates an empty file hello.txt in /root/hacking."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "hello.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "cat hello.txt",
+                "cwd": "",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of hello.txt from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "home.sh",
+                "cwd": "",
+                "output": "home.sh: command not found",
+                "intent": "Command Errors",
+                "description": "Pastes home.sh as a command, which is not executable."
+            },
+            {
+                "command_index": null,
+                "command": "vm home.sh",
+                "cwd": "",
+                "output": "vm: command not found",
+                "intent": "Filesystem Operations",
+                "description": "Shows the contents of home.sh."
+            },
+            {
+                "command_index": null,
+                "command": "vim home.sh",
+                "cwd": "",
+                "output": "vim: command not found",
+                "intent": "Filesystem Operations",
+                "description": "Opens home.sh in Vim to edit or modify the home directory."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 14 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "45f80bd6",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T09:07:13+0545",
+        "ended_at": "2026-05-17T09:19:03+0545",
+        "command_count": 31,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ping google.com",
+                "cwd": "",
+                "output": "ping: command not found",
+                "intent": "Network Scanning & Recon",
+                "description": "Sends ICMP echo requests to Google.com to verify connectivity and latency."
+            },
+            {
+                "command_index": null,
+                "command": "python --version",
+                "cwd": "",
+                "output": "Python 3.8.5",
+                "intent": "Tool Usage & Management",
+                "description": "Runs python inversion mode with no arguments, which prints usage information and exits."
+            },
+            {
+                "command_index": null,
+                "command": "uname -a",
+                "cwd": "",
+                "output": "Linux web01 5.15.0-89-generic #99-Ubuntu SMP Mon Oct 30 20:42:41 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux",
+                "intent": "Service & System Operations",
+                "description": "Displays all operating systems, including their names, in /root."
+            },
+            {
+                "command_index": null,
+                "command": "python print(\"honeypot\")",
+                "cwd": "",
+                "output": "Python 3.8.5 (default, Feb 28 2021, 16:07:46)\n[GCC 9.3.0] on linux\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.",
+                "intent": "Data Handling & Exfiltration",
+                "description": "Prints the first lines of a honeypot file."
+            },
+            {
+                "command_index": null,
+                "command": "python3 -c \"print('Honeypot Active')\"",
+                "cwd": "",
+                "output": "Honepot Active",
+                "intent": "Filesystem Operations",
+                "description": "Prints the contents of the Honeypot Active directory."
+            },
+            {
+                "command_index": null,
+                "command": "python3 -c \"print('Anish vibe code')\"",
+                "cwd": "",
+                "output": "Anish vibe code",
+                "intent": "Filesystem Operations",
+                "description": "Prints the contents of anish vibe code in Python 3."
+            },
+            {
+                "command_index": null,
+                "command": "cat /etc/os-release",
+                "cwd": "",
+                "output": "NAME=\"Ubuntu\"\nVERSION=\"20.04 LTS (Focal Fossa)\"\nID=ubuntu\nID_LIKE=debian\nPRETTY_NAME=\"Ubuntu 20.04 LTS\"\nVERSION_ID=\"20.04\"\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/",
+                "intent": "Service & System Operations",
+                "description": "Reads and displays the contents of /etc/os-release from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "find / -perm -4000 2>/dev/null",
+                "cwd": "",
+                "output": "/run/systemd/ask-password\n/etc/resolv.conf\n/var/lib/sudo\n/tmp\n/usr/local/bin\n/username\n/home/asus tuf gaming",
+                "intent": "Filesystem Operations",
+                "description": "Searches recursively under /dev/null for any files whose names end with an ellipsis."
+            },
+            {
+                "command_index": null,
+                "command": "tree",
+                "cwd": "",
+                "output": "tree: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to execute tree as a command, which fails because tree is a directory, not a program."
+            },
+            {
+                "command_index": null,
+                "command": "netstat -tulnp",
+                "cwd": "",
+                "output": "netstat: command not found",
+                "intent": "Network Scanning & Recon",
+                "description": "Runs a verbose netstat -tulnp scan against the working directory."
+            },
+            {
+                "command_index": null,
+                "command": "curl ifconfig.me",
+                "cwd": "",
+                "output": "192.168.56.1",
+                "intent": "Service & System Operations",
+                "description": "Uses curl to make a network request, often used for testing connectivity, downloading files, or probing services."
+            },
+            {
+                "command_index": null,
+                "command": "route -n",
+                "cwd": "",
+                "output": "route: command not found",
+                "intent": "Service & System Operations",
+                "description": "Displays detailed route information for the current user."
+            },
+            {
+                "command_index": null,
+                "command": "ps aux",
+                "cwd": "",
+                "output": "  PID TTY          TIME CMD\n    1 ?        00:00:01 systemd\n  123 ?        00:00:00 sshd\n  456 pts/0    00:00:00 bash",
+                "intent": "Service & System Operations",
+                "description": "Lists all running processes and their running processes."
+            },
+            {
+                "command_index": null,
+                "command": "top",
+                "cwd": "",
+                "output": "top: command not found",
+                "intent": "Service & System Operations",
+                "description": "Shows running processes and their status."
+            },
+            {
+                "command_index": null,
+                "command": "systemctl list-units --type=service",
+                "cwd": "",
+                "output": "systemctl: command not found",
+                "intent": "Service & System Operations",
+                "description": "Shows all system units and their service types."
+            },
+            {
+                "command_index": null,
+                "command": "service --status-all",
+                "cwd": "",
+                "output": "service: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run service --status-all, which is not a standard Linux command and likely fails."
+            },
+            {
+                "command_index": null,
+                "command": "lsof -i",
+                "cwd": "",
+                "output": "lsof: command not found",
+                "intent": "Service & System Operations",
+                "description": "Runs lsof -i with no arguments, which prints a brief listing of supported services and their versions."
+            },
+            {
+                "command_index": null,
+                "command": "grep -Ri password /etc",
+                "cwd": "",
+                "output": "bash: grep: command not found",
+                "intent": "Misc / Others",
+                "description": "Searches recursively under /etc for files whose names end with password."
+            },
+            {
+                "command_index": null,
+                "command": "find / -name \"id_rsa*\" 2>/dev/null",
+                "cwd": "",
+                "output": "/home/asus/.ssh/id_rsa\n/home/ubuntu/.ssh/id_rsa",
+                "intent": "Filesystem Operations",
+                "description": "Searches recursively from / for files whose names end with id_rsa and dev/null."
+            },
+            {
+                "command_index": null,
+                "command": "cat ~/.bash_history",
+                "cwd": "",
+                "output": "bash: cat: /home/asus tuf gaming/.bash_history: Permission denied",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of ~/.bash_history from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "echo '* * * * * /tmp/test.sh' >> /tmp/fakecron",
+                "cwd": "",
+                "output": "* * * * * /tmp/test.sh >> /tmp/fakecron",
+                "intent": "Command Errors",
+                "description": "Attempts to use a non-numeric line /tmp/test.sh, which is invalid syntax."
+            },
+            {
+                "command_index": null,
+                "command": "crontab -l",
+                "cwd": "",
+                "output": "crontab: command not found",
+                "intent": "Misc / Others",
+                "description": "Lists all cron jobs in the current directory."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": ".bash_history",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "echo '* * * * * /tmp/test.sh' >> temp.txt",
+                "cwd": "",
+                "output": "* * * * * /tmp/test.sh >> temp.txt",
+                "intent": "Command Errors",
+                "description": "Attempts to echo a non-existent line /tmp/test.sh into /tmp.txt, which does not exist."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": ".bash_history",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "which python",
+                "cwd": "",
+                "output": "which: command not found",
+                "intent": "Service & System Operations",
+                "description": "Displays the current working directory (/usr/share/webmin/acl)."
+            },
+            {
+                "command_index": null,
+                "command": "gcc --version",
+                "cwd": "",
+                "output": "gcc: command not found",
+                "intent": "Web & Application Vulnerabilities",
+                "description": "Runs a Linux version detection tool with gcc to identify known vulnerabilities."
+            },
+            {
+                "command_index": null,
+                "command": "wget --help",
+                "cwd": "",
+                "output": "bash: wget: command not found",
+                "intent": "Tool Usage & Management",
+                "description": "Attempts to download a remote file using wget, which may indicate payload retrieval or reconnaissance."
+            },
+            {
+                "command_index": null,
+                "command": "git --version",
+                "cwd": "",
+                "output": "bash: git: command not found",
+                "intent": "Misc / Others",
+                "description": "Creates a new working directory named /."
+            },
+            {
+                "command_index": null,
+                "command": "docker ps",
+                "cwd": "",
+                "output": "docker: command not found",
+                "intent": "File Operations",
+                "description": "Shows running Docker containers."
+            },
+            {
+                "command_index": null,
+                "command": "env | grep AWS",
+                "cwd": "",
+                "output": "AWS_ACCESS_KEY_ID=********\nAWS_SECRET_ACCESS_KEY=********",
+                "intent": "Misc / Others",
+                "description": "Searches the entire working directory for entries related to AWS."
+            }
+        ],
+        "summary": "The session contains 31 recorded commands, beginning with 'ping google.com' and ending with 'env | grep AWS'. The observed behavior appears related to Command Errors, Data Handling & Exfiltration, File Operations, Filesystem Operations, Misc / Others."
+    },
+    {
+        "session_id": "aaec87d9",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T09:21:38+0545",
+        "ended_at": "2026-05-17T09:22:59+0545",
+        "command_count": 5,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "python3 -c \"print('Honeypot Active')\"",
+                "cwd": "",
+                "output": "Honepot Active",
+                "intent": "Filesystem Operations",
+                "description": "Prints the contents of the Honeypot Active directory."
+            },
+            {
+                "command_index": null,
+                "command": "curl http://169.254.169.254/latest/meta-data/",
+                "cwd": "",
+                "output": "HTTP/1.1 200 OK\nServer: AmazonEC2\nEtag: \"c7e8f9a0\"\nLast-Modified: Fri, 16 Feb 2026 10:00:00 GMT\nContent-Type: text",
+                "intent": "Exploitation & Metasploit",
+                "description": "Uses curl to make a network request, often used for testing connectivity, downloading files, or probing services."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "",
+                "output": "--help  .bash_history",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /."
+            },
+            {
+                "command_index": null,
+                "command": "netstat -tulnp",
+                "cwd": "",
+                "output": "netstat: command not found",
+                "intent": "Network Scanning & Recon",
+                "description": "Runs a verbose netstat -tulnp scan against the working directory."
+            },
+            {
+                "command_index": null,
+                "command": "gcc --version",
+                "cwd": "",
+                "output": "gcc: command not found",
+                "intent": "Web & Application Vulnerabilities",
+                "description": "Runs a Linux version detection tool with gcc to identify known vulnerabilities."
+            }
+        ],
+        "summary": "The session contains 5 recorded commands, beginning with 'python3 -c \"print('Honeypot Active')\"' and ending with 'gcc --version'. The observed behavior appears related to Exploitation & Metasploit, Filesystem Operations, Network Scanning & Recon, Web & Application Vulnerabilities."
+    },
+    {
+        "session_id": "0647fb7c",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T09:24:30+0545",
+        "ended_at": "2026-05-17T09:25:16+0545",
+        "command_count": 4,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "gcc --version",
+                "cwd": "",
+                "output": "gcc: command not found",
+                "intent": "Web & Application Vulnerabilities",
+                "description": "Runs a Linux version detection tool with gcc to identify known vulnerabilities."
+            },
+            {
+                "command_index": null,
+                "command": "netstat -tulnp",
+                "cwd": "",
+                "output": "netstat: command not found",
+                "intent": "Network Scanning & Recon",
+                "description": "Runs a verbose netstat -tulnp scan against the working directory."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Closes the SSH session from /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 4 recorded commands, beginning with 'gcc --version' and ending with 'exit'. The observed behavior appears related to Network Scanning & Recon, Service & System Operations, Web & Application Vulnerabilities."
+    },
+    {
+        "session_id": "f83d5682",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-17T09:27:13+0545",
+        "ended_at": "2026-05-17T09:31:46+0545",
+        "command_count": 18,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "gcc --version",
+                "cwd": "",
+                "output": "gcc: command not found",
+                "intent": "Web & Application Vulnerabilities",
+                "description": "Runs a Linux version detection tool with gcc to identify known vulnerabilities."
+            },
+            {
+                "command_index": null,
+                "command": "whoami",
+                "cwd": "",
+                "output": "asus tuf gaming",
+                "intent": "Service & System Operations",
+                "description": "Prints the current effective username (user-access)."
+            },
+            {
+                "command_index": null,
+                "command": "wget",
+                "cwd": "",
+                "output": "wget: missing URL",
+                "intent": "Exploitation & Metasploit",
+                "description": "Starts a new Metasploit working directory named /."
+            },
+            {
+                "command_index": null,
+                "command": "wget www.youtube.com",
+                "cwd": "",
+                "output": "bash: wget: command not found",
+                "intent": "Exploitation & Metasploit",
+                "description": "Attempts to download a remote file using wget, which may indicate payload retrieval or reconnaissance."
+            },
+            {
+                "command_index": null,
+                "command": "wget https://www.youtube.com",
+                "cwd": "",
+                "output": "bash: wget: command not found",
+                "intent": "Exploitation & Metasploit",
+                "description": "Attempts to download a remote file using wget, which may indicate payload retrieval or reconnaissance."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "pwd",
+                "cwd": "",
+                "output": "/home/asus tuf gaming",
+                "intent": "Service & System Operations",
+                "description": "Displays the current working directory, which is /."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "pwd",
+                "cwd": "",
+                "output": "/home/asus tuf gaming",
+                "intent": "Service & System Operations",
+                "description": "Displays the current working directory, which is /."
+            },
+            {
+                "command_index": null,
+                "command": "which git",
+                "cwd": "",
+                "output": "which: command not found",
+                "intent": "Misc / Others",
+                "description": "Shows the current working directory of the git repository."
+            },
+            {
+                "command_index": null,
+                "command": "curl -I https://github.com",
+                "cwd": "",
+                "output": "HTTP/1.1 200 OK\nContent-Type: text/html; charset=UTF-8\nConnection: keep-alive\nServer: ECS\nX-Request-URL: https://github.com",
+                "intent": "Misc / Others",
+                "description": "Uses curl to make a network request, often used for testing connectivity, downloading files, or probing services."
+            },
+            {
+                "command_index": null,
+                "command": "wget https://example.com/file.txt",
+                "cwd": "",
+                "output": "--2026-03-06 15:03:50--  https://example.com/file.txt\nConnecting to example.com (192.168.56.1):80... connected.\nHTTP request sent, awaiting response... 200 OK\nContent-type: text/plain; charset=UTF-8\nTransfer-encoding: chunked\nDate: Tue, 06 Mar 2026 17:03:50 GMT\nServer: Apache/2.4.41 (Unix)",
+                "intent": "Misc / Others",
+                "description": "Attempts to download a remote file using wget, which may indicate payload retrieval or reconnaissance."
+            },
+            {
+                "command_index": null,
+                "command": "wget https://sike.com/file.txt",
+                "cwd": "",
+                "output": "bash: wget: command not found",
+                "intent": "Misc / Others",
+                "description": "Attempts to download a remote file using wget, which may indicate payload retrieval or reconnaissance."
+            },
+            {
+                "command_index": null,
+                "command": "wget https://google.com/file.txt",
+                "cwd": "",
+                "output": "bash: wget: command not found",
+                "intent": "Misc / Others",
+                "description": "Attempts to download a remote file using wget, which may indicate payload retrieval or reconnaissance."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "SUCCESS: screen cleared",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/admin/personal."
+            }
+        ],
+        "summary": "The session contains 18 recorded commands, beginning with 'gcc --version' and ending with 'clear'. The observed behavior appears related to Exploitation & Metasploit, Misc / Others, Service & System Operations, Terminal & Shell Operations, Web & Application Vulnerabilities."
+    },
+    {
+        "session_id": "c2625ea1",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T08:56:20.282574Z",
+        "ended_at": "2026-05-17T08:58:04.861881Z",
+        "command_count": 4,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "mkdir aneesh",
+                "cwd": "/home/user",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Creates aneesh directory under /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "aneesh  Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 3,
+                "command": "ping google.com",
+                "cwd": "/home/user",
+                "output": "PING google.com (74.125.83.219): 56 data bytes\n64 bytes from 74.125.83.219: icmp_seq=1 ttl=56 time=19.4 ms\n64 bytes from 74.125.83.219: icmp_seq=2 ttl=56 time=20.0 ms\n64 bytes from 74.125.83.219: icmp_seq=3 ttl=",
+                "intent": "Network Scanning & Recon",
+                "description": "Sends ICMP echo requests to google.com to verify that the Webmin service is reachable."
+            },
+            {
+                "command_index": 4,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "The session contains 4 recorded commands, beginning with 'mkdir aneesh' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Network Scanning & Recon, Service & System Operations."
+    },
+    {
+        "session_id": "153f8a92",
+        "remote_addr": "192.168.1.141",
+        "username": "asus",
+        "started_at": "2026-05-17T09:10:29.012305Z",
+        "ended_at": "2026-05-17T09:11:48.669801Z",
+        "command_count": 12,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ping goole.com",
+                "cwd": "/home/user",
+                "output": "bash: ping: command not found",
+                "intent": "Network Scanning & Recon",
+                "description": "Sends ICMP echo requests to goole.com to verify that the Webmin server is reachable."
+            },
+            {
+                "command_index": 2,
+                "command": "ping google.com",
+                "cwd": "/home/user",
+                "output": "PING google.com (93.187.86.242): 56 data bytes\n64 bytes from 93.187.86.242: icmp_seq=1 ttl=51 time=11.6 ms\n64 bytes from 93.187.86.242: icmp_seq=2 ttl=51 time=11.8 ms\n64 bytes from 93.187.86.242: icmp_seq=3 ttl=",
+                "intent": "Network Scanning & Recon",
+                "description": "Sends ICMP echo requests to google.com to verify that the Webmin service is reachable."
+            },
+            {
+                "command_index": 3,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 4,
+                "command": "cd Documents",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from /home/user/Documents to Documents."
+            },
+            {
+                "command_index": 5,
+                "command": "mkdir aneesh",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Creates aneesh directory under /home/user/Documents."
+            },
+            {
+                "command_index": 6,
+                "command": "touch aneeesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Creates an empty file aneeesh.txt in /home/user/Documents."
+            },
+            {
+                "command_index": 7,
+                "command": "exho \"Hero Bhai\" > aneesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "bash: exho: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to execute exho directly as a shell command, which is not valid shell syntax."
+            },
+            {
+                "command_index": 8,
+                "command": "echo \"Hero Bhai\" > aneesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Command Errors",
+                "description": "Attempts to echo a non-existent command Hero Bhai into /home/user/Documents, which is invalid."
+            },
+            {
+                "command_index": 9,
+                "command": "cat aneesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "Hero Bhai",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of aneesh.txt from the current shell context."
+            },
+            {
+                "command_index": 10,
+                "command": "claer",
+                "cwd": "/home/user/Documents",
+                "output": "bash: clear: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to run claer, which is not a standard Linux command and likely fails."
+            },
+            {
+                "command_index": 11,
+                "command": "clear",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the admin user’s Documents directory."
+            },
+            {
+                "command_index": 12,
+                "command": "exit",
+                "cwd": "/home/user/Documents",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user/Documents."
+            }
+        ],
+        "summary": "The session contains 12 recorded commands, beginning with 'ping goole.com' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Network Scanning & Recon, Service & System Operations, Terminal & Shell Operations."
+    },
+    {
+        "session_id": "770184b2",
+        "remote_addr": "unknown",
+        "username": "unknown",
+        "started_at": "",
+        "ended_at": "",
+        "command_count": 11,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": null,
+                "command": "cd Documents",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from /home/user/Documents to Documents."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents."
+            },
+            {
+                "command_index": null,
+                "command": "cat anesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of anesh.txt from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "cd aneesh",
+                "cwd": "/home/user/Documents/aneesh",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from /home/user/Documents/aneesh to aneesh."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "/home/user/Documents/aneesh",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents/aneesh."
+            },
+            {
+                "command_index": null,
+                "command": "cd ..",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from /home/user/Documents to the parent directory /home/user."
+            },
+            {
+                "command_index": null,
+                "command": "cat aneesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of aneesh.txt from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "echo \"aneesh don\" > aneesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Command Errors",
+                "description": "Attempts to echo a non-existent command aeesh.txt into /home/user/Documents, which fails."
+            },
+            {
+                "command_index": null,
+                "command": "cat aneesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of aneesh.txt from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user/Documents."
+            }
+        ],
+        "summary": "The session contains 11 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "87b5585f",
+        "remote_addr": "unknown",
+        "username": "unknown",
+        "started_at": "",
+        "ended_at": "",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "sh hello",
+                "cwd": "/home/user",
+                "output": "",
+                "intent": "Tool Usage & Management",
+                "description": "Shows hello text inside /home/user."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'sh hello' and ending with 'exit'. The observed behavior appears related to Service & System Operations, Tool Usage & Management."
+    },
+    {
+        "session_id": "d80af301",
+        "remote_addr": "unknown",
+        "username": "unknown",
+        "started_at": "",
+        "ended_at": "",
+        "command_count": 11,
+        "commands": [
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": null,
+                "command": "cd Documents",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from /home/user/Documents to Documents."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents."
+            },
+            {
+                "command_index": null,
+                "command": "cat aneesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of aneesh.txt from the current shell context."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents."
+            },
+            {
+                "command_index": null,
+                "command": "rm aneesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Deletes aneesh.txt from /home/user/Documents."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents."
+            },
+            {
+                "command_index": null,
+                "command": "clear",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the admin user’s Documents directory."
+            },
+            {
+                "command_index": null,
+                "command": "ls",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents."
+            },
+            {
+                "command_index": null,
+                "command": "rm aneeesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Deletes aneeesh.txt from /home/user/Documents."
+            },
+            {
+                "command_index": null,
+                "command": "exit",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user/Documents."
+            }
+        ],
+        "summary": "The session contains 11 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+    }
+]
