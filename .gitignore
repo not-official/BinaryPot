@@ -5,6 +5,7 @@ bpot-frontend/node_modules/
 bpot-frontend/dist/
 bpot-frontend/build/
 bpot-frontend/.env
+bpot-frontend/GeoLite2-City.mmdb
 
 # ----------------------
 # Python / Backend
@@ -46,8 +47,6 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
-
-bpot-frontend/GeoLite2-City.mmdb
 
 # SSH keys (honeypot)
 bpot-backend/ssh_host_key

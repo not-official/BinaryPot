@@ -9,6 +9,7 @@ from .register import router as signup_router
 from dotenv import load_dotenv
 from pathlib import Path
 import os
+from .geoip import router as geoip_router
 
 env_path = Path(__file__).resolve().parents[1] / ".env"
 load_dotenv(dotenv_path=env_path)
@@ -29,6 +30,11 @@ app.add_middleware(
 app.include_router(auth_router)
 app.include_router(api_router)
 app.include_router(signup_router)
+app.include_router(
+    geoip_router,
+    prefix="/api/geoip",
+    tags=["GeoIP"]
+)
 
 @app.get("/")
 def root():
