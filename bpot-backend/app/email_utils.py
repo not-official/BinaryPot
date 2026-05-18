@@ -1,9 +1,19 @@
 # app/email_utils.py
 import os
 import smtplib
+from pathlib import Path
 from email.message import EmailMessage
 from datetime import datetime
+from dotenv import load_dotenv
 
+# -----------------------------
+# Load .env directly for email module
+# -----------------------------
+BASE_DIR = Path(__file__).resolve().parents[1]
+ENV_PATH = BASE_DIR / ".env"
+
+
+load_dotenv(dotenv_path=ENV_PATH, override=True)
 
 # -----------------------------
 # SMTP config helpers
@@ -12,7 +22,7 @@ def _smtp_config():
     smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
     smtp_port = int(os.getenv("SMTP_PORT", "465"))
     smtp_email = os.getenv("SMTP_EMAIL", "binarypot101@gmail.com")
-    smtp_password = os.getenv("SMTP_PASSWORD")
+    smtp_password = os.getenv("SMTP_PASSWORD", "szvkvgvnandrhyxs")
     admin_email = os.getenv("ADMIN_EMAIL", smtp_email)
 
     if not smtp_password:

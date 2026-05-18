@@ -1,13 +1,33 @@
+// ==============================
+// FILE: bpot-frontend/pages/AttackMap.js
+// FULL UPDATED VERSION
+// ==============================
+
+
 import React, { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { message } from "antd";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+
+
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMap,
+} from "react-leaflet";
+
+
 import L from "leaflet";
+
+
 import "leaflet/dist/leaflet.css";
 
 
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
+
+
 import "./AttackMap.css";
 
 
@@ -17,6 +37,8 @@ import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 
 delete L.Icon.Default.prototype._getIconUrl;
+
+
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: markerIcon2x,
   iconUrl: markerIcon,
@@ -50,52 +72,15 @@ const mapBounds = [
 ];
 
 
-const sampleAttacks = [
-  {
-    ip: "185.220.101.12",
-    city: "Amsterdam",
-    country: "Netherlands",
-    lat: 52.3676,
-    lon: 4.9041,
-  },
-  {
-    ip: "45.133.1.42",
-    city: "Moscow",
-    country: "Russia",
-    lat: 55.7558,
-    lon: 37.6173,
-  },
-  {
-    ip: "103.87.45.9",
-    city: "Singapore",
-    country: "Singapore",
-    lat: 1.3521,
-    lon: 103.8198,
-  },
-  {
-    ip: "41.203.74.8",
-    city: "Cape Town",
-    country: "South Africa",
-    lat: -33.9249,
-    lon: 18.4241,
-  },
-  {
-    ip: "201.48.97.34",
-    city: "Sao Paulo",
-    country: "Brazil",
-    lat: -23.5505,
-    lon: -46.6333,
-  },
-];
-
-
 const MapFlyTo = ({ coords }) => {
   const map = useMap();
 
 
   useEffect(() => {
     if (coords) {
-      map.flyTo(coords, 5, { duration: 1.1 });
+      map.flyTo(coords, 5, {
+        duration: 1.1,
+      });
     }
   }, [coords, map]);
 
@@ -106,10 +91,15 @@ const MapFlyTo = ({ coords }) => {
 
 function AttackMap() {
   const [collapsed, setCollapsed] = useState(false);
+
+
   const [ipAddress, setIpAddress] = useState("");
   const [lookupResult, setLookupResult] = useState(null);
   const [showLookupModal, setShowLookupModal] = useState(false);
+
+
   const [loading, setLoading] = useState(false);
+  const [attacks, setAttacks] = useState([]);
 
 
   const token = sessionStorage.getItem("token");
@@ -118,12 +108,18 @@ function AttackMap() {
   const api = useMemo(() => {
     const instance = axios.create({
       baseURL: API_BASE,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
 
     instance.interceptors.request.use((config) => {
-      if (token) config.headers.Authorization = `Bearer ${token}`;
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+
+
       return config;
     });
 
@@ -132,10 +128,42 @@ function AttackMap() {
   }, [token]);
 
 
+  // ======================================
+  // FETCH ATTACKS FROM BACKEND
+  // ======================================
+
+
+  useEffect(() => {
+    const fetchAttacks = async () => {
+      try {
+        const response = await api.get("/api/geoip/attacks");
+        setAttacks(response.data || []);
+      } catch (err) {
+        console.error(err);
+        message.error("Failed to load attack data");
+      }
+    };
+
+
+    fetchAttacks();
+
+
+    const interval = setInterval(fetchAttacks, 15000);
+
+
+    return () => clearInterval(interval);
+  }, [api]);
+
+
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     window.location.href = "/login";
   };
+
+
+  // ======================================
+  // MANUAL LOOKUP
+  // ======================================
 
 
   const runLookup = async (event) => {
@@ -156,17 +184,28 @@ function AttackMap() {
 
     try {
       const response = await api.get("/api/geoip/lookup", {
-        params: { ip: value },
+        params: {
+          ip: value,
+        },
       });
 
 
       setLookupResult(response.data);
       setShowLookupModal(true);
+
+
       message.success(`Resolved ${value}`);
     } catch (error) {
+      console.error(error);
+
+
       setLookupResult(null);
       setShowLookupModal(false);
-      message.error(error?.response?.data?.detail || "GeoIP lookup failed");
+
+
+      message.error(
+        error?.response?.data?.detail || "GeoIP lookup failed"
+      );
     } finally {
       setLoading(false);
     }
@@ -174,14 +213,149 @@ function AttackMap() {
 
 
   const markerCoords =
-    lookupResult?.latitude != null && lookupResult?.longitude != null
+    lookupResult?.latitude != null &&
+    lookupResult?.longitude != null
       ? [lookupResult.latitude, lookupResult.longitude]
       : null;
 
 
+  const safeValue = (value, fallback = "Unknown") => {
+    if (value === null || value === undefined || value === "") {
+      return fallback;
+    }
+
+
+    return value;
+  };
+
+
+  const lookupLocationText = lookupResult
+    ? [
+        lookupResult.city,
+        lookupResult.country_name || lookupResult.country,
+      ]
+        .filter(Boolean)
+        .join(", ")
+    : "No IP selected";
+
+
+  const renderLookupSummary = () => (
+    <div className="lookupSummaryPanel">
+      <div className="lookupSummaryHeader">
+        <div>
+          <div className="chartTitle">IP LOOKUP SUMMARY</div>
+          <div className="smallMuted">
+            Resolved GeoIP intelligence from MMDB
+          </div>
+        </div>
+
+
+        <div className={`chartBadge ${lookupResult ? "live" : "top8"}`}>
+          {lookupResult ? "READY" : "IDLE"}
+        </div>
+      </div>
+
+
+      {lookupResult ? (
+        <>
+          <div className="lookupSummaryHero">
+            <div className="lookupSummaryIp">
+              {safeValue(lookupResult.ip)}
+            </div>
+
+
+            <div className="lookupSummaryLocation">
+              {lookupLocationText}
+            </div>
+          </div>
+
+
+          <div className="lookupSummaryGrid">
+            <div className="lookupSummaryItem">
+              <span>Country</span>
+              <strong>
+                {safeValue(
+                  lookupResult.country_name || lookupResult.country
+                )}
+              </strong>
+            </div>
+
+
+            <div className="lookupSummaryItem">
+              <span>City</span>
+              <strong>{safeValue(lookupResult.city)}</strong>
+            </div>
+
+
+            <div className="lookupSummaryItem">
+              <span>Latitude</span>
+              <strong>{safeValue(lookupResult.latitude, "-")}</strong>
+            </div>
+
+
+            <div className="lookupSummaryItem">
+              <span>Longitude</span>
+              <strong>{safeValue(lookupResult.longitude, "-")}</strong>
+            </div>
+          </div>
+
+
+          <div className="lookupSummaryNote">
+            <div className="chartTitle">ANALYST NOTE</div>
+
+
+            <p>
+              This IP has been resolved and plotted on the attack map.
+              Use the location as an approximation because GeoIP results
+              depend on the MMDB database and network registration data.
+            </p>
+          </div>
+
+
+          <div className="lookupSummaryActions">
+            <button
+              type="button"
+              className="lookupBtn summaryActionBtn"
+              onClick={() => setShowLookupModal(true)}
+            >
+              VIEW FULL DETAILS
+            </button>
+
+
+            <button
+              type="button"
+              className="summaryGhostBtn"
+              onClick={() => {
+                setLookupResult(null);
+                setShowLookupModal(false);
+                setIpAddress("");
+              }}
+            >
+              CLEAR
+            </button>
+          </div>
+        </>
+      ) : (
+        <div className="lookupSummaryEmpty">
+          <div className="lookupSummaryEmptyIcon">⌖</div>
+
+
+          <p>
+            Enter an IP address above and click lookup to display
+            its GeoIP summary beside the live attack map.
+          </p>
+        </div>
+      )}
+    </div>
+  );
+
+
   return (
     <div className="attackMapLayout">
-      <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
+      <Sidebar
+        collapsed={collapsed}
+        setCollapsed={setCollapsed}
+      />
 
 
       <main
@@ -199,19 +373,36 @@ function AttackMap() {
 
 
         <div className="attackMapShell">
+          {/* HEADER */}
+
+
           <section className="attackMapHeaderCard">
             <div className="attackMapIntro">
-              <div className="mapEyebrow">REAL-TIME ATTACK ORIGINS</div>
+              <div className="mapEyebrow">
+                REAL-TIME ATTACK ORIGINS
+              </div>
+
+
               <h1>Attack Map</h1>
+
+
               <p>
-                Resolve suspicious IP addresses, plot their approximate location,
-                and inspect GeoIP details from the local MMDB lookup.
+                Resolve suspicious IP addresses, plot their approximate
+                location, and inspect GeoIP details.
               </p>
             </div>
 
 
-            <form className="lookupCard" onSubmit={runLookup}>
-              <label htmlFor="ipAddress">IP LOOKUP</label>
+            {/* LOOKUP FORM */}
+
+
+            <form
+              className="lookupCard"
+              onSubmit={runLookup}
+            >
+              <label htmlFor="ipAddress">
+                IP LOOKUP
+              </label>
 
 
               <div className="lookupRow">
@@ -220,58 +411,107 @@ function AttackMap() {
                   type="text"
                   placeholder="Enter IP e.g. 8.8.8.8"
                   value={ipAddress}
-                  onChange={(e) => setIpAddress(e.target.value)}
+                  onChange={(e) =>
+                    setIpAddress(e.target.value)
+                  }
                 />
 
 
-                <button type="submit" className="lookupBtn" disabled={loading}>
+                <button
+                  type="submit"
+                  className="lookupBtn"
+                  disabled={loading}
+                >
                   {loading ? "LOOKING..." : "LOOK UP"}
                 </button>
               </div>
 
 
               <div className="lookupHint">
-                Source: <span>GeoLite2 MMDB via backend</span>
+                Source:
+                <span> GeoLite Database</span>
               </div>
             </form>
           </section>
 
 
+          {/* STATS */}
+
+
           <section className="attackStatsGrid">
             <div className="attackStatCard">
-              <div className="attackStatLabel">SAMPLE POINTS</div>
-              <div className="attackStatValue">{sampleAttacks.length}</div>
-              <div className="attackStatMeta">global origins</div>
+              <div className="attackStatLabel">
+                ATTACKERS
+              </div>
+
+
+              <div className="attackStatValue">
+                {attacks.length}
+              </div>
+
+
+              <div className="attackStatMeta">
+                unique IPs
+              </div>
             </div>
 
 
             <div className="attackStatCard">
-              <div className="attackStatLabel">LOOKUP RESULT</div>
-              <div className="attackStatValue">{lookupResult ? "READY" : "NONE"}</div>
-              <div className="attackStatMeta">current query</div>
+              <div className="attackStatLabel">
+                LOOKUP RESULT
+              </div>
+
+
+              <div className="attackStatValue">
+                {lookupResult ? "READY" : "NONE"}
+              </div>
+
+
+              <div className="attackStatMeta">
+                current query
+              </div>
             </div>
 
 
             <div className="attackStatCard">
-              <div className="attackStatLabel">GEO ENGINE</div>
-              <div className="attackStatValue">ON</div>
-              <div className="attackStatMeta">local mmdb</div>
+              <div className="attackStatLabel">
+                GEO ENGINE
+              </div>
+
+
+              <div className="attackStatValue">
+                ON
+              </div>
+
+
+              <div className="attackStatMeta">
+                live processing
+              </div>
             </div>
           </section>
+
+
+          {/* MAP + LOOKUP SUMMARY */}
 
 
           <section className="attackMapContentGrid">
             <div className="mapPanel">
               <div className="mapPanelHeader">
                 <div>
-                  <div className="chartTitle">GLOBAL ATTACK MAP</div>
+                  <div className="chartTitle">
+                    GLOBAL ATTACK MAP
+                  </div>
+
+
                   <div className="smallMuted">
-                    Sample origins and resolved IP marker
+                    Live attacker locations
                   </div>
                 </div>
 
 
-                <div className="chartBadge live">LIVE</div>
+                <div className="chartBadge live">
+                  LIVE
+                </div>
               </div>
 
 
@@ -286,7 +526,7 @@ function AttackMap() {
                   className="leafletMap"
                 >
                   <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    attribution='&copy; OpenStreetMap'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
 
@@ -294,12 +534,26 @@ function AttackMap() {
                   <MapFlyTo coords={markerCoords} />
 
 
-                  {sampleAttacks.map((attack) => (
-                    <Marker key={attack.ip} position={[attack.lat, attack.lon]} icon={redAttackIcon}>
+                  {/* LIVE ATTACKS */}
+
+
+                  {attacks.map((attack) => (
+                    <Marker
+                      key={attack.ip}
+                      position={[
+                        attack.lat,
+                        attack.lon,
+                      ]}
+                      icon={redAttackIcon}
+                    >
                       <Popup>
                         <div className="popupContent">
                           <strong>{attack.ip}</strong>
+
+
                           <span>{attack.city}</span>
+
+
                           <span>{attack.country}</span>
                         </div>
                       </Popup>
@@ -307,25 +561,28 @@ function AttackMap() {
                   ))}
 
 
+                  {/* MANUAL LOOKUP */}
+
+
                   {markerCoords && (
-                    <Marker position={markerCoords} icon={redAttackIcon}>
+                    <Marker
+                      position={markerCoords}
+                      icon={redAttackIcon}
+                    >
                       <Popup>
                         <div className="popupContent">
-                          <strong>{lookupResult.ip}</strong>
+                          <strong>
+                            {lookupResult.ip}
+                          </strong>
+
+
                           <span>
-                            {lookupResult.city || "Unknown city"}
-                            {lookupResult.subdivision
-                              ? `, ${lookupResult.subdivision}`
-                              : ""}
+                            {lookupResult.city}
                           </span>
+
+
                           <span>
-                            {lookupResult.country_name ||
-                              lookupResult.country_code ||
-                              "Unknown country"}
-                          </span>
-                          <span>
-                            {lookupResult.latitude?.toFixed(4)},{" "}
-                            {lookupResult.longitude?.toFixed(4)}
+                            {lookupResult.country_name}
                           </span>
                         </div>
                       </Popup>
@@ -336,85 +593,33 @@ function AttackMap() {
             </div>
 
 
-            <aside className="detailsPanel">
-              <div className="detailsCard">
-                <div className="detailsTitle">LOCATION SUMMARY</div>
-
-
-                {lookupResult ? (
-                  <div className="detailsList">
-                    <div>
-                      <span>IP</span>
-                      <strong>{lookupResult.ip}</strong>
-                    </div>
-                    <div>
-                      <span>Country</span>
-                      <strong>
-                        {lookupResult.country_name ||
-                          lookupResult.country_code ||
-                          "-"}
-                      </strong>
-                    </div>
-                    <div>
-                      <span>City</span>
-                      <strong>{lookupResult.city || "-"}</strong>
-                    </div>
-                    <div>
-                      <span>Region</span>
-                      <strong>{lookupResult.subdivision || "-"}</strong>
-                    </div>
-                    <div>
-                      <span>Latitude</span>
-                      <strong>{lookupResult.latitude ?? "-"}</strong>
-                    </div>
-                    <div>
-                      <span>Longitude</span>
-                      <strong>{lookupResult.longitude ?? "-"}</strong>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="emptyState">
-                    Enter an IP address to resolve its MMDB location and pin it
-                    on the map.
-                  </div>
-                )}
-              </div>
-
-
-              <div className="detailsCard detailsAccent">
-                <div className="detailsTitle">MMDB LOOKUP</div>
-                <div className="notesText">
-                  GeoIP results are resolved through your backend using the local
-                  MMDB database.
-                </div>
-              </div>
-
-
-              <div className="detailsCard">
-                <div className="detailsTitle">SAMPLE ORIGINS</div>
-
-
-                <div className="detailsList">
-                  {sampleAttacks.map((attack) => (
-                    <div key={attack.ip}>
-                      <span>{attack.city}</span>
-                      <strong>{attack.ip}</strong>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </aside>
+            {renderLookupSummary()}
           </section>
         </div>
       </main>
 
 
+      {/* LOOKUP MODAL */}
+
+
       {showLookupModal && lookupResult && (
-        <div className="lookupModalOverlay" onClick={() => setShowLookupModal(false)}>
-          <div className="lookupModal" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="lookupModalOverlay"
+          onClick={() =>
+            setShowLookupModal(false)
+          }
+        >
+          <div
+            className="lookupModal"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="lookupModalHeader">
               <div>
-                <div className="modalEyebrow">MMDB GEOIP RESULT</div>
+                <div className="modalEyebrow">
+                  MMDB GEOIP RESULT
+                </div>
+
+
                 <h2>{lookupResult.ip}</h2>
               </div>
 
@@ -422,7 +627,9 @@ function AttackMap() {
               <button
                 type="button"
                 className="modalCloseBtn"
-                onClick={() => setShowLookupModal(false)}
+                onClick={() =>
+                  setShowLookupModal(false)
+                }
               >
                 ×
               </button>
@@ -432,42 +639,43 @@ function AttackMap() {
             <div className="lookupModalGrid">
               <div>
                 <span>Country</span>
+
+
                 <strong>
-                  {lookupResult.country_name || lookupResult.country_code || "-"}
+                  {safeValue(
+                    lookupResult.country_name ||
+                      lookupResult.country
+                  )}
                 </strong>
               </div>
 
 
               <div>
                 <span>City</span>
-                <strong>{lookupResult.city || "-"}</strong>
-              </div>
 
 
-              <div>
-                <span>Region</span>
-                <strong>{lookupResult.subdivision || "-"}</strong>
+                <strong>
+                  {safeValue(lookupResult.city)}
+                </strong>
               </div>
 
 
               <div>
                 <span>Latitude</span>
-                <strong>{lookupResult.latitude ?? "-"}</strong>
+
+
+                <strong>
+                  {safeValue(lookupResult.latitude, "-")}
+                </strong>
               </div>
 
 
               <div>
                 <span>Longitude</span>
-                <strong>{lookupResult.longitude ?? "-"}</strong>
-              </div>
 
 
-              <div>
-                <span>Coordinates</span>
                 <strong>
-                  {lookupResult.latitude != null && lookupResult.longitude != null
-                    ? `${lookupResult.latitude}, ${lookupResult.longitude}`
-                    : "-"}
+                  {safeValue(lookupResult.longitude, "-")}
                 </strong>
               </div>
             </div>
@@ -477,7 +685,9 @@ function AttackMap() {
               <button
                 type="button"
                 className="lookupBtn modalActionBtn"
-                onClick={() => setShowLookupModal(false)}
+                onClick={() =>
+                  setShowLookupModal(false)
+                }
               >
                 CLOSE
               </button>
@@ -491,6 +701,4 @@ function AttackMap() {
 
 
 export default AttackMap;
-
-
 

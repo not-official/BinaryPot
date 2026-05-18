@@ -357,22 +357,6 @@ const Signup = () => {
           </div>
         </div>
 
-        <div className="reviewBox">
-          <div className="reviewBoxTitle">SAFE PAYLOAD PREVIEW</div>
-          <pre>
-{JSON.stringify(
-  {
-    ...formData,
-    password: formData.password ? "********" : undefined,
-    confirm_password: undefined,
-    card_number: formData.card_number ? "**** **** **** ****" : undefined,
-  },
-  null,
-  2
-)}
-          </pre>
-        </div>
-
         <label className="signupCheckbox">
           <input
             type="checkbox"

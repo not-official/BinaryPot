@@ -5,8 +5,13 @@ import sys
 from pathlib import Path
 from typing import Union
 
-
 from dotenv import load_dotenv
+
+BASE_DIR = Path(__file__).resolve().parents[1]
+
+env_path = BASE_DIR / ".env"
+load_dotenv(dotenv_path=env_path)
+
 from fastapi import FastAPI, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -17,7 +22,7 @@ from .auth import router as auth_router
 from .api import router as api_router
 from .register import router as signup_router
 
-
+from .geoip import router as geoip_router
 
 
 # ============================================================
@@ -25,11 +30,7 @@ from .register import router as signup_router
 # ============================================================
 
 
-BASE_DIR = Path(__file__).resolve().parents[1]
 
-
-env_path = BASE_DIR / ".env"
-load_dotenv(dotenv_path=env_path)
 
 
 LOGS_DIR = BASE_DIR / "logs"
@@ -92,6 +93,12 @@ app.add_middleware(
 app.include_router(auth_router)
 app.include_router(api_router)
 app.include_router(signup_router)
+app.include_router(
+    geoip_router,
+    prefix="/api/geoip",
+    tags=["GeoIP"]
+)
+
 
 
 
