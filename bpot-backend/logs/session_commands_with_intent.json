@@ -96,7 +96,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 11 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others, Service & System Operations, Terminal & Shell Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences:\n\nAn attacker connected to the SSH honeypot and began by listing the files and directories in the root directory using the \"ls\" command. They then attempted to navigate to a non-existent directory \",,\", which resulted in an error. The attacker then moved back to the root directory using the \"cd ..\" command and created a new directory named \"love\" using the \"mkdir\" command.\n\nThe attacker then attempted to clone a remote Git repository using the \"git clone\" command, first trying to clone a repository named \"samrat\" and later attempting to clone a repository named \"folder\". These actions suggest that the attacker is likely trying to gain unauthorized access to sensitive"
     },
     {
         "session_id": "0eb2422e",
@@ -131,7 +131,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 3 recorded commands, beginning with 'sex' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+        "summary": "In this SSH honeypot terminal session, an attacker attempted to interact with the system. The attacker first entered the command \"sex\", which is not a valid command on the system, resulting in a command-not-found error. This suggests that the attacker was likely scanning for potential commands or trying to identify the system's capabilities.\n\nThe attacker then entered the command \"ls\", which is a valid command that lists files and directories in the current working directory. In this case, the attacker used \"ls\" to list the files and directories in the root directory \"/\". This behavior is suspicious, as a legitimate user would typically use \"ls\" to list files and directories in their own home directory or a specific working directory, rather than the root directory.\n\nFinally"
     },
     {
         "session_id": "aa1c31b1",
@@ -198,7 +198,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 7 recorded commands, beginning with 'cls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others, Service & System Operations, Terminal & Shell Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences, focusing on attacker behavior, likely goal, and any suspicious activity:\n\nDuring the SSH honeypot terminal session, an attacker attempted to execute various commands to gather information, create a directory, and potentially clone a remote Git repository. The attacker started by attempting to clear the screen using the 'cls' command, which is not a valid executable name, indicating a lack of familiarity with the Linux terminal. The attacker then tried to clone a remote Git repository using 'git clone black', which suggests an attempt to download malicious or sensitive information. The attacker proceeded to list files and directories in the root directory using 'ls', moved to the parent directory using 'cd ..', and created"
     },
     {
         "session_id": "6e1d1d7a",
@@ -257,7 +257,7 @@
                 "description": "Logs out from the current working directory and returns to the root shell."
             }
         ],
-        "summary": "The session contains 6 recorded commands, beginning with 'ls' and ending with 'logout'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences:\n\nDuring the SSH honeypot terminal session, an attacker attempted to navigate through the Linux filesystem. The attacker first listed the files and directories in the root directory ('/') using the 'ls' command. They then moved to the parent directory ('/') using the 'cd ..' command, and immediately listed the files and directories in the root directory again. This behavior suggests that the attacker was trying to familiarize themselves with the Linux filesystem structure.\n\nThe attacker then attempted to execute the 'ipconfig' command, which is typically used on Windows to display network configuration information. However, this command is not present on Linux, resulting in a command error. This suggests that the attacker"
     },
     {
         "session_id": "bbde31a3",
@@ -308,7 +308,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 5 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session:\n\nAn attacker connected to the honeypot SSH server and began to navigate the filesystem using basic commands. Initially, they listed the files and directories in the root directory '/' using the 'ls' command, followed by changing the directory to the parent directory '/' using 'cd ..'. This suggests that the attacker was attempting to understand the directory structure of the system. \n\nThe attacker then listed the files and directories in the root directory again, which is unnecessary and may be an attempt to confirm their current location. \n\nThe attacker then attempted to run the 'ipconfig /all' command, which is a Windows command used to display detailed information about the network configuration. This is suspicious because the attacker"
     },
     {
         "session_id": "4481907f",
@@ -375,7 +375,7 @@
                 "description": "Clears the screen in /home/admin/personal."
             }
         ],
-        "summary": "The session contains 7 recorded commands, beginning with 'git clone wrc' and ending with 'clear'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others, Terminal & Shell Operations."
+        "summary": "During this SSH honeypot terminal session, an attacker attempted to clone two remote Git repositories, 'wrc' and 'nin', into the current filesystem using the 'git clone' command. This suggests that the attacker's likely goal is to gain unauthorized access to sensitive information or to use the compromised system for malicious activities.\n\nThe attacker's behavior indicates that they are likely a novice or inexperienced attacker, as they are using simple and straightforward commands to achieve their goal. The repeated use of 'ls' to list files and directories in the '/' root directory may be an attempt to gather information about the system's file structure.\n\nThe use of 'clear' to clear the screen in the '/home/admin/personal' directory may be an attempt to erase any"
     },
     {
         "session_id": "8133354d",
@@ -402,7 +402,7 @@
                 "description": "Lists files and directories in /."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'git clone project' and ending with 'ls'. The observed behavior appears related to Filesystem Operations, Misc / Others."
+        "summary": "Based on the provided SSH honeypot terminal session, here's a summary of the session in proper sentences and an explanation of the session:\n\nThe attacker initiated a session by attempting to clone a remote Git repository into the current filesystem using the command \"git clone project.\" This suggests that the attacker's likely goal is to gain unauthorized access to the system by downloading sensitive information or exploiting vulnerabilities within the repository.\n\nThe attacker then proceeded to list files and directories in the root directory of the system using the command \"ls.\" This action is suspicious as it indicates that the attacker is attempting to gather information about the system's file structure and potentially identify areas of vulnerability.\n\nThe attacker's behavior in this session is consistent with a reconnaissance phase, where they are gathering information about"
     },
     {
         "session_id": "e256b4e2",
@@ -421,7 +421,7 @@
                 "description": "Attempts to clone a remote Git repository into the current filesystem."
             }
         ],
-        "summary": "The session contains 1 recorded commands, beginning with 'git clone lov' and ending with 'git clone lov'. The observed behavior appears related to Misc / Others."
+        "summary": "In this SSH honeypot terminal session, an attacker attempted to clone a remote Git repository using the command \"git clone lov\". However, the repository name \"lov\" is likely a typo or a placeholder, as it is not a valid Git repository.\n\nThe attacker's behavior suggests that they are trying to gain unauthorized access to the system by attempting to clone a repository, which could potentially contain sensitive information or malicious code. The likely goal of the attacker is to obtain unauthorized access to the system or to steal sensitive data.\n\nThe suspicious activity in this session is the attacker's attempt to clone a non-existent repository, which is a common tactic used by attackers to evade detection. By using a placeholder or a typo, the attacker is trying to blend in with"
     },
     {
         "session_id": "e6b79c08",
@@ -448,7 +448,7 @@
                 "description": "Clears the screen in /home/admin/personal."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'git clone love' and ending with 'clear'. The observed behavior appears related to Misc / Others, Terminal & Shell Operations."
+        "summary": "Based on the provided SSH honeypot terminal session, here's a summary of the session in proper sentences and an explanation of the session:\n\nThe attacker initiated a terminal session and attempted to clone a remote Git repository into the current filesystem using the command \"git clone love\". This suggests that the attacker's likely goal is to gain unauthorized access to sensitive information or to execute malicious code by exploiting the Git repository. However, the attacker failed to provide a valid repository URL, which resulted in the command being interpreted as an attempt to clone a repository named \"love\" from a default location.\n\nFollowing the failed Git clone attempt, the attacker executed the command \"clear\" to clear the screen in the \"/home/admin/personal\" directory. This action is suspicious as"
     },
     {
         "session_id": "38b2073b",
@@ -507,7 +507,7 @@
                 "description": "Attempts to run a non-existent command love made me do it, resulting in a command-not-found error."
             }
         ],
-        "summary": "The session contains 6 recorded commands, beginning with 'git clone horse' and ending with 'love made me do it'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others, Terminal & Shell Operations, Tool Usage & Management."
+        "summary": "Here's a summary of the SSH honeypot terminal session:\n\nThe attacker's behavior in this session appears to be reconnaissance and testing of the system's capabilities. The attacker first attempts to clone a remote Git repository into the current filesystem using the 'git clone' command, which suggests they may be looking for sensitive information or trying to gain access to the system's source code. The attacker then lists the files and directories in the root directory using the 'ls' command, which indicates they are trying to gather information about the system's layout.\n\nThe attacker then runs the 'ninja' command, which is likely a test to see if the system has a specific tool installed. The fact that the attacker runs 'ninja' with no arguments suggests they"
     },
     {
         "session_id": "42a9d818",
@@ -542,7 +542,7 @@
                 "description": "Attempts to clone a remote Git repository into the current filesystem."
             }
         ],
-        "summary": "The session contains 3 recorded commands, beginning with 'ls ms' and ending with 'git clone sh'. The observed behavior appears related to Command Errors, Filesystem Operations, Misc / Others."
+        "summary": "Here's a summary of the SSH honeypot terminal session:\n\nIn this session, an attacker interacted with the honeypot system, attempting to gather information and potentially exploit it. The attacker first listed the files and directories in the /home/admin/personal directory using the \"ls ms\" command, indicating a desire to explore the system's file structure. However, when attempting to start Metasploit using the \"ms ls\" command, the attacker encountered a command error, suggesting that they may not be familiar with the Metasploit interface or may be using an incorrect command.\n\nThe attacker's next action was to attempt to clone a remote Git repository into the current filesystem using the \"git clone sh\" command. This command is suspicious because it"
     },
     {
         "session_id": "5a379d18",
@@ -601,7 +601,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 6 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences, along with an explanation of the session:\n\nThe attacker initiated a connection to the SSH honeypot and began by listing the files and directories in the root directory of the system using the 'ls' command. The attacker then created a new directory called 'blue' using the 'mkdir' command. The attacker listed the files and directories in the root directory again, moved up to the parent directory using the 'cd ..' command, and then listed the files and directories in the parent directory. This sequence of actions suggests that the attacker was exploring the system's directory structure and potentially searching for sensitive information or vulnerabilities. The attacker's goal appears to be reconnaissance or information gathering,"
     },
     {
         "session_id": "68238d29",
@@ -636,7 +636,7 @@
                 "description": "Lists files and directories in /."
             }
         ],
-        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Filesystem Operations."
+        "summary": "The SSH honeypot terminal session appears to be a reconnaissance phase by an attacker attempting to gather information about the system. \n\nThe attacker's behavior suggests they are trying to identify the root directory and list the files and directories within it. This is evident from the sequence of commands: \n\n1. The attacker starts by listing the files and directories in the root directory '/' using the 'ls' command, which indicates they are trying to understand the system's file structure.\n2. They then navigate to the parent directory of '/' using the 'cd ..' command, which is a common way to move up one directory level.\n3. Finally, they list the files and directories in the parent directory '/' again, which suggests they are trying to confirm their location"
     },
     {
         "session_id": "26c141c4",
@@ -711,7 +711,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 8 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Misc / Others, Service & System Operations, Terminal & Shell Operations."
+        "summary": "The SSH honeypot terminal session observed a series of suspicious activities performed by an attacker. The attacker's goal appears to be reconnaissance and potential exploitation of the system. \n\nInitially, the attacker listed files and directories in the root directory '/' using the 'ls' command. This was followed by a change in directory to the parent directory '/' using the 'cd ..' command. The attacker then cleared the screen in the '/home/admin/personal' directory, suggesting an attempt to conceal their activities. \n\nThe attacker repeated the 'ls' command to list files and directories in the root directory, possibly to confirm their previous actions. They then attempted to clone a remote Git repository into the current filesystem using the 'git clone ninja' command. This action is"
     },
     {
         "session_id": "0006bfdd",
@@ -730,7 +730,7 @@
                 "description": "Shows system-wide networking information."
             }
         ],
-        "summary": "The session contains 1 recorded commands, beginning with 'hi' and ending with 'hi'. The observed behavior appears related to Service & System Operations."
+        "summary": "During this SSH honeypot terminal session, an attacker initiated a connection and sent the command \"hi\" to the honeypot system. The honeypot responded by displaying system-wide networking information, which is a standard output for a service that shows network details.\n\nThe attacker's behavior in sending a generic command like \"hi\" suggests that they may be probing the system to gather information about its network configuration and available services. This is a common tactic used by attackers to gather intelligence before launching a more targeted attack.\n\nThe likely goal of the attacker in this session is to gather information about the honeypot system's network configuration, which could be used to launch a more sophisticated attack in the future. The attacker may be trying to identify potential vulnerabilities or"
     },
     {
         "session_id": "279d5e97",
@@ -757,7 +757,7 @@
                 "description": "Attempts to clone a remote Git repository into the current filesystem."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'git clone' and ending with 'git clone love'. The observed behavior appears related to Misc / Others."
+        "summary": "In this SSH honeypot terminal session, an attacker attempted to clone remote Git repositories into the current filesystem. The attacker first issued a generic command, \"git clone,\" which is used to clone a remote repository into the local system. However, the attacker did not specify a repository URL, which suggests that they were likely attempting to clone a repository from a default or publicly accessible location.\n\nThe attacker then modified their command to \"git clone love,\" which is a highly unusual and suspicious repository name. This suggests that the attacker was attempting to clone a specific repository that they believed was publicly accessible or easily discoverable. The use of \"love\" as a repository name is likely a red herring, and the attacker may have been attempting to gather information about"
     },
     {
         "session_id": "88542df6",
@@ -776,7 +776,7 @@
                 "description": "Attempts to clone a remote Git repository into the current filesystem."
             }
         ],
-        "summary": "The session contains 1 recorded commands, beginning with 'git clone love' and ending with 'git clone love'. The observed behavior appears related to Misc / Others."
+        "summary": "In this SSH honeypot terminal session, an attacker attempted to clone a remote Git repository into the current filesystem using the command \"git clone love\". This behavior suggests that the attacker is likely trying to obtain sensitive information or exploit the system by accessing the repository.\n\nThe attacker's goal appears to be to gain unauthorized access to the system's files or data, possibly to steal sensitive information, disrupt operations, or create a backdoor for future attacks. The use of \"love\" as the repository name could be an attempt to blend in or avoid detection, but it is more likely a typo or a placeholder.\n\nThe suspicious activity in this session is the attempt to clone a remote Git repository without any authentication or authorization, which indicates a potential security vulnerability or mis"
     },
     {
         "session_id": "f1a657e4",
@@ -803,7 +803,7 @@
                 "description": "Attempts to clone a remote Git repository into the current filesystem."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'clear' and ending with 'git clone hihihi'. The observed behavior appears related to Misc / Others, Terminal & Shell Operations."
+        "summary": "In this SSH honeypot terminal session, an attacker attempted to execute two commands. The first command, \"clear\", was used to clear the screen in the \"/home/admin/personal\" directory, likely to conceal their activity or to start fresh. This action suggests that the attacker was attempting to maintain a clean environment for their subsequent actions.\n\nThe second command, \"git clone hihihi\", was an attempt to clone a remote Git repository into the current filesystem. However, the repository name \"hihihi\" is likely a placeholder or a red herring, as it does not correspond to a valid Git repository. This behavior is suspicious, as it appears to be a reconnaissance or probing action, possibly aimed at identifying the honeypot's configuration"
     },
     {
         "session_id": "f282cf20",
@@ -830,7 +830,7 @@
                 "description": "Clears the screen in /home/admin/personal."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'git clone she' and ending with 'clear'. The observed behavior appears related to Misc / Others, Terminal & Shell Operations."
+        "summary": "Based on the provided SSH honeypot terminal session, here's a summary of the session and analysis of the attacker's behavior:\n\nThe attacker initiated a terminal session and attempted to clone a remote Git repository using the command \"git clone she\". This suggests that the attacker's likely goal was to download and potentially exploit or analyze the contents of the repository. However, the command was incomplete, as it was missing the URL of the repository. This incomplete command may indicate that the attacker was testing the system or attempting to gather information about the available Git repositories.\n\nFollowing the incomplete Git clone command, the attacker executed the \"clear\" command, which cleared the screen in the \"/home/admin/personal\" directory. This action appears to be a simple attempt to erase"
     },
     {
         "session_id": "1a6e9829",
@@ -857,7 +857,7 @@
                 "description": "Creates a new working directory named git dance."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'Love me' and ending with 'git dance'. The observed behavior appears related to Command Errors, Misc / Others."
+        "summary": "In this SSH honeypot terminal session, an attacker attempted to execute a non-standard Linux command \"Love me\" which resulted in a command-not-found error. This behavior suggests that the attacker is likely probing the system to identify potential vulnerabilities or testing its responsiveness to unusual commands.\n\nThe attacker's subsequent action of creating a new working directory named \"git dance\" could be indicative of their intention to use the system for malicious purposes, possibly related to Git-based exploitation or data exfiltration. This action may be a precursor to further activities such as downloading and executing malicious software, or attempting to exploit vulnerabilities in the Git version control system.\n\nThe attacker's behavior appears to be exploratory in nature, with an initial attempt to identify system responsiveness and a subsequent action"
     },
     {
         "session_id": "2187cd43",
@@ -908,7 +908,7 @@
                 "description": "Lists files and directories in /."
             }
         ],
-        "summary": "The session contains 5 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Filesystem Operations, Misc / Others."
+        "summary": "The SSH honeypot terminal session appears to be an attempt by an attacker to gather information and potentially exploit the system. The attacker's behavior suggests a reconnaissance phase, where they are trying to understand the system's file structure and potentially identify vulnerabilities.\n\nThe attacker starts by listing the files and directories in the root directory of the system using the 'ls' command. This indicates that they are trying to gather information about the system's layout. They then attempt to read the contents of a file named 'blue' using the 'cat' command, which suggests that they are trying to identify the contents of this file.\n\nThe attacker then attempts to clone a remote Git repository using the 'git clone' command, but with a suspicious XML file extension ('ninja"
     },
     {
         "session_id": "6e023a32",
@@ -943,7 +943,7 @@
                 "description": "Runs python inversion mode with no arguments, which prints usage information and exits."
             }
         ],
-        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'python --version'. The observed behavior appears related to Filesystem Operations, Tool Usage & Management."
+        "summary": "Based on the provided SSH honeypot terminal session, here's a summary of the attacker's behavior, likely goal, and any suspicious activity:\n\nThe attacker initiated a connection to the honeypot system and began by listing the files and directories in the root directory ('/') using the 'ls' command. This suggests that the attacker is likely exploring the system to identify potential targets or vulnerabilities. The repeated 'ls' command indicates that the attacker is scanning the system to gather information about its contents.\n\nThe attacker then attempted to run the 'python' command with the '--version' option. However, the attacker did not provide any arguments, which triggered the 'python' command to run in inversion mode and print usage information. This behavior is suspicious because the"
     },
     {
         "session_id": "54a08f0f",
@@ -1106,7 +1106,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 19 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations, Terminal & Shell Operations, Tool Usage & Management."
+        "summary": "The SSH honeypot terminal session appears to be a reconnaissance attempt by an attacker. The session can be summarized as follows:\n\nThe attacker initially lists the files and directories in the root directory (/) using the 'ls' command. They then navigate to a directory named 'black' using the 'cd' command, but immediately return to the root directory. This behavior suggests that the attacker is trying to gather information about the system's file structure.\n\nThe attacker then repeatedly navigates to the parent directory using the 'cd ..' command, which is unusual behavior. This could be an attempt to understand the directory hierarchy or to find a specific directory.\n\nThe attacker also clears the screen multiple times using the 'clear' command, which is likely an attempt to"
     },
     {
         "session_id": "32ddaaeb",
@@ -1149,7 +1149,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 4 recorded commands, beginning with 'clear' and ending with 'exit'. The observed behavior appears related to Service & System Operations, Terminal & Shell Operations."
+        "summary": "This SSH honeypot terminal session appears to be a series of actions taken by an attacker attempting to blend in with legitimate user behavior. The attacker first clears the screen in the /home/admin/personal directory twice, which could be a normal action for a user to clean up their workspace. However, the repetition of this action may indicate an attempt to gather information about the system or to create a false sense of normalcy.\n\nThe attacker then closes the SSH session twice using the 'exit' command, which is a typical action for a user to log out of a remote session. However, the repetition of this action may suggest that the attacker is trying to cover their tracks or to avoid raising suspicion by making it seem like a legitimate user is logging out"
     },
     {
         "session_id": "1979253b",
@@ -1176,7 +1176,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'exit' and ending with 'exit'. The observed behavior appears related to Service & System Operations."
+        "summary": "The SSH honeypot terminal session appears to be a simulated interaction between an attacker and a decoy system. The session consists of two consecutive \"exit\" commands, which are likely entered by the attacker to terminate their SSH connection.\n\nBased on the attacker's behavior, it is likely that their goal was to gain unauthorized access to the system, but they were unsuccessful in achieving their objective. The fact that they entered the \"exit\" command twice suggests that they may have been testing the system's SSH service or attempting to verify its presence.\n\nHowever, there is no suspicious activity observed in this session, as the attacker's actions are consistent with a legitimate user who has completed their task and is terminating their session. The session does not indicate any malicious activity,"
     },
     {
         "session_id": "7cb5daea",
@@ -1211,7 +1211,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+        "summary": "This SSH honeypot terminal session appears to be a brief and innocuous interaction between an attacker and the honeypot system. \n\nThe attacker first executes the 'ls' command, which is a standard Unix command used to list files and directories in the current working directory. In this case, the attacker lists the contents of the root directory ('/') of the honeypot system. This suggests that the attacker is exploring the system's filesystem to identify potential targets or vulnerabilities.\n\nThe attacker then attempts to exit the SSH session twice from the '/home/admin/personal' directory. This behavior is suspicious because it indicates that the attacker is trying to cover their tracks by closing the session from a specific directory, rather than simply exiting the session normally. This could"
     },
     {
         "session_id": "5ecba1e8",
@@ -1286,7 +1286,7 @@
                 "description": "Clears the screen in /home/admin/personal."
             }
         ],
-        "summary": "The session contains 8 recorded commands, beginning with 'ls' and ending with 'clear'. The observed behavior appears related to Filesystem Operations, Terminal & Shell Operations."
+        "summary": "In this SSH honeypot terminal session, an attacker is observed attempting to delete and manipulate the honeypot's filesystem. The attacker's likely goal is to evade detection and potentially gain access to sensitive information or disrupt the honeypot's operation.\n\nThe attacker's behavior is suspicious, as they are repeatedly attempting to delete the binary_ssh directory and its contents using different commands. This suggests that the attacker is trying to remove any evidence of their previous interactions with the honeypot. The use of the `rm -rf` command, which forces deletion of files and directories without prompting for confirmation, is particularly concerning, as it indicates a high level of intent to delete data.\n\nThe attacker's use of the `clear` command to clear the screen in"
     },
     {
         "session_id": "7562569a",
@@ -1401,7 +1401,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 13 recorded commands, beginning with 'cd ..' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences:\n\nAn attacker connected to the honeypot and began by navigating through the file system using the 'cd' command, moving from the root directory '/' to the 'deploy' directory and then to the 'app' directory. The attacker then attempted to list the files and directories in each of these directories using the 'ls' command. However, the attacker encountered an error when trying to use the 'la' command, which is not a standard Linux command, resulting in a command-not-found error. The attacker continued to list the files and directories in the 'app' directory and attempted to read the contents of the 'requirements.txt' file. The attacker then created an empty"
     },
     {
         "session_id": "d73e3dbb",
@@ -1436,7 +1436,7 @@
                 "description": "Lists files and directories in /."
             }
         ],
-        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Filesystem Operations, Misc / Others."
+        "summary": "Here's a summary of the SSH honeypot terminal session:\n\nThe attacker initiated an SSH session and began by listing the files and directories in the root directory of the honeypot system using the 'ls' command. This suggests that the attacker is attempting to gather information about the system and its contents. The attacker then attempted to clone a remote Git repository from a GitHub repository titled 'binarypot_ssh' using the 'git clone' command. This action is suspicious as it implies that the attacker is trying to download and potentially execute malicious code from a remote repository. The attacker then listed the files and directories in the root directory again, possibly to verify the contents of the system after the cloning operation.\n\nBased on the attacker's behavior, it is likely"
     },
     {
         "session_id": "f59a6592",
@@ -1511,7 +1511,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 8 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Misc / Others, Service & System Operations."
+        "summary": "In this SSH honeypot terminal session, an attacker attempts to gather information and potentially exploit the system. Here's a breakdown of the attacker's behavior, likely goal, and suspicious activity:\n\nThe attacker starts by listing the files and directories in the root directory of the system using the 'ls' command. This suggests that the attacker is trying to understand the system's file structure and identify potential targets.\n\nNext, the attacker attempts to clone a remote Git repository, 'https://github.com/samrat-dotel/binarypot', into the current filesystem using the 'git clone' command. This is a suspicious activity, as it implies that the attacker is trying to download and potentially execute malicious code from a remote source. The repository 'binarypot'"
     },
     {
         "session_id": "ae774dd6",
@@ -1602,7 +1602,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 10 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences:\n\nAn attacker connected to the honeypot SSH server and began exploring the system by listing files and directories in the root directory using the \"ls\" command. They then deleted an empty directory named \"binarypot_ssh\" using the \"rmdir\" command. The attacker continued to list files and directories in the root directory, suggesting they were searching for specific information or vulnerabilities. They also cleared the screen in the \"/home/admin/personal\" directory multiple times, which could be an attempt to erase any evidence of their activities. The attacker then attempted to run a non-standard Linux command \"nice\" and received an error, indicating they may be trying to evade detection or exploit a"
     },
     {
         "session_id": "5cf649f6",
@@ -1669,7 +1669,7 @@
                 "description": "Lists files and directories in /."
             }
         ],
-        "summary": "The session contains 7 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Filesystem Operations, Misc / Others."
+        "summary": "In this SSH honeypot terminal session, an attacker is attempting to gather information about the system and potentially exploit it for malicious purposes. \n\nThe attacker first lists the files and directories in the root directory (/) using the \"ls\" command, which is a common initial step for attackers to understand the system's layout. They then change the working directory to \"binarypot\" using the \"cd\" command, which suggests they are trying to navigate to a specific location on the system. However, they immediately return to the root directory and list the files and directories again, which may indicate they are trying to confirm their initial findings.\n\nThe attacker then reads and displays the contents of \"main.py\" using the \"cat\" command, which is a Python"
     },
     {
         "session_id": "47e72844",
@@ -1832,7 +1832,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 19 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Misc / Others, Service & System Operations, Terminal & Shell Operations."
+        "summary": "This SSH honeypot terminal session appears to be a reconnaissance and exploitation attempt by an attacker. The attacker's goal seems to be to gather information about the system, identify potential vulnerabilities, and exploit them to gain unauthorized access.\n\nThe session begins with the attacker listing the files and directories in the root directory ('/') using the 'ls' command. They then navigate to the 'binarypot' directory and list its contents. This suggests that the attacker is searching for specific files or directories that may contain sensitive information or vulnerabilities.\n\nThe attacker then moves to the 'ninja' directory, but this action seems to be a mistake, as they immediately move back to the root directory. This could indicate that the attacker is trying to cover their tracks or avoid detection"
     },
     {
         "session_id": "67bb3947",
@@ -1923,7 +1923,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 10 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+        "summary": "The SSH honeypot terminal session appears to be a reconnaissance attempt by an attacker. The attacker's goal seems to be gathering information about the system's file structure and potentially identifying sensitive areas.\n\nThe attacker's behavior can be broken down as follows:\n\n1. The attacker starts by listing the files and directories in the root directory '/' using the 'ls' command. This suggests that they are trying to get a general overview of the system's layout.\n2. The attacker then repeatedly clears the screen in the '/home/admin/personal' directory using the 'clear' command. This could be an attempt to erase any potential logs or evidence of their activity, or it could be a sign of the attacker becoming impatient or frustrated.\n3. The attacker lists the"
     },
     {
         "session_id": "bc7af18e",
@@ -2006,7 +2006,7 @@
                 "description": "Reads and displays the contents of index.html from the current shell context."
             }
         ],
-        "summary": "The session contains 9 recorded commands, beginning with 'ls' and ending with 'cat index.html'. The observed behavior appears related to Command Errors, Filesystem Operations."
+        "summary": "The SSH honeypot terminal session appears to be a reconnaissance attempt by an attacker. The attacker's goal seems to be to gather information about the system's file structure and potentially exploit vulnerabilities.\n\nThe attacker's behavior is suspicious from the start, as they immediately begin listing files and directories in the root directory (\"/\") with the \"ls\" command. This suggests that they are trying to map out the system's file structure. The attacker then changes the working directory to the parent directory (\"/\") with the \"cd ..\" command, which is unnecessary and could be an attempt to understand the directory hierarchy.\n\nThe attacker then changes the working directory to \"www-data\" and lists its contents, which is a common directory for web servers. This indicates that the attacker"
     },
     {
         "session_id": "d3eb481c",
@@ -2049,7 +2049,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 4 recorded commands, beginning with 'mkdir saala' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences:\n\nThe attacker initiated a connection to the SSH honeypot and began by creating a new directory named \"saala\" using the \"mkdir\" command. This indicates that the attacker was attempting to gain a foothold on the system by creating a new directory, possibly to store malicious files or to establish a command and control (C2) channel. \n\nThe attacker then listed the files and directories in the root directory using the \"ls\" command. This suggests that the attacker was attempting to gather information about the system and its contents, likely in an effort to identify potential targets for exploitation. \n\nHowever, the attacker's actions were short-lived, as they immediately closed the SSH"
     },
     {
         "session_id": "3e6c7ddd",
@@ -2100,7 +2100,7 @@
                 "description": "Changes the working directory from / to 'a s u s'."
             }
         ],
-        "summary": "The session contains 5 recorded commands, beginning with 'mkdir remove' and ending with 'cd 'a s u s''. The observed behavior appears related to Filesystem Operations, Terminal & Shell Operations."
+        "summary": "In this SSH honeypot terminal session, an attacker is attempting to navigate through the system and potentially gain unauthorized access. The attacker's behavior suggests a goal of reconnaissance and possibly exploiting vulnerabilities to gain elevated privileges.\n\nInitially, the attacker creates a directory named \"remove\" and then immediately attempts to remove it. This action is suspicious as it may be an attempt to test the system's ability to handle directory removal, potentially to identify any vulnerabilities or weaknesses in the system's file management.\n\nThe attacker then clears the screen multiple times, which may be an attempt to conceal their activity or to create a distraction. This behavior is likely an attempt to hide their tracks and avoid detection.\n\nThe attacker then navigates through the file system using the \"cd\" command."
     },
     {
         "session_id": "ef9e9775",
@@ -2351,7 +2351,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 30 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+        "summary": "This SSH honeypot terminal session appears to be a reconnaissance attempt by an attacker. The attacker's goal seems to be to gather information about the system and its file structure. \n\nThe attacker's behavior is characterized by a series of directory navigation commands, such as `cd`, `ls`, and `cd ..`, which indicate that they are trying to explore the system's file hierarchy. They attempt to access various directories, including `/asus`, `/tuf`, `/samar`, `/ubuntu`, and `/home`. However, some of these attempts result in command errors, suggesting that these directories do not exist or are not accessible.\n\nThe attacker also attempts to clear the screen multiple times using the `clear` command, which may be an attempt to"
     },
     {
         "session_id": "c057fc98",
@@ -2610,7 +2610,7 @@
                 "description": "Lists files and directories in /."
             }
         ],
-        "summary": "The session contains 31 recorded commands, beginning with 'ls' and ending with 'ls'. The observed behavior appears related to Command Errors, Exploitation & Metasploit, Filesystem Operations, Misc / Others, Network Scanning & Recon."
+        "summary": "This SSH honeypot terminal session appears to be an attempt by an attacker to gather information about the system and potentially exploit vulnerabilities. The attacker's behavior can be broken down into several stages:\n\n1. **Initial Exploration**: The attacker starts by listing files and directories in the root directory (`/`) and navigating to the parent directory. This suggests that the attacker is trying to understand the system's file structure.\n\n2. **Tool Usage and Management**: The attacker runs `python --version` and `git --version`, which indicates an attempt to identify the presence of specific tools on the system. The `git clone` command attempts to clone a remote Git repository, which could be a potential vulnerability if the system is not properly configured.\n\n3. **File"
     },
     {
         "session_id": "06f6678c",
@@ -2733,7 +2733,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 14 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+        "summary": "The SSH honeypot terminal session involved an attacker attempting to navigate and manipulate the system. The attacker's behavior was characterized by a series of file system operations and command attempts.\n\nInitially, the attacker listed the files and directories in the root directory ('/') using the 'ls' command. They then changed the working directory to the parent directory ('/') and repeated the 'ls' command. This behavior suggests that the attacker was attempting to familiarize themselves with the system's directory structure.\n\nThe attacker then changed the working directory to 'asus' and created an empty file named 'hello.txt' in the '/root/hacking' directory using the 'touch' command. This action could be indicative of the attacker's intention to store or hide malicious files."
     },
     {
         "session_id": "45f80bd6",
@@ -2992,7 +2992,7 @@
                 "description": "Searches the entire working directory for entries related to AWS."
             }
         ],
-        "summary": "The session contains 31 recorded commands, beginning with 'ping google.com' and ending with 'env | grep AWS'. The observed behavior appears related to Command Errors, Data Handling & Exfiltration, File Operations, Filesystem Operations, Misc / Others."
+        "summary": "**Summary of SSH Honeypot Terminal Session:**\n\nThe attacker initiated a connection to the honeypot server and began a reconnaissance phase, sending ICMP echo requests to Google.com to verify connectivity and latency. The attacker then started executing various commands to gather information about the system, including its operating system, kernel version, and running processes. The attacker also attempted to access and manipulate files, including those related to the honeypot itself.\n\n**Attacker Behavior:**\n\nThe attacker's behavior suggests a reconnaissance and information-gathering phase, likely aimed at identifying potential vulnerabilities or weaknesses in the system. The attacker's commands indicate a focus on:\n\n1. **Network Scanning & Recon**: Verifying connectivity, latency, and system information.\n2. **"
     },
     {
         "session_id": "aaec87d9",
@@ -3043,7 +3043,7 @@
                 "description": "Runs a Linux version detection tool with gcc to identify known vulnerabilities."
             }
         ],
-        "summary": "The session contains 5 recorded commands, beginning with 'python3 -c \"print('Honeypot Active')\"' and ending with 'gcc --version'. The observed behavior appears related to Exploitation & Metasploit, Filesystem Operations, Network Scanning & Recon, Web & Application Vulnerabilities."
+        "summary": "Here's a summary of the SSH honeypot terminal session:\n\nThe attacker initiated a connection to the honeypot and executed several commands to gather information and potentially exploit vulnerabilities. The attacker's behavior suggests that their likely goal is to identify potential entry points and vulnerabilities in the system.\n\nInitially, the attacker printed a message indicating that the honeypot was active, which is a common tactic to verify that the connection is successful. The attacker then performed various operations:\n\n1. **Filesystem Operations**: The attacker printed the contents of the \"Honeypot Active\" directory, which may indicate that they are trying to identify the honeypot's configuration or files.\n2. **Exploitation & Metasploit**: The attacker used `curl`"
     },
     {
         "session_id": "0647fb7c",
@@ -3086,7 +3086,7 @@
                 "description": "Closes the SSH session from /home/admin/personal."
             }
         ],
-        "summary": "The session contains 4 recorded commands, beginning with 'gcc --version' and ending with 'exit'. The observed behavior appears related to Network Scanning & Recon, Service & System Operations, Web & Application Vulnerabilities."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences:\n\nAn attacker accessed the SSH honeypot and ran a Linux version detection tool using the command `gcc --version`, which is likely used to identify known vulnerabilities in the system. This suggests that the attacker's primary goal is to identify potential weaknesses in the system to exploit them later. \n\nFollowing the vulnerability scan, the attacker ran a `netstat -tulnp` command, which is a verbose network scanning and reconnaissance tool used to gather information about the system's network connections. This indicates that the attacker is attempting to gather information about the system's network configuration and potential entry points. \n\nAfter gathering this information, the attacker closed the SSH session twice using the `exit`"
     },
     {
         "session_id": "f83d5682",
@@ -3241,7 +3241,7 @@
                 "description": "Clears the screen in /home/admin/personal."
             }
         ],
-        "summary": "The session contains 18 recorded commands, beginning with 'gcc --version' and ending with 'clear'. The observed behavior appears related to Exploitation & Metasploit, Misc / Others, Service & System Operations, Terminal & Shell Operations, Web & Application Vulnerabilities."
+        "summary": "This SSH honeypot terminal session appears to be a reconnaissance and exploitation attempt by an attacker. The attacker's likely goal is to gather information about the system, identify potential vulnerabilities, and potentially deploy a payload.\n\nThe session begins with the attacker running a Linux version detection tool using `gcc --version`, which suggests that they are attempting to identify known vulnerabilities in the system. This is a common tactic used by attackers to determine the version of the operating system and identify potential entry points.\n\nThe attacker then uses the `whoami` command to print the current effective username, which indicates that they are trying to gather information about the system and its users. This is likely a reconnaissance attempt to understand the system's configuration and identify potential targets.\n\nThe attacker then starts"
     },
     {
         "session_id": "c2625ea1",
@@ -3284,7 +3284,7 @@
                 "description": "Exits the working directory from /home/user."
             }
         ],
-        "summary": "The session contains 4 recorded commands, beginning with 'mkdir aneesh' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Network Scanning & Recon, Service & System Operations."
+        "summary": "In this SSH honeypot terminal session, an attacker is attempting to gather information about the system and its services. The attacker's behavior suggests a reconnaissance phase, where they are trying to understand the system's capabilities and potential vulnerabilities.\n\nThe attacker starts by creating a new directory called \"aneesh\" under the \"/home/user\" directory, indicating that they are trying to establish a foothold on the system. They then list the files and directories in the \"/home/user\" directory, likely to identify potential targets for further exploitation.\n\nThe attacker then sends a ping request to \"google.com\", which is a network scanning and reconnaissance activity. This suggests that they are trying to verify that the Webmin service is reachable, possibly to identify a potential entry point for"
     },
     {
         "session_id": "153f8a92",
@@ -3391,7 +3391,7 @@
                 "description": "Exits the working directory from /home/user/Documents."
             }
         ],
-        "summary": "The session contains 12 recorded commands, beginning with 'ping goole.com' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Network Scanning & Recon, Service & System Operations, Terminal & Shell Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences, explaining the session, attacker behavior, likely goal, and any suspicious activity:\n\nThe attacker initiated a connection to the Webmin server and began by performing network scanning and reconnaissance by sending ICMP echo requests to goole.com and google.com to verify the server's reachability. This suggests that the attacker was attempting to gather information about the server's availability and potential vulnerabilities.\n\nThe attacker then proceeded to execute various filesystem operations, including listing files and directories in the /home/user directory, changing the working directory to Documents, creating a new directory named aneesh, and creating an empty file named aneesh.txt. This behavior indicates that the attacker was attempting to gather information about the"
     },
     {
         "session_id": "770184b2",
@@ -3490,7 +3490,7 @@
                 "description": "Exits the working directory from /home/user/Documents."
             }
         ],
-        "summary": "The session contains 11 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+        "summary": "The SSH honeypot terminal session appears to be a reconnaissance and potential data exfiltration attempt by an attacker. \n\nThe attacker's behavior suggests a goal of gathering information about the system's file structure and potentially accessing sensitive data. Here's a breakdown of the session:\n\n1. The attacker starts by listing the files and directories in the user's home directory (`/home/user`) using the `ls` command. This indicates an attempt to gather information about the available files and directories.\n\n2. The attacker then navigates to the `Documents` directory and lists its contents. This further suggests an attempt to gather information about the system's file structure.\n\n3. The attacker reads the contents of a file named `anesh.txt` using the `cat"
     },
     {
         "session_id": "87b5585f",
@@ -3517,7 +3517,7 @@
                 "description": "Exits the working directory from /home/user."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'sh hello' and ending with 'exit'. The observed behavior appears related to Service & System Operations, Tool Usage & Management."
+        "summary": "In this SSH honeypot terminal session, an attacker interacted with the system by executing two commands: \"sh hello\" and \"exit\". \n\nThe attacker's first command, \"sh hello\", suggests that they are attempting to gather information about the system by executing a script or command that displays a message. The fact that the message is shown inside the \"/home/user\" directory indicates that the attacker is likely trying to understand the system's directory structure and potentially identify potential entry points for further exploitation.\n\nThe second command, \"exit\", implies that the attacker is attempting to exit the current working directory, which is \"/home/user\". This behavior is suspicious as it may indicate that the attacker is trying to cover their tracks or avoid leaving any evidence of their"
     },
     {
         "session_id": "d80af301",
@@ -3616,7 +3616,7 @@
                 "description": "Exits the working directory from /home/user/Documents."
             }
         ],
-        "summary": "The session contains 11 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations, Terminal & Shell Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences and an explanation of the session:\n\nThe attacker's behavior in this SSH honeypot terminal session suggests a reconnaissance and data deletion activity. The attacker first lists the files and directories in the user's home directory, indicating an attempt to gather information about the system. They then navigate to the Documents directory and list its contents, likely searching for sensitive files.\n\nThe attacker reads the contents of a file named \"aneesh.txt\" using the \"cat\" command, which implies they are interested in the file's contents. However, the attacker fails to delete the file initially, as they type \"rm aneesh.txt\" instead of \"rm aneesh.txt\" (with an"
     },
     {
         "session_id": "8ca4cfca",
@@ -3643,7 +3643,7 @@
                 "description": "Exits the working directory from /home/user."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+        "summary": "The SSH honeypot terminal session appears to be a reconnaissance phase by an attacker, likely aiming to gather information about the system and its contents. \n\nThe attacker first executed the \"ls\" command, which listed the files and directories in the \"/home/user\" directory. This suggests that the attacker is attempting to identify potential entry points or valuable data stored on the system. The fact that they chose to list the contents of the \"/home/user\" directory specifically may indicate that they are targeting user accounts or sensitive data.\n\nFollowing the reconnaissance, the attacker executed the \"exit\" command, which exited the working directory from \"/home/user\". This action could be interpreted as the attacker attempting to cover their tracks or avoid raising suspicion by not leaving any obvious signs of"
     },
     {
         "session_id": "a695f66a",
@@ -3694,7 +3694,7 @@
                 "description": "Exits the working directory from /home/user/Documents."
             }
         ],
-        "summary": "The session contains 5 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+        "summary": "The SSH honeypot terminal session appears to be an attempt by an attacker to gather information about the system and potentially access sensitive data. \n\nThe attacker's behavior started with a legitimate command, \"ls,\" which listed the files and directories in the \"/home/user\" directory. This suggests that the attacker was initially exploring the system to understand its layout. \n\nThe attacker then changed the working directory to \"/home/user/Documents\" using the \"cd Documents\" command. This indicates that the attacker was specifically interested in the Documents directory, possibly to find sensitive information.\n\nThe attacker then listed the files and directories in the \"/home/user/Documents\" directory using the \"ls\" command again. This further suggests that the attacker was searching for specific files.\n\nThe next command"
     },
     {
         "session_id": "a46a66b7",
@@ -3721,7 +3721,7 @@
                 "description": "Exits the working directory from /home/user."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'rem' and ending with 'exit'. The observed behavior appears related to Command Errors, Service & System Operations."
+        "summary": "In this SSH honeypot terminal session, an attacker attempted to navigate the system by issuing the \"rem\" command, which is likely a typo for \"cd\" (change directory). The attacker's goal appears to be to access the \"/home/user\" directory, which is a common location for user home directories in Linux systems. However, this directory does not exist, suggesting that the attacker is trying to gain unauthorized access to sensitive areas of the system.\n\nThe attacker's subsequent command, \"exit\", is used to exit the current working directory, which in this case is \"/home/user\". This command is not typically used in malicious activity, but it may be an attempt to cover their tracks or to exit the system after realizing their previous attempt to access"
     },
     {
         "session_id": "b98218df",
@@ -3756,7 +3756,7 @@
                 "description": "Exits the /home directory on the server."
             }
         ],
-        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+        "summary": "The SSH honeypot terminal session appears to be a reconnaissance attempt by an attacker. \n\nThe attacker's behavior suggests that they are trying to gather information about the server's file system. The attacker first lists the files and directories in the /home/user directory using the 'ls' command, indicating that they are interested in identifying potential entry points or sensitive data stored in this directory. \n\nNext, the attacker navigates to the parent directory '/' using the 'cd ..' command, which implies that they are attempting to explore the server's root directory and possibly identify other directories or files of interest. \n\nFinally, the attacker exits the /home directory using the 'exit' command, which suggests that they are trying to terminate their current session and potentially re"
     },
     {
         "session_id": "1bf77b4f",
@@ -3783,7 +3783,7 @@
                 "description": "Exits the working directory from /home/user."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+        "summary": "The SSH honeypot terminal session appears to be a reconnaissance attempt by an attacker. The attacker's behavior suggests that they are trying to gather information about the system and its contents.\n\nUpon connecting to the honeypot, the attacker first uses the \"ls\" command to list the files and directories in the \"/home/user\" directory. This indicates that the attacker is attempting to identify potential targets or areas of interest on the system. The fact that the attacker chose to list the contents of the \"/home/user\" directory specifically may suggest that they are interested in accessing or exploiting user accounts.\n\nFollowing the \"ls\" command, the attacker uses the \"exit\" command to exit the working directory from \"/home/user.\" This action is unusual, as the \""
     },
     {
         "session_id": "d1ffb193",
@@ -3810,7 +3810,7 @@
                 "description": "Exits the /home directory on the server."
             }
         ],
-        "summary": "The session contains 2 recorded commands, beginning with 'cd ..' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+        "summary": "The SSH honeypot terminal session appears to be a brief interaction between an attacker and the honeypot server. The attacker's behavior suggests a reconnaissance or testing phase, rather than a malicious intent to exploit the system.\n\nUpon analysis, the attacker first navigates from the /home directory to the parent directory '/' using the 'cd ..' command. This action is likely an attempt to understand the server's directory structure and potentially identify potential entry points or vulnerabilities. The attacker's goal at this stage seems to be information gathering rather than exploitation.\n\nThe subsequent 'exit' command is used to terminate the SSH session, which is a normal behavior for an attacker who has completed their reconnaissance or testing phase. This action indicates that the attacker has likely achieved their objective"
     },
     {
         "session_id": "82e4bc8e",
@@ -3845,7 +3845,7 @@
                 "description": "Exits the working directory from /home/user."
             }
         ],
-        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations, Tool Usage & Management."
+        "summary": "The SSH honeypot terminal session appears to be a reconnaissance phase by an attacker, attempting to gather information about the system and its environment. \n\nUpon initial analysis, the attacker's first action is to list the files and directories in the '/home/user' directory, indicating an attempt to identify potential entry points or valuable data. This behavior suggests that the attacker is likely searching for sensitive information or a way to escalate privileges.\n\nThe attacker then attempts to run the 'python' command with the '--version' flag, which is a common tool for checking the version of software installed on a system. However, in this case, the attacker seems to be using it incorrectly, as the command is run with no arguments, resulting in the display of usage information and"
     },
     {
         "session_id": "f34fed2e",
@@ -3888,7 +3888,7 @@
                 "description": "Exits the working directory from /home/user."
             }
         ],
-        "summary": "The session contains 4 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session:\n\nDuring this session, an attacker attempted to interact with the honeypot system. The attacker first listed the files and directories in the /home/user directory using the \"ls\" command, indicating an attempt to gather information about the system's file structure. However, the attacker then made a suspicious attempt to use the \";s\" command, which is not a standard Linux command, resulting in a command-not-found error. This behavior suggests that the attacker may be attempting to exploit a vulnerability or use a specific tool that requires a non-standard command. The attacker then listed the files and directories in /home/user again, possibly to confirm their previous findings or to search for specific files. Finally,"
     },
     {
         "session_id": "0ee384b2",
@@ -3955,6 +3955,392 @@
                 "description": "Exits the working directory from /home/user/Documents."
             }
         ],
-        "summary": "The session contains 7 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences:\n\nAn attacker accessed the SSH honeypot and initiated a series of file operations. The attacker first listed the files and directories in the user's home directory using the 'ls' command. The attacker then changed the working directory to 'Documents' using the 'cd' command. The attacker listed the files and directories in the 'Documents' directory, indicating they were searching for specific files. The attacker then attempted to read the contents of a file named 'anesh.txt' using the 'cat' command. The attacker then attempted to write a new string to the 'anesh.txt' file using the 'echo' command, but this operation failed due to a non-existent"
+    },
+    {
+        "session_id": "ff605e4a",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:21:24.076527Z",
+        "ended_at": "2026-05-18T04:21:39.320275Z",
+        "command_count": 5,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "cat secretes.txt",
+                "cwd": "/home/user",
+                "output": "cat: /secretes.txt: Permission denied",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of secretes.txt from the current shell context."
+            },
+            {
+                "command_index": 3,
+                "command": "cat secrets.txt",
+                "cwd": "/home/user",
+                "output": "This is a decoy file.\nNo real secrets are stored here.",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of secrets.txt from the current shell context."
+            },
+            {
+                "command_index": 4,
+                "command": "clear",
+                "cwd": "/home/user",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/user."
+            },
+            {
+                "command_index": 5,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "The SSH honeypot terminal session appears to be an attempt by an attacker to gather sensitive information from the compromised system. The attacker's behavior suggests a reconnaissance phase, where they are exploring the system's file structure and attempting to access sensitive files.\n\nUpon examining the session, the attacker first lists the files and directories in the /home/user directory using the 'ls' command. This indicates that they are trying to identify potential targets for further exploitation. \n\nThe attacker then attempts to read and display the contents of two files, 'secretes.txt' and 'secrets.txt', using the 'cat' command. The fact that they are trying to access these files suggests that they are likely searching for sensitive information, such as passwords, credentials, or"
+    },
+    {
+        "session_id": "5eff025f",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:24:36.997301Z",
+        "ended_at": "2026-05-18T04:24:40.090462Z",
+        "command_count": 6,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 3,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 4,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 5,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 6,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "This SSH honeypot terminal session appears to be a reconnaissance activity by an attacker attempting to gather information about the system. The attacker's behavior suggests a likely goal of identifying potential vulnerabilities or sensitive data on the system.\n\nThe attacker's actions can be broken down as follows:\n\n1. The attacker repeatedly lists the files and directories in the `/home/user` directory using the `ls` command. This behavior is suspicious, as a legitimate user would not typically list the same directory multiple times in a short period. This repetition indicates that the attacker is likely trying to gather information about the system's file structure and potentially identify sensitive files or directories.\n\n2. The attacker's repeated use of `ls` to list the same directory suggests that they may be searching for"
+    },
+    {
+        "session_id": "2b0d39bc",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:25:35.621620Z",
+        "ended_at": "2026-05-18T04:25:38.580073Z",
+        "command_count": 5,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 3,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 4,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 5,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "This SSH honeypot terminal session appears to be a series of attempts by an attacker to gather information about the system's filesystem. The attacker repeatedly executes the 'ls' command to list the files and directories in the '/home/user' directory, suggesting that they are trying to identify potential targets or vulnerabilities.\n\nThe attacker's likely goal is to gather information about the system's configuration, user accounts, and sensitive data stored in the '/home/user' directory. This could be a precursor to a more malicious attack, such as attempting to exploit a vulnerability or gain unauthorized access to sensitive data.\n\nThe repeated execution of the 'ls' command is a suspicious activity, as a legitimate user would typically only need to list the contents of the directory once to achieve their"
+    },
+    {
+        "session_id": "b5370df5",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:28:07.178477Z",
+        "ended_at": "2026-05-18T04:28:08.005992Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "In this SSH honeypot terminal session, an attacker interacted with the system by executing two basic commands: 'ls' and 'exit'. \n\nThe 'ls' command, which is used to list files and directories, was executed by the attacker in the '/home/user' directory. This suggests that the attacker was attempting to gather information about the system's file structure and potentially identify areas of interest for further exploitation.\n\nThe 'exit' command, which is used to exit the current working directory, was executed by the attacker. This command is often used to change directories or exit a specific directory, but in this context, it may indicate that the attacker was trying to navigate away from the '/home/user' directory or exit the honeypot environment"
+    },
+    {
+        "session_id": "70e0cf19",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T05:26:57.573832Z",
+        "ended_at": "2026-05-18T05:28:06.233800Z",
+        "command_count": 8,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "hello",
+                "cwd": "/home/user",
+                "output": "hello!",
+                "intent": "Command Errors",
+                "description": "Uses hello instead of hello, which is not a valid command."
+            },
+            {
+                "command_index": 2,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 3,
+                "command": "cd Documents",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from /home/user/Documents to Documents."
+            },
+            {
+                "command_index": 4,
+                "command": "git clone https://github.com/samrat-dotel/BinaryPot",
+                "cwd": "/home/user/Documents",
+                "output": "bash: git: command not found",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": 5,
+                "command": "clear",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the admin user’s Documents directory."
+            },
+            {
+                "command_index": 6,
+                "command": "git status",
+                "cwd": "/home/user/Documents",
+                "output": "On branch main\nYour branch is up-to-date with 'origin/main'.\n\nnothing to commit (only 1 file changed)",
+                "intent": "Misc / Others",
+                "description": "Shows the current status of the Git repository."
+            },
+            {
+                "command_index": 7,
+                "command": "git clone https://github.com/samrat-dotel/BinaryPot",
+                "cwd": "/home/user/Documents",
+                "output": "fatal: destination path 'BinaryPot' already exists and is not an empty directory.",
+                "intent": "Misc / Others",
+                "description": "Attempts to clone a remote Git repository into the current filesystem."
+            },
+            {
+                "command_index": 8,
+                "command": "exit",
+                "cwd": "/home/user/Documents",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user/Documents."
+            }
+        ],
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences:\n\nThe attacker initiated a connection to the honeypot and began interacting with the terminal. Initially, they attempted to execute a non-existent command \"hello,\" which resulted in an error. The attacker then successfully listed the files and directories in the \"/home/user\" directory using the \"ls\" command. They changed the working directory to \"/home/user/Documents\" using the \"cd\" command. The attacker then attempted to clone a remote Git repository from \"https://github.com/samrat-dotel/BinaryPot\" into the current filesystem using the \"git clone\" command, which was repeated after checking the status of the repository using \"git status.\" This behavior suggests that the"
+    },
+    {
+        "session_id": "0320d40d",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T05:47:09.676360Z",
+        "ended_at": "2026-05-18T05:48:20.317368Z",
+        "command_count": 14,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "cd Documents",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from /home/user/Documents to Documents."
+            },
+            {
+                "command_index": 3,
+                "command": "ls",
+                "cwd": "/home/user/Documents",
+                "output": "aneesh  anesh.txt  BinaryPot",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents."
+            },
+            {
+                "command_index": 4,
+                "command": "BinaryPot",
+                "cwd": "/home/user/Documents",
+                "output": "bash: BinaryPot: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to execute BinaryPot as a command, which is not a valid executable."
+            },
+            {
+                "command_index": 5,
+                "command": "cd Binarypot",
+                "cwd": "/home/user/Documents/Binarypot",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from /home/user/Documents/Binarypot to Binarypot."
+            },
+            {
+                "command_index": 6,
+                "command": "ls",
+                "cwd": "/home/user/Documents/Binarypot",
+                "output": "main.py  README.md  requirements.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents/Binarypot."
+            },
+            {
+                "command_index": 7,
+                "command": "cat main.py",
+                "cwd": "/home/user/Documents/Binarypot",
+                "output": "print('Hello from cloned repository')",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of main.py from the current shell context."
+            },
+            {
+                "command_index": 8,
+                "command": "cd ..",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from /home/user/Documents to the parent directory /home/user."
+            },
+            {
+                "command_index": 9,
+                "command": "cd ..",
+                "cwd": "/home/user",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from /home/user to the parent directory /home."
+            },
+            {
+                "command_index": 10,
+                "command": "git --version",
+                "cwd": "/home/user",
+                "output": "git version 2.35.1",
+                "intent": "Misc / Others",
+                "description": "Creates a new Git repository named /home/user."
+            },
+            {
+                "command_index": 11,
+                "command": "python --version",
+                "cwd": "/home/user",
+                "output": "python 3.8.5",
+                "intent": "Tool Usage & Management",
+                "description": "Runs python inversion mode with no arguments, which prints usage information and exits."
+            },
+            {
+                "command_index": 12,
+                "command": "uname -a",
+                "cwd": "/home/user",
+                "output": "Linux web01 5.4.0-170-generic #188-Ubuntu SMP x86_64 GNU/Linux",
+                "intent": "Service & System Operations",
+                "description": "Displays system name and version information for the current user."
+            },
+            {
+                "command_index": 13,
+                "command": "clear",
+                "cwd": "/home/user",
+                "output": "",
+                "intent": "Terminal & Shell Operations",
+                "description": "Clears the screen in /home/user."
+            },
+            {
+                "command_index": 14,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "Here's a summary of the SSH honeypot terminal session in proper sentences, focusing on attacker behavior, likely goal, and any suspicious activity:\n\nThe attacker initiated the session by listing the files and directories in the /home/user directory, indicating an attempt to explore the system. They then navigated to the Documents directory and listed its contents, suggesting a desire to find specific files or directories. The attacker attempted to execute a command called \"BinaryPot,\" which is likely a honeypot trap, indicating a lack of knowledge about the system or a desire to test the system's defenses.\n\nThe attacker then navigated to a directory called \"Binarypot\" and listed its contents, which may indicate a search for a specific file or executable. They read the"
     }
 ]
