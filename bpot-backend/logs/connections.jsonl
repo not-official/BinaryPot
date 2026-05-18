@@ -65,3 +65,38 @@
 {"time": "2026-05-17T16:50:31.159126Z", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "nintech", "session_id": "a695f66a"}
 {"time": "2026-05-17T16:50:31.159126Z", "event": "auth_success", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "nintech", "session_id": "a695f66a"}
 {"time": "2026-05-17T16:51:03.200132Z", "event": "auth_termination", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "", "session_id": "a695f66a"}
+{"time": "2026-05-18T03:47:43.712687Z", "event": "auth_attempt", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "ninja", "session_id": "a46a66b7"}
+{"time": "2026-05-18T03:47:43.720306Z", "event": "auth_success", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "ninja", "session_id": "a46a66b7"}
+{"time": "2026-05-18T03:48:13.349712Z", "event": "auth_termination", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "", "session_id": "a46a66b7"}
+{"time": "2026-05-18T03:50:13.656251Z", "event": "auth_attempt", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "siya", "session_id": "b98218df"}
+{"time": "2026-05-18T03:50:13.656251Z", "event": "auth_success", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "siya", "session_id": "b98218df"}
+{"time": "2026-05-18T03:50:59.631741Z", "event": "auth_termination", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "", "session_id": "b98218df"}
+{"time": "2026-05-18T03:53:07.549810Z", "event": "auth_attempt", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "huhuh", "session_id": "1bf77b4f"}
+{"time": "2026-05-18T03:53:07.551636Z", "event": "auth_success", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "huhuh", "session_id": "1bf77b4f"}
+{"time": "2026-05-18T03:53:15.475717Z", "event": "auth_termination", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "", "session_id": "1bf77b4f"}
+{"time": "2026-05-18T03:55:42.515363Z", "event": "auth_attempt", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "loljuhuds", "session_id": "d1ffb193"}
+{"time": "2026-05-18T03:55:42.516630Z", "event": "auth_success", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "loljuhuds", "session_id": "d1ffb193"}
+{"time": "2026-05-18T03:55:54.370149Z", "event": "auth_termination", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "", "session_id": "d1ffb193"}
+{"time": "2026-05-18T03:57:38.394412Z", "event": "auth_attempt", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "huh", "session_id": "6075a77b"}
+{"time": "2026-05-18T03:57:38.395441Z", "event": "auth_success", "remote_addr": "192.168.1.144", "username": "a s u s", "password": "huh", "session_id": "6075a77b"}
+{"time": "2026-05-18T04:00:09.538930Z", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "ninjatech", "session_id": "82e4bc8e"}
+{"time": "2026-05-18T04:00:09.539925Z", "event": "auth_success", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "ninjatech", "session_id": "82e4bc8e"}
+{"time": "2026-05-18T04:01:22.229624Z", "event": "auth_termination", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "", "session_id": "82e4bc8e"}
+{"time": "2026-05-18T04:15:36.959126Z", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "aneesh", "session_id": "f34fed2e"}
+{"time": "2026-05-18T04:15:36.959126Z", "event": "auth_success", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "aneesh", "session_id": "f34fed2e"}
+{"time": "2026-05-18T04:15:53.900570Z", "event": "auth_termination", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "", "session_id": "f34fed2e"}
+{"time": "2026-05-18T04:17:34.347102Z", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "aneeshhawqamanchhe", "session_id": "0ee384b2"}
+{"time": "2026-05-18T04:17:34.347102Z", "event": "auth_success", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "aneeshhawqamanchhe", "session_id": "0ee384b2"}
+{"time": "2026-05-18T04:18:08.041392Z", "event": "auth_termination", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "", "session_id": "0ee384b2"}
+{"time": "2026-05-18T04:21:22.629948Z", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "amanhawa", "session_id": "ff605e4a"}
+{"time": "2026-05-18T04:21:22.629948Z", "event": "auth_success", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "amanhawa", "session_id": "ff605e4a"}
+{"time": "2026-05-18T04:21:39.321853Z", "event": "auth_termination", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "", "session_id": "ff605e4a"}
+{"time": "2026-05-18T04:24:36.039466Z", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "dherairamrobho", "session_id": "5eff025f"}
+{"time": "2026-05-18T04:24:36.039466Z", "event": "auth_success", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "dherairamrobho", "session_id": "5eff025f"}
+{"time": "2026-05-18T04:24:40.092509Z", "event": "auth_termination", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "", "session_id": "5eff025f"}
+{"time": "2026-05-18T04:25:34.701821Z", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "hello", "session_id": "2b0d39bc"}
+{"time": "2026-05-18T04:25:34.701821Z", "event": "auth_success", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "hello", "session_id": "2b0d39bc"}
+{"time": "2026-05-18T04:25:38.580073Z", "event": "auth_termination", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "", "session_id": "2b0d39bc"}
+{"time": "2026-05-18T04:28:05.768514Z", "event": "auth_attempt", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "helloworld", "session_id": "b5370df5"}
+{"time": "2026-05-18T04:28:05.768514Z", "event": "auth_success", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "helloworld", "session_id": "b5370df5"}
+{"time": "2026-05-18T04:28:08.005992Z", "event": "auth_termination", "remote_addr": "127.0.0.1", "username": "asus tuf gaming", "password": "", "session_id": "b5370df5"}

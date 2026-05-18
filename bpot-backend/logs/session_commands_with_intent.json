@@ -3695,5 +3695,266 @@
             }
         ],
         "summary": "The session contains 5 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "a46a66b7",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-18T03:47:59.524186Z",
+        "ended_at": "2026-05-18T03:48:13.336957Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "rem",
+                "cwd": "/home/user",
+                "output": "bash: rem: command not found",
+                "intent": "Command Errors",
+                "description": "Attempts to remit working directory to /home/user, which likely does not exist."
+            },
+            {
+                "command_index": 2,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'rem' and ending with 'exit'. The observed behavior appears related to Command Errors, Service & System Operations."
+    },
+    {
+        "session_id": "b98218df",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-18T03:50:19.642228Z",
+        "ended_at": "2026-05-18T03:50:59.622246Z",
+        "command_count": 3,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "cd ..",
+                "cwd": "/home",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from /home to the parent directory /."
+            },
+            {
+                "command_index": 3,
+                "command": "exit",
+                "cwd": "/home",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the /home directory on the server."
+            }
+        ],
+        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "1bf77b4f",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-18T03:53:10.034400Z",
+        "ended_at": "2026-05-18T03:53:15.469207Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "d1ffb193",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-18T03:55:50.190154Z",
+        "ended_at": "2026-05-18T03:55:54.363301Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "cd ..",
+                "cwd": "/home",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Moves from /home to the parent directory /."
+            },
+            {
+                "command_index": 2,
+                "command": "exit",
+                "cwd": "/home",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the /home directory on the server."
+            }
+        ],
+        "summary": "The session contains 2 recorded commands, beginning with 'cd ..' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "82e4bc8e",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:00:18.730090Z",
+        "ended_at": "2026-05-18T04:01:22.225787Z",
+        "command_count": 3,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "python --version",
+                "cwd": "/home/user",
+                "output": "Python 3.9.7",
+                "intent": "Tool Usage & Management",
+                "description": "Runs python inversion mode with no arguments, which prints usage information and exits."
+            },
+            {
+                "command_index": 3,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "The session contains 3 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Filesystem Operations, Service & System Operations, Tool Usage & Management."
+    },
+    {
+        "session_id": "f34fed2e",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:15:45.278067Z",
+        "ended_at": "2026-05-18T04:15:53.900570Z",
+        "command_count": 4,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": ";s",
+                "cwd": "/home/user",
+                "output": "bash: ;: unexpected EOF",
+                "intent": "Command Errors",
+                "description": "Attempts to use ;s, which is not a standard Linux command, resulting in a command-not-found error."
+            },
+            {
+                "command_index": 3,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 4,
+                "command": "exit",
+                "cwd": "/home/user",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user."
+            }
+        ],
+        "summary": "The session contains 4 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
+    },
+    {
+        "session_id": "0ee384b2",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:17:35.766655Z",
+        "ended_at": "2026-05-18T04:18:08.041392Z",
+        "command_count": 7,
+        "commands": [
+            {
+                "command_index": 1,
+                "command": "ls",
+                "cwd": "/home/user",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user."
+            },
+            {
+                "command_index": 2,
+                "command": "cd Documents",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Filesystem Operations",
+                "description": "Changes the working directory from /home/user/Documents to Documents."
+            },
+            {
+                "command_index": 3,
+                "command": "ls",
+                "cwd": "/home/user/Documents",
+                "output": "aneesh  anesh.txt",
+                "intent": "Filesystem Operations",
+                "description": "Lists files and directories in /home/user/Documents."
+            },
+            {
+                "command_index": 4,
+                "command": "cat anesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "Hello, this is a sample text file.",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of anesh.txt from the current shell context."
+            },
+            {
+                "command_index": 5,
+                "command": "echo \"aneesh hawa manchhe\" > anesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "",
+                "intent": "Command Errors",
+                "description": "Attempts to echo a non-existent string manchhe into /home/user/Documents, which does not exist."
+            },
+            {
+                "command_index": 6,
+                "command": "cat anesh.txt",
+                "cwd": "/home/user/Documents",
+                "output": "aneesh hawa manchhe",
+                "intent": "Filesystem Operations",
+                "description": "Reads and displays the contents of anesh.txt from the current shell context."
+            },
+            {
+                "command_index": 7,
+                "command": "exit",
+                "cwd": "/home/user/Documents",
+                "output": "logout",
+                "intent": "Service & System Operations",
+                "description": "Exits the working directory from /home/user/Documents."
+            }
+        ],
+        "summary": "The session contains 7 recorded commands, beginning with 'ls' and ending with 'exit'. The observed behavior appears related to Command Errors, Filesystem Operations, Service & System Operations."
     }
 ]

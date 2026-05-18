@@ -3252,5 +3252,402 @@
                 "command_index": 5
             }
         ]
+    },
+    {
+        "session_id": "a46a66b7",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-18T03:47:59.524186Z",
+        "ended_at": "2026-05-18T03:48:13.336957Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2026-05-18T03:47:59.524186Z",
+                "command": "rem",
+                "output": "bash: rem: command not found",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T03:48:13.336957Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 2
+            }
+        ]
+    },
+    {
+        "session_id": "b98218df",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-18T03:50:19.642228Z",
+        "ended_at": "2026-05-18T03:50:59.622246Z",
+        "command_count": 3,
+        "commands": [
+            {
+                "time": "2026-05-18T03:50:19.642228Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T03:50:21.985414Z",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "/home",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-18T03:50:59.622246Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home",
+                "command_index": 3
+            }
+        ]
+    },
+    {
+        "session_id": "1bf77b4f",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-18T03:53:10.034400Z",
+        "ended_at": "2026-05-18T03:53:15.469207Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2026-05-18T03:53:10.034400Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T03:53:15.469207Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 2
+            }
+        ]
+    },
+    {
+        "session_id": "d1ffb193",
+        "remote_addr": "192.168.1.144",
+        "username": "a s u s",
+        "started_at": "2026-05-18T03:55:50.190154Z",
+        "ended_at": "2026-05-18T03:55:54.363301Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2026-05-18T03:55:50.190154Z",
+                "command": "cd ..",
+                "output": "",
+                "cwd": "/home",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T03:55:54.363301Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home",
+                "command_index": 2
+            }
+        ]
+    },
+    {
+        "session_id": "82e4bc8e",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:00:18.730090Z",
+        "ended_at": "2026-05-18T04:01:22.225787Z",
+        "command_count": 3,
+        "commands": [
+            {
+                "time": "2026-05-18T04:00:18.730090Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T04:00:42.158269Z",
+                "command": "python --version",
+                "output": "Python 3.9.7",
+                "cwd": "/home/user",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-18T04:01:22.225787Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 3
+            }
+        ]
+    },
+    {
+        "session_id": "f34fed2e",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:15:45.278067Z",
+        "ended_at": "2026-05-18T04:15:53.900570Z",
+        "command_count": 4,
+        "commands": [
+            {
+                "time": "2026-05-18T04:15:45.278067Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T04:15:48.332986Z",
+                "command": ";s",
+                "output": "bash: ;: unexpected EOF",
+                "cwd": "/home/user",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-18T04:15:51.315435Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 3
+            },
+            {
+                "time": "2026-05-18T04:15:53.900570Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 4
+            }
+        ]
+    },
+    {
+        "session_id": "0ee384b2",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:17:35.766655Z",
+        "ended_at": "2026-05-18T04:18:08.041392Z",
+        "command_count": 7,
+        "commands": [
+            {
+                "time": "2026-05-18T04:17:35.766655Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T04:17:38.083630Z",
+                "command": "cd Documents",
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-18T04:17:39.055918Z",
+                "command": "ls",
+                "output": "aneesh  anesh.txt",
+                "cwd": "/home/user/Documents",
+                "command_index": 3
+            },
+            {
+                "time": "2026-05-18T04:17:46.005989Z",
+                "command": "cat anesh.txt",
+                "output": "Hello, this is a sample text file.",
+                "cwd": "/home/user/Documents",
+                "command_index": 4
+            },
+            {
+                "time": "2026-05-18T04:18:00.544265Z",
+                "command": "echo \"aneesh hawa manchhe\" > anesh.txt",
+                "output": "",
+                "cwd": "/home/user/Documents",
+                "command_index": 5
+            },
+            {
+                "time": "2026-05-18T04:18:05.210633Z",
+                "command": "cat anesh.txt",
+                "output": "aneesh hawa manchhe",
+                "cwd": "/home/user/Documents",
+                "command_index": 6
+            },
+            {
+                "time": "2026-05-18T04:18:08.041392Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user/Documents",
+                "command_index": 7
+            }
+        ]
+    },
+    {
+        "session_id": "ff605e4a",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:21:24.076527Z",
+        "ended_at": "2026-05-18T04:21:39.320275Z",
+        "command_count": 5,
+        "commands": [
+            {
+                "time": "2026-05-18T04:21:24.076527Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T04:21:31.619037Z",
+                "command": "cat secretes.txt",
+                "output": "cat: /secretes.txt: Permission denied",
+                "cwd": "/home/user",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-18T04:21:36.563597Z",
+                "command": "cat secrets.txt",
+                "output": "This is a decoy file.\nNo real secrets are stored here.",
+                "cwd": "/home/user",
+                "command_index": 3
+            },
+            {
+                "time": "2026-05-18T04:21:38.438481Z",
+                "command": "clear",
+                "output": "",
+                "cwd": "/home/user",
+                "command_index": 4
+            },
+            {
+                "time": "2026-05-18T04:21:39.320275Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 5
+            }
+        ]
+    },
+    {
+        "session_id": "5eff025f",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:24:36.997301Z",
+        "ended_at": "2026-05-18T04:24:40.090462Z",
+        "command_count": 6,
+        "commands": [
+            {
+                "time": "2026-05-18T04:24:36.997301Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T04:24:37.731982Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-18T04:24:38.250512Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 3
+            },
+            {
+                "time": "2026-05-18T04:24:38.752483Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 4
+            },
+            {
+                "time": "2026-05-18T04:24:39.221231Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 5
+            },
+            {
+                "time": "2026-05-18T04:24:40.090462Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 6
+            }
+        ]
+    },
+    {
+        "session_id": "2b0d39bc",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:25:35.621620Z",
+        "ended_at": "2026-05-18T04:25:38.580073Z",
+        "command_count": 5,
+        "commands": [
+            {
+                "time": "2026-05-18T04:25:35.621620Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T04:25:36.139602Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 2
+            },
+            {
+                "time": "2026-05-18T04:25:36.592051Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 3
+            },
+            {
+                "time": "2026-05-18T04:25:37.108691Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 4
+            },
+            {
+                "time": "2026-05-18T04:25:38.580073Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 5
+            }
+        ]
+    },
+    {
+        "session_id": "b5370df5",
+        "remote_addr": "127.0.0.1",
+        "username": "asus tuf gaming",
+        "started_at": "2026-05-18T04:28:07.178477Z",
+        "ended_at": "2026-05-18T04:28:08.005992Z",
+        "command_count": 2,
+        "commands": [
+            {
+                "time": "2026-05-18T04:28:07.178477Z",
+                "command": "ls",
+                "output": "Documents  Downloads  notes.txt  secretes.txt  secrets.txt",
+                "cwd": "/home/user",
+                "command_index": 1
+            },
+            {
+                "time": "2026-05-18T04:28:08.005992Z",
+                "command": "exit",
+                "output": "logout",
+                "cwd": "/home/user",
+                "command_index": 2
+            }
+        ]
     }
 ]
